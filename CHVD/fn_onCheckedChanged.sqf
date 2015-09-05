@@ -1,25 +1,26 @@
-_state = [_this, 0, 0, [0]] call BIS_fnc_param;
-_syncVar = [_this, 1, "", [""]] call BIS_fnc_param;
-_slider = [_this, 2, controlNull, [0, controlNull]] call BIS_fnc_param;
-_text = [_this, 3, controlNull, [0, controlNull]] call BIS_fnc_param;
-_sliderView = [_this, 4, controlNull, [0, controlNull]] call BIS_fnc_param;
-_varType = [_this, 5, "", [""]] call BIS_fnc_param;
-
+params [
+    ["_state", 0, [0]],
+    ["_syncVar", "", [""]],
+    ["_slider", controlNull, [0 ,controlNull]],
+    ["_text", controlNull, [0, controlNull]],
+    ["_sliderView", controlNull, [0,controlNull]],
+    ["_varType", "", [""]]
+];
 if (_state == 1) then {
-	call compile format ["%1 = true",_syncVar];
-	call compile format ["profileNamespace setVariable ['%1',%1]", _syncVar];
-	ctrlEnable [_slider, false];
-	ctrlEnable [_text, false];
-	
-	ctrlSetText [_text, str round ((sliderPosition _sliderView) min CHVD_maxObj)];
-	sliderSetPosition [_slider, (sliderPosition _sliderView) min CHVD_maxObj];
-	
-	call compile format ["%1 = %2", _varType, (sliderPosition _sliderView) min CHVD_maxObj];
-	call compile format ["profileNamespace setVariable ['%1',%1]", _varType];
-	[3] call CHVD_fnc_updateSettings;
+    missionNameSpace setVariable [_syncVar, true];
+    profileNamespace setVariable [_syncVar, true];
+    ctrlEnable [_slider, false];
+    ctrlEnable [_text, false];
+
+    ctrlSetText [_text, str round ((sliderPosition _sliderView) min CHVD_maxObj)];
+    sliderSetPosition [_slider, (sliderPosition _sliderView) min CHVD_maxObj];
+
+    missionNamespace setVariable [_varType, (sliderPosition _sliderView) min CHVD_maxObj];
+    profileNamespace setVariable [_varType, missionNamespace getVariable _varType];
+    [3] call CHVD_fnc_updateSettings;
 } else {
-	call compile format ["%1 = false",_syncVar];
-	call compile format ["profileNamespace setVariable ['%1',%1]", _syncVar];
-	ctrlEnable [_slider, true];
-	ctrlEnable [_text, true];
+    missionNameSpace setVariable [_syncVar, false];
+    profileNamespace setVariable [_syncVar, false];
+    ctrlEnable [_slider, true];
+    ctrlEnable [_text, true];
 };
