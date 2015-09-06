@@ -5,7 +5,6 @@ _v = vehicle player;
 clearItemCargoGlobal _v;
 clearMagazineCargoGlobal _v;
 inventory_cleared = true;
-[] spawn {
-	sleep 300;
-	inventory_cleared = false;
-};
+[{
+    inventory_cleared = false;
+}, 300, []] call ace_common_fnc_waitAndExecute;

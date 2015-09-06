@@ -2,11 +2,11 @@
 @filename: islandConfig.sqf
 Author:
 
-	Quiksilver 
-	Last modified 24/10/2014 ArmA 1.30 by Quiksilver (took some of the unused crap out)
+    Quiksilver
+    Last modified 24/10/2014 ArmA 1.30 by Quiksilver (took some of the unused crap out)
 Notes:
 
-	WIP
+    WIP
 
 ______________________________________________________________________*/
 
@@ -23,6 +23,6 @@ SHK_fnc_buildingPos02 = compileFinal preprocessFileLineNumbers "functions\SHK_bu
 sleep 1;
 
 enemyCasArray = [];
-enemyCasGroup = createGroup east; 
-sleep 0.1; 
+enemyCasGroup = createGroup east;
+sleep 0.1;
 deleteGroup enemyCasGroup;

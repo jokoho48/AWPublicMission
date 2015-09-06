@@ -1,5 +1,5 @@
 if (AIRBASEDEFENSE_SWITCH) exitWith {
-	hint "Luftverteidigung aktuell nicht verfügbar."
+    hint "Luftverteidigung aktuell nicht verfügbar."
 };
 
 [[player,"AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"],"QS_fnc_switchMoveMP",nil,false] spawn BIS_fnc_MP;

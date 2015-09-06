@@ -1,16 +1,16 @@
 /*
-	File: taskAttack.sqf
-	Author: Joris-Jan van 't Land   (tweaked by Quiksilver for I&A)
+    File: taskAttack.sqf
+    Author: Joris-Jan van 't Land   (tweaked by Quiksilver for I&A)
 
-	Description:
-	Group will attack the position.
+    Description:
+    Group will attack the position.
 
-	Parameter(s):
-	_this select 0: group (Group)
-	_this select 1: attack position (Array)
-	
-	Returns:
-	Boolean - success flag
+    Parameter(s):
+    _this select 0: group (Group)
+    _this select 1: attack position (Array)
+
+    Returns:
+    Boolean - success flag
 */
 
 private ["_grp", "_pos"];
@@ -29,17 +29,17 @@ _wp setWaypointCompletionRadius 100;
 //Set group properties.
 
 if ((random 1) >= 0.45) then {
-	[_grp,0] setWaypointFormation "LINE";
+    [_grp,0] setWaypointFormation "LINE";
 } else {
-	[_grp,0] setWaypointFormation "WEDGE";
+    [_grp,0] setWaypointFormation "WEDGE";
 };
 
 if ((random 1) >= 0.25) then {
-	{
-		if ((random 1) >= 0.5) then {
-			_x setUnitPos "UP";
-		};
-	} count (units _grp);
+    {
+        if ((random 1) >= 0.5) then {
+            _x setUnitPos "UP";
+        };
+    } count (units _grp);
 };
 
 {_x enableFatigue false;} count (units _grp);

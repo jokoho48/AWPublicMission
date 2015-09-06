@@ -17,32 +17,31 @@ if (_uid in _whitelist) exitWith {};
 */
 
 while { true } do {
-	_oldvehicle = vehicle player;
-	waitUntil {vehicle player != _oldvehicle};
+    _oldvehicle = vehicle player;
+    waitUntil {vehicle player != _oldvehicle};
 
-	if(vehicle player != player) then {
-		_veh = vehicle player;
+    if(vehicle player != player) then {
+        _veh = vehicle player;
 
-		//------------------------------ pilot can be pilot seat only
-		
-		if((_veh isKindOf "Helicopter" || _veh isKindOf "Plane") && !(_veh isKindOf "ParachuteBase")) then {
-			if(({typeOf _veh == _x} count _aircraft_nocopilot) > 0) then {
-				_forbidden = [_veh turretUnit [0]];
-				if(player in _forbidden) then {
-					if (!_iampilot) then {
-						systemChat "Co-pilot is disabled on this vehicle";
-						player action ["getOut",_veh];
-					};
-				};
-			};
-			if(!_iampilot) then {
-				_forbidden = [driver _veh];
-				if (player in _forbidden) then {
-					systemChat "You must be a pilot to fly this aircraft";
-					player action ["getOut", _veh];
-				};
-			};
-		};
-	};
+        //------------------------------ pilot can be pilot seat only
+
+        if((_veh isKindOf "Helicopter" || _veh isKindOf "Plane") && !(_veh isKindOf "ParachuteBase")) then {
+            if(({typeOf _veh == _x} count _aircraft_nocopilot) > 0) then {
+                _forbidden = [_veh turretUnit [0]];
+                if(player in _forbidden) then {
+                    if (!_iampilot) then {
+                        systemChat "Co-pilot is disabled on this vehicle";
+                        player action ["getOut",_veh];
+                    };
+                };
+            };
+            if(!_iampilot) then {
+                _forbidden = [driver _veh];
+                if (player in _forbidden) then {
+                    systemChat "You must be a pilot to fly this aircraft";
+                    player action ["getOut", _veh];
+                };
+            };
+        };
+    };
 };
-

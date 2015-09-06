@@ -3,8 +3,8 @@ _veh = _this select 0;
 
 if (_veh isKindOf "ParachuteBase" || !alive _veh) exitWith {};
 
-if (!(_veh isKindOf "helicopter")) exitWith { 
-	_veh vehicleChat "Dieser Platz ist nur für Hubschrauber, Soldat!"; 
+if (!(_veh isKindOf "helicopter")) exitWith {
+    _veh vehicleChat "Dieser Platz ist nur für Hubschrauber, Soldat!";
 };
 
 _veh vehicleChat "Hubschrauber in Wartung, bitte warten ...";

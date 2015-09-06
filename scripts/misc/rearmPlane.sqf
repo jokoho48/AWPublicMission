@@ -3,8 +3,8 @@ _veh = _this select 0;
 
 if (_veh isKindOf "ParachuteBase" || !alive _veh) exitWith {};
 
-if (!(_veh isKindOf "plane")) exitWith { 
-	_veh vehicleChat "Dieser Platz ist nur für Flugzeuge, Soldat!"; 
+if (!(_veh isKindOf "plane")) exitWith {
+    _veh vehicleChat "Dieser Platz ist nur für Flugzeuge, Soldat!";
 };
 
 _veh vehicleChat "Flugzeug wird gewartet, dies dauert etwa 5 Minuten";

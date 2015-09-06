@@ -1,5 +1,5 @@
 if (CLEARITEMSBASE_SWITCH) exitWith {
-	hint "Base items cleanup unavailable."
+    hint "Base items cleanup unavailable."
 };
 
 //-------------------- Wait for player to action

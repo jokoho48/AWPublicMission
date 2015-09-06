@@ -2,18 +2,18 @@
 @filename: fn_uh80TurretActionCancel.sqf
 Author:
 
-	Quiksilver
-	
+    Quiksilver
+
 Last modified:
 
-	22/10/2014 ArmA 1.32
-	
+    22/10/2014 ArmA 1.32
+
 Description:
 
-	Turret actions
-	
-	_v setVariable ["turretL_locked",false,true];
-	_v setVariable ["turretR_locked",false,true];
+    Turret actions
+
+    _v setVariable ["turretL_locked",false,true];
+    _v setVariable ["turretR_locked",false,true];
 _______________________________________________*/
 
 _v = vehicle player;

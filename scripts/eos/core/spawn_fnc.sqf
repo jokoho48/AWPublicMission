@@ -12,12 +12,12 @@ eos_fnc_getunitpool= compile preprocessfilelinenumbers "scripts\eos\UnitPools.sq
 call compile preprocessfilelinenumbers "scripts\eos\AI_Skill.sqf";
 
 EOS_Deactivate = {
-	private ["_mkr"];
-		_mkr=(_this select 0);		
-	{
-		_x setmarkercolor "colorblack";
-		_x setmarkerAlpha 0;
-	}foreach _mkr;
+    private ["_mkr"];
+        _mkr=(_this select 0);
+    {
+        _x setmarkercolor "colorblack";
+        _x setmarkerAlpha 0;
+    }foreach _mkr;
 };
 
 EOS_debug = {

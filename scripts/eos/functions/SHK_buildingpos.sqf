@@ -6,11 +6,11 @@
 
   Syntax:
     nul = [position,unitList,radius,priority,height,disableMove,stance,hide] execvm "shk_buildingpos.sqf"
-  
+
   Required Parameters:
     Origo        Position       Position from where building positions are searched for.
     Units        Array          Units to be moved.
-  
+
   Optional Parameters:
     Radius       Integer        Range from the origo to look for building positions. Default is 20.
     Priority     Integer        Building position priority.
@@ -25,7 +25,7 @@
                                 It's only meant to be used for preventing the units being detected from far away.
                    Portition    Amount of units to be hidden. Valid values between 0 and 1;
                    Condition    Condition to reveal the hidden units.
-    
+
   Examples:
     nul = [getpos hq,[man1,man2,man3]] execvm "shk_buildingpos.sqf"
     nul = [getpos house,[sniper1,sniper2],20,2] execvm "shk_buildingpos.sqf"
@@ -79,7 +79,7 @@ if isserver then {
       if (_lo<_j) then {[_a, _id, _lo, _j] call _sort};
       if (_i<_hi) then {[_a, _id, _i, _hi] call _sort};
     };
-    
+
     [_this select 0, _this select 1, 0, 0 max ((count (_this select 0))-1)] call _sort;
     _this select 0
   };
@@ -150,9 +150,9 @@ if isserver then {
         if _stance then { _x setunitpos "UP"; _x allowFleeing 0; };
       };
     };
-	if ((random 1) >= 0.49) then {
-		_x enableAttack false;
-	};
+    if ((random 1) >= 0.49) then {
+        _x enableAttack false;
+    };
   } foreach _men;
 
 }; //isserver
@@ -182,7 +182,7 @@ if (count _this > 7) then {
     _portition = round (_portition * (count _men));
     _condition = _hide select 1;
     _hidden = [];
-    
+
     for "_i" from 0 to (_portition - 1) do {
       _u = _men select _i;
       _hidden set [count _hidden, _u];
@@ -191,7 +191,7 @@ if (count _this > 7) then {
     SHK_BuildingPos_EH = [true,_hidden];
     publicvariable "SHK_BuildingPos_EH";
     if !isdedicated then { [true,_hidden] call SHK_BuildingPos_fnc };
-    
+
     waituntil {(call compile _condition)};
     SHK_BuildingPos_EH = [false,_hidden];
     publicvariable "SHK_BuildingPos_EH";

@@ -1,16 +1,16 @@
 /*
-Author: 
+Author:
 
-	Quiksilver
-	
+    Quiksilver
+
 Last modified:
 
-	12/04/2014
+    12/04/2014
 
 Description:
 
-	Delete enemies.
-	
+    Delete enemies.
+
 ___________________________________________*/
 
 {
@@ -34,4 +34,3 @@ sleep 1;
         deleteVehicle _x;
     };
 } forEach (_this select 0);
-

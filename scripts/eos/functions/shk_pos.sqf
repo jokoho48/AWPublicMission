@@ -2,15 +2,15 @@
   SHK_pos - Random position generator for Arma 2
   Author: Shuko (IRC: shuko@quakenet, Email: miika@miikajarvinen.fi)
   Version: 0.1
-  
+
   Parameters for marker area based position:
     Area              String              Marker to define area from which the position is taken.
     Water             Boolean             Allow position on water? Optional, default is false.
-  
+
   Usage examples:
     myPos = ["markerName"] execvm "SHK_pos.sqf";
     myPos = ["myMarker1",true] execvm "SHK_pos.sqf";
-    
+
   Parameters for relative position:
     Point of Origin   Position array      The position from which direction and distance is calculated from.
     Direction         Number              Compass direction (0-359) from Point of Origin.
@@ -26,14 +26,14 @@
       3: Increase distance until land is found. Direction is kept the same.
       4: Decrease direction (counter clock-wise) until land is found. Distance is kept the same.
       5: Increase direction (clock-wise) until land is found. Distance is kept the same.
-      
+
       If no integer is given, solution 1 is used by default.
-  
+
   Usage examples:
     myPos = [getpos player,random 360,200,true] execvm "SHK_pos.sqf";
     myPos = [getmarkerpos "myMarker",125,random 500] execvm "SHK_pos.sqf";
     myPos = [getpos player,random 360,[200,500],false,2] execvm "SHK_pos.sqf";
-  
+
   Example of creating multiple positions:
     SHK_pos = compile preprocessfile "SHK_pos.sqf";
     for "_i" from 0 to 500 do {

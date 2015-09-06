@@ -8,7 +8,6 @@ if (loading_inventory) exitWith {hint "Loading gear, please wait ...";};
 loading_inventory = true;
 hint "Gear loaded";
 [player,[player,"ClassGear"]] call BIS_fnc_loadInventory;
-[] spawn {
-	sleep 3;
-	loading_inventory = false;
-};
+[{
+    inventory_cleared = false;
+}, 300, []] call ace_common_fnc_waitAndExecute;

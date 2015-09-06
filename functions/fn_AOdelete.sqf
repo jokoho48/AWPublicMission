@@ -1,13 +1,15 @@
+params ["_unitsArray"];
 private ["_obj"];
 {
-sleep 1;
+    sleep 1;
     if (typeName _x == "GROUP") then {
         {
             if (vehicle _x != _x) then {
                 deleteVehicle (vehicle _x);
             };
             deleteVehicle _x;
-        } forEach (units _x);
+            nil
+        } count (units _x);
     } else {
         if (vehicle _x != _x) then {
             deleteVehicle (vehicle _x);
@@ -15,23 +17,25 @@ sleep 1;
         if !(_x isKindOf "Man") then {
             {
                 deleteVehicle _x;
-            } forEach (crew _x)
+                nil
+            } count (crew _x)
         };
         deleteVehicle _x;
     };
-} forEach (_this select 0);
+    nil
+} count _unitsArray;
 
-private ["_unitsArray", "_obj", "_isGroup"];
 sleep 1;
-_unitsArray = _this select 0;
-for "_c" from 0 to (count _unitsArray) do {
-	_obj = _unitsArray select _c;
-	_isGroup = false; if (_obj in allGroups) then { _isGroup = true; };
-	if (_isGroup) then {
-		{
-			if (!isNull _x) then { deleteVehicle _x; };
-		} forEach (units _obj);
-	} else {
-		if (!isNull _obj) then { deleteVehicle _obj; };
-	};
-};
+
+{
+
+    if ((typeName _obj == "GROUP")) then {
+        {
+            if (!isNull _x) then { deleteVehicle _x; };
+            nil
+        } count (units _obj);
+    } else {
+        if (!isNull _obj) then { deleteVehicle _obj; };
+    };
+    nil
+} count _unitArray;

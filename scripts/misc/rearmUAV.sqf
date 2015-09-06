@@ -3,8 +3,8 @@ _veh = _this select 0;
 
 if (_veh isKindOf "ParachuteBase" || !alive _veh) exitWith {};
 
-if (!(_veh isKindOf "B_UAV_02_CAS_F")) exitWith { 
-	_veh vehicleChat "Dieser Platz ist nur für Drohen, Soldat!"; 
+if (!(_veh isKindOf "B_UAV_02_CAS_F")) exitWith {
+    _veh vehicleChat "Dieser Platz ist nur für Drohen, Soldat!";
 };
 
 _veh vehicleChat "Drohne wird gewartet, bitte warten ...";

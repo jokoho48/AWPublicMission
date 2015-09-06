@@ -3,16 +3,16 @@
   SHK_patrol
 
   Based on BIN_taskPatrol by Binesi
-  
+
   Version 0.22
   Author: Shuko (shuko@quakenet, miika@miikajarvinen.fi)
   http://forums.bistudio.com/showthread.php?163496-SHK_Patrol
-	Modified for EOS by Bangabob
-	
+    Modified for EOS by Bangabob
+
 Requires SHK_POS.sqf
   Required Parameters:
     0 Object or Group     The patrolling unit
-	1 Marker Name
+    1 Marker Name
 */
 DEBUG = false;
 
@@ -27,7 +27,7 @@ switch (typename _this) do {
   case (typename []): {
     _grp = _this select 0;
     if (typename _grp == typename objNull) then {_grp = group _grp};
-	if (count _this > 1) then {_marker = _this select 1};
+    if (count _this > 1) then {_marker = _this select 1};
   };
 };
 
@@ -46,8 +46,8 @@ if (_slack < 20) then {_slack = 20};
 private ["_a","_p"];
 while {count _wps < _cnt} do {
 if (surfaceiswater (getpos(leader _grp)) ) then {
-	_p = [_mkr,true] call SHK_pos;}else{_p = [_mkr,true] call SHK_pos;
-	};
+    _p = [_mkr,true] call SHK_pos;}else{_p = [_mkr,true] call SHK_pos;
+    };
     _wps set [count _wps, _p];
 };
 
@@ -60,10 +60,10 @@ for "_i" from 1 to (_cnt - 1) do {
     _wp setWaypointType "MOVE";
     _wp setWaypointCompletionRadius (5 + _slack);
     [_grp,_i] setWaypointTimeout [0,2,16];
-    
+
     // When completing waypoint have 33% chance to choose a random next wp
     [_grp,_i] setWaypointStatements ["true", "if ((random 3) > 2) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];};"];
-    
+
     if (DEBUG) then {
       private "_m";
       _m = createMarker [format["SHK_patrol_WP%1%2",(floor(_cur select 0)),(floor(_cur select 1))],_cur];

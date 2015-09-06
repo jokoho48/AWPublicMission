@@ -1,8 +1,7 @@
 // Author: Quiksilver
 // Eject vehicles crew
 
-_v = _this select 0;
-
+params ["_v"];
 {
-	_x action ["getOut",_v];
+    _x action ["getOut",_v];
 } count (crew _v);

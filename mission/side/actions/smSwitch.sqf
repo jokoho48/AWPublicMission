@@ -2,16 +2,16 @@
 @filename: smSwitch.sqf
 Author:
 
-	Quiksilver
-	
+    Quiksilver
+
 Description:
 
-	Actioning the character triggers mission cycle.
-	
+    Actioning the character triggers mission cycle.
+
 _______________________________________________________*/
-	
+
 if (SM_SWITCH) exitWith {
-	hint "No side objective available, please wait."
+    hint "No side objective available, please wait."
 };
 
 [[player,"AinvPercMstpSrasWrflDnon_Putdown_AmovPercMstpSrasWrflDnon"],"QS_fnc_switchMoveMP",nil,false] spawn BIS_fnc_MP;

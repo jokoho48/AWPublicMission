@@ -11,7 +11,7 @@ _vehicle = createVehicle [(_vehicleType select 0), _position, [], 0, _special];
 waitUntil {!isNull _vehicle};
 
 if ((random 1) > 0.25) then {
-	_vehicle allowCrewInImmobile true;
+    _vehicle allowCrewInImmobile true;
 };
 
 _vehCrew = [];
@@ -19,7 +19,7 @@ _vehCrew = [];
 createVehicleCrew _vehicle;
 _vehCrew = crew _vehicle;
 {[_x] joinSilent _grp;} count _vehCrew;
-	
+
 _return = [_vehicle,_vehCrew,_grp];
 
 _return;

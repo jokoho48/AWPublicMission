@@ -1,5 +1,5 @@
 if (UAVFIX_SWITCH) exitWith {
-	hint "UAV crew recycle unavailable, please wait ..."
+    hint "UAV crew recycle unavailable, please wait ..."
 };
 
 sleep 1;

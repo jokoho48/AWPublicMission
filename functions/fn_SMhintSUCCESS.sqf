@@ -1,9 +1,9 @@
-	private ["_veh","_vehName","_vehVarname","_completeText","_reward","_GAU","_rabbit","_mortar"];
+    private ["_veh","_vehName","_vehVarname","_completeText","_reward","_GAU","_rabbit","_mortar"];
 
 smRewards =
 [
-	["einen M1025 MK19 HMMWV","rhsusf_m1025_d_mk19"],
-	["einen M998 Cargo HMMWV","rhsusf_m998_d_4dr_fulltop"]
+    ["einen M1025 MK19 HMMWV","rhsusf_m1025_d_mk19"],
+    ["einen M998 Cargo HMMWV","rhsusf_m998_d_4dr_fulltop"]
 ];
 smMarkerList =
 ["smReward1"],["smReward2"];
@@ -26,5 +26,5 @@ showNotification = ["BeendetNebenmission", sideMarkerText]; publicVariable "show
 showNotification = ["Belohnung", format["Dein Team erhielt %1!", _vehName]]; publicVariable "showNotification";
 
 {
-	_x addCuratorEditableObjects [[_reward], false];
+    _x addCuratorEditableObjects [[_reward], false];
 } foreach adminCurators;

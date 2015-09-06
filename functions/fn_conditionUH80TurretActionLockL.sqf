@@ -2,26 +2,26 @@
 @filename: fn_conditionUH80TurretControl.sqf
 Author:
 
-	Quiksilver
-	
+    Quiksilver
+
 Last modified:
 
-	22/10/2014 ArmA 1.32 by Quiksilver
-	
+    22/10/2014 ArmA 1.32 by Quiksilver
+
 Description:
 
-	Add action condition for pilot control of UH80 turrets
+    Add action condition for pilot control of UH80 turrets
 _______________________________________________________________*/
 
-private ["_c","_v","_type"];
+private ["_c", "_v", "_type", "_uh80"];
 
 _c = false;
 _v = vehicle player;
 _type = typeOf _v;
 _uh80 = ["B_Heli_Transport_01_camo_F","B_Heli_Transport_01_F","B_Heli_Transport_03_F"];
 if (_type in _uh80) then {
-	if (!(_v getVariable "turretL_locked")) then {
-		_c = true;
-	};
+    if (!(_v getVariable "turretL_locked")) then {
+        _c = true;
+    };
 };
-_c;	
+_c;

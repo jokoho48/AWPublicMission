@@ -7,7 +7,6 @@ saving_inventory = true;
 respawnInventory_Saved = true;
 hint "Loadout saved. Next time you respawn, your current gear will be loaded.";
 [player,[player,"ClassGear"]] call BIS_fnc_saveInventory;
-[] spawn {
-	sleep 3;
-	saving_inventory = false;
-};
+[{
+    saving_inventory = false;
+}, 300, []] call ace_common_fnc_waitAndExecute;

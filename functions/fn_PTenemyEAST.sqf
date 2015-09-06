@@ -1,17 +1,17 @@
 /*
-Author: 
+Author:
 
-	Quiksilver
-	
+    Quiksilver
+
 Last modified:
 
-	25/04/2014
+    25/04/2014
 
 Description:
 
-	Spawn OPFOR enemy around side objectives.
-	Enemy should have backbone AA/AT + random composition.
-	
+    Spawn OPFOR enemy around side objectives.
+    Enemy should have backbone AA/AT + random composition.
+
 ___________________________________________*/
 
 //---------- CONFIG
@@ -23,35 +23,35 @@ _enemiesArray = [grpNull];
 _x = 0;
 
 //---------- GROUPS
-	
+
 _infteamPatrol = createGroup east;
 _smSniperTeam = createGroup east;
 _SMvehPatrol = createGroup east;
 _SMaaPatrol = createGroup east;
 
 //---------- INFANTRY RANDOM
-	
+
 for "_x" from 0 to (3 + (random 4)) do {
-	_randomPos = [[[getPos priorityObj1, 300],[]],["water","out"]] call BIS_fnc_randomPos;
-	_infteamPatrol = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> [INF_TEAMS] call BIS_fnc_selectRandom)] call BIS_fnc_spawnGroup;
-	[_infteamPatrol, getPos priorityObj1, 100] call BIS_fnc_taskPatrol;
-				
-	_enemiesArray = _enemiesArray + [_infteamPatrol];
+    _randomPos = [[[getPos priorityObj1, 300],[]],["water","out"]] call BIS_fnc_randomPos;
+    _infteamPatrol = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> [INF_TEAMS] call BIS_fnc_selectRandom)] call BIS_fnc_spawnGroup;
+    [_infteamPatrol, getPos priorityObj1, 100] call BIS_fnc_taskPatrol;
+
+    _enemiesArray pushBack _infteamPatrol;
 };
 
 //---------- SNIPER
 
 for "_x" from 0 to 1 do {
-	_randomPos = [getPos priorityObj1, 500, 100, 20] call BIS_fnc_findOverwatch;
-	_smSniperTeam = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OI_SniperTeam")] call BIS_fnc_spawnGroup;
-	_smSniperTeam setBehaviour "COMBAT";
-	_smSniperTeam setCombatMode "RED";
-		
-	_enemiesArray = _enemiesArray + [_smSniperTeam];
+    _randomPos = [getPos priorityObj1, 500, 100, 20] call BIS_fnc_findOverwatch;
+    _smSniperTeam = [_randomPos, EAST, (configfile >> "CfgGroups" >> "East" >> "OPF_F" >> "Infantry" >> "OI_SniperTeam")] call BIS_fnc_spawnGroup;
+    _smSniperTeam setBehaviour "COMBAT";
+    _smSniperTeam setCombatMode "RED";
+
+    _enemiesArray pushBack _smSniperTeam;
 };
-	
+
 //---------- VEHICLE RANDOM
-	
+
 _randomPos = [[[getPos priorityObj1, 300],[]],["water","out"]] call BIS_fnc_randomPos;
 _SMveh1 = [VEH_TYPES] call BIS_fnc_selectRandom createVehicle _randomPos;
 waitUntil {sleep 0.5; !isNull _SMveh1};
@@ -60,11 +60,11 @@ waitUntil {sleep 0.5; !isNull _SMveh1};
 _SMveh1 lock 3;
 [_SMvehPatrol, getPos priorityObj1, 75] call BIS_fnc_taskPatrol;
 sleep 0.1;
-	
-_enemiesArray = _enemiesArray + [_SMveh1];
-	
-//---------- VEHICLE RANDOM	
-	
+
+_enemiesArray pushBack _SMveh1;
+
+//---------- VEHICLE RANDOM
+
 _randomPos = [[[getPos priorityObj1, 300],[]],["water","out"]] call BIS_fnc_randomPos;
 _SMveh2 = [VEH_TYPES] call BIS_fnc_selectRandom createVehicle _randomPos;
 waitUntil {sleep 0.5; !isNull _SMveh2};
@@ -73,13 +73,13 @@ waitUntil {sleep 0.5; !isNull _SMveh2};
 _SMveh2 lock 3;
 [_SMvehPatrol, getPos priorityObj1, 150] call BIS_fnc_taskPatrol;
 sleep 0.1;
-	
-_enemiesArray = _enemiesArray + [_SMveh2];
+
+_enemiesArray pushBack _SMveh2;
 sleep 0.1;
-_enemiesArray = _enemiesArray + [_SMvehPatrol];
+_enemiesArray pushBack _SMvehPatrol;
 
 //---------- VEHICLE AA
-	
+
 _randomPos = [[[getPos priorityObj1, 300],[]],["water","out"]] call BIS_fnc_randomPos;
 _SMaa = "O_APC_Tracked_02_AA_F" createVehicle _randomPos;
 waitUntil {sleep 0.5; !isNull _SMaa};
@@ -87,10 +87,10 @@ waitUntil {sleep 0.5; !isNull _SMaa};
 
 _SMaa lock 3;
 [_SMaaPatrol, getPos priorityObj1, 150] call BIS_fnc_taskPatrol;
-	
-_enemiesArray = _enemiesArray + [_SMaaPatrol];
+
+_enemiesArray pushBack _SMaaPatrol;
 sleep 0.1;
-_enemiesArray = _enemiesArray + [_SMaa];
+_enemiesArray pushBack _SMaa;
 
 //---------- COMMON
 
@@ -98,13 +98,13 @@ _enemiesArray = _enemiesArray + [_SMaa];
 [(units _smSniperTeam)] call QS_fnc_setSkill3;
 [(units _SMaaPatrol)] call QS_fnc_setSkill4;
 [(units _SMvehPatrol)] call QS_fnc_setSkill2;
-	
+
 //---------- GARRISON FORTIFICATIONS
-	
-	{
-		_newGrp = [_x] call QS_fnc_garrisonFortEAST;
-		if (!isNull _newGrp) then { 
-		_enemiesArray = _enemiesArray + [_newGrp]; };
-	} forEach (getPos priorityObj1 nearObjects ["House", 150]);
-	
+
+    {
+        _newGrp = [_x] call QS_fnc_garrisonFortEAST;
+        if (!isNull _newGrp) then {
+        _enemiesArray pushBack _newGrp; };
+    } forEach (getPos priorityObj1 nearObjects ["House", 150]);
+
 _enemiesArray
