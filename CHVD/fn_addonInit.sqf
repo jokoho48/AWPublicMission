@@ -1,4 +1,5 @@
 [] spawn {
+    private "_actionText";
     //Wait for mission init, in case there are variables defined some place else
     waitUntil {time > 0};
 

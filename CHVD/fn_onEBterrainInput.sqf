@@ -1,4 +1,4 @@
-private ["_textValue"];
+private ["_textValue", "_listboxCtrl", "_sel"];
 
 params [["_varType", "", [""]], ["_textCtrl", controlNull, [0, controlNull]], ["_listbox", controlNull, [0, controlNull]]];
 
@@ -26,7 +26,7 @@ _listboxCtrl ctrlSetEventHandler ["LBSelChanged",
 ];
 
 //ctrlSetText [_textCtrl, str _textValue];
-missionNamespace setVariable [str (_vartype), _textValue];
-profileNamespace setVariable [str (_varType),_textValue];
+missionNamespace setVariable [_vartype, _textValue];
+profileNamespace setVariable [_varType, _textValue];
 
 [] call CHVD_fnc_updateTerrain;

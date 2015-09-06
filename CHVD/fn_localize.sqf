@@ -1,4 +1,4 @@
-_display = (_this select 0) params ["_display"];
+(_this select 0) params ["_display"];
 
 if (isLocalized "STR_chvd_title") then {
     (_display displayCtrl 1000) ctrlSetText (toUpper (localize "STR_chvd_title"));

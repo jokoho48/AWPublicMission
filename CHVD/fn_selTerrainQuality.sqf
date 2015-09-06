@@ -1,5 +1,5 @@
 private ["_output"];
-_terrainGrid = _this select 0;
+params ["__terrainGrid"];
 switch (true) do {
     case (_terrainGrid >= 49): {
         _output = 0;

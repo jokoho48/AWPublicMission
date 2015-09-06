@@ -27,16 +27,14 @@ switch (_updateType) do {
         sliderSetPosition [_slider1, _textValue min CHVD_maxView];
         //ctrlSetText [_text1, str round (_textValue min CHVD_maxView)];
         sliderSetRange [_slider2, 0, _textValue min CHVD_maxView];
-
-        call compile format ["%1 = %2", _varType1, _textValue min CHVD_maxView];
-        call compile format ["profileNamespace setVariable ['%1',%1]", _varType1];
+        missionNameSpace setVariable [_varType1, _textValue min CHVD_maxView];
+        profileNamespace setVariable [_varType1, _textValue min CHVD_maxView];
 
         if ((call compile _varType2) > _textValue) then {
             sliderSetPosition [_slider2, _textValue min CHVD_maxObj];
             ctrlSetText [_text2, str round (_textValue min CHVD_maxObj)];
-
-            call compile format ["%1 = %2", _varType2, _textValue min CHVD_maxObj];
-            call compile format ["profileNamespace setVariable ['%1',%1]", _varType2];
+            missionNameSpace setVariable [_varType2, _textValue min CHVD_maxObj];
+            profileNamespace setVariable [_varType2, _textValue min CHVD_maxObj];
         };
 
         [_updateType] call CHVD_fnc_updateSettings;
@@ -47,9 +45,8 @@ switch (_updateType) do {
 
         sliderSetPosition [_slider1, _textValue min CHVD_maxObj];
         //ctrlSetText [_text1, str round (_textValue min CHVD_maxObj)];
-
-        call compile format ["%1 = %2", _varType1, _textValue min CHVD_maxObj];
-        call compile format ["profileNamespace setVariable ['%1',%1]", _varType1];
+        missionNamespace setVariable [_varType1, _textValue min CHVD_maxObj];
+        profileNamespace setVariable [_varType1, _textValue min CHVD_maxObj];
 
         [_updateType] call CHVD_fnc_updateSettings;
     };
@@ -61,22 +58,22 @@ switch (_updateType) do {
         //ctrlSetText [_text1, str round (_textValue min CHVD_maxView)];
         sliderSetRange [_slider2, 0, _textValue min CHVD_maxView];
 
-        call compile format ["%1 = %2", _varType1, _textValue min CHVD_maxView];
-        call compile format ["profileNamespace setVariable ['%1',%1]", _varType1];
+        missionNamespace setVariable [_varType1, _textValue min CHVD_maxView];
+        profileNamespace setVariable [_varType1, _textValue min CHVD_maxView];
 
         if ((call compile _varType2) > _textValue) then {
             sliderSetPosition [_slider2, _textValue min CHVD_maxObj];
             ctrlSetText [_text2, str round (_textValue min CHVD_maxObj)];
 
-            call compile format ["%1 = %2", _varType2, _textValue min CHVD_maxObj];
-            call compile format ["profileNamespace setVariable ['%1',%1]", _varType2];
+            missionNamespace setVariable [_varType2, _textValue min CHVD_maxObj];
+            profileNamespace setVariable [_varType2, _textValue min CHVD_maxObj];
         };
 
         sliderSetPosition [_slider2, _textValue min CHVD_maxObj];
         ctrlSetText [_text2, str round (_textValue min CHVD_maxObj)];
 
-        call compile format ["%1 = %2", _varType2, _textValue min CHVD_maxObj];
-        call compile format ["profileNamespace setVariable ['%1',%1]", _varType2];
+        missionNamespace setVariable [_varType2, _textValue min CHVD_maxObj];
+        profileNamespace setVariable [_varType2, _textValue min CHVD_maxObj];
 
         [_updateType] call CHVD_fnc_updateSettings;
     };
