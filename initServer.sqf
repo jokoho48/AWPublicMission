@@ -23,3 +23,5 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [((SEN_range*0.04) max 400),false] execVM "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] execVM "scripts\SEN_animal.sqf";
 [] execVM "scripts\SEN_cleanup.sqf";
+JK_ammoSuppAvail = true;
+publicVariable "JK_ammoSuppAvail";

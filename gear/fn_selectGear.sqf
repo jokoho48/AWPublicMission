@@ -15,8 +15,8 @@
 */
 params["_unit", "_class"];
 
-if (rating _unit >= 400) then {
-    _unit addrating (floor (rating - 600));
+if ((rating _unit) >= 400) then {
+    _unit addrating (floor ((rating _unit) - 600));
 };
 _side = side _unit;
 if !(str(_side) in ["WEST","EAST","GUER"]) then {

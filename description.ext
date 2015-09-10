@@ -4,11 +4,11 @@ class Header {
     maxPlayers = 40;
 };
 
-overviewPicture = "media\SEN_imgLoading.paa";
+overviewPicture = "media\loading.jpg";
 Author = "SENSEI";
-onLoadName = "Dynamic Combat Gen.";
+onLoadName = "Dynamic Combat Gen. Edit By ArmA world";
 onLoadMission = "DCG 3.0.8";
-loadScreen = "media\SEN_imgLogo.paa";
+loadScreen = "media\loading.jpg";
 briefing = 0;
 respawn = 3;
 respawndelay = 30;

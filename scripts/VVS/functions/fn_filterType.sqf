@@ -12,8 +12,7 @@ if(_filter isEqualTo "") exitWith {[]};
 //Setup our array.
 _ret = [];
 
-_vehicleList = switch(_filter) do
-{
+_vehicleList = switch(_filter) do {
     case "All": {(VVS_pre_Car + VVS_pre_Air + VVS_pre_Ship + VVS_pre_Submarine + VVS_pre_Armored + VVS_pre_Support + VVS_pre_Autonomous) + (VVS_Car + VVS_Air + VVS_Ship + VVS_Submarine + VVS_Armored + VVS_Support + VVS_Autonomous)};
     case "Car": {VVS_pre_Car + VVS_Car};
     case "Air": {VVS_pre_Air + VVS_Air};

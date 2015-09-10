@@ -5,6 +5,9 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
 
+[SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
+[player] call JK_loadOut_fnc_loadoutsInit;
+
 private "_prefix";
 
 // workaround for acre, if inventory full and can't add radio, acre throws rpt error: (Warning: Radio ID ACRE_PRC343_ID_1 was returned for a non-existent baseclass...)
@@ -47,7 +50,7 @@ for "_i" from 1 to (count _role) do { // move through unit name until underscore
     };
 };
 
-player setVariable ["SEN_team",_prefix];
+player setVariable ["SEN_team", _prefix];
 
 // set comm net variable
 call {

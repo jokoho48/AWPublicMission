@@ -8,7 +8,7 @@ class JK_loadOut
     tag = "JK_loadOut";
     class core
     {
-        file = "\gear";
+        file = "gear";
         class applyLoadout {};
         class gear {};
         class loadoutsInit {};
@@ -17,7 +17,7 @@ class JK_loadOut
     };
     class loadoutsWEST
     {
-        file = "\gear\loadouts\Blufor";
+        file = "gear\loadouts\Blufor";
         class armanWEST {};
         class assmgWEST {};
         class mgWEST {};
