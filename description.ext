@@ -48,6 +48,7 @@ corpseRemovalMaxTime = 120;                                // Max time before re
 
 //------------------------- Includes / Functions
 
+
 #include "dialogs.hpp"                                        // Intro
 #include "CHVD\dialog.hpp"                                // CH View Distance Script
 #include "VVS\menu.h"
