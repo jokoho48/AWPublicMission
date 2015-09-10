@@ -19,6 +19,7 @@ player enableFatigue true;
 
 [Quartiermeister] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
+call compile preprocessFileLineNumbers "scripts\tfar_settings.sqf";
 
 //------------------------------------------------ Handle parameters
 
