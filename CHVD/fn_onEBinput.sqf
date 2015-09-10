@@ -4,8 +4,8 @@ params [
     ["_slider1", controlNull, [0, controlNull]],
     ["_text1", controlNull, [0, controlNull]],
     ["_varType2", "", [""]],
-    ["_slider2"controlNull, [0, controlNull]],
-    ["_text2"controlNull, [0, controlNull]],
+    ["_slider2", controlNull, [0, controlNull]],
+    ["_text2", controlNull, [0, controlNull]],
     ["_syncVar", "", [""]]
 ];
 

@@ -16,8 +16,9 @@ ______________________________________________________*/
 
 
 //call compile preprocessFile "scripts\=BTC=_revive\=BTC=_revive_init.sqf";        // revive
-DAC_Basic_Value = 0;execVM "DAC\DAC_Config_Creator.sqf";
-//tawvd_disablenone = true;
+DAC_Basic_Value = 0;
+execVM "DAC\DAC_Config_Creator.sqf";
+
 [] execVM "scripts\zlt_fieldrepair.sqf";    //Vehicle Repair Script
 
 

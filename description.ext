@@ -48,13 +48,15 @@ corpseRemovalMaxTime = 120;                                // Max time before re
 
 //------------------------- Includes / Functions
 
-#include "scripts\vehicle\crew\common.hpp"          // vehicle crew hud
 #include "dialogs.hpp"                                        // Intro
 #include "CHVD\dialog.hpp"                                // CH View Distance Script
+#include "VVS\menu.h"
 
 class CfgFunctions {
     #include "CHVD\CfgFunctions.hpp"
     #include "functions\cfgfunctions.hpp"            // Integrated I&A functions
+    #include "VVS\Functions.h"
+    #include "gear\CfgFunctions.hpp"
     class FETT {                                    // Curator synch http://forums.bistudio.com/showthread.php?176691-Making-placed-units-be-editable-for-every-Zeus
         class curator {
             class eventHandlers {postInit = 1;};

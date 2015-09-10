@@ -17,6 +17,9 @@ enableSentences false;
 enableSaving [false,false];
 player enableFatigue true;
 
+[Quartiermeister] call JK_loadOut_fnc_chooseLoadout;
+[player] call JK_loadOut_fnc_loadoutsInit;
+
 //------------------------------------------------ Handle parameters
 
 for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do {
@@ -30,11 +33,8 @@ for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do {
 
 //------------------- client executions
 
-_null = [] execvm "scripts\vehicle\crew\crew.sqf";                                 // vehicle HUD
-_null = [] execVM 'scripts\group_manager.sqf';                                    // group manager
 _null = [] execVM "scripts\restrictions.sqf";                                     // gear restrictions and safezone
 _null = [] execVM "scripts\pilotCheck.sqf";                                     // pilots only
-_null = [] execVM "scripts\jump.sqf";                                            // jump action
 _null = [] execVM "scripts\misc\diary.sqf";                                        // diary tabs
 _null = [] execVM "scripts\icons.sqf";                                            // blufor map tracker Quicksilver
 //_null = [] execVM "scripts\VAclient.sqf";                                        // Virtual Arsenal
@@ -49,24 +49,19 @@ if (PARAMS_HeliSling != 0) then {call compile preprocessFileLineNumbers "scripts
 
 "showNotification" addPublicVariableEventHandler
 {
-    private ["_type", "_message"];
-    _array = _this select 1;
-    _type = _array select 0;
-    _message = "";
-    if (count _array > 1) then { _message = _array select 1; };
+    (_this select 1) params ["_type", ["_message", ""]];
     [_type, [_message]] call BIS_fnc_showNotification;
 };
 
 "GlobalHint" addPublicVariableEventHandler
 {
-    private ["_GHint"];
-    _GHint = _this select 1;
+    params ["_GHint"];
     hint parseText format["%1", _GHint];
 };
 
 "hqSideChat" addPublicVariableEventHandler
 {
-    _message = _this select 1;
+    params ["_message"];
     [WEST,"HQ"] sideChat _message;
 };
 

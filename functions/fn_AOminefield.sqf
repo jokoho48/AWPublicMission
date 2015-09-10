@@ -17,7 +17,7 @@ _mineArray = [];
 
 for "_x" from 0 to (59 + random 10) do {
     _mine = createMine [[MINE_TYPES] call BIS_fnc_selectrandom, _centralPos, [], 38];
-    _unitsArray pushBack _mine;
+    _mineArray pushBack _mine;
 };
 
 _distance = 40;
@@ -32,7 +32,7 @@ for "_c" from 0 to 23 do {
         _sign allowDamage false;
         _dir = _dir + 15;
 
-        _unitsArray pushBack _sign;
+        _mineArray pushBack _sign;
 };
 
-_unitsArray
+_mineArray

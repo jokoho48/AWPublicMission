@@ -53,5 +53,72 @@
             <Original>Very High</Original>
             <Russian>Очень высокое</Russian>
         </Key>
+
+        // LoadOuts
+        <Key ID="STR_JK_GEAR_COMMAND">
+            <English>Command</English>
+            <German>Kommander</German>
+            <Original>Command</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_LEADER">
+            <English>Team Leader</English>
+            <German>Truppführer</German>
+            <Original>Team Leader</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_MEDIC">
+            <English>Medic</English>
+            <German>Sanitäter</German>
+            <Original>Medic</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_ARMAN">
+            <English>Automaitc-Rifleman</English>
+            <German>Automatik-Schütze</German>
+            <Original>Automaitc-Rifleman</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_MG">
+            <English>MG-Gunner</English>
+            <German>MG-Schütze</German>
+            <Original>MG-Gunner</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_ASSMG">
+            <English>MG-Assistent</English>
+            <German>MG-Assistent</German>
+            <Original>MG-Assistent</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_AT">
+            <English>AT-Gunner</English>
+            <German>AT-Schütze</German>
+            <Original>AT-Gunner</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_GRENADIER">
+            <English>Grenadier</English>
+            <German>Grenadier</German>
+            <Original>Grenadier</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_RIFLEMAN">
+            <English>Rifleman</English>
+            <German>Schütze</German>
+            <Original>Rifleman</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_MARKSMAN">
+            <English>Marksman</English>
+            <German>Gruppenscharfschütze</German>
+            <Original>Marksman</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_SPECIALIST">
+            <English>Specialist</English>
+            <German>Spezialist</German>
+            <Original>Specialist</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_PILOT">
+            <English>Pilot</English>
+            <German>Pilot</German>
+            <Original>Pilot</Original>
+        </Key>
+        <Key ID="STR_JK_GEAR_CREW">
+            <English>Crew Man</English>
+            <German>Fahrzeug Besatzung</German>
+            <Original>Crew Man</Original>
+        </Key>
     </package>
 </Project>
