@@ -25,7 +25,7 @@ if((DAC_Com_Values select 1) == 1) then
 	DAC_InitText = (_text1 + _text2);
 	hintSilent parseText DAC_InitText;
 };
-			
+
 if((typeName _thisZone) != "STRING") then
 {
 	hintc format["The name of a zone is not correct !\n\nThe Name of a zone in the Script call must be a string."];
@@ -103,18 +103,18 @@ else
 				};
 			};
 		};
-		
+
 		_ZoneMode 	= _this select 1;_GroupSol = _this select 2;
 		_GroupVeh 	= _this select 3;_GroupTan = _this select 4;
 		_GroupAir 	= _this select 5;_ZoneSide = _this select 6;
 		_mxvalue 	= ((triggerArea _KiZone) select 0);_myvalue = ((triggerArea _KiZone) select 1);_ac = _ZoneMode select 1;_randomcount = random 10000;
-		
+
 		_zoneValues =	[
 							[1,[(position _KiZone select 0),(position _KiZone select 1)]],
 							[2,[_mxvalue,_myvalue]],
 							[3,[(_ZoneSide select 1),(_ZoneSide select 2)]]
 						];
-	
+
 		DAC_Init_Zone set [count DAC_Init_Zone,_randomcount];
 		sleep 0.01;
 		while {_cu < count _zoneValues} do
@@ -124,7 +124,7 @@ else
 			_ma setMarkerShapelocal "RECTANGLE";
 			_ma setMarkerSizelocal [6,6];
 			_ma setMarkerColorlocal "ColorBlack";
-			_ma setMarkerAlphaLocal 0; 
+			_ma setMarkerAlphaLocal 0;
 			if(_ac == 1) then {_ma setMarkerSizelocal [4,4]};
 			_marker set [count _marker,_ma];
 			_cu = _cu + 1;

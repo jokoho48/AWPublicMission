@@ -36,4 +36,5 @@ _null = [] execVM "scripts\misc\islandConfig.sqf";                              
 if (PARAMS_EasterEggs == 1) then {_null = [] execVM "scripts\easterEggs.sqf";};                            // Spawn easter eggs around the island
 adminCurators = allCurators;
 enableEnvironment false;
-BACO_ammoSuppAvail = true; publicVariable "BACO_ammoSuppAvail";
+BACO_ammoSuppAvail = true;
+publicVariable "BACO_ammoSuppAvail";

@@ -12,7 +12,7 @@ Description:
 
     Client scripts and event handlers.
 ______________________________________________________*/
-
+diag_log "init Start";
 enableSentences false;
 enableSaving [false,false];
 player enableFatigue true;
@@ -92,7 +92,9 @@ if (PARAMS_HeliSling != 0) then {call compile preprocessFileLineNumbers "scripts
     "priorityMarker" setMarkerTextLocal format["Priority Target: %1",priorityTargetText];
 };
 
-enableEngineArtillery false;
+
 if (player isKindOf "B_support_Mort_f") then {
     enableEngineArtillery true;
+} else {
+    enableEngineArtillery false;
 };

@@ -60,7 +60,7 @@ while { count _targetArray > 0 } do {
 
     _aoPos = getMarkerpos currentAO;
     sleep 5;
-    waituntil{DAC_NewZone == 0};
+    waituntil{!isNil "DAC_NewZone" && {DAC_NewZone == 0}};
     _DACvalues = ["Main_AO",[2,0,0],[8,4,50,5],[7,2,30,5],[6,1,20,5],[],[0,4,0,0]];
     [_aoPos,PARAMS_AOSize,PARAMS_AOSize,0,0,_DACvalues] call DAC_fNewZone;
     waituntil{DAC_NewZone == 0};

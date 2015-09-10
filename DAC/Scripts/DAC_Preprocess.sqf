@@ -8,12 +8,20 @@
 //    silola@freenet.de     //
 //////////////////////////////
 
-DAC_Path = "DAC\Configs\";DAC_AI_AddOn = 1;
-DAC_Basic_Value = 0;DAC_Init_Zone = [];DAC_Obj_Init = [];DAC_CheckZones = [];
-DAC_SayArrayE = [];DAC_SayArrayW = [];DAC_SayArrayD = [];DAC_RadioArrayE = [];DAC_RadioArrayW = [];
+DAC_Path = "DAC\Configs\";
+DAC_AI_AddOn = 1;
+DAC_Basic_Value = 0;
+DAC_Init_Zone = [];
+DAC_Obj_Init = [];
+DAC_CheckZones = [];
+DAC_SayArrayE = [];
+DAC_SayArrayW = [];
+DAC_SayArrayD = [];
+DAC_RadioArrayE = [];
+DAC_RadioArrayW = [];
 DAC_Radio_Settings = [1000,[0,0],5,2,objNull];
 DAC_Marker_Val = [0,0,[],0,[],0,[],[],0,0,0,0,0,0,[],[]];
-	
+
 	DAC_Zone 					= compile preprocessFile "DAC\Scripts\DAC_Init_Zone.sqf";
 	DAC_Objects					= compile preprocessFile "DAC\Scripts\DAC_Create_Objects.sqf";
 	DAC_Activate 				= compile preprocessFile "DAC\Scripts\DAC_Activate_Zone.sqf";
