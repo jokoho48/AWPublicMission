@@ -1,40 +1,25 @@
 /*
-@filename: initServer.sqf
-Author:
+Author: SENSEI
 
-    Quiksilver
+Last modified: 8/5/2015
+__________________________________________________________________*/
+missionNameSpace setVariable ["SEN_transportReady", 1];
+if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {execVM "scripts\SEN_tfrSettings.sqf"};
+[2000,0,false,100,2600,2600] execVM "scripts\zbe_cache\main.sqf";
+SEN_curatorFOBUnitUID = "";
+onPlayerDisconnected {if (_uid isEqualTo SEN_curatorFOBUnitUID) then {unassignCurator SEN_curatorFOB}};
 
-Last modified:
-
-    23/10/2014 ArmA 1.32 by Quiksilver
-
-Description:
-
-    Server scripts such as missions, modules, third party and clean-up.
-
-______________________________________________________*/
-
-//------------------------------------------------ Handle parameters
-
-for [ {_i = 0}, {_i < count(paramsArray)}, {_i = _i + 1} ] do {
-    call compile format
-    [
-        "PARAMS_%1 = %2",
-        (configName ((missionConfigFile >> "Params") select _i)),
-        (paramsArray select _i)
-    ];
+if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
+	_med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
+	{
+		if ((typeOf _x) in _med) then {_x setvariable["ace_medical_isMedicalFacility", true, true]};
+	} forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
 
-//-------------------------------------------------- Server scripts
+waitUntil {sleep 1; SEN_complete isEqualTo 2};
 
-if (PARAMS_AO == 1) then { _null = [] execVM "mission\main\missionControl.sqf"; };                        // Main AO
-if (PARAMS_SideObjectives == 1) then { _null = [] execVM "mission\side\missionControl.sqf";};            // Side objectives
-_null = [] execVM "scripts\eos\OpenMe.sqf";                                                                // EOS (urban mission and defend AO)
-_null = [] execVM "scripts\misc\airbaseDefense.sqf";                                                    // Airbase air defense
-_null = [] execVM "scripts\misc\cleanup.sqf";                                                            // cleanup
-_null = [] execVM "scripts\misc\islandConfig.sqf";                                                        // prep the island for mission
-if (PARAMS_EasterEggs == 1) then {_null = [] execVM "scripts\easterEggs.sqf";};                            // Spawn easter eggs around the island
-adminCurators = allCurators;
-enableEnvironment false;
-BACO_ammoSuppAvail = true;
-publicVariable "BACO_ammoSuppAvail";
+[] execVM "scripts\SEN_occupyTrg.sqf";
+[] execVM "tasks\SEN_taskHandler.sqf";
+[((SEN_range*0.04) max 400),false] execVM "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] execVM "scripts\SEN_animal.sqf";
+[] execVM "scripts\SEN_cleanup.sqf";
