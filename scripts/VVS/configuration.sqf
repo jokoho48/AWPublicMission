@@ -8,13 +8,13 @@ VVS_Premade_List = false;
 VVS_Premade_List = false;
 
 /*
-	*SENSEI EDIT*
-									Addon Vehicles
-		If your desired vehicles are not automatically fetched, place the classnames in the arrays below.
-		Be sure to not place vanilla classnames in these arrays, only 3rd party content.
+    *SENSEI EDIT*
+                                    Addon Vehicles
+        If your desired vehicles are not automatically fetched, place the classnames in the arrays below.
+        Be sure to not place vanilla classnames in these arrays, only 3rd party content.
 
-		Example:
-		VVS_Air = ["B_mas_UH1Y_F", "B_mas_CH_47F"];
+        Example:
+        VVS_Air = ["B_mas_UH1Y_F", "B_mas_CH_47F"];
 */
 VVS_Car = [];
 VVS_Air = [];
@@ -26,13 +26,13 @@ VVS_Support = [];
 VVS_Ammo = [];
 
 /*
-									Vehicle restriction
-		Again, similar to VAS's functionality. If you want to restrict a specific vehicle you can do it or
-		you can restrict an entire vehicle set by using its base class.
+                                    Vehicle restriction
+        Again, similar to VAS's functionality. If you want to restrict a specific vehicle you can do it or
+        you can restrict an entire vehicle set by using its base class.
 
-		Example:
-		VVS_Car = ["Quadbike_01_base_F"]; //Completely removes all quadbikes for all sides
-		VVS_Air = ["B_Heli_Light_01_armed_F"]; //Removes the Pawnee
+        Example:
+        VVS_Car = ["Quadbike_01_base_F"]; //Completely removes all quadbikes for all sides
+        VVS_Air = ["B_Heli_Light_01_armed_F"]; //Removes the Pawnee
 */
 VVS_R_Car = [];
 VVS_R_Air = [];

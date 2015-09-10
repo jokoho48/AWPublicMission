@@ -14,9 +14,9 @@ _wreckArray = ["Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_UA
 _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
 _pos = [];
 waitUntil {
-	sleep 1;
-	_pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
-	(!([_pos, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker) && !(surfaceIsWater _pos))
+    sleep 1;
+    _pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
+    (!([_pos, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker) && !(surfaceIsWater _pos))
 };
 
 _taskID = format["%1_stabilize_civ",SEN_taskCounterCiv];
@@ -38,20 +38,20 @@ _civ switchMove "AinjPpneMstpSnonWrflDnon";
 _civ disableAI "ANIM";
 
 if (random 1 < 0.7) then {
-	_ambush = true;
-	_rebelWeapon = "";
-	_rebelMag = "";
-	if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebelMag = "30Rnd_65x39_caseless_green";} else {_rebelWeapon = "arifle_TRG20_F"; _rebelMag = "30Rnd_556x45_Stanag_Tracer_Green";};
-	_grp = [([_pos,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 15,CIVILIAN,true] call SEN_fnc_spawnGroup;
-	_grp = [units _grp] call SEN_fnc_setSide;
-	{
-		_x addVest "V_TacVest_khk";
-		_x addWeapon _rebelWeapon;
-		_x addMagazine _rebelMag;
-		_x addMagazine _rebelMag;
-		_x addMagazine _rebelMag;
-		_x setUnitPos "MIDDLE";
-	} forEach units _grp;
+    _ambush = true;
+    _rebelWeapon = "";
+    _rebelMag = "";
+    if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebelMag = "30Rnd_65x39_caseless_green";} else {_rebelWeapon = "arifle_TRG20_F"; _rebelMag = "30Rnd_556x45_Stanag_Tracer_Green";};
+    _grp = [([_pos,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 15,CIVILIAN,true] call SEN_fnc_spawnGroup;
+    _grp = [units _grp] call SEN_fnc_setSide;
+    {
+        _x addVest "V_TacVest_khk";
+        _x addWeapon _rebelWeapon;
+        _x addMagazine _rebelMag;
+        _x addMagazine _rebelMag;
+        _x addMagazine _rebelMag;
+        _x setUnitPos "MIDDLE";
+    } forEach units _grp;
 };
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],_vehPos,false,1,true,"C",false] call BIS_fnc_taskCreate;
@@ -59,50 +59,50 @@ if (random 1 < 0.7) then {
 waitUntil {sleep 10; (({_x distance _pos < 50 && (getposATL _x select 2) < 2} count (call SEN_fnc_getPlayers)) > 0)};
 
 if (ace_medical_level isEqualTo 1) then {
-	_part = [
-	    "HitHead",
-	    "HitBody",
-	    "HitLeftArm",
-	    "HitRightArm",
-	    "HitLeftLeg",
-	    "HitRightLeg"
-	];
-	for "_i" from 0 to ceil random 2 do {
-		_damage = 0.3 + (random 0.65);
-		[_civ, (_part select (random ((count _part) - 1))), _damage] call ace_medical_fnc_setHitPointDamage;
-	};
-	[_civ,true,10,true] call ace_medical_fnc_setUnconscious;
+    _part = [
+        "HitHead",
+        "HitBody",
+        "HitLeftArm",
+        "HitRightArm",
+        "HitLeftLeg",
+        "HitRightLeg"
+    ];
+    for "_i" from 0 to ceil random 2 do {
+        _damage = 0.3 + (random 0.65);
+        [_civ, (_part select (random ((count _part) - 1))), _damage] call ace_medical_fnc_setHitPointDamage;
+    };
+    [_civ,true,10,true] call ace_medical_fnc_setUnconscious;
 } else {
-	[_civ,true,10,true] call ace_medical_fnc_setUnconscious; // can't force unconsciousness through cardiacArrest, so need to set unconscious first
-	[_civ] call ace_medical_fnc_setCardiacArrest;
+    [_civ,true,10,true] call ace_medical_fnc_setUnconscious; // can't force unconsciousness through cardiacArrest, so need to set unconscious first
+    [_civ] call ace_medical_fnc_setCardiacArrest;
 };
 
 if (_ambush) then {
-	{_x setUnitPos "UP";} foreach units _grp;
-	_wp = _grp addWaypoint [_pos, 0];
-	_wp setWaypointType "SAD";
-	_wp setWaypointSpeed "FULL";
-	_wp setWaypointCombatMode "RED";
+    {_x setUnitPos "UP";} foreach units _grp;
+    _wp = _grp addWaypoint [_pos, 0];
+    _wp setWaypointType "SAD";
+    _wp setWaypointSpeed "FULL";
+    _wp setWaypointCombatMode "RED";
 };
 
 waitUntil {sleep 10; (!alive _civ || (_civ getVariable ["ace_captives_ishandcuffed", false]))};
 
 if (alive _civ) then {
-	_taskText = "Escort Civilian";
+    _taskText = "Escort Civilian";
 
-	[_taskID] call BIS_fnc_taskSetCurrent;
-	[_taskID,[_taskDescription,_taskText,""]] call BIS_fnc_taskSetDescription;
-	[_taskID,(getmarkerpos "SEN_med_mrk")] call BIS_fnc_taskSetDestination;
+    [_taskID] call BIS_fnc_taskSetCurrent;
+    [_taskID,[_taskDescription,_taskText,""]] call BIS_fnc_taskSetDescription;
+    [_taskID,(getmarkerpos "SEN_med_mrk")] call BIS_fnc_taskSetDestination;
 
-	waitUntil {sleep 10; (!alive _civ || ((_civ distance (getmarkerpos "SEN_med_mrk") < 25) && (alive _civ) && ([_civ] call ace_common_fnc_isAwake)))};
+    waitUntil {sleep 10; (!alive _civ || ((_civ distance (getmarkerpos "SEN_med_mrk") < 25) && (alive _civ) && ([_civ] call ace_common_fnc_isAwake)))};
 };
 
 if !(alive _civ) exitWith {
-	[_taskID, "FAILED"] call BIS_fnc_taskSetState;
-	{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
-	SEN_objectCleanup append [_civ,_veh];
-	sleep SEN_taskSleepCiv;
-	[] call SEN_fnc_setTaskCiv;
+    [_taskID, "FAILED"] call BIS_fnc_taskSetState;
+    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+    SEN_objectCleanup append [_civ,_veh];
+    sleep SEN_taskSleepCiv;
+    [] call SEN_fnc_setTaskCiv;
 };
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;

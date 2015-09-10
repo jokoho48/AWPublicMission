@@ -20,14 +20,14 @@ _returnTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation
 _returnPos = getpos _returnTown;
 _returnPos set [2,0];
 if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
-	_pos = [SEN_centerPos,SEN_range,10] call SEN_fnc_findRuralFlatPos;
+    _pos = [SEN_centerPos,SEN_range,10] call SEN_fnc_findRuralFlatPos;
 } else {
-	_houseArray = [SEN_centerPos,SEN_range] call SEN_fnc_findRuralHousePos;
-	_pos = (_houseArray select 1);
+    _houseArray = [SEN_centerPos,SEN_range] call SEN_fnc_findRuralHousePos;
+    _pos = (_houseArray select 1);
 };
 
 if (_pos isEqualTo []) exitWith {
-	[] call SEN_fnc_setTaskCiv;
+    [] call SEN_fnc_setTaskCiv;
 };
 
 _taskID = format["%1_rescue_civ",SEN_taskCounterCiv];
@@ -51,11 +51,11 @@ _pos set [2,0];
 _grp = [_pos,0,((call SEN_fnc_setStrength) max 4) min 15,CIVILIAN,true] call SEN_fnc_spawnGroup;
 _grp = [units _grp] call SEN_fnc_setSide;
 {
-	_x addVest "V_TacVest_khk";
-	_x addWeapon _rebelWeapon;
-	_x addMagazine _rebelMag;
-	_x addMagazine _rebelMag;
-	_x addMagazine _rebelMag;
+    _x addVest "V_TacVest_khk";
+    _x addWeapon _rebelWeapon;
+    _x addMagazine _rebelMag;
+    _x addMagazine _rebelMag;
+    _x addMagazine _rebelMag;
 } forEach units _grp;
 [_grp,90] spawn SEN_fnc_setPatrolGroup;
 
@@ -69,22 +69,22 @@ _hostage allowdamage true;
 waitUntil {sleep 10; (_hostage getVariable ["ace_captives_ishandcuffed", false])};
 
 if (alive _hostage) then {
-	_taskText = "Escort Hostage";
+    _taskText = "Escort Hostage";
 
-	[_taskID] call BIS_fnc_taskSetCurrent;
-	[_taskID,[_taskDescription,_taskText,""]] call BIS_fnc_taskSetDescription;
-	[_taskID,_returnPos] call BIS_fnc_taskSetDestination;
+    [_taskID] call BIS_fnc_taskSetCurrent;
+    [_taskID,[_taskDescription,_taskText,""]] call BIS_fnc_taskSetDescription;
+    [_taskID,_returnPos] call BIS_fnc_taskSetDestination;
 
-	waitUntil {sleep 10; (((_hostage distance _returnPos) < 25 && (getposatl _hostage select 2 < 2)) || !alive _hostage)};
+    waitUntil {sleep 10; (((_hostage distance _returnPos) < 25 && (getposatl _hostage select 2 < 2)) || !alive _hostage)};
 };
 
 if (!alive _hostage) exitWith {
-	[_taskID, "FAILED"] call BIS_fnc_taskSetState;
-	{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
-	SEN_objectCleanup pushBack _hostage;
-	SEN_objectCleanup pushBack _veh;
-	sleep SEN_taskSleepCiv;
-	[] call SEN_fnc_setTaskCiv;
+    [_taskID, "FAILED"] call BIS_fnc_taskSetState;
+    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+    SEN_objectCleanup pushBack _hostage;
+    SEN_objectCleanup pushBack _veh;
+    sleep SEN_taskSleepCiv;
+    [] call SEN_fnc_setTaskCiv;
 };
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;

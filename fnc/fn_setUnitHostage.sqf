@@ -5,7 +5,7 @@ Last modified: 8/15/2015
 
 Description: set unit as hostage
 
-		returns boolean
+        returns boolean
 __________________________________________________________________*/
 private ["_unit","_anim"];
 

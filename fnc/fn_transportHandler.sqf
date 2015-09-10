@@ -15,7 +15,7 @@ _type = _package select 1;
 _dirArray = [];
 _spawnPos = [0,0,0];
 if !((missionNameSpace getVariable ["SEN_transportReady",0]) isEqualTo 1) exitWith {
-	["Transport is not available.","hintSilent",owner _requestor] call BIS_fnc_MP;
+    ["Transport is not available.","hintSilent",owner _requestor] call BIS_fnc_MP;
 };
 missionNamespace setVariable ["SEN_transportResponse", nil];
 missionNameSpace setVariable ["SEN_transportReady", 0];
@@ -39,35 +39,35 @@ waitUntil {uiSleep 1; !isNil "SEN_transportResponse"};
 
 _pos = missionnamespace getVariable ["SEN_transportResponse", []];
 if (_pos isEqualTo []) exitWith {
-	missionNameSpace setVariable ["SEN_transportReady", 1];
-	deleteVehicle _transport;
+    missionNameSpace setVariable ["SEN_transportReady", 1];
+    deleteVehicle _transport;
 };
 // check if near FOB and has helipad
 if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
-	if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
-		_fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
-		if(!isNil "_fobHeliPad") then {
-			_isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
-			if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
-		};
-	};
+    if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
+        _fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
+        if(!isNil "_fobHeliPad") then {
+            _isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
+            if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
+        };
+    };
 };
 
 {
-	_dir = ([_pos, getpos _x] call BIS_fnc_dirTo) + 180;
-	_dirArray pushBack [_forEachIndex,(_dir - 30),(_dir + 30)];
+    _dir = ([_pos, getpos _x] call BIS_fnc_dirTo) + 180;
+    _dirArray pushBack [_forEachIndex,(_dir - 30),(_dir + 30)];
 } forEach SEN_occupiedLocation;
 
 for "_s" from 1 to 20 do {
-	_sel = (_dirArray select (random ((count _dirArray) - 1))) select 0;
-	_spawnPos = [_pos,5000,6000,_dirArray select _sel] call SEN_fnc_findRandomPos;
-	{if (_spawnPos distance (getpos _x) < (SEN_range*0.2 max 2500)) exitWith {_spawnPos = [0,0,0]}} forEach SEN_occupiedLocation;
-	if !(_spawnPos isEqualTo [0,0,0]) exitWith {diag_log "good pos"};
-	uiSleep 0.1;
+    _sel = (_dirArray select (random ((count _dirArray) - 1))) select 0;
+    _spawnPos = [_pos,5000,6000,_dirArray select _sel] call SEN_fnc_findRandomPos;
+    {if (_spawnPos distance (getpos _x) < (SEN_range*0.2 max 2500)) exitWith {_spawnPos = [0,0,0]}} forEach SEN_occupiedLocation;
+    if !(_spawnPos isEqualTo [0,0,0]) exitWith {diag_log "good pos"};
+    uiSleep 0.1;
 };
 if (_spawnPos isEqualTo [0,0,0]) then {
-	[1,"fn_transportHandler: Good spawn position not found."] call SEN_fnc_log;
-	_spawnPos = [_pos,5000,6000] call SEN_fnc_findRandomPos;
+    [1,"fn_transportHandler: Good spawn position not found."] call SEN_fnc_log;
+    _spawnPos = [_pos,5000,6000] call SEN_fnc_findRandomPos;
 };
 _transport = createVehicle [_type,_spawnPos,[],0,"FLY"];
 _pilot = createGroup WEST createUnit [(SEN_unitPoolWest select (random ((count SEN_unitPoolWest) - 1))),_spawnPos, [], 0, "NONE"];
@@ -95,10 +95,10 @@ _helipad = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];
 ["SEN_transportAcknowledged","playSound",owner _requestor] call BIS_fnc_MP;
 _transport doMove _pos;
 [_mrk,_transport] spawn {
-	while {(missionNameSpace getVariable ["SEN_transportReady",0]) isEqualTo 0} do {
-		(_this select 0) setMarkerPos (getposATL (_this select 1));
-		uiSleep 5;
-	};
+    while {(missionNameSpace getVariable ["SEN_transportReady",0]) isEqualTo 0} do {
+        (_this select 0) setMarkerPos (getposATL (_this select 1));
+        uiSleep 5;
+    };
 };
 [_requestor,_transport,[_hlz,_mrk],_helipad] spawn SEN_fnc_transportDisabled;
 
@@ -118,20 +118,20 @@ deleteVehicle _helipad;
 waitUntil {uiSleep 1; ((_requestor in _transport) || time > (_t + 180))};
 
 if !(_requestor in _transport) exitWith {
-	["Requestor not in cargo. Transport returning to base.","hintSilent",owner _requestor] call BIS_fnc_MP;
-	{if !(_x in _crew) then {moveOut _x}} count (crew _transport);
-	_transport doMove [0,0,0];
+    ["Requestor not in cargo. Transport returning to base.","hintSilent",owner _requestor] call BIS_fnc_MP;
+    {if !(_x in _crew) then {moveOut _x}} count (crew _transport);
+    _transport doMove [0,0,0];
 
-	waitUntil {uiSleep 1; (count ([getposATL _transport,3000] call SEN_fnc_getNearPlayers) isEqualTo 0 || (_transport distance [0,0,100] < 500))};
+    waitUntil {uiSleep 1; (count ([getposATL _transport,3000] call SEN_fnc_getNearPlayers) isEqualTo 0 || (_transport distance [0,0,100] < 500))};
 
-	deleteMarker _hlz;
-	deleteMarker _mrk;
-	missionNameSpace setVariable ["SEN_transportReady", -1];
-	uiSleep 5;
-	deleteVehicle _pilot;
-	deleteVehicle _transport;
-	uiSleep 300;
-	missionNameSpace setVariable ["SEN_transportReady", 1];
+    deleteMarker _hlz;
+    deleteMarker _mrk;
+    missionNameSpace setVariable ["SEN_transportReady", -1];
+    uiSleep 5;
+    deleteVehicle _pilot;
+    deleteVehicle _transport;
+    uiSleep 300;
+    missionNameSpace setVariable ["SEN_transportReady", 1];
 };
 
 missionNamespace setVariable ["SEN_transportResponse", nil];
@@ -141,29 +141,29 @@ waitUntil {uiSleep 1; !isNil "SEN_transportResponse"};
 
 _pos = missionnamespace getVariable ["SEN_transportResponse", []];
 if (_pos isEqualTo []) exitWith {
-	{if !(_x in _crew) then {moveOut _x}} count (crew _transport);
-	_transport doMove [0,0,0];
+    {if !(_x in _crew) then {moveOut _x}} count (crew _transport);
+    _transport doMove [0,0,0];
 
-	waitUntil {uiSleep 1; (count ([getposATL _transport,3000] call SEN_fnc_getNearPlayers) isEqualTo 0 || (_transport distance [0,0,100] < 500))};
+    waitUntil {uiSleep 1; (count ([getposATL _transport,3000] call SEN_fnc_getNearPlayers) isEqualTo 0 || (_transport distance [0,0,100] < 500))};
 
-	deleteMarker _hlz;
-	deleteMarker _mrk;
-	missionNameSpace setVariable ["SEN_transportReady", -1];
-	uiSleep 5;
-	deleteVehicle _pilot;
-	deleteVehicle _transport;
-	uiSleep 300;
-	missionNameSpace setVariable ["SEN_transportReady", 1];
+    deleteMarker _hlz;
+    deleteMarker _mrk;
+    missionNameSpace setVariable ["SEN_transportReady", -1];
+    uiSleep 5;
+    deleteVehicle _pilot;
+    deleteVehicle _transport;
+    uiSleep 300;
+    missionNameSpace setVariable ["SEN_transportReady", 1];
 };
 // check if near FOB and has helipad
 if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
-	if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
-		_fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
-		if(!isNil "_fobHeliPad") then {
-			_isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
-			if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
-		};
-	};
+    if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
+        _fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
+        if(!isNil "_fobHeliPad") then {
+            _isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
+            if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
+        };
+    };
 };
 {if (isPlayer _x) then {["SEN_transportWelcome","playSound",owner _x] call BIS_fnc_MP}} forEach (crew _transport);
 _hlz setMarkerPos _pos;

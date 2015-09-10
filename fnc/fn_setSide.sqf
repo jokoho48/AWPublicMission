@@ -5,7 +5,7 @@ Last modified: 7/24/2015
 
 Description: switches an array of units to another side and groups them
 
-			 returns group
+             returns group
 __________________________________________________________________*/
 private ["_side","_newgrp"];
 

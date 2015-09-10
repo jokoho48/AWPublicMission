@@ -5,7 +5,7 @@ Last modified: 8/13/2015
 
 Description: spawns vehicle for VVS
 
-		returns nothing
+        returns nothing
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
@@ -26,13 +26,13 @@ if !(surfaceIsWater _position) then {_vehicle setPosATL _position} else {_vehicl
 _vehicle setVectorUp [0,0,1];
 
 if((_cfgInfo select 4) isEqualTo "Autonomous") then {
-	createVehicleCrew _vehicle;
+    createVehicleCrew _vehicle;
 };
 
 if(VVS_Checkbox) then {
-	clearWeaponCargoGlobal _vehicle;
-	clearMagazineCargoGlobal _vehicle;
-	clearItemCargoGlobal _vehicle;
+    clearWeaponCargoGlobal _vehicle;
+    clearMagazineCargoGlobal _vehicle;
+    clearItemCargoGlobal _vehicle;
 };
 
 uiSleep 5;

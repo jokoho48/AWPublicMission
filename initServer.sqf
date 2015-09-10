@@ -10,10 +10,10 @@ SEN_curatorFOBUnitUID = "";
 onPlayerDisconnected {if (_uid isEqualTo SEN_curatorFOBUnitUID) then {unassignCurator SEN_curatorFOB}};
 
 if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
-	_med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
-	{
-		if ((typeOf _x) in _med) then {_x setvariable["ace_medical_isMedicalFacility", true, true]};
-	} forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
+    _med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
+    {
+        if ((typeOf _x) in _med) then {_x setvariable["ace_medical_isMedicalFacility", true, true]};
+    } forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
 
 waitUntil {sleep 1; SEN_complete isEqualTo 2};

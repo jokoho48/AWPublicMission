@@ -5,7 +5,7 @@ Last modified: 8/15/2015
 
 Description: spawns suicide bomber
 
-			 returns nothing
+             returns nothing
 __________________________________________________________________*/
 private ["_unit","_range","_dist","_grp","_targets","_targetPlayer"];
 
@@ -24,33 +24,33 @@ _unit addVest "V_TacVestIR_blk";
 _unit addEventHandler ["Hit", {"HelicopterExploSmall" createVehicle ((_this select 0) modeltoworld [0,0,0]); (_this select 0) removeAllEventHandlers "Hit"}];
 
 [_unit,_targetPlayer,_dist] spawn {
-	_unit = vehicle (_this select 0);
-	_targetPlayer = _this select 1;
-	_dist = _this select 2;
-	while {alive (driver _unit)} do {
-		if ((_targetPlayer distance _unit) < (_dist*6 min 100)) then {
-			playSound3D ["A3\Sounds_F\sfx\Beep_Target.wss", _unit, false, getPosATL _unit, 1, 1, 200];
-		};
-		sleep (((_targetPlayer distance _unit)*0.005 max 0.1) min 1);
-	};
+    _unit = vehicle (_this select 0);
+    _targetPlayer = _this select 1;
+    _dist = _this select 2;
+    while {alive (driver _unit)} do {
+        if ((_targetPlayer distance _unit) < (_dist*6 min 100)) then {
+            playSound3D ["A3\Sounds_F\sfx\Beep_Target.wss", _unit, false, getPosATL _unit, 1, 1, 200];
+        };
+        sleep (((_targetPlayer distance _unit)*0.005 max 0.1) min 1);
+    };
 };
 
 [_unit,_targetPlayer,_dist] spawn {
-	_unit = _this select 0;
-	_targetPlayer = _this select 1;
-	_dist = _this select 2;
-	while {alive _unit} do {
-		uiSleep 8;
-		_unit doMove (getposatl _targetPlayer);
-		if (_unit distance _targetPlayer < _dist) exitWith {
-			"HelicopterExploSmall" createVehicle (_unit modeltoworld [0,0,0]);
-			deleteVehicle _unit;
-			[0,"Bomber detonation."] call SEN_fnc_log;
-		};
-		if (_unit distance _targetPlayer > 1000) exitWith {
-			deleteVehicle _unit;
-			[0,"Bomber is too far from target. Deleting bomber."] call SEN_fnc_log;
-		};
-	};
-	deleteVehicle _unit;
+    _unit = _this select 0;
+    _targetPlayer = _this select 1;
+    _dist = _this select 2;
+    while {alive _unit} do {
+        uiSleep 8;
+        _unit doMove (getposatl _targetPlayer);
+        if (_unit distance _targetPlayer < _dist) exitWith {
+            "HelicopterExploSmall" createVehicle (_unit modeltoworld [0,0,0]);
+            deleteVehicle _unit;
+            [0,"Bomber detonation."] call SEN_fnc_log;
+        };
+        if (_unit distance _targetPlayer > 1000) exitWith {
+            deleteVehicle _unit;
+            [0,"Bomber is too far from target. Deleting bomber."] call SEN_fnc_log;
+        };
+    };
+    deleteVehicle _unit;
 };

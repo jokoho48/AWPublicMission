@@ -1,10 +1,10 @@
 /*
-	File: fn_spawnVehicle.sqf
-	Author: Bryan "Tonic" Boardwine
+    File: fn_spawnVehicle.sqf
+    Author: Bryan "Tonic" Boardwine
 
-	Description:
-	Spawns the selected vehicle, if a vehicle is already on the spawn point
-	then it deletes the vehicle from the spawn point.
+    Description:
+    Spawns the selected vehicle, if a vehicle is already on the spawn point
+    then it deletes the vehicle from the spawn point.
 */
 
 disableSerialization;

@@ -5,7 +5,7 @@ Last modified: 7/28/2015
 
 Description: question civilians
 
-	     returns nothing
+         returns nothing
 __________________________________________________________________*/
 private ["_civ","_nearEnemies","_range","_near","_enemy","_local"];
 
@@ -21,13 +21,13 @@ _civ = _nearCivs select (random ((count _nearCivs) - 1));
 if (_civ in SEN_civQuestioned) exitWith {hintSilent format ["You already questioned %1.",name _civ]};
 SEN_civQuestioned pushBack _civ;
 if (random 100 < 85) then {
-	_near = _civ nearEntities [["Man","LandVehicle","Ship"], _range];
-	{if (side _x isEqualTo SEN_enemySide) then {_nearEnemies pushBack _x}} forEach _near;
-	if (count _nearEnemies isEqualTo 0) exitWith {hintSilent format ["%1 doesn't have any relevant information.",name _civ]};
-	_enemy = _nearEnemies select (random ((count _nearEnemies) - 1));
-	_local = (nearestLocations [getposATL _enemy, ["NameCityCapital","NameCity","NameVillage"], (((_range/2) min 1000) max 500)]);
-	if (count _local isEqualTo 0) exitWith {hintSilent format ["%1 doesn't have any relevant information.",name _civ]};
-	hintSilent format ["%1 saw soldiers around %2 not too long ago.",name _civ,text (_local select 0)];
+    _near = _civ nearEntities [["Man","LandVehicle","Ship"], _range];
+    {if (side _x isEqualTo SEN_enemySide) then {_nearEnemies pushBack _x}} forEach _near;
+    if (count _nearEnemies isEqualTo 0) exitWith {hintSilent format ["%1 doesn't have any relevant information.",name _civ]};
+    _enemy = _nearEnemies select (random ((count _nearEnemies) - 1));
+    _local = (nearestLocations [getposATL _enemy, ["NameCityCapital","NameCity","NameVillage"], (((_range/2) min 1000) max 500)]);
+    if (count _local isEqualTo 0) exitWith {hintSilent format ["%1 doesn't have any relevant information.",name _civ]};
+    hintSilent format ["%1 saw soldiers around %2 not too long ago.",name _civ,text (_local select 0)];
 } else {
-	hintSilent format ["%1 doesn't have any relevant information.",name _civ];
+    hintSilent format ["%1 doesn't have any relevant information.",name _civ];
 };

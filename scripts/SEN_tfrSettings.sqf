@@ -5,7 +5,7 @@ Last modified: 8/5/2015
 
 Description: TFAR settings
 
-		NOTE: created with TFAR 0.9.8 / TS 3.0.16
+        NOTE: created with TFAR 0.9.8 / TS 3.0.16
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 

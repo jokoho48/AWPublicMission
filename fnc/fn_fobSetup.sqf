@@ -5,7 +5,7 @@ Last modified: 8/15/2015
 
 Description: set FOB, handles recon and approval influence
 
-		returns nothing
+        returns nothing
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
@@ -52,43 +52,43 @@ SEN_curatorFOB addCuratorAddons _addons;
 [[SEN_curatorFOB],"SEN_fnc_fobSetEH",owner SEN_curatorFOB] call BIS_fnc_MP;
 
 [_reconRad,_unit,SEN_curatorFOB] spawn {
-	_hq = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F"];
+    _hq = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F", "Land_Cargo_HQ_V3_F"];
 
-	waitUntil {sleep 10; {typeOf _x in _hq} count (curatorEditableObjects (_this select 2)) > 0};
+    waitUntil {sleep 10; {typeOf _x in _hq} count (curatorEditableObjects (_this select 2)) > 0};
 
-	["HQ deployed.\nCivilian approval influenced by FOB readiness.\nAerial reconnaissance online.","hintSilent",owner (_this select 1)] call BIS_fnc_MP;
-	"SEN_fob_mrk" setMarkerColor "ColorWEST";
-	"SEN_fob_border_mrk" setMarkerColor "ColorWEST";
-	"SEN_fob_recon_mrk" setMarkerColor "ColorWEST";
-	_revealed = [];
-	_mrkArray = [];
-	uiSleep 30;
-	while {!(getMarkerColor "sen_fob_mrk" isEqualTo "")} do {
-		if (paramsArray select 5 isEqualTo 1) then {
-			_grps = [];
-			{
-				if (side (leader _x) isEqualTo SEN_enemySide && {(getPosATL (leader _x) distance getMarkerPos "sen_fob_mrk" < (_this select 0))} && {!(_x in _revealed)}) then {_grps pushBack _x};
-			} forEach (allGroups);
-			if (count _grps isEqualTo 0) exitWith {};
-			_reveal = _grps select (random ((count _grps) - 1));
-			if (alive (leader _reveal) && {random 1 < 0.7}) then {
-				_hour = str (date select 3);
-				_min = str (date select 4);
-				if (count _min < 2) then {_min = "0"+_min};
-				_format = _hour + ":" + _min;
-				_mrk = createMarker [format["SEN_fobRecon_%1_%2",getposATL (leader _reveal),time],getposATL (leader _reveal)];
-				_mrk setMarkerColor "ColorEAST";
-				_mrk setMarkerType "o_unknown";
-				_mrk setMarkerText format["%1",_format];
-				_mrk setMarkerSize [0.75,0.75];
-				_mrkArray pushBack _mrk;
-				_revealed pushBack _reveal;
-			};
-		};
-		_bonus = (ceil(abs(log((curatorPoints (_this select 2)) max .001))*30) min 25);
-		SEN_approvalCiv = SEN_approvalCiv + _bonus; publicVariable "SEN_approvalCiv";
-		[["SEN_approvalBonus",[_bonus]],"BIS_fnc_showNotification",(call SEN_fnc_getPlayers)] call BIS_fnc_MP;
-		uiSleep 1800;
-	};
-	SEN_markerCleanup append _mrkArray;
+    ["HQ deployed.\nCivilian approval influenced by FOB readiness.\nAerial reconnaissance online.","hintSilent",owner (_this select 1)] call BIS_fnc_MP;
+    "SEN_fob_mrk" setMarkerColor "ColorWEST";
+    "SEN_fob_border_mrk" setMarkerColor "ColorWEST";
+    "SEN_fob_recon_mrk" setMarkerColor "ColorWEST";
+    _revealed = [];
+    _mrkArray = [];
+    uiSleep 30;
+    while {!(getMarkerColor "sen_fob_mrk" isEqualTo "")} do {
+        if (paramsArray select 5 isEqualTo 1) then {
+            _grps = [];
+            {
+                if (side (leader _x) isEqualTo SEN_enemySide && {(getPosATL (leader _x) distance getMarkerPos "sen_fob_mrk" < (_this select 0))} && {!(_x in _revealed)}) then {_grps pushBack _x};
+            } forEach (allGroups);
+            if (count _grps isEqualTo 0) exitWith {};
+            _reveal = _grps select (random ((count _grps) - 1));
+            if (alive (leader _reveal) && {random 1 < 0.7}) then {
+                _hour = str (date select 3);
+                _min = str (date select 4);
+                if (count _min < 2) then {_min = "0"+_min};
+                _format = _hour + ":" + _min;
+                _mrk = createMarker [format["SEN_fobRecon_%1_%2",getposATL (leader _reveal),time],getposATL (leader _reveal)];
+                _mrk setMarkerColor "ColorEAST";
+                _mrk setMarkerType "o_unknown";
+                _mrk setMarkerText format["%1",_format];
+                _mrk setMarkerSize [0.75,0.75];
+                _mrkArray pushBack _mrk;
+                _revealed pushBack _reveal;
+            };
+        };
+        _bonus = (ceil(abs(log((curatorPoints (_this select 2)) max .001))*30) min 25);
+        SEN_approvalCiv = SEN_approvalCiv + _bonus; publicVariable "SEN_approvalCiv";
+        [["SEN_approvalBonus",[_bonus]],"BIS_fnc_showNotification",(call SEN_fnc_getPlayers)] call BIS_fnc_MP;
+        uiSleep 1800;
+    };
+    SEN_markerCleanup append _mrkArray;
 };

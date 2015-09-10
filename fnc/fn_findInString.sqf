@@ -5,9 +5,9 @@ Last modified:
 
 Description: Find a string within a string (case insensitive)
 
-			 NOTE: ["look for this", "look in this"] call KK_fnc_inString;
+             NOTE: ["look for this", "look in this"] call KK_fnc_inString;
 
-			 returns boolean
+             returns boolean
 __________________________________________________________________*/
 private ["_needle","_haystack","_needleLen","_hay","_found"];
 _needle = param [0,"",[""]];

@@ -5,7 +5,7 @@ Last modified: 8/5/2015
 
 Description: TFAR clientside settings
 
-		NOTE: created with TFAR 0.9.8 / TS 3.0.16
+        NOTE: created with TFAR 0.9.8 / TS 3.0.16
 __________________________________________________________________*/
 waitUntil {sleep 0.1; !isNil "SEN_tfr_sw"};
 // channels are zero based!! _tfr_ch_plt = 0 means Platoon team is on ch 1
@@ -37,45 +37,45 @@ _default_add = -1;
 // players on SUPPORT Net are given LR radios by default
 
 call {
-	if (player getvariable ["SEN_team",""] isEqualTo "plt") exitWith {
-		if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
-			SEN_tfr_ch_sw = _tfr_ch_plt;
-			SEN_tfr_add_sw = _tfr_ch_command;
-		} else {
-			SEN_tfr_ch_sw = _tfr_ch_plt;
-			SEN_tfr_add_sw = _default_add;
-		};
-		SEN_tfr_ch_lr = _tfr_ch_support;
-	};
-	if (player getvariable ["SEN_team",""] isEqualTo "a" || {player getvariable ["SEN_team",""] isEqualTo "a1"} || {player getvariable ["SEN_team",""] isEqualTo "a2"}) exitWith {
-		if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
-			SEN_tfr_ch_sw = _tfr_ch_a;
-			SEN_tfr_add_sw = _tfr_ch_command;
-		} else {
-			SEN_tfr_ch_sw = _tfr_ch_a;
-			SEN_tfr_add_sw = _default_add;
-		};
-		SEN_tfr_ch_lr = _tfr_ch_support;
-	};
-	if (player getvariable ["SEN_team",""] isEqualTo "b" || {player getvariable ["SEN_team",""] isEqualTo "b1"} || {player getvariable ["SEN_team",""] isEqualTo "b2"}) exitWith {
-		if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
-			SEN_tfr_ch_sw = _tfr_ch_b;
-			SEN_tfr_add_sw = _tfr_ch_command;
-		} else {
-			SEN_tfr_ch_sw = _tfr_ch_b;
-			SEN_tfr_add_sw = _default_add;
-		};
-		SEN_tfr_ch_lr = _tfr_ch_support;
-	};
-	if (player getvariable ["SEN_team",""] isEqualTo "rh1") exitWith {
-		SEN_tfr_ch_sw = _tfr_ch_rh1;
-		SEN_tfr_add_sw = _default_add;
-		SEN_tfr_ch_lr = _tfr_ch_support;
-	};
-	if (player getvariable ["SEN_team",""] isEqualTo "r") exitWith {
-		SEN_tfr_ch_sw = _tfr_ch_r;
-		SEN_tfr_add_sw = _default_add;
-		SEN_tfr_ch_lr = _tfr_ch_support;
-	};
+    if (player getvariable ["SEN_team",""] isEqualTo "plt") exitWith {
+        if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
+            SEN_tfr_ch_sw = _tfr_ch_plt;
+            SEN_tfr_add_sw = _tfr_ch_command;
+        } else {
+            SEN_tfr_ch_sw = _tfr_ch_plt;
+            SEN_tfr_add_sw = _default_add;
+        };
+        SEN_tfr_ch_lr = _tfr_ch_support;
+    };
+    if (player getvariable ["SEN_team",""] isEqualTo "a" || {player getvariable ["SEN_team",""] isEqualTo "a1"} || {player getvariable ["SEN_team",""] isEqualTo "a2"}) exitWith {
+        if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
+            SEN_tfr_ch_sw = _tfr_ch_a;
+            SEN_tfr_add_sw = _tfr_ch_command;
+        } else {
+            SEN_tfr_ch_sw = _tfr_ch_a;
+            SEN_tfr_add_sw = _default_add;
+        };
+        SEN_tfr_ch_lr = _tfr_ch_support;
+    };
+    if (player getvariable ["SEN_team",""] isEqualTo "b" || {player getvariable ["SEN_team",""] isEqualTo "b1"} || {player getvariable ["SEN_team",""] isEqualTo "b2"}) exitWith {
+        if (player getvariable ["SEN_commNet",""] isEqualTo "command") then {
+            SEN_tfr_ch_sw = _tfr_ch_b;
+            SEN_tfr_add_sw = _tfr_ch_command;
+        } else {
+            SEN_tfr_ch_sw = _tfr_ch_b;
+            SEN_tfr_add_sw = _default_add;
+        };
+        SEN_tfr_ch_lr = _tfr_ch_support;
+    };
+    if (player getvariable ["SEN_team",""] isEqualTo "rh1") exitWith {
+        SEN_tfr_ch_sw = _tfr_ch_rh1;
+        SEN_tfr_add_sw = _default_add;
+        SEN_tfr_ch_lr = _tfr_ch_support;
+    };
+    if (player getvariable ["SEN_team",""] isEqualTo "r") exitWith {
+        SEN_tfr_ch_sw = _tfr_ch_r;
+        SEN_tfr_add_sw = _default_add;
+        SEN_tfr_ch_lr = _tfr_ch_support;
+    };
 };
 call SEN_fnc_setTfrRadio;

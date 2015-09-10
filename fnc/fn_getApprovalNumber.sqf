@@ -5,7 +5,7 @@ Last modified: 7/17/2015
 
 Description: calculates number based on approval
 
-		returns number
+        returns number
 __________________________________________________________________*/
 private ["_min","_max","_chanceAtZeroApproval","_multiplier","_chance"];
 

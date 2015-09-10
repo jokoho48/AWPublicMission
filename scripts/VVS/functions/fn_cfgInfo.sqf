@@ -1,19 +1,19 @@
 /*
-	File: fn_cfgInfo.sqf
-	Author: Bryan "Tonic" Boardwine
+    File: fn_cfgInfo.sqf
+    Author: Bryan "Tonic" Boardwine
 
-	Description:
-	Used in returning information about a vehicle from Config >> "CfgVehicles"
+    Description:
+    Used in returning information about a vehicle from Config >> "CfgVehicles"
 
-	Return:
-	0: classname
-	1: scope
-	2: picture
-	3: displayname
-	4: vehicleclass
-	5: side
-	6: faction
-	7: Base / Superclass
+    Return:
+    0: classname
+    1: scope
+    2: picture
+    3: displayname
+    4: vehicleclass
+    5: side
+    6: faction
+    7: Base / Superclass
 */
 private["_class","_scope","_picture","_displayName","_vehicleClass","_side","_faction","_superClass"];
 _class = [_this,0,"",[""]] call BIS_fnc_param;

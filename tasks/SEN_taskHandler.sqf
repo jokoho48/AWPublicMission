@@ -12,20 +12,20 @@ SEN_taskSleepCiv = 1800; // time (sec) between civilian tasks
 SEN_totalTaskCount = (paramsArray select 9);
 
 SEN_taskList = [
-	"defend",
-	"repair",
-	"vip",
-	"defuse",
-	"arty",
-	"cache",
-	"steal"
+    "defend",
+    "repair",
+    "vip",
+    "defuse",
+    "arty",
+    "cache",
+    "steal"
 ];
 
 SEN_taskListCiv = [
-	"rescue",
-	"deliver",
-	"stabilize",
-	"identify"
+    "rescue",
+    "deliver",
+    "stabilize",
+    "identify"
 ];
 
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};

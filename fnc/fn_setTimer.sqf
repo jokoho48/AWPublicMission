@@ -5,7 +5,7 @@ Last modified: 1/10/2015
 
 Description: Formats timer for tasks
 
-			 returns time
+             returns time
 __________________________________________________________________*/
 private ["_in","_sec","_min"];
 

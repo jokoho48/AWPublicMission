@@ -22,34 +22,34 @@ _roads = _pos nearRoads 50;
 missionNameSpace setvariable [_trgVar,true];
 
 for "_i" from 0 to (_vehCount min (count _roads)) - 1 do {
-	_veh = (SEN_vehPoolCiv select (random ((count SEN_vehPoolCiv) - 1))) createVehicle (getposATL (_roads select _i));
-	_unit = _vehgrp createUnit [(SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1))), _pos, [], 0, "NONE"];
-	_unit disableAI "TARGET";
-	_unit disableAI "AUTOTARGET";
-	_unit disableAI "AIMINGERROR";
-	_unit disableAI "SUPPRESSION";
-	_unit setBehaviour "CARELESS";
-	_unit moveInDriver _veh;
-	_vehArray pushBack _veh;
-	_driverArray pushBack _unit;
-	[_unit,700,false] spawn SEN_fnc_setPatrolVeh;
+    _veh = (SEN_vehPoolCiv select (random ((count SEN_vehPoolCiv) - 1))) createVehicle (getposATL (_roads select _i));
+    _unit = _vehgrp createUnit [(SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1))), _pos, [], 0, "NONE"];
+    _unit disableAI "TARGET";
+    _unit disableAI "AUTOTARGET";
+    _unit disableAI "AIMINGERROR";
+    _unit disableAI "SUPPRESSION";
+    _unit setBehaviour "CARELESS";
+    _unit moveInDriver _veh;
+    _vehArray pushBack _veh;
+    _driverArray pushBack _unit;
+    [_unit,700,false] spawn SEN_fnc_setPatrolVeh;
 };
 
 for "_i" from 0 to _unitCount - 1 do {
-	_unit = _grp createUnit [(SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1))), _pos, [], 0, "NONE"];
-	_unit disableAI "FSM";
-	_unit disableAI "TARGET";
-	_unit disableAI "AUTOTARGET";
-	_unit disableAI "AIMINGERROR";
-	_unit disableAI "SUPPRESSION";
-	_unit setBehaviour "CARELESS";
-	_unitArray pushBack _unit;
+    _unit = _grp createUnit [(SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1))), _pos, [], 0, "NONE"];
+    _unit disableAI "FSM";
+    _unit disableAI "TARGET";
+    _unit disableAI "AUTOTARGET";
+    _unit disableAI "AIMINGERROR";
+    _unit disableAI "SUPPRESSION";
+    _unit setBehaviour "CARELESS";
+    _unitArray pushBack _unit;
 };
 
 if (random 100 < ((call SEN_fnc_getApproval) select 0)) then {
-	_unit = ((_unitArray + _driverArray) select (random ((count (_unitArray + _driverArray)) - 1)));
-	_unit setVariable ["SEN_patrol_exit",true];
-	[_unit,((SEN_range*0.04) max 400)+50] call SEN_fnc_spawnCivSuicide;
+    _unit = ((_unitArray + _driverArray) select (random ((count (_unitArray + _driverArray)) - 1)));
+    _unit setVariable ["SEN_patrol_exit",true];
+    [_unit,((SEN_range*0.04) max 400)+50] call SEN_fnc_spawnCivSuicide;
 };
 
 [_grp,80] spawn SEN_fnc_setPatrolGroup;

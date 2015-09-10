@@ -8,11 +8,11 @@ __________________________________________________________________*/
 if (!hasInterface) exitWith {};
 
 if (SEN_acreEnabled) exitWith {
-	call SEN_fnc_setAcreRadio;
+    call SEN_fnc_setAcreRadio;
 };
 
 if (SEN_tfrEnabled) exitWith {
-	call SEN_fnc_setTfrRadio;
+    call SEN_fnc_setTfrRadio;
 };
 
 hintSilent "Cannot issue radio. You do not have ACRE2 or TFR enabled.";

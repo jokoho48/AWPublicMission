@@ -21,18 +21,18 @@ SEN_intelObj = (createGroup SEN_enemySide) createUnit [_unitType,_officerTown, [
 removeFromRemainsCollector [SEN_intelObj];
 
 SEN_intelObj addEventHandler ["hit", {
-	(_this select 0) removeAllEventHandlers "hit";
-	if (alive (_this select 0)) then {
-		[(_this select 0)] call SEN_fnc_setUnitSurrender;
-	};
+    (_this select 0) removeAllEventHandlers "hit";
+    if (alive (_this select 0)) then {
+        [(_this select 0)] call SEN_fnc_setUnitSurrender;
+    };
 }];
 [group SEN_intelObj,90] spawn SEN_fnc_setPatrolGroup;
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,-1,true,"Search",false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
-	[_taskID] call BIS_fnc_taskSetCurrent;
-	[_taskID,getPosATL SEN_intelObj] call BIS_fnc_taskSetDestination;
+    [_taskID] call BIS_fnc_taskSetCurrent;
+    [_taskID,getPosATL SEN_intelObj] call BIS_fnc_taskSetDestination;
 };
 
 waitUntil {sleep 10; SEN_taskSuccess isEqualTo 1};

@@ -41,43 +41,43 @@ SEN_defuseObj = "Land_SatellitePhone_F" createVehicle [0,0,0]; publicVariable "S
 SEN_intelObj = "Land_Laptop_device_F" createVehicle [0,0,0]; publicVariable "SEN_intelObj";
 
 if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
-	waitUntil {
-			sleep 0.1;
-			_pos = [_townPos,_radius,_radius*0.4,2,false,1.5] call SEN_fnc_findPosArray;
-			!(count _pos isEqualTo 0)
-		};
-	_pos1 = (_pos select 0);
-	_pos2 = (_pos select 1);
-	_platform1 setPosATL _pos1;
-	_platform1 setVectorUp (surfacenormal (getPosATL _platform1));
-	_platform2 setPosATL _pos2;
-	_platform2 setVectorUp (surfacenormal (getPosATL _platform2));
+    waitUntil {
+            sleep 0.1;
+            _pos = [_townPos,_radius,_radius*0.4,2,false,1.5] call SEN_fnc_findPosArray;
+            !(count _pos isEqualTo 0)
+        };
+    _pos1 = (_pos select 0);
+    _pos2 = (_pos select 1);
+    _platform1 setPosATL _pos1;
+    _platform1 setVectorUp (surfacenormal (getPosATL _platform1));
+    _platform2 setPosATL _pos2;
+    _platform2 setVectorUp (surfacenormal (getPosATL _platform2));
 } else {
-	waitUntil {
-			sleep 0.1;
-			_pos = [_townPos,_radius,_radius*0.4,2,false,1.5] call SEN_fnc_findPosArray;
-			!(count _pos isEqualTo 0)
-		};
-	_houseArray = [_townPos,_radius] call SEN_fnc_findHousePos;
-	if (count (_houseArray select 1) isEqualTo 0) then {
-		_pos1 = (_pos select 0);
-		_platform1 setPosATL _pos1;
-		_platform1 setVectorUp (surfacenormal (getPosATL _platform1));
-	} else {
-		_pos1 = _houseArray select 1;
-		_platform1 setPosATL _pos1;
-		_platform1 setVectorUp [0,0,1];
-	};
-	_houseArray = [_townPos,_radius] call SEN_fnc_findHousePos;
-	if (count (_houseArray select 1) isEqualTo 0) then {
-		_pos2 = (_pos select 1);
-		_platform2 setPosATL _pos2;
-		_platform2 setVectorUp (surfacenormal (getPosATL _platform2));
-	} else {
-		_pos2 = _houseArray select 1;
-		_platform2 setPosATL _pos2;
-		_platform2 setVectorUp [0,0,1];
-	};
+    waitUntil {
+            sleep 0.1;
+            _pos = [_townPos,_radius,_radius*0.4,2,false,1.5] call SEN_fnc_findPosArray;
+            !(count _pos isEqualTo 0)
+        };
+    _houseArray = [_townPos,_radius] call SEN_fnc_findHousePos;
+    if (count (_houseArray select 1) isEqualTo 0) then {
+        _pos1 = (_pos select 0);
+        _platform1 setPosATL _pos1;
+        _platform1 setVectorUp (surfacenormal (getPosATL _platform1));
+    } else {
+        _pos1 = _houseArray select 1;
+        _platform1 setPosATL _pos1;
+        _platform1 setVectorUp [0,0,1];
+    };
+    _houseArray = [_townPos,_radius] call SEN_fnc_findHousePos;
+    if (count (_houseArray select 1) isEqualTo 0) then {
+        _pos2 = (_pos select 1);
+        _platform2 setPosATL _pos2;
+        _platform2 setVectorUp (surfacenormal (getPosATL _platform2));
+    } else {
+        _pos2 = _houseArray select 1;
+        _platform2 setPosATL _pos2;
+        _platform2 setVectorUp [0,0,1];
+    };
 };
 
 SEN_intelObj setposATL [((getposATL _platform1) select 0), ((getposATL _platform1) select 1), ((getposatl _platform1) select 2) + 0.825];
@@ -95,7 +95,7 @@ _vehArray = _grpArray select 1;
 _grp = _grpArray select 2;
 [_grp] spawn SEN_fnc_setPatrolGroup;
 if !(count _vehArray isEqualTo 0) then {
-	[group (_vehArray select 0),_townPos,500] call BIS_fnc_taskPatrol;
+    [group (_vehArray select 0),_townPos,500] call BIS_fnc_taskPatrol;
 };
 
 _mrkDet = createMarker ["SEN_defuse1_mrk",([getPosATL SEN_defuseObj,0,_radius2] call SEN_fnc_findRandomPos)];
@@ -109,14 +109,14 @@ _mrkDefuse setMarkerShape "ELLIPSE";
 _mrkDefuse setMarkerAlpha 0.7;
 _mrkDefuse setMarkerSize [_radius2,_radius2];
 if (SEN_debug isEqualTo 1) then {
-	_mrkDebug1 = createMarker ["SEN_defuse3_mrk",(getposATL SEN_defuseObj)];
-	_mrkDebug1 setMarkerType "mil_dot";
-	_mrkDebug1 setMarkerText "DET";
-	_mrkDebug1 setMarkerColor "ColorEAST";
-	_mrkDebug2 = createMarker ["SEN_defuse4_mrk",(getposATL SEN_intelObj)];
-	_mrkDebug2 setMarkerType "mil_dot";
-	_mrkDebug2 setMarkerText "CODE";
-	_mrkDebug2 setMarkerColor "ColorEAST";
+    _mrkDebug1 = createMarker ["SEN_defuse3_mrk",(getposATL SEN_defuseObj)];
+    _mrkDebug1 setMarkerType "mil_dot";
+    _mrkDebug1 setMarkerText "DET";
+    _mrkDebug1 setMarkerColor "ColorEAST";
+    _mrkDebug2 = createMarker ["SEN_defuse4_mrk",(getposATL SEN_intelObj)];
+    _mrkDebug2 setMarkerType "mil_dot";
+    _mrkDebug2 setMarkerText "CODE";
+    _mrkDebug2 setMarkerColor "ColorEAST";
 };
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Search",false] call BIS_fnc_taskCreate;
@@ -126,21 +126,21 @@ if (SEN_debug isEqualTo 1) then {
 waitUntil {sleep 5; (SEN_armed || SEN_defused || SEN_taskSuccess isEqualTo 1)};
 
 if (SEN_taskSuccess isEqualTo 1) then {
-	_nearPlayers = [getposATL SEN_intelObj,5] call SEN_fnc_getNearPlayers;
-	[[[], {uiSleep 0.5; [format["<t size='0.6'>Code: %1</t>", SEN_codeDefuse]] spawn bis_fnc_dynamicText;}], "BIS_fnc_call", _nearPlayers] call BIS_fnc_MP;
-	deleteVehicle SEN_intelObj;
-	waitUntil {sleep 5; SEN_armed || SEN_defused};
+    _nearPlayers = [getposATL SEN_intelObj,5] call SEN_fnc_getNearPlayers;
+    [[[], {uiSleep 0.5; [format["<t size='0.6'>Code: %1</t>", SEN_codeDefuse]] spawn bis_fnc_dynamicText;}], "BIS_fnc_call", _nearPlayers] call BIS_fnc_MP;
+    deleteVehicle SEN_intelObj;
+    waitUntil {sleep 5; SEN_armed || SEN_defused};
 };
 
 if (SEN_armed) exitWith {
-	[_taskID, "FAILED"] call BIS_fnc_taskSetState;
-	SEN_whitelistLocation = SEN_whitelistLocation - [_bombTown];
-	deleteVehicle SEN_intelObj;
-	deleteVehicle SEN_defuseObj;
-	SEN_objectCleanup append [_platform1,_platform2];
-	SEN_markerCleanup append [_mrkDefuse,_mrkDet];
-	if (SEN_debug isEqualTo 1) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
-	[] call SEN_fnc_setTask;
+    [_taskID, "FAILED"] call BIS_fnc_taskSetState;
+    SEN_whitelistLocation = SEN_whitelistLocation - [_bombTown];
+    deleteVehicle SEN_intelObj;
+    deleteVehicle SEN_defuseObj;
+    SEN_objectCleanup append [_platform1,_platform2];
+    SEN_markerCleanup append [_mrkDefuse,_mrkDet];
+    if (SEN_debug isEqualTo 1) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
+    [] call SEN_fnc_setTask;
 };
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;

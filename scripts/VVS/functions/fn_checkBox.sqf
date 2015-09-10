@@ -1,9 +1,9 @@
 /*
-	File: fn_checkBox.sqf
-	
-	Description:
-	Short macro for clearing vehicle cargo, will change in the future and be
-	expanded into actual checkboxes, etc.
+    File: fn_checkBox.sqf
+
+    Description:
+    Short macro for clearing vehicle cargo, will change in the future and be
+    expanded into actual checkboxes, etc.
 */
 disableSerialization;
 private["_control"];
@@ -13,12 +13,12 @@ if(VVS_Checkbox) then {VVS_Checkbox = false;} else {VVS_Checkbox = true;};
 
 if(VVS_Checkbox) then
 {
-	hint "You have marked that the vehicles Cargo (Weapons,Magazines,Items) will be cleared on spawn.";
-	_control ctrlSetText "Yes";
-	_control ctrlSetTextColor [0,1,0,1];
+    hint "You have marked that the vehicles Cargo (Weapons,Magazines,Items) will be cleared on spawn.";
+    _control ctrlSetText "Yes";
+    _control ctrlSetTextColor [0,1,0,1];
 }
-	else
+    else
 {
-	_control ctrlSetText "No";
-	_control ctrlSetTextColor [1,0,0,1];
+    _control ctrlSetText "No";
+    _control ctrlSetTextColor [1,0,0,1];
 };

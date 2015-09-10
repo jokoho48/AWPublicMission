@@ -5,7 +5,7 @@ Last modified: 1/11/2015
 
 Description: formats and logs messages to RPT
 
-			 returns nothing
+             returns nothing
 __________________________________________________________________*/
 private ["_type","_msg"];
 
@@ -15,9 +15,9 @@ if !(typeName (_this select 1) isEqualTo "STRING") exitWith {diag_log "SEN_ERROR
 _type = _this select 0;
 
 call {
-	if (_type isEqualTo 1) exitWith {_type = "SEN_WARNING: "};
-	if (_type isEqualTo 2) exitWith {_type = "SEN_ERROR: "};
-	_type = "SEN_LOG: ";
+    if (_type isEqualTo 1) exitWith {_type = "SEN_WARNING: "};
+    if (_type isEqualTo 2) exitWith {_type = "SEN_ERROR: "};
+    _type = "SEN_LOG: ";
 };
 
 _msg = _type + (_this select 1);
@@ -27,5 +27,5 @@ _this deleteAt 0;
 diag_log format _this;
 
 if (SEN_debug isEqualTo 1) then {
-	hintSilent format _this;
+    hintSilent format _this;
 };

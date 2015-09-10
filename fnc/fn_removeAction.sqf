@@ -5,7 +5,7 @@ Last modified: 7/22/2014
 
 Description: removes multiple actions
 
-		returns nothing
+        returns nothing
 __________________________________________________________________*/
 private ["_obj","_id"];
 

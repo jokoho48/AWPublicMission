@@ -1,8 +1,8 @@
 class param0 {
-	title = "---------------------- Dynamic Combat Generator Parameters ----------------------";
-	values[] = {1};
-	texts[] = {""};
-	default = 1;
+    title = "---------------------- Dynamic Combat Generator Parameters ----------------------";
+    values[] = {1};
+    texts[] = {""};
+    default = 1;
    SEN_paramCode = "";
 };
 class param1 {
@@ -63,17 +63,17 @@ class param8 {
    SEN_paramCode = "";
 };
 class param9 {
-	title = "Tasks Count";
-	values[] = {1,2,3,4};
-	texts[] = {"1", "2", "3", "4"};
-	default = 2;
+    title = "Tasks Count";
+    values[] = {1,2,3,4};
+    texts[] = {"1", "2", "3", "4"};
+    default = 2;
    SEN_paramCode = "";
 };
 class param10 {
-	title = "Occupied Location Visual Effects";
-	values[] = {0,1};
-	texts[] = {"Off","On"};
-	default = 1;
+    title = "Occupied Location Visual Effects";
+    values[] = {0,1};
+    texts[] = {"Off","On"};
+    default = 1;
    SEN_paramCode = "";
 };
 class param11 {

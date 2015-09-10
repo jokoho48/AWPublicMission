@@ -5,7 +5,7 @@ Last modified: 7/22/2014
 
 Description: gets list of players
 
-		returns array
+        returns array
 __________________________________________________________________*/
 private "_players";
 

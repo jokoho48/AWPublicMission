@@ -12,9 +12,9 @@ _taskText = "Eliminate Artillery";
 _taskDescription = "There is an imminent artillery barrage targeting MOB Dodge. Command is evacuating the base, but your team needs to disable the artillery immediately!";
 
 if (worldName isEqualTo "Stratis") exitWith { // Stratis is too hilly
-	SEN_taskList pushBack _taskID;
-	SEN_taskCounter = SEN_taskCounter - 1;
-	[] call SEN_fnc_setTask;
+    SEN_taskList pushBack _taskID;
+    SEN_taskCounter = SEN_taskCounter - 1;
+    [] call SEN_fnc_setTask;
 };
 
 SEN_defused = false;
@@ -30,9 +30,9 @@ _pos = [];
 
 _pos = [SEN_centerPos,SEN_range,140] call SEN_fnc_findRuralFlatPos;
 if (_pos isEqualTo []) exitWith {
-	SEN_taskList pushBack _taskID;
-	SEN_taskCounter = SEN_taskCounter - 1;
-	[] call SEN_fnc_setTask;
+    SEN_taskList pushBack _taskID;
+    SEN_taskCounter = SEN_taskCounter - 1;
+    [] call SEN_fnc_setTask;
 };
 
 _grpArray = [_pos,SEN_enemySide,8,.5,2] call SEN_fnc_spawnSquad;
@@ -42,45 +42,45 @@ _grp = _grpArray select 2;
 _posArty = getposATL ((nearestObjects [_pos, ["Land_DuctTape_F"], 200]) select 0);
 
 for "_j" from 1 to 3 do {
-	_arty = "O_MBT_02_arty_F" createVehicle [0,0,0];
-	_arty setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
-	_arty setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
-	_arty setObjectTextureGlobal [3, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
-	_arty allowDamage false;
-	_arty setDir (getDir _arty - 70);
-	if (count _artyArray > 0) then {
-		_posArty = ((_artyArray select (count _artyArray - 1)) modelToWorld [10,0,0]);
-		_posArty set [2,0];
-		_arty setPosATL _posArty;
-	} else {
-		_arty setPosATL _posArty;
-	};
-	_arty setFuel 0;
-	_arty lock true;
-	_arty allowCrewInImmobile true;
-	_arty addEventHandler ["HandleDamage", {if ((_this select 4) isKindof "PipeBombBase" && {(_this select 2) > 0.6}) then {(_this select 0) setdamage 1;}}];
-	_artyArray pushBack _arty;
-	_gunner = _gunnerGrp createUnit [_unitType, _pos, [], 0, "NONE"];
-	_gunnerArray pushBack _gunner;
-	_gunner assignAsGunner _arty;
-	_gunner moveInGunner  _arty;
-	_gunner setFormDir (getDir _arty);
-	_gunner setDir (getDir _arty);
-	_gunner doWatch (_gunner modelToWorld [0,100,30]);
-	_gunner disableAI "MOVE";
-	_gunner disableAI "ANIM";
-	_gunner disableAI "FSM";
-	_gunner disableAI "TARGET";
-	_gunner disableAI "AUTOTARGET";
-	_gunner disableAI "AIMINGERROR";
-	_gunner disableAI "SUPPRESSION";
-	sleep 1;
-	_arty allowDamage true;
+    _arty = "O_MBT_02_arty_F" createVehicle [0,0,0];
+    _arty setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
+    _arty setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
+    _arty setObjectTextureGlobal [3, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
+    _arty allowDamage false;
+    _arty setDir (getDir _arty - 70);
+    if (count _artyArray > 0) then {
+        _posArty = ((_artyArray select (count _artyArray - 1)) modelToWorld [10,0,0]);
+        _posArty set [2,0];
+        _arty setPosATL _posArty;
+    } else {
+        _arty setPosATL _posArty;
+    };
+    _arty setFuel 0;
+    _arty lock true;
+    _arty allowCrewInImmobile true;
+    _arty addEventHandler ["HandleDamage", {if ((_this select 4) isKindof "PipeBombBase" && {(_this select 2) > 0.6}) then {(_this select 0) setdamage 1;}}];
+    _artyArray pushBack _arty;
+    _gunner = _gunnerGrp createUnit [_unitType, _pos, [], 0, "NONE"];
+    _gunnerArray pushBack _gunner;
+    _gunner assignAsGunner _arty;
+    _gunner moveInGunner  _arty;
+    _gunner setFormDir (getDir _arty);
+    _gunner setDir (getDir _arty);
+    _gunner doWatch (_gunner modelToWorld [0,100,30]);
+    _gunner disableAI "MOVE";
+    _gunner disableAI "ANIM";
+    _gunner disableAI "FSM";
+    _gunner disableAI "TARGET";
+    _gunner disableAI "AUTOTARGET";
+    _gunner disableAI "AIMINGERROR";
+    _gunner disableAI "SUPPRESSION";
+    sleep 1;
+    _arty allowDamage true;
 };
 
 [_grp,100] spawn SEN_fnc_setPatrolGroup;
 if !(count _vehArray isEqualTo 0) then {
-	[group (_vehArray select 0),_pos,500] call BIS_fnc_taskPatrol;
+    [group (_vehArray select 0),_pos,500] call BIS_fnc_taskPatrol;
 };
 
 _posMrk = [_pos,0,_artyRadius] call SEN_fnc_findRandomPos;
@@ -93,8 +93,8 @@ _mrkArty setMarkerSize [_artyRadius,_artyRadius];
 [WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Destroy",false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
-	[_taskID] call BIS_fnc_taskSetCurrent;
-	[_taskID,_posArty] call BIS_fnc_taskSetDestination;
+    [_taskID] call BIS_fnc_taskSetCurrent;
+    [_taskID,_posArty] call BIS_fnc_taskSetDestination;
 };
 
 [_gunnerArray,getMarkerPos "respawn_west",3600] spawn SEN_fnc_timerArty;
@@ -102,17 +102,17 @@ if(SEN_debug isEqualTo 1) then {
 waitUntil {sleep 10; SEN_armed || (({alive _x} count _artyArray) isEqualTo 0)};
 
 if (SEN_armed) exitWith {
-	[_taskID, "FAILED"] call BIS_fnc_taskSetState;
+    [_taskID, "FAILED"] call BIS_fnc_taskSetState;
 
-	for "_t" from 0 to 5 do {
-		playSound3D ["A3\Sounds_F\sfx\alarm_independent.wss", SEN_alarmMOB];
-		sleep 10;
-	};
+    for "_t" from 0 to 5 do {
+        playSound3D ["A3\Sounds_F\sfx\alarm_independent.wss", SEN_alarmMOB];
+        sleep 10;
+    };
 
-	SEN_objectCleanup append _artyArray;
-	SEN_objectCleanup append _baseArray;
-	SEN_markerCleanup pushBack _mrkArty;
-	[] call SEN_fnc_setTask;
+    SEN_objectCleanup append _artyArray;
+    SEN_objectCleanup append _baseArray;
+    SEN_markerCleanup pushBack _mrkArty;
+    [] call SEN_fnc_setTask;
 };
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;

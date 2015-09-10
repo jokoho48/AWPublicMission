@@ -5,7 +5,7 @@ Last modified: 8/15/2015
 
 Description: check approval on client
 
-			 returns nothing
+             returns nothing
 __________________________________________________________________*/
 private ["_approvalArray","_stance","_suicide","_rebel"];
 

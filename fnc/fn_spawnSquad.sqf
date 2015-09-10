@@ -5,7 +5,7 @@ Last modified: 7/16/2015
 
 Description: spawns squad
 
-		returns array, [[base objects],[driver array],grp]
+        returns array, [[base objects],[driver array],grp]
 __________________________________________________________________*/
 private ["_pos","_side","_minCount","_vehChance","_baseType","_uncache","_return","_base","_vehArray","_grp"];
 

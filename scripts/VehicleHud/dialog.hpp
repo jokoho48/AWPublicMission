@@ -75,37 +75,37 @@
 
 
 class HW_RscText {
-	idc = -1;
-	type = CT_STATIC;
-	style = ST_CENTER;
-	text = "";
-	font = FontM;
-	sizeEx = 0.023;
-	colorBackground[] = { 1, 1, 1, 0.3 };
-	colorText[] = { 0, 0, 0, 1 };
-	x = 0.8;
-	y = 0.1;
-	w = 0.2;
-	h = 0.05;
+    idc = -1;
+    type = CT_STATIC;
+    style = ST_CENTER;
+    text = "";
+    font = FontM;
+    sizeEx = 0.023;
+    colorBackground[] = { 1, 1, 1, 0.3 };
+    colorText[] = { 0, 0, 0, 1 };
+    x = 0.8;
+    y = 0.1;
+    w = 0.2;
+    h = 0.05;
 };
 
 class HW_RscStructuredText {
-	idc = -1;
-	type = CT_STRUCTURED_TEXT;
-	style = ST_LEFT;
-	colorBackground[] = { 1, 1, 1, 1 };
-	x = 0.1; y = 0.1;
-	w = 0.3; h = 0.1;	
-	size = 0.018;
-	text = "";
-	class Attributes {
-		font = FontM;
-		color = "#FFFFFF";
-		align = "left";
-		valign = "middle";
-		shadow = true;
-		shadowColor = "#000000";
-		size = "2.25";
-	};
+    idc = -1;
+    type = CT_STRUCTURED_TEXT;
+    style = ST_LEFT;
+    colorBackground[] = { 1, 1, 1, 1 };
+    x = 0.1; y = 0.1;
+    w = 0.3; h = 0.1;    
+    size = 0.018;
+    text = "";
+    class Attributes {
+        font = FontM;
+        color = "#FFFFFF";
+        align = "left";
+        valign = "middle";
+        shadow = true;
+        shadowColor = "#000000";
+        size = "2.25";
+    };
 };
 

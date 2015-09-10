@@ -5,7 +5,7 @@ Last modified: 8/16/2015
 
 Description: set number based on player count
 
-		returns number
+        returns number
 __________________________________________________________________*/
 private ["_strength", "_playerCount"];
 
@@ -16,7 +16,7 @@ _strength
 
 /*
 for "_i" from 1 to 40 step 1 do {
-	diag_log (format["PLAYER COUNT: %1, ENEMY COUNT:",_i] + str (ceil ((_i) * abs(log(((_i)/3)/256)))));
+    diag_log (format["PLAYER COUNT: %1, ENEMY COUNT:",_i] + str (ceil ((_i) * abs(log(((_i)/3)/256)))));
 };
 "PLAYER COUNT: 1, ENEMY COUNT:3"
 "PLAYER COUNT: 2, ENEMY COUNT:6"

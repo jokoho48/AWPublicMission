@@ -5,7 +5,7 @@ Last modified: 8/9/2015
 
 Description: send reinforcements to position
 
-		returns boolean
+        returns boolean
 __________________________________________________________________*/
 private ["_startPos","_side","_minDist","_spawnDist","_patrolOnWP","_unitPool","_veh","_lz","_pos","_grp","_pilot","_patrolGrp","_helipad","_wp","_time"];
 
@@ -16,20 +16,20 @@ _spawnDist = param [3,2500,[0]];
 _patrolOnWP = param [4,false];
 
 call {
-	if (_side isEqualTo WEST) exitWith {
-		_unitPool = SEN_unitPoolWest;
-		_veh = "B_Heli_Light_01_F";
+    if (_side isEqualTo WEST) exitWith {
+        _unitPool = SEN_unitPoolWest;
+        _veh = "B_Heli_Light_01_F";
 
-	};
-	_unitPool = SEN_unitPool;
-	_veh = "O_Heli_Light_02_unarmed_F";
+    };
+    _unitPool = SEN_unitPool;
+    _veh = "O_Heli_Light_02_unarmed_F";
 };
 
 for "_s" from 1 to 15 do {
-	_lz = [_startPos,_minDist,_minDist+200] call SEN_fnc_findRandomPos;
-	_isEmpty = _lz isFlatEmpty [10, 0, 0.6, 10, 0, false, objNull];
-	if (count _isEmpty != 0) exitWith {};
-	sleep 0.1;
+    _lz = [_startPos,_minDist,_minDist+200] call SEN_fnc_findRandomPos;
+    _isEmpty = _lz isFlatEmpty [10, 0, 0.6, 10, 0, false, objNull];
+    if (count _isEmpty != 0) exitWith {};
+    sleep 0.1;
 };
 
 if (count _lz isEqualTo 0) exitWith {[2,"fn_spawnReinforcements: LZ undefined."] call SEN_fnc_log; false};
@@ -72,9 +72,9 @@ _wp = _patrolGrp addWaypoint [_startPos, 0];
 _wp setWaypointType "SAD";
 _wp setWaypointSpeed "FULL";
 if (_patrolOnWP) then {
-	_wp setWaypointStatements ["true", "[group this, 90] spawn SEN_fnc_setPatrolGroup"];
+    _wp setWaypointStatements ["true", "[group this, 90] spawn SEN_fnc_setPatrolGroup"];
 } else {
-	_wp setWaypointStatements ["true", "if !(isPlayer(this findNearestEnemy this)) then {SEN_objectCleanup append (units (group this))}"];
+    _wp setWaypointStatements ["true", "if !(isPlayer(this findNearestEnemy this)) then {SEN_objectCleanup append (units (group this))}"];
 };
 
 _wp = _grp addWaypoint [[0,0,0], 0];

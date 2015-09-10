@@ -1,7 +1,7 @@
 class Header {
-	gameType = COOP;
-	minPlayers = 1;
-	maxPlayers = 40;
+    gameType = COOP;
+    minPlayers = 1;
+    maxPlayers = 40;
 };
 
 overviewPicture = "media\SEN_imgLoading.paa";
@@ -42,21 +42,22 @@ taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default
 #include "data\SEN_XEH.hpp"
 
 class Params {
-	#include "data\SEN_params.hpp"
+    #include "data\SEN_params.hpp"
 };
 class CfgFunctions {
-	#include "scripts\VVS\Functions.h"
-	#include "data\SEN_cfgFunctions.hpp"
+    #include "scripts\VVS\Functions.h"
+    #include "data\SEN_cfgFunctions.hpp"
+    #include "gear\CfgFunctions.hpp"
 };
 class RscTitles {
-	#include "scripts\VehicleHud\hud_titles.sqf"
+    #include "scripts\VehicleHud\hud_titles.sqf"
 };
 class CfgSounds {
-	#include "data\SEN_cfgSounds.hpp"
+    #include "data\SEN_cfgSounds.hpp"
 };
 class CfgHints {
-	#include "data\SEN_cfgHints.hpp"
+    #include "data\SEN_cfgHints.hpp"
 };
 class CfgNotifications {
-	#include "data\SEN_cfgNotifications.hpp"
+    #include "data\SEN_cfgNotifications.hpp"
 };
