@@ -122,7 +122,6 @@ class Mission
 		"rhsusf_c_hmmwv",
 		"rhsusf_vehicles",
 		"RHS_US_A2_AirImport",
-		"A3_Soft_F_MRAP_01",
 		"a3_map_altis"
 	};
 	randomSeed=13763187;
@@ -4127,7 +4126,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Noticeboard_F";
 			skill=0.60000002;
-			text="VVS";
+			text="vvs";
 			init="this enableSimulation true;this setdir 314.596;this setposATL [15130.675781,17248.169922,0];this setVectorUp [0,0,1]; this allowdamage false;";
 		};
 		class Item184
@@ -4281,7 +4280,7 @@ class Mission
 			vehicle="B_CargoNet_01_ammo_F";
 			skill=0.60000002;
 			text="SEN_arsenal";
-			init="this enableSimulation true;this setdir 317.157;this setposATL [15207.107422,17337.818359,0.585646];this setVectorUp [0,0,1];this allowDamage false;this addAction [""Take Radio"", {execVM ""scripts\SEN_radio.sqf""}]; clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this;";
+			init="this enableSimulation true;this setdir 317.157;this setposATL [15207.107422,17337.818359,0.585646];this setVectorUp [0,0,1];this allowDamage false;this addAction [""Take Radio"", { [] spawn compile preprocessFileLineNumbers ""scripts\SEN_radio.sqf""}]; clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this;";
 		};
 		class Item198
 		{
@@ -4463,7 +4462,7 @@ class Mission
 			azimut=112.025;
 			id=279;
 			side="EMPTY";
-			vehicle="B_MRAP_01_F";
+			vehicle="rhsusf_m1025_w";
 			lock="LOCKED";
 			skill=0.60000002;
 			init="this setVariable [""SEN_noClean"", true];";

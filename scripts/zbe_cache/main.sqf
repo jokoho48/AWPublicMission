@@ -5,13 +5,13 @@ zbe_vehicleCacheDistCar = _this select 3;
 zbe_vehicleCacheDistAir = _this select 4;
 zbe_vehicleCacheDistBoat = _this select 5;
 
-zbe_allGroups                   = 0;
-zbe_cachedGroups               = [];
-zbe_cachedUnits                   = 0;
-zbe_allVehicles                   = 0;
-zbe_cachedVehicles             = 0;
-zbe_objectView                   = 0;
-zbe_players                    = [];
+zbe_allGroups = 0;
+zbe_cachedGroups = [];
+zbe_cachedUnits = 0;
+zbe_allVehicles = 0;
+zbe_cachedVehicles = 0;
+zbe_objectView = 0;
+zbe_players = [];
 
 call compileFinal preprocessFileLineNumbers "scripts\zbe_cache\zbe_functions.sqf";
 

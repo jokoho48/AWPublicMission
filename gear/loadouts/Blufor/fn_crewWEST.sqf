@@ -112,6 +112,7 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
+        "rhsusf_ANPVS_15",
         "ItemMap",
         "B_UavTerminal"
         ];

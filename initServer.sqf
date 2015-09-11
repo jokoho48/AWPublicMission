@@ -4,8 +4,8 @@ Author: SENSEI
 Last modified: 8/5/2015
 __________________________________________________________________*/
 missionNameSpace setVariable ["SEN_transportReady", 1];
-if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {execVM "scripts\SEN_tfrSettings.sqf"};
-[2000,0,false,100,2600,2600] execVM "scripts\zbe_cache\main.sqf";
+if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
+[2000,0,false,100,2600,2600] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
 SEN_curatorFOBUnitUID = "";
 onPlayerDisconnected {if (_uid isEqualTo SEN_curatorFOBUnitUID) then {unassignCurator SEN_curatorFOB}};
 
@@ -18,10 +18,8 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
 
 waitUntil {sleep 1; SEN_complete isEqualTo 2};
 
-[] execVM "scripts\SEN_occupyTrg.sqf";
-[] execVM "tasks\SEN_taskHandler.sqf";
-[((SEN_range*0.04) max 400),false] execVM "scripts\SEN_civ.sqf";
-[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] execVM "scripts\SEN_animal.sqf";
-[] execVM "scripts\SEN_cleanup.sqf";
-JK_ammoSuppAvail = true;
-publicVariable "JK_ammoSuppAvail";
+[] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
+[] spawn compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
+[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
+[] spawn compile preprocessFileLineNumbers "scripts\SEN_cleanup.sqf";

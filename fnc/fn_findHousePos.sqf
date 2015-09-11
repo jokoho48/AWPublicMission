@@ -9,7 +9,7 @@ Description: finds an interior house position
 __________________________________________________________________*/
 private ["_pos","_return","_houseArray","_house","_housePosArray","_dummypad"];
 
-params [["_center", 100, [0]], ["_range", [0,0,0]]];
+params [["_center", [0,0,0]], ["_range", 100, [0]]];
 _pos = [];
 _return = [];
 

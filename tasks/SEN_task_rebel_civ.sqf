@@ -19,7 +19,7 @@ if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebel
 if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
     [0,"Rebel task skipped."] call SEN_fnc_log;
     sleep _sleep;
-    execVM "tasks\SEN_task_rebel_civ.sqf";
+    [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
 };
 
 if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
@@ -29,7 +29,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     if ([_spawnPos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
         [1,"Rebel spawn or target position in safezone."] call SEN_fnc_log;
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
 
     _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,CIVILIAN] call SEN_fnc_spawnGroup;
@@ -68,13 +68,13 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         [_taskID, "FAILED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
 
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
     SEN_approvalCiv = SEN_approvalCiv + 30; publicVariable "SEN_approvalCiv";
     sleep _sleep;
-    execVM "tasks\SEN_task_rebel_civ.sqf";
+    [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
 } else {
     private "_tar";
 
@@ -87,21 +87,21 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     if (count _playerArray isEqualTo 0) exitWith {
         [2,"Rebel target array is empty."] call SEN_fnc_log;
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
     _tar = _playerArray select (random ((count _playerArray) - 1));
 
     if (isNull _tar || {(getposATL _tar select 2) > 5}) exitWith {
         [2,"Rebel target is unsuitable."] call SEN_fnc_log;
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
     _spawnPos = [getposATL _tar,400,500] call SEN_fnc_findRandomPos;
 
     if ([_spawnPos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker || {[getposATL _tar,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker}) exitWith {
         [1,"Rebel spawn or target position in safezone."] call SEN_fnc_log;
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
     _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,CIVILIAN] call SEN_fnc_spawnGroup;
     _rebelGrp = [units _rebelGrp] call SEN_fnc_setSide;
@@ -134,11 +134,11 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         [_taskID, "CANCELED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
         sleep _sleep;
-        execVM "tasks\SEN_task_rebel_civ.sqf";
+        [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
 
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
     SEN_approvalCiv = SEN_approvalCiv + 30; publicVariable "SEN_approvalCiv";
     sleep _sleep;
-    execVM "tasks\SEN_task_rebel_civ.sqf";
+    [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
 };

@@ -31,12 +31,8 @@ class JK_loadOut
         class riflemanWEST {};
         class specialistWEST {};
         class CrewWEST {};
+        class jetPilotWEST {};
+        class pjMedicWEST {};
     };
 };
-class JK_Logistic {
-    tag = "JK Logistic";
-    class core {
-        file = "gear";
-        class crate;
-    };
-};
+class JK_Logistic_fnc_crate {file = "gear\fn_crate.sqf";};

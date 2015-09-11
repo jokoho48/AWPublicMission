@@ -30,7 +30,7 @@ SEN_taskListCiv = [
 
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};
 
-execVM "tasks\SEN_task_officer.sqf";
+[] spawn compile preprocessFileLineNumbers "tasks\SEN_task_officer.sqf";
 sleep 15;
 call SEN_fnc_setTaskCiv;
-execVM "tasks\SEN_task_rebel_civ.sqf";
+[] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";

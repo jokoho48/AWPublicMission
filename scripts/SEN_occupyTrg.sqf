@@ -25,7 +25,7 @@ if (!isServer) exitWith {};
             _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
             _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
             _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-            _trgAct = format ["[%1,%2] execVM 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+            _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
             _trgOccupy setTriggerStatements ["this", _trgAct, ""];
 
         };
@@ -39,7 +39,7 @@ if (!isServer) exitWith {};
             _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
             _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
             _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-            _trgAct = format ["[%1,%2] execVM 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+            _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
             _trgOccupy setTriggerStatements ["this", _trgAct, ""];
         };
 
@@ -52,7 +52,7 @@ if (!isServer) exitWith {};
         _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
         _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
         _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-        _trgAct = format ["[%1,%2] execVM 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+        _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
         _trgOccupy setTriggerStatements ["this", _trgAct, ""];
     };
 

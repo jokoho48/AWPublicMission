@@ -1,12 +1,12 @@
 class Header {
     gameType = COOP;
     minPlayers = 1;
-    maxPlayers = 40;
+    maxPlayers = 42;
 };
 
 overviewPicture = "media\loading.jpg";
 Author = "SENSEI";
-onLoadName = "Dynamic Combat Gen. Edit By ArmA world";
+onLoadName = "Dynamic Combat Gen. Edit By Armaworld";
 onLoadMission = "DCG 3.0.8";
 loadScreen = "media\loading.jpg";
 briefing = 0;

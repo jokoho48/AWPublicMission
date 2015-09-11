@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {}; // headless client exit
 
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
-call JK_Logistic_crate;
+[] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
 private "_prefix";
 
 // workaround for acre, if inventory full and can't add radio, acre throws rpt error: (Warning: Radio ID ACRE_PRC343_ID_1 was returned for a non-existent baseclass...)
@@ -63,7 +63,14 @@ call {
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];
 //[] spawn {call compile preprocessFileLineNumbers "scripts\VehicleHud\hud_teamlist.sqf";};
-[] spawn {while {true} do {if (rating player < 0) then {player addrating (-1*(rating player))}; uiSleep 30;};};
+[] spawn {
+    while {true} do {
+        if (rating player < 0) then {
+            player addrating (-1*(rating player))
+        };
+        uiSleep 120;
+    };
+};
 
 if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
     [] spawn {
@@ -92,19 +99,15 @@ player createDiaryRecord ["Diary", ["External Content", "<br/>
         VVS by Tonic.<br/><br/>
         ZLT field repair by Zealot.<br/><br/>
         ZBE Caching by Zorrobyte.<br/><br/>
-        Vehicle HUD script by Tier1ops.<br/><br/>
         X-Cam by Siloa.<br/><br/>
         Defuse the bomb by cobra4v320."]
 ];
 player createDiaryRecord ["Diary", ["Dynamic Combat Generator", "Mission by SENSEI<br/><br/><img image='media\SEN_imgLogo.paa' width='128' height='64'/>"]];
 
 // setup ACE3
-[] execVM "scripts\SEN_ACE3Actions.sqf";
+[] call compile preprocessFileLineNumbers "scripts\SEN_ACE3Actions.sqf";
 player setVariable ["ACE_canMoveRallypoint", false];
 
 // setup radios
-call {
-    sleep 6; // can't remember what this is for, but leaving it to be safe
-    if (SEN_acreEnabled) exitWith {execVM "scripts\SEN_acre2.sqf";};
-    if (SEN_tfrEnabled) exitWith {execVM "scripts\SEN_tfr.sqf";};
-};
+if (SEN_acreEnabled) exitWith {[] call compile preprocessFileLineNumbers "scripts\SEN_acre2.sqf";};
+if (SEN_tfrEnabled) exitWith {[] spawn compile preprocessFileLineNumbers "scripts\SEN_tfr.sqf";};

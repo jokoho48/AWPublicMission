@@ -112,6 +112,7 @@ _itemsBackpack = [];
 _itemsLink = [
         "ItemRadio",
         "ItemWatch",
+        "rhsusf_ANPVS_15",
         "ItemCompass",
         "ItemMap",
         "B_UavTerminal"

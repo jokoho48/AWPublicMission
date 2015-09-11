@@ -9,13 +9,13 @@ Description: sets civilians task
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_override","_task"];
+private "_task";
+params [["_override","",[""]]];
 
-_override = param [0,"",[""]];
 uiSleep 15;
 SEN_intelObjCiv = objNull; publicVariable "SEN_intelObjCiv";
 SEN_taskSuccess = 0;
 SEN_taskCounterCiv = SEN_taskCounterCiv + 1;
-if !(_override isEqualTo "") exitWith { execVM format ["tasks\SEN_task_%1_civ.sqf", _override]; };
+if !(_override isEqualTo "") exitWith { [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _override]; };
 _task = SEN_taskListCiv select (random ((count SEN_taskListCiv) - 1));
-execVM format ["tasks\SEN_task_%1_civ.sqf", _task];
+spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _task];

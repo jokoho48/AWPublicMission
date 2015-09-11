@@ -38,6 +38,7 @@ for "_s" from 0 to _counter do {
             if (count _roads < 1) exitWith {};
             _road = _roads select (random ((count _roads) - 1));
             _roadConnectedTo = (roadsConnectedTo _road) select 0;
+            if (isNil "_roadConnectedTo") exitWith {};
             _dir = [_road, _roadConnectedTo] call BIS_fnc_DirTo;
             _staticPos = [getposATL _road, getposATL _roadConnectedTo] call SEN_fnc_findThirdPos;
             _check = _staticPos isFlatEmpty [2, 0, 0.4, 2, 0, false, objNull];

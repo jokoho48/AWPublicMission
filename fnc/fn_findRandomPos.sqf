@@ -7,18 +7,13 @@ Description: finds random position from center
 
              returns position
 __________________________________________________________________*/
-private ["_center","_min","_max","_dirArray","_range","_dir","_dMin","_dMax","_pos"];
-
-_center = param [0,[],[[]]];
-_min = param [1,0,[0]];
-_max = param [2,100,[0]];
-_dirArray = param [3,[],[[]]];
+private ["_range","_dir","_dMin","_dMax","_pos"];
+params [["_center",[],[[]]],["_min",0,[0]],["_max",100,[0]],["_dirArray",[],[[]]]];
 
 if (count _dirArray isEqualTo 0) then {
     _dir = random 360
 } else {
-    _dMin = _dirArray select 1;
-    _dMax = _dirArray select 2;
+    _dirArray params ["_dMin", "_dMax"];
     _dir = (_dMin + random _dMax) min _dMax;
 };
 _range = (ceil (random _max)) max _min;

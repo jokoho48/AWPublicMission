@@ -1,8 +1,7 @@
 #define FADE_DELAY  0.15
 
 disableserialization;
-
-_mode = [_this,0,"Open",[displaynull,""]] call bis_fnc_param;
+params [["_mode", "Open", [displaynull,""]]];
 _this = [_this,1,[]] call bis_fnc_param;
 _fullVersion = missionnamespace getvariable ["BIS_fnc_arsenal_fullGarage",false];
 

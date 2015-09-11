@@ -24,9 +24,21 @@ enableSaving [false, false];
 enableSentences false;
 enableRadio false;
 call SEN_fnc_setParams;
-[] execVM "scripts\zlt_fieldrepair.sqf";
+[] call compile preprocessFileLineNumbers "scripts\zlt_fieldrepair.sqf";
 
 if (isServer || (!isServer && !hasInterface)) then {
+    jk_ammosuppavail = true;
+    publicVariable "jk_ammosuppavail";
     waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
-    [] execVM "scripts\SEN_occupy.sqf";
+    [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+};
+
+if (hasInterface) then {
+    ["playerInventoryChanged", {
+        if ((_this select 0 distance (getMarkerPos "Base")) <= 100) then {
+            {
+                deleteVehicle _x;
+            } count nearestObjects [_this select 0, ["WeaponHolder", "GroundWeaponHolder", "WeaponHolderSimulated"], 10];
+        };
+    }] call ace_common_fnc_addEventHandler;
 };
