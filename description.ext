@@ -38,7 +38,7 @@ taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default
 #include "data\defuse_common.hpp"
 #include "data\explosivePad.hpp"
 #include "scripts\VVS\menu.h"
-//#include "data\SEN_ace_settings.hpp"
+#include "data\intro.hpp"
 #include "data\SEN_XEH.hpp"
 
 class Params {
