@@ -108,12 +108,20 @@ _fnc_misc = {
     ["ACE_Box_Misc", 5] call JK_fnc_createCrate;
 };
 
+_fnc_UAV = {
+    ["ACE_Box_Misc", 5, [
+        ["B_UavTerminal", 5],
+        ["B_UAV_01_backpack_F", 5],
+        ["ACE_UAVBattery", 20]
+    ]] call JK_fnc_createCrate;
+};
+
 if (str player in ["plt_co", "plt_sgt", "plt_eng", "plt_med", "a_sl", "a1_ftl", "a2_ftl", "rh1_co", "r_1", "r_2", "r_3", "r_4", "b2_ftl", "b1_ftl", "b_sl", "pj_1", "pj_2"]) then {
     VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>",VVS_fnc_openVVS,["SEN_vehSpawn_mrk","All"],99];
     ammonition addAction ["<t color='#3f3fff'>Request Radio Crate</t>", _fnc_Radio];
-
-
 };
 
 ammonition addAction ["<t color='#3f3fff'>Request Ammo Crate</t>", _fnc_ammo];
+ammonition addAction ["<t color='#3f3fff'>Request ACE Misc Crate</t>", _fnc_misc];
 ammonition addAction ["<t color='#3f3fff'>Request Medic Crate</t>", _fnc_medical];
+ammonition addAction ["<t color='#3f3fff'>Request UAV Crate</t>", _fnc_UAV];
