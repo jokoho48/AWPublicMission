@@ -14,7 +14,7 @@ _uniforms = ["U_B_HeliPilotCoveralls"];
 _vests = ["V_TacVest_blk"];
 _headgears = ["H_CrewHelmetHeli_B"];
 _backpacks = ["tf_rt1523g_big_rhs"];
-_insignium = "Curator";
+_insignium = "";
 _useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "G_Aviator";
 
@@ -119,7 +119,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = [];
+_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 ///// No editing necessary below this line /////
 

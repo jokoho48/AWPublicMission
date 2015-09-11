@@ -14,7 +14,7 @@ _uniforms = ["rhs_uniform_FROG01_wd"];
 _vests = ["rhsusf_spc"];
 _headgears = ["rhsusf_opscore_02_tan"];
 _backpacks = ["tf_rt1523g_rhs"];
-_insignium = "Curator";
+_insignium = "";
 _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
 
@@ -80,12 +80,12 @@ _IRgrenade = 0;
 //ACE Items
 _IVBagSaline250 = 0;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 1;
-_epinephrine = 3;
-_morphine = 3;
+_IVBagSaline1000 = 10;
+_epinephrine = 15;
+_morphine = 15;
 _atropine = 0;
 
-_fieldDressing = 10;
+_fieldDressing = 30;
 _packingBandage = 0;
 _elasticBandage = 0;
 _quikclot = 0;
@@ -96,7 +96,7 @@ _swapBarrel = 0;
 
 //first aid kits and medi kits- (integer)
 _FirstAidKits = 0;
-_MediKit = 1;        //if set to 1, a MediKit and all FirstAidKits will be added to the backpack; if set to 0, FirstAidKits will be added to inventory in no specific order.
+_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be added to the backpack; if set to 0, FirstAidKits will be added to inventory in no specific order.
 
 //items added specifically to uniform: - (array)
 _itemsUniform = [];
@@ -118,7 +118,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = [];
+_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 ///// No editing necessary below this line /////
 

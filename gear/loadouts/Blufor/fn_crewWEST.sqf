@@ -14,7 +14,7 @@ _uniforms = ["rhs_uniform_FROG01_m81"];
 _vests = ["rhsusf_spc"];
 _headgears = ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_ess"];
 _backpacks = [""];
-_insignium = "Curator";
+_insignium = "";
 _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
 

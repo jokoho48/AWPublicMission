@@ -168,5 +168,10 @@ if (_backpack != "") then {
     {_unit addItemToBackpack _x; false} count _itemsBackpack;
 };
 {_unit addItem _x; false} count _items;
-[_unit,_insignium] call BIS_fnc_setUnitInsignia;
+if (name _unit == "joko // Jonas") then {
+    [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
+} else {
+    [_unit, _insignium] call BIS_fnc_setUnitInsignia;
+};
+
 if(true)exitWith{};
