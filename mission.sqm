@@ -127,7 +127,7 @@ class Mission
 	randomSeed=13763187;
 	class Intel
 	{
-		briefingName="Dynamic Combat Generator 3.0.8";
+		briefingName="";
 		resistanceWest=0;
 		startWeather=0.29999998;
 		startWind=0.099999994;
