@@ -13,10 +13,10 @@ JK_fnc_createCrate = {
     _position = ((getMarkerPos "SEN_ammo_mrk") findEmptyPosition [0, 20]);
     if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
     crateObject = _crateType createVehicle _position;
-    publicVariable "crateObject";
-    crateContent = _content;
-    publicVariable "crateContent";
     if (!isNil "_content") then {
+        publicVariable "crateObject";
+        crateContent = _content;
+        publicVariable "crateContent";
         [{
             crateObject hideObjectGlobal true;
             clearWeaponCargoGlobal crateObject;
