@@ -7,7 +7,7 @@ if (!hasInterface) exitWith {}; // headless client exit
 
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
-
+call JK_Logistic_crate;
 private "_prefix";
 
 // workaround for acre, if inventory full and can't add radio, acre throws rpt error: (Warning: Radio ID ACRE_PRC343_ID_1 was returned for a non-existent baseclass...)

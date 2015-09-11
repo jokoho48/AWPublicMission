@@ -36,6 +36,10 @@ _spec = [];
 _pilots = [];
 //Crew
 _crew = [];
+//Pilot
+_jetPilot = [];
+//PJ
+_pjMedic = [];
 
 // insert Classnames of the units
 _commandClass = [];
@@ -51,6 +55,8 @@ _marksmenClass = [];
 _specClass = [];
 _pilotsClass = ["B_Pilot_F"];
 _crewClass = ["B_crew_F"];
+_jetPilotClass = [];
+_pjMedicClass = [];
 
 ///// No editing necessary below this line /////
 private ["_object","_target"];
@@ -74,7 +80,9 @@ if (!JK_var_gearByClasses) then {
         case (_object in _marksmen): {"marksman"};
         case (_object in _spec): {"specialist"};
         case (_object in _pilots): {"pilot"};
-        case (_object in _crew): {"pilot"};
+        case (_object in _crew): {"crew"};
+        case (_object in _jetPilot): {"jetPilot"};
+        case (_object in _pjMedic): {"pjMedic"};
         default{""};
     };
 };
@@ -93,6 +101,8 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _specClass): {"specialist"};
         case (typeOf _target in _pilotsClass): {"pilot"};
         case (typeOf _target in _crewClass): {"crew"};
+        case (typeOf _target in _jetPilotClass): {"jetPilot"};
+        case (typeOf _target  in _pjMedicClass): {"pjMedic"};
         default {"Rifleman"};
     };
 };

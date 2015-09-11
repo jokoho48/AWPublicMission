@@ -82,7 +82,7 @@ _fnc_misc = {
     ["ACE_Box_Misc", nil , 5] call _fnc_createCrate;
 };
 
-if (str player in ["a1", "b1", "c1", "d1", "e1", "f1", "g1", "h1", "i1", "j1", "rhino1", "rhino2", "rhino3", "eagle1", "eagle2", "dustoff1", "dustoff2", "dustoff3"]) then {
+if (str player in ["plt_co", "plt_sgt", "plt_eng", "plt_med", "a_sl", "a1_ftl", "a2_ftl", "rh1_co", "r_1", "r_2", "r_3", "r_4", "b2_ftl", "b1_ftl", "b_sl", "pj_1", "pj_2"]) then {
     VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>",VVS_fnc_openVVS,["SEN_vehSpawn_mrk","All"],99];
     ammonition addAction ["<t color='#3f3fff'>Request Radio Crate</t>", _fnc_Radio];
 };

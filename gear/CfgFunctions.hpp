@@ -35,6 +35,8 @@ class JK_loadOut
 };
 class JK_Logistic {
     tag = "JK Logistic";
-    file = "gear";
-    class crate;
+    class core {
+        file = "gear";
+        class crate;
+    };
 };
