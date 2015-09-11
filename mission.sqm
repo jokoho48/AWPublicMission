@@ -4523,7 +4523,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=13;
+		items=14;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4641,6 +4641,12 @@ class Mission
 			type="b_support";
 			a=0.69999999;
 			b=0.69999999;
+		};
+		class Item13
+		{
+			position[]={15239.481,17.793346,17210.645};
+			name="Base";
+			type="Empty";
 		};
 	};
 };

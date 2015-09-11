@@ -842,7 +842,7 @@ class IntroRscSlider
     shadow = 0;
     h = 0.025;
 };
-class IGUIBack
+class IntroIGUIBack
 {
     type = 0;
     idc = 124;
