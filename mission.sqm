@@ -4371,10 +4371,10 @@ class Mission
 		class Item206
 		{
 			position[]={15130.614,17.905796,17268.152};
-			azimut=47.887905;
+			azimut=47.887901;
 			id=271;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_armed_F";
+			vehicle="B_Heli_Light_01_F";
 			lock="LOCKED";
 			skill=0.60000002;
 			init="this setVariable [""SEN_noClean"", true];";
@@ -4496,6 +4496,7 @@ class Mission
 			vehicle="RHS_UH60M";
 			lock="LOCKED";
 			skill=0.60000002;
+			init="this setVariable [""SEN_noClean"", true];";
 		};
 		class Item218
 		{
@@ -4506,6 +4507,7 @@ class Mission
 			vehicle="RHS_UH60M";
 			lock="LOCKED";
 			skill=0.60000002;
+			init="this setVariable [""SEN_noClean"", true];";
 		};
 		class Item219
 		{
@@ -4516,6 +4518,7 @@ class Mission
 			vehicle="RHS_AH64D_wd";
 			lock="LOCKED";
 			skill=0.60000002;
+			init="this setVariable [""SEN_noClean"", true];";
 		};
 	};
 	class Markers

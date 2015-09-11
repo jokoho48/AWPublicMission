@@ -21,7 +21,7 @@ _goggles = "";
 //weapons - primary weapon - (string)
 _primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
 //primary weapon items - (array)
-_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG_USMC"],"rhsusf_acc_anpeq15side"];
+_itemsPrimaryweapon = [["rhsusf_acc_ACOG3", "rhsusf_acc_ACOG2", "rhsusf_acc_ACOG", "rhsusf_acc_ACOG_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG2_USMC"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
@@ -80,22 +80,22 @@ _IRgrenade = 0;
 //ACE Items
 _IVBagSaline250 = 0;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 0;
-_epinephrine = 0;
-_morphine = 0;
+_IVBagSaline1000 = 10;
+_epinephrine = 20;
+_morphine = 2;
 _atropine = 0;
 
-_fieldDressing = 0;
+_fieldDressing = 50;
 _packingBandage = 0;
 _elasticBandage = 0;
 _quikclot = 0;
 _tourniquet = 0;
 
-_earPlugs = 0;
+_earPlugs = 1;
 _swapBarrel = 0;
 
 //first aid kits and medi kits- (integer)
-_FirstAidKits = 10;
+_FirstAidKits = 0;
 _MediKit = 1;        //if set to 1, a MediKit and all FirstAidKits will be added to the backpack; if set to 0, FirstAidKits will be added to inventory in no specific order.
 
 //items added specifically to uniform: - (array)

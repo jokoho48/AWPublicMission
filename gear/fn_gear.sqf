@@ -102,12 +102,11 @@ if (_primaryweaponTracers >= 1) then {
 } count _itemsPrimaryweapon;
 _unit selectWeapon _primaryweapon;
 
-if (ace_medical_level == 1) then {
-    _ivBag = "ACE_bloodIV";
+_ivBag = if (ace_medical_level == 1) then {
+     "ACE_bloodIV";
 } else {
-    _ivBag = "ACE_salineIV";
+    "ACE_salineIV";
 };
-
 
 for "_i" from 1 to _IVBagSaline250 do {
     _unit addItem format [_ivBag,"_250"];

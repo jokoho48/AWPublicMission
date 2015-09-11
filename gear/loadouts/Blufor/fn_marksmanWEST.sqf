@@ -81,22 +81,22 @@ _IRgrenade = 0;
 //ACE Items
 _IVBagSaline250 = 0;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 0;
-_epinephrine = 0;
-_morphine = 0;
+_IVBagSaline1000 = 1;
+_epinephrine = 3;
+_morphine = 3;
 _atropine = 0;
 
-_fieldDressing = 0;
+_fieldDressing = 10;
 _packingBandage = 0;
 _elasticBandage = 0;
 _quikclot = 0;
 _tourniquet = 0;
 
-_earPlugs = 0;
+_earPlugs = 1;
 _swapBarrel = 0;
 
 //first aid kits and medi kits- (integer)
-_FirstAidKits = 2;
+_FirstAidKits = 0;
 _MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be added to the backpack; if set to 0, FirstAidKits will be added to inventory in no specific order.
 
 //items added specifically to uniform: - (array)

@@ -100,7 +100,9 @@ player createDiaryRecord ["Diary", ["External Content", "<br/>
         ZLT field repair by Zealot.<br/><br/>
         ZBE Caching by Zorrobyte.<br/><br/>
         X-Cam by Siloa.<br/><br/>
-        Defuse the bomb by cobra4v320."]
+        Defuse the bomb by cobra4v320.<br/><br/>
+        Loadout and Crate Script By Joko"
+        ]
 ];
 player createDiaryRecord ["Diary", ["Dynamic Combat Generator", "Mission by SENSEI<br/><br/><img image='media\SEN_imgLogo.paa' width='128' height='64'/>"]];
 

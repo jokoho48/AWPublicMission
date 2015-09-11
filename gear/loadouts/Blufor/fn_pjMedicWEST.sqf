@@ -10,9 +10,9 @@ magazines one for one in _items.
 _vvsArray = [];
 
 //clothing - (string)
-_uniforms = ["rhs_uniform_cu_ocp"];
-_vests = ["rhsusf_iotv_ocp_Medic"];
-_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess", "rhsusf_ach_helmet_M81", "rhsusf_ach_helmet_ocp", "rhsusf_ach_helmet_ESS_ocp", "rhsusf_ach_helmet_headset_ocp", "rhsusf_ach_helmet_headset_ess_ocp", "rhsusf_ach_helmet_camo_ocp", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
+_uniforms = ["rhs_uniform_FROG01_wd"];
+_vests = ["rhsusf_spc"];
+_headgears = ["rhsusf_opscore_02_tan"];
 _backpacks = ["tf_rt1523g_rhs"];
 _insignium = "Curator";
 _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
@@ -21,7 +21,7 @@ _goggles = "";
 //weapons - primary weapon - (string)
 _primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
 //primary weapon items - (array)
-_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG_USMC"],"rhsusf_acc_anpeq15side"];
+_itemsPrimaryweapon = [["rhsusf_acc_ACOG3", "rhsusf_acc_ACOG2", "rhsusf_acc_ACOG", "rhsusf_acc_ACOG_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG2_USMC"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
@@ -80,22 +80,22 @@ _IRgrenade = 0;
 //ACE Items
 _IVBagSaline250 = 0;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 0;
-_epinephrine = 0;
-_morphine = 0;
+_IVBagSaline1000 = 1;
+_epinephrine = 3;
+_morphine = 3;
 _atropine = 0;
 
-_fieldDressing = 0;
+_fieldDressing = 10;
 _packingBandage = 0;
 _elasticBandage = 0;
 _quikclot = 0;
 _tourniquet = 0;
 
-_earPlugs = 0;
+_earPlugs = 1;
 _swapBarrel = 0;
 
 //first aid kits and medi kits- (integer)
-_FirstAidKits = 10;
+_FirstAidKits = 0;
 _MediKit = 1;        //if set to 1, a MediKit and all FirstAidKits will be added to the backpack; if set to 0, FirstAidKits will be added to inventory in no specific order.
 
 //items added specifically to uniform: - (array)
