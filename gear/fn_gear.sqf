@@ -102,6 +102,59 @@ if (_primaryweaponTracers >= 1) then {
 } count _itemsPrimaryweapon;
 _unit selectWeapon _primaryweapon;
 
+
+for "_i" from 0 to _IVBagSaline250 do {
+    _unit addItem "ACE_salineIV_250";
+};
+
+for "_i" from 0 to _IVBagSaline500 do {
+    _unit addItem "ACE_salineIV_500";
+};
+
+for "_i" from 0 to _IVBagSaline1000 do {
+    _unit addItem "ACE_salineIV";
+};
+
+for "_i" from 0 to _epinephrine do {
+    _unit addItem "ACE_epinephrine";
+};
+
+for "_i" from 0 to _morphine do {
+    _unit addItem "ACE_morphine";
+};
+
+for "_i" from 0 to _atropine do {
+    _unit addItem "ACE_atropine";
+};
+
+for "_i" from 0 to _fieldDressing do {
+    _unit addItem "ACE_fieldDressing";
+};
+
+for "_i" from 0 to _packingBandage do {
+    _unit addItem "ACE_packingBandage";
+};
+
+for "_i" from 0 to _elasticBandage do {
+    _unit addItem "ACE_elasticBandage";
+};
+
+for "_i" from 0 to _quikclot do {
+    _unit addItem "ACE_quikclot";
+};
+
+for "_i" from 0 to _tourniquet do {
+    _unit addItem "ACE_tourniquet";
+};
+
+for "_i" from 0 to _earPlugs do {
+    _unit addItem "ACE_EarPlugs";
+};
+
+for "_i" from 0 to _swapBarrel do {
+    _unit addItem "ACE_SpareBarrel";
+};
+
 //items:
 {_unit linkitem _x; false} count _itemslink;
 {_unit addItemToUniform _x; false} count _itemsUniform;
