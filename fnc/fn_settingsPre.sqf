@@ -12,9 +12,9 @@ if (!isServer) exitWith {};
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;
 SEN_debug = (paramsArray select 1); publicVariable "SEN_debug";
 if ((paramsArray select 3) isEqualTo -1) then {
-    setDate [2014, random ceil 11, random ceil 27, random round 23, 00];
+    setDate [2015, random ceil 11, random ceil 27, random round 23, 00];
 } else {
-    setDate [2014, random ceil 11, random ceil 27, (paramsArray select 3), 00];
+    setDate [2015, random ceil 11, random ceil 27, (paramsArray select 3), 00];
 };
 if ((paramsArray select 4) isEqualTo 0) then {SEN_enemySide = EAST} else {SEN_enemySide = RESISTANCE}; publicVariable "SEN_enemySide";
 createCenter SEN_enemySide;

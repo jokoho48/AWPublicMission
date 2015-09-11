@@ -1,7 +1,6 @@
 //Parameters
-private ["_wire","_cutWire", "_compare"];
-_wire    = _this select 0;
-_cutWire = _this select 1;
+private "_compare";
+params ["_wire","_cutWire"];
 
 //compare wires
 _compare = [_wire, _cutWire] call BIS_fnc_areEqual;

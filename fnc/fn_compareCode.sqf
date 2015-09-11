@@ -1,8 +1,6 @@
 //Parameters
 private ["_code","_inputCode","_compare"];
-
-_code      = _this select 0;
-_inputCode = _this select 1;
+params ["_code", "_inputCode"];
 
 //compare codes
 _compare = [_code, _inputCode] call BIS_fnc_areEqual;

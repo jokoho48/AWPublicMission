@@ -12,12 +12,7 @@ Description: finds array of positions that are a minimum distance away from each
 __________________________________________________________________*/
 private ["_center","_range","_minDist","_count","_ifRoad","_posArray","_counter","_check","_roads","_pos","_isEmpty","_posBuffer"];
 
-_center = param [0,[],[[]]];
-_range = param [1,100,[0]];
-_minDist = param [2,0,[0]];
-_count = param [3,1,[0]];
-_ifRoad = param [4,false];
-_posBuffer = param [5,5,[0]];
+params [["_center", [], [[]]],["_range", 100, [0]],["_minDist", 0, [0]],["_count", 1, [0]],["_ifRoad", false],["_posBuffer", 5, [0]]];
 
 _posArray = [];
 _counter = 100;

@@ -10,8 +10,8 @@ Description: Find a string within a string (case insensitive)
              returns boolean
 __________________________________________________________________*/
 private ["_needle","_haystack","_needleLen","_hay","_found"];
-_needle = param [0,"",[""]];
-_haystack = toArray (param [1,"",[""]]);
+params [["_needle", "", [""]], ["_haystack", "", [""]]];
+_haystack = toArray _haystack;
 _needleLen = count toArray _needle;
 _hay = +_haystack;
 _hay resize _needleLen;

@@ -7,10 +7,9 @@ Description: finds an interior house position
 
         returns array [house, position in house]
 __________________________________________________________________*/
-private ["_center","_range","_pos","_return","_houseArray","_house","_housePosArray","_dummypad"];
+private ["_pos","_return","_houseArray","_house","_housePosArray","_dummypad"];
 
-_center = param [0,[0,0,0]];
-_range = param [1,100,[0]];
+params [["_center", 100, [0]], ["_range", [0,0,0]]];
 _pos = [];
 _return = [];
 

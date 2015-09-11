@@ -7,10 +7,9 @@ Description: clientside transport response
 __________________________________________________________________*/
 if (isDedicated) exitWith {};
 
-private ["_classname","_maxDeminsion","_pos","_isEmpty"];
+private ["_pos","_isEmpty"];
+params ["_classname","_maxDeminsion"];
 
-_classname = _this select 0;
-_maxDeminsion = _this select 1;
 hintSilent "Open your map and select a HLZ.";
 missionNamespace setVariable ["SEN_transportResponse", nil];
 
