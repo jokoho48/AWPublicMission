@@ -33,3 +33,8 @@ class JK_loadOut
         class CrewWEST {};
     };
 };
+class JK_Logistic {
+    tag = "JK Logistic";
+    file = "gear";
+    class crate;
+};

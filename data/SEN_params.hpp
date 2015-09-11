@@ -83,6 +83,7 @@ class param11 {
    default = 1;
    SEN_paramCode = "";
 };
+/*
 class param12 {
    title = "---------------------- ACE 3 Parameters ----------------------";
    values[] = {1};
@@ -194,4 +195,4 @@ class param27 {
    texts[] = {"Off","On"};
    default = 1;
    SEN_paramCode = "ace_advanced_ballistics_enabled = %1;";
-};
+};*/
