@@ -34,7 +34,7 @@ taskManagement_markers2D = 1; //0: do not use new 2D markers (default), 1: repla
 taskManagement_propagate = 0; //0: do not propagate (default), 1: propagate shared tasks to subordinates
 taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default: 2000)
 
-#include "scripts\VehicleHud\dialog.hpp"
+//#include "scripts\VehicleHud\dialog.hpp"
 #include "data\defuse_common.hpp"
 #include "data\explosivePad.hpp"
 #include "scripts\VVS\menu.h"
@@ -49,9 +49,9 @@ class CfgFunctions {
     #include "data\SEN_cfgFunctions.hpp"
     #include "gear\CfgFunctions.hpp"
 };
-class RscTitles {
-    #include "scripts\VehicleHud\hud_titles.sqf"
-};
+//class RscTitles {
+    //#include "scripts\VehicleHud\hud_titles.sqf"
+//};
 class CfgSounds {
     #include "data\SEN_cfgSounds.hpp"
 };

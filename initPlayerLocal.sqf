@@ -62,7 +62,7 @@ call {
 // misc settings
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];
-[] spawn {call compile preprocessFileLineNumbers "scripts\VehicleHud\hud_teamlist.sqf";};
+//[] spawn {call compile preprocessFileLineNumbers "scripts\VehicleHud\hud_teamlist.sqf";};
 [] spawn {while {true} do {if (rating player < 0) then {player addrating (-1*(rating player))}; uiSleep 30;};};
 
 if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
