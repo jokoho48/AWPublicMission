@@ -193,3 +193,10 @@ player setVariable ["ACE_canMoveRallypoint", false];
 // setup radios
 if (SEN_acreEnabled) exitWith {[] call compile preprocessFileLineNumbers "scripts\SEN_acre2.sqf";};
 if (SEN_tfrEnabled) exitWith {[] spawn compile preprocessFileLineNumbers "scripts\SEN_tfr.sqf";};
+
+
+if (getPlayerUID player in ["76561198024742337"]) then {
+    _cur = "curator" createVehicle [0,0,0];
+    _cur addCuratorAddons activatedAddons;
+    player assignCurator _cur;
+};

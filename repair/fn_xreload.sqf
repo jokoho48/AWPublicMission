@@ -1,7 +1,7 @@
 private ["_maxDistance", "_text", "_posObject", "_config", "_count", "_magazines", "_type", "_type_name"];
 _endMsg = "Servicing finished";
 _maxDistance = 0.5;
-params ["_object"0];
+params [["_object",0]];
 _posObject = getPos _object;
 _type = typeOf _object;
 _type_name = getText(configFile >> "CfgVehicles" >> _type >> "displayName");
