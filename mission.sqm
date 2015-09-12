@@ -124,6 +124,7 @@ class Mission
 		"rhsusf_c_hmmwv",
 		"rhsusf_vehicles",
 		"RHS_US_A2_AirImport",
+		"A3_Structures_F_Mil_Helipads",
 		"a3_map_altis"
 	};
 	randomSeed=13763187;
@@ -2266,7 +2267,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=220;
+		items=221;
 		class Item0
 		{
 			position[]={15348.36,2.3880401,17329.318};
@@ -4397,7 +4398,7 @@ class Mission
 			vehicle="B_CargoNet_01_ammo_F";
 			skill=0.60000002;
 			text="SEN_arsenal";
-			init="this enableSimulation true;this setdir 317.157;this setposATL [15207.107422,17337.818359,0.585646];this setVectorUp [0,0,1];this allowDamage false;this addAction [""Take Radio"", { [] spawn compile preprocessFileLineNumbers ""scripts\SEN_radio.sqf""}]; clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this;";
+			init="this enableSimulation true;this setdir 317.157;this setposATL [15207.107422,17337.818359,0.585646];this setVectorUp [0,0,1];this allowDamage false;this addAction [""Take Radio"", { [] spawn compile preprocessFileLineNumbers ""scripts\SEN_radio.sqf""}]; clearItemCargo this; clearWeaponCargo this; clearMagazineCargo this; this setVariable [""SEN_noClean"", true];";
 		};
 		class Item198
 		{
@@ -4628,7 +4629,7 @@ class Mission
 			azimut=-229.825;
 			id=285;
 			side="EMPTY";
-			vehicle="RHS_UH60M";
+			vehicle="RHS_UH1Y";
 			lock="LOCKED";
 			skill=0.60000002;
 			init="this setVariable [""SEN_noClean"", true];";
@@ -4641,7 +4642,7 @@ class Mission
 			azimut=-229.825;
 			id=286;
 			side="EMPTY";
-			vehicle="RHS_UH60M";
+			vehicle="RHS_UH1Y";
 			lock="LOCKED";
 			skill=0.60000002;
 			init="this setVariable [""SEN_noClean"", true];";
@@ -4654,17 +4655,27 @@ class Mission
 			azimut=-229.825;
 			id=287;
 			side="EMPTY";
-			vehicle="RHS_AH64D_wd";
+			vehicle="RHS_AH1Z_wd";
 			lock="LOCKED";
 			skill=0.60000002;
 			init="this setVariable [""SEN_noClean"", true];";
 			syncId=31;
 			synchronizations[]={19};
 		};
+		class Item220
+		{
+			position[]={15081.587,17.91,17145.926};
+			azimut=771.76202;
+			id=288;
+			side="EMPTY";
+			vehicle="Land_HelipadCircle_F";
+			lock="LOCKED";
+			skill=0.60000002;
+		};
 	};
 	class Markers
 	{
-		items=14;
+		items=15;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4788,6 +4799,33 @@ class Mission
 			position[]={15239.481,17.793346,17210.645};
 			name="Base";
 			type="Empty";
+		};
+		class Item14
+		{
+			position[]={15079.11,17.91,17146.635};
+			name="SEN_veh_mrk_1";
+			text="Vehicle Repair Station";
+			type="b_unknown";
+			colorName="ColorWEST";
+			a=0.69999999;
+			b=0.69999999;
+		};
+	};
+	class Sensors
+	{
+		items=1;
+		class Item0
+		{
+			position[]={15081.585,17.91,17145.865};
+			a=6;
+			b=6;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="this && ((getPos (thisList select 0)) select 2 < 1) && speed (thisList select 0) < 1";
+			expActiv="_xhandle= [(thislist select 0)] spawn JK_repair_fnc_xreload;";
+			class Effects
+			{
+			};
 		};
 	};
 };

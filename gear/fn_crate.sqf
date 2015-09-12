@@ -19,6 +19,7 @@ JK_fnc_createCrate = {
         publicVariable "crateContent";
         [{
             crateObject hideObjectGlobal true;
+            crateObject setVariable ["SEN_noClean", true, true];
             clearWeaponCargoGlobal crateObject;
             clearMagazineCargoGlobal crateObject;
             clearItemCargoGlobal crateObject;

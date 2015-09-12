@@ -48,6 +48,7 @@ class CfgFunctions {
     #include "scripts\VVS\Functions.h"
     #include "data\SEN_cfgFunctions.hpp"
     #include "gear\CfgFunctions.hpp"
+    #include "repair\cfgFunctions.hpp"
 };
 //class RscTitles {
     //#include "scripts\VehicleHud\hud_titles.sqf"

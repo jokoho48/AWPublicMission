@@ -118,7 +118,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = ["rhsusf_ANPVS_15"];
+_items = [];
 
 ///// No editing necessary below this line /////
 
