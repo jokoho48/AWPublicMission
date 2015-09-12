@@ -79,9 +79,9 @@ _chemlightBlue = 0;
 _IRgrenade = 0;
 
 //ACE Items
-_IVBagSaline250 = 0;
+_IVBagSaline250 = 1;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 1;
+_IVBagSaline1000 = 0;
 _epinephrine = 3;
 _morphine = 3;
 _atropine = 0;
@@ -133,6 +133,7 @@ params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
 _player setVariable ["ace_medical_medicClass", 0];
+_player setVariable ['JK_CrateSpawnAllowed', false];
 _player setCaptive false;
 
 if (true) exitWith {};

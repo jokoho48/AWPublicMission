@@ -127,4 +127,5 @@ _player setCaptive true;    //unfortunately necessary due to the time consumed b
 [_player] call jk_loadOut_fnc_gear;
 _player setCaptive false;
 _player setVariable ["ace_medical_medicClass", 1];
+_player setVariable ['JK_CrateSpawnAllowed', false];
 if (true) exitWith {};

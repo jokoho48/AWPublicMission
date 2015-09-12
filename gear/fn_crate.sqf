@@ -116,10 +116,8 @@ _fnc_UAV = {
     ]] call JK_fnc_createCrate;
 };
 
-if (str player in ["plt_co", "plt_sgt", "plt_eng", "plt_med", "a_sl", "a1_ftl", "a2_ftl", "rh1_co", "r_1", "r_2", "r_3", "r_4", "b2_ftl", "b1_ftl", "b_sl", "pj_1", "pj_2"]) then {
-    VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>",VVS_fnc_openVVS,["SEN_vehSpawn_mrk","All"],99];
-    ammonition addAction ["<t color='#3f3fff'>Request Radio Crate</t>", _fnc_Radio];
-};
+VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>", VVS_fnc_openVVS, ["SEN_vehSpawn_mrk","All"], 99, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
+ammonition addAction ["<t color='#3f3fff'>Request Radio Crate</t>", _fnc_Radio, [], 0, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
 
 ammonition addAction ["<t color='#3f3fff'>Request Ammo Crate</t>", _fnc_ammo];
 ammonition addAction ["<t color='#3f3fff'>Request ACE Misc Crate</t>", _fnc_misc];

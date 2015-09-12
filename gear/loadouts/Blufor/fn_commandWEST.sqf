@@ -26,20 +26,20 @@ _itemsPrimaryweapon = [["rhsusf_acc_ACOG3", "rhsusf_acc_ACOG2", "rhsusf_acc_ACOG
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 10;
+_primaryweaponAmmo = 6;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
-_40mmHeGrenadesAmmo = 10;
-_40mmSmokeGrenadesWhite = 2;
-_40mmSmokeGrenadesYellow = 2;
+_40mmHeGrenadesAmmo = 5 ;
+_40mmSmokeGrenadesWhite = 1;
+_40mmSmokeGrenadesYellow = 1;
 _40mmSmokeGrenadesOrange = 0;
-_40mmSmokeGrenadesRed = 2;
-_40mmSmokeGrenadesPurple = 2;
+_40mmSmokeGrenadesRed = 1;
+_40mmSmokeGrenadesPurple = 1;
 _40mmSmokeGrenadesBlue = 0;
 _40mmSmokeGrenadesGreen = 0;
 _40mmFlareWhite = 0;
-_40mmFlareYellow = 4;
+_40mmFlareYellow = 1;
 _40mmFlareRed = 0;
 _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
@@ -64,7 +64,7 @@ _launcherAmmo = 0;
 _binocular = "ACE_Vector";
 
 //throwables - (integer)
-_grenadeHE = 4;
+_grenadeHE = 3;
 _grenadeSmokeWhite = 2;
 _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;
@@ -79,9 +79,9 @@ _chemlightBlue = 0;
 _IRgrenade = 0;
 
 //ACE Items
-_IVBagSaline250 = 0;
+_IVBagSaline250 = 1;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 1;
+_IVBagSaline1000 = 0;
 _epinephrine = 3;
 _morphine = 3;
 _atropine = 0;
@@ -108,14 +108,14 @@ _itemsVest = [];
 //items added specifically to Backpack: - (array)
 _itemsBackpack = [];
 
+
 //linked items - (array)
 _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "rhsusf_ANPVS_15",
         "ItemCompass",
-        "ItemMap",
-        "B_UavTerminal"
+        "ItemMap"
         ];
 
 //items added to any container - (array)
@@ -127,6 +127,7 @@ params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
 _player setVariable ["ace_medical_medicClass", 0];
+_player setVariable ['JK_CrateSpawnAllowed', true];
 _player setCaptive false;
 
 if (true) exitWith {};
