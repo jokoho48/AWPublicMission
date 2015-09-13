@@ -5,8 +5,7 @@ Last modified: 2/3/2015
 
 Description: handles animal functionality
 __________________________________________________________________*/
-_dist = _this select 0;
-_count = _this select 1;
+params ["_dist", "_count"];
 
 _counter = 0;
 _posArray = [];
@@ -14,8 +13,7 @@ _expArray = [["(1 - forest) * (1 + meadow) * (1 - sea) * (1 - houses) * (1 - hil
 
 while {_counter < _count} do {
     _selected = _expArray select (random ((count _expArray) - 1));
-    _expression = _selected select 0;
-    _str = _selected select 1;
+    _selected params ["_expression", "_str"];
     _pos = [SEN_centerPos,0,SEN_range] call SEN_fnc_findRandomPos;
     _ret = selectBestPlaces [_pos,1000,_expression,80,1];
     if (!(count _ret isEqualTo 0) && {!([_ret select 0 select 0, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker)} && {!(surfaceIsWater(_ret select 0 select 0))} && {{((_ret select 0 select 0) distance (_x select 0)) < _dist} count _posArray isEqualTo 0}) then {
@@ -28,8 +26,7 @@ while {_counter < _count} do {
 if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is empty."] call SEN_fnc_log};
 
 {
-    _pos = _x select 0;
-    _str = _x select 1;
+    _x params ["_pos", "_str"];
 
     _trg = createTrigger ["EmptyDetector",_pos];
     _trg setTriggerArea [_dist,_dist,0,FALSE];

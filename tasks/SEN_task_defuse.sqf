@@ -7,7 +7,7 @@ Description: defuse bomb before time expires
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_mrkDebug1","_mrkDebug2","_pos1","_pos2","_pos"];
+private ["_mrkDebug1", "_mrkDebug2", "_pos1", "_pos2", "_pos"];
 
 SEN_defused = false;
 SEN_armed = false;

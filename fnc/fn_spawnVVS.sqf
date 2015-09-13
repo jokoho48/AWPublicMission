@@ -9,11 +9,9 @@ Description: spawns vehicle for VVS
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_className","_position","_direction","_cfgInfo","_vehicle"];
+private ["_cfgInfo","_vehicle"];
 
-_className = param [0,"",[""]];
-_position = param [1,[0,0,0],[[]]];
-_direction = param [2,0,[0]];
+params [["_className", "", [""]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
 
 {deleteVehicle _x} count (nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))]);
 uiSleep 0.1;

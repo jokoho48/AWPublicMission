@@ -7,12 +7,8 @@ Description: spawns tower
 
              returns group
 __________________________________________________________________*/
-private ["_pos","_range","_count","_side","_unitArray","_posArray","_type","_grp","_tower","_unit"];
-
-_pos = param [0,[0,0,0],[[]]];
-_range = param [1,100,[0]];
-_count = param [2,1,[0]];
-_side = param [3,SEN_enemySide];
+private ["_unitArray","_posArray","_type","_grp","_tower","_unit"];
+params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_side", SEN_enemySide]];
 
 _unitArray  = [];
 _posArray = [];

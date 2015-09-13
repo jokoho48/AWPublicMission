@@ -7,9 +7,8 @@ Description: set unit as hostage
 
         returns boolean
 __________________________________________________________________*/
-private ["_unit","_anim"];
-
-_unit = _this select 0;
+private "_anim";
+params ["_unit"];
 
 _anim = "Acts_AidlPsitMstpSsurWnonDnon02";
 _unit setbehaviour "CARELESS";

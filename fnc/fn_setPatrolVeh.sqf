@@ -8,10 +8,7 @@ Description: set vehicles on patrol
              returns nothing
 __________________________________________________________________*/
 private ["_driver","_maxRange","_isAir","_veh","_posArray","_minDist","_buffer","_roads","_pos1","_dir","_range","_pos2","_road","_height","_moveTo","_posCheck"];
-
-_driver = _this select 0;
-_maxRange = _this select 1;
-_isAir = _this select 2;
+params ["_driver", "_maxRange", "_isAir"];
 
 if (_maxRange > 1000) then {_maxRange = 1000};
 _driver setVariable ["SEN_patrol_exit",false];

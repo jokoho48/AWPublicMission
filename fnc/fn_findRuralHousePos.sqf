@@ -7,10 +7,8 @@ Description: finds an interior house position outside a town
 
         returns array [house, position in house]
 __________________________________________________________________*/
-private ["_center","_range","_counter","_s","_return","_startPos","_houseArray"];
-
-_center = _this select 0;
-_range = _this select 1;
+private ["_counter","_s","_return","_startPos","_houseArray"];
+params ["_center", "_range"];
 _counter = 100;
 
 for "_s" from 0 to _counter do {

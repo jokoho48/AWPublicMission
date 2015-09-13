@@ -7,12 +7,9 @@ Description: formats and logs messages to RPT
 
              returns nothing
 __________________________________________________________________*/
-private ["_type","_msg"];
-
-if !(typeName (_this select 0) isEqualTo "SCALAR") exitWith {diag_log "SEN_ERROR: fn_log: type is not of type SCALAR."};
-if !(typeName (_this select 1) isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
-
-_type = _this select 0;
+params ["_type", "_msg"];
+if !(typeName _type isEqualTo "SCALAR") exitWith {diag_log "SEN_ERROR: fn_log: type is not of type SCALAR."};
+if !(typeName _msg isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
 
 call {
     if (_type isEqualTo 1) exitWith {_type = "SEN_WARNING: "};
@@ -20,7 +17,7 @@ call {
     _type = "SEN_LOG: ";
 };
 
-_msg = _type + (_this select 1);
+_msg = _type + _msg;
 _this set [1,_msg];
 _this deleteAt 0;
 

@@ -36,9 +36,7 @@ if (_pos isEqualTo []) exitWith {
 };
 
 _grpArray = [_pos,SEN_enemySide,8,.5,2] call SEN_fnc_spawnSquad;
-_baseArray = _grpArray select 0;
-_vehArray = _grpArray select 1;
-_grp = _grpArray select 2;
+_grpArray params ["_baseArray", "_vehArray", "_grp"];
 _posArty = getposATL ((nearestObjects [_pos, ["Land_DuctTape_F"], 200]) select 0);
 
 for "_j" from 1 to 3 do {

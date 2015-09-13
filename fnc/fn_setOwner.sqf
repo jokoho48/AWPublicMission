@@ -9,10 +9,7 @@ Description: transfers objects to a requested owner
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_obj","_transferTo"];
-
-_obj = _this select 0;
-_transferTo = _this select 1;
+params ["_obj","_transferTo"];
 
 if (typeName _obj isEqualTo "ARRAY") then {
     {

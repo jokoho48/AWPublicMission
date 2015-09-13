@@ -7,11 +7,8 @@ Description: finds a flat rural position
 
         returns position
 __________________________________________________________________*/
-private ["_center","_range","_dist","_counter","_posFound","_s","_pos"];
-
-_center = _this select 0;
-_range = _this select 1;
-_dist = _this select 2;
+private ["_counter","_posFound","_s","_pos"];
+params ["_center", "_range","_dist"];
 
 _counter = 100;
 _posFound = false;

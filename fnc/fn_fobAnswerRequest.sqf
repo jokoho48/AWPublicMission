@@ -5,10 +5,7 @@ Last modified: 8/8/2015
 
 Description:  answer request for FOB control
 __________________________________________________________________*/
-private ["_userName","_answer"];
-
-_userName = _this select 0;
-_answer = _this select 1;
+params ["_userName", "_answer"];
 
 call {
     if (_answer isEqualTo 0) exitWith {hintSilent (_userName + " denies FOB construction request.")};

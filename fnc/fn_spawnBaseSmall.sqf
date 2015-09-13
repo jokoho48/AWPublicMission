@@ -9,9 +9,8 @@ Description: spawns small base
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_newOrigin","_obj","_dat","_objArray","_adString","_cString","_newPos","_moveTo","_origin","_diffFromOriginX","_diffFromOriginY","_diffFromOriginZ","_datAnchor","_originGrp","_diffX","_diffY","_diffZ"];
-
-_newOrigin = _this select 0;
+private ["_obj", "_dat", "_objArray", "_adString", "_cString", "_newPos", "_moveTo", "_origin", "_diffFromOriginX", "_diffFromOriginY", "_diffFromOriginZ", "_datAnchor", "_originGrp", "_diffX", "_diffY", "_diffZ"];
+params ["_newOrigin"];
 _obj = objNull;
 _dat = [];
 _objArray = [];

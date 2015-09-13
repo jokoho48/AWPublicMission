@@ -7,14 +7,9 @@ Description: spawns squad
 
         returns array, [[base objects],[driver array],grp]
 __________________________________________________________________*/
-private ["_pos","_side","_minCount","_vehChance","_baseType","_uncache","_return","_base","_vehArray","_grp"];
+private ["_return","_base","_vehArray","_grp"];
 
-_pos = param [0,[0,0,0],[[]]];
-_side = param [1,SEN_enemySide];
-_minCount = param [2,0,[0]];
-_vehChance = param [3,0,[0]];
-_baseType = param [4,0,[0]];
-_uncache = param [5,false];
+params [["_pos", [0, 0, 0], [[]]], ["_side", SEN_enemySide], ["_minCount",0,[0]], ["_vehChance",0,[0]], ["_baseType",0,[0]], ["_uncache", false]];
 
 _return = [];
 
@@ -31,7 +26,7 @@ if (random 1 < _vehChance) then {
     _return pushBack [];
 };
 
-_grp = [_pos,0,(_minCount max (call SEN_fnc_setStrength)),_side,_uncache] call SEN_fnc_spawnGroup;
+_grp = [_pos, 0, (_minCount max (call SEN_fnc_setStrength)), _side, _uncache] call SEN_fnc_spawnGroup;
 _return pushBack _grp;
 
 _return

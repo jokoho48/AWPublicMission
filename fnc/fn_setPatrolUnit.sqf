@@ -7,10 +7,8 @@ Description: set unit on patrol
 
              returns nothing
 __________________________________________________________________*/
-private ["_unit","_maxRange","_minDist","_posArray","_pos1","_houses","_house","_housePosArray","_pos2","_dir","_range","_moveTo","_posCheck"];
-
-_unit = _this select 0;
-_maxRange = _this select 1;
+private ["_minDist", "_posArray", "_pos1", "_house", "_housePosArray", "_pos2", "_dir", "_range", "_moveTo", "_posCheck"];
+params ["_unit", "_maxRange", "_houses"];
 _minDist = _maxRange*0.30;
 _posArray = [];
 _unit forceSpeed (_unit getSpeed "SLOW");
@@ -18,7 +16,6 @@ _pos1 = getposATL _unit;
 
 for "_i" from 1 to 50 do {
     if ((count _this > 2) && {random 1 < 0.6}) then {
-        _houses = _this select 2;
         _house = _houses select (random ((count _houses) - 1));
         _housePosArray = [_house] call bis_fnc_buildingPositions;
         _houses = _houses - [_house];

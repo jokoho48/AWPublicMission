@@ -7,13 +7,9 @@ Description: spawns group
 
         returns group or array
 __________________________________________________________________*/
-private ["_pos","_type","_count","_side","_uncache","_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"];
+private ["_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"];
 
-_pos = param [0,[0,0,0],[[]]];
-_type = param [1,0,[0]];
-_count = param [2,1,[0]];
-_side = param [3,SEN_enemySide];
-_uncache = param [4,false];
+params [["_pos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side",SEN_enemySide], ["_uncache",false]];
 
 _grp = createGroup _side;
 _grp allowfleeing 0;

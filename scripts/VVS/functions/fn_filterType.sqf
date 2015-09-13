@@ -6,7 +6,7 @@
     Filters through the incoming request and also checks if the side restriction is enabled.
 */
 private["_filter","_ret","_vehicleList"];
-_filter = [_this,0,"",[""]] call BIS_fnc_param;
+params [["_filter", "", [""]]];
 if(_filter isEqualTo "") exitWith {[]};
 
 //Setup our array.

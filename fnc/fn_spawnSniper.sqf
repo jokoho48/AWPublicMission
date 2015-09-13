@@ -7,14 +7,8 @@ Description: spawn sniper
 
         returns array of groups
 __________________________________________________________________*/
-private ["_pos","_count","_min","_max","_side","_uncache","_return","_sniper","_spotter","_overwatch","_ref1","_ref2","_overwatchHeight","_overwatchASL","_grp","_unit","_mrk"];
-
-_pos = param [0,[0,0,0],[[]]];
-_count = param [1,1,[0]];
-_min = param [2,100,[0]];
-_max = param [3,1100,[0]];
-_side = param [4,SEN_enemySide];
-_uncache = param [5,false];
+private ["_return","_sniper","_spotter","_overwatch","_ref1","_ref2","_overwatchHeight","_overwatchASL","_grp","_unit","_mrk"];
+params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max", 1100, [0]], ["_side", SEN_enemySide], ["_uncache", false]];
 _return = [];
 
 call {

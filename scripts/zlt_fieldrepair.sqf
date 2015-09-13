@@ -46,8 +46,7 @@ if (isServer) then {
 };
 */
 zlt_fnc_partrepair = {
-    private "_veh";
-    _veh = [_this, 0] call BIS_fnc_param;
+    params ["_veh"];
     if (isNil {_veh} ) exitWith {};
     {
         _dmg = (_veh getHitPointDamage _x);
@@ -64,8 +63,7 @@ zlt_fnc_partrepair = {
 };
 
 zlt_fnc_fullrepair = {
-    private "_veh";
-    _veh = [_this, 0] call BIS_fnc_param;
+    params ["_veh"];
     _veh setDamage 0;
 };
 
@@ -77,9 +75,9 @@ waitUntil {player isEqualTo player};
 zlt_mutexAction = false;
 
 zlt_fnc_vehicledamaged = {
-    private ["_veh","_vehtype","_flag"];
-    _veh =  [_this, 0] call BIS_fnc_param;
-    if (isNil {_veh}) exitWith {false};
+    private ["_vehtype","_flag"];
+    params ["_veh"];
+    if (isNil "_veh") exitWith {false};
     _vehtype = typeOf _veh;
     _flag = false;
     if (true) then {
@@ -90,14 +88,12 @@ zlt_fnc_vehicledamaged = {
             };
         }  forEach zlt_repair_hps;
     };
-    _flag;
+    _flag
 };
 
-
-
 zlt_frpr_getPartsRepairTime = {
-    private ["_veh","_vehtype","_flag"];
-    _veh =  [_this, 0] call BIS_fnc_param;
+    private ["_vehtype","_flag"];
+    params ["_veh"];
     if (isNil {_veh}) exitWith {1};
     _rprTime = 0;
     {
@@ -123,11 +119,8 @@ zlt_fnc_hastk = {
     _ret;
 };
 
-
 zlt_fnc_removeitemfromcargo = {
-    private ["_veh"];
-    _item = [_this,0,""] call BIS_fnc_param;
-    _veh = [_this,1] call BIS_fnc_param;
+    params [["_item", ""], "_veh"];
     _allitems = itemcargo _veh;
     clearItemCargoGlobal _veh;
     _allitems = _allitems call BIS_fnc_consolidateArray;
@@ -182,7 +175,6 @@ zlt_prc_repairvehicle = {
     player playActionNow "medicstop";
 };
 
-
 zlt_fnc_repair_cond = {
     private ["_veh","_ret"];
     _ret = false;
@@ -192,8 +184,6 @@ zlt_fnc_repair_cond = {
     _ret = (alive player and {(player distance _veh) <= 7} and {(vehicle player isEqualTo player)} and {speed _veh < 3} and {not zlt_mutexAction} and {_dmged} and {alive _veh});
     _ret;
 };
-
-
 
 zlt_fnc_heavyRepair = {
     _caller = player;
@@ -250,7 +240,6 @@ zlt_pushapc = {
     zlt_mutexAction = false;
 };
 
-
 // obsolete
 zlt_fnc_heavyRepairCOnd = {
     _truck = vehicle player;
@@ -264,7 +253,6 @@ zlt_fnc_heavyRepairCOnd = {
 
 };
 
-
 if (isNil "zlt_cancelActionId") then {
     zlt_cancelActionId = player addAction["<t color='#0000ff'>"+STR_CANCEL_ACTION+"</t>", {zlt_mutexAction = false}, [], 10, false, true, '',' zlt_mutexAction  '];
 
@@ -274,7 +262,6 @@ if (isNil "zlt_cancelActionId") then {
 
     //player createDiarySubject [STR_SCRIPTS_NAME,STR_SCRIPTS_NAME];
     //player createDiaryRecord [STR_SCRIPTS_NAME,[STR_SCRIPT_NAME, STR_HELP]];
-
 
 };
 

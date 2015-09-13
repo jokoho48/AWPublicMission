@@ -5,11 +5,8 @@ Last modified: 7/28/2015
 
 Description: handles transport functionality
 __________________________________________________________________*/
-private ["_spawnArray","_allowType","_allowCiv","_vehicleData","_vehicleDataTypes_enum","_fnc_getVehicleDataTypeIndex","_type","_return","_defaultCrew","_cfgPath","_simulType","_simulIndex","_side","_model","_sides","_tmpSide","_tmpTypes","_index","_spawnPos"];
-
-_spawnArray = _this select 0;
-_allowType = _this select 1;
-_allowCiv = _this select 2;
+private ["_vehicleData", "_vehicleDataTypes_enum", "_fnc_getVehicleDataTypeIndex", "_type", "_return", "_defaultCrew", "_cfgPath", "_simulType", "_simulIndex", "_side", "_model", "_sides", "_tmpSide", "_tmpTypes", "_index", "_spawnPos"];
+params ["_spawnArray", "_allowType", "_allowCiv"];
 
 _vehicleData = [
     //OPFOR
@@ -93,7 +90,7 @@ _defaultCrew = gettext (configfile >> "cfgvehicles" >> "all" >> "crew");
             };
         }foreach _sides;
     };
-"configClasses ( configFile >> "CfgVehicles" );
+" configClasses ( configFile >> "CfgVehicles" );
 
 (_spawnArray select 0) addAction [ "Garage",{
     BIS_fnc_garage_data = ((_this select 3) select 0) select ( side player call BIS_fnc_sideID );

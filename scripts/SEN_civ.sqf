@@ -8,9 +8,7 @@ __________________________________________________________________*/
 if (!isServer) exitWith {};
 
 private ["_unitCount","_vehCount","_cond"];
-
-_dist = _this select 0;
-_air = _this select 1;
+params ["_dist", "_air"];
 
 {
     _townPos = getpos _x;

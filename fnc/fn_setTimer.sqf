@@ -7,9 +7,8 @@ Description: Formats timer for tasks
 
              returns time
 __________________________________________________________________*/
-private ["_in","_sec","_min"];
-
-_in = _this select 0;
+private ["_sec","_min"];
+params ["_in"];
 
 _sec = _in mod 1;
 _min = _in - _sec;

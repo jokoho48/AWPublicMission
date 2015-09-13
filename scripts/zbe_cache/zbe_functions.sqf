@@ -24,9 +24,8 @@ zbe_unCache = {
 };
 
 zbe_closestUnit = {
-    private["_units", "_unit", "_dist", "_udist"];
-    _units = _this select 0;
-    _unit = _this select 1;
+    private["_dist", "_udist"];
+    params ["_units", "_unit"];
     _dist = 10^5;
     {_udist = _x distance _unit;
         if (_udist < _dist) then {
@@ -48,11 +47,11 @@ zbe_closestUnit = {
 };Old function that is no longer used, left here for reference*/
 
 zbe_setPosLight = {
-    {_testpos = (formationPosition _x);
+    {   _testpos = (formationPosition _x);
         if (!(isNil "_testpos") && (count _testpos > 0)) then {
-        if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
-            _x setPos _testpos;
-                };
+            if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
+                _x setPos _testpos;
+            };
         };
     } forEach _toCache;
 };

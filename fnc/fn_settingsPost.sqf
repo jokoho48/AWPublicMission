@@ -10,7 +10,8 @@ __________________________________________________________________*/
 if !(isServer) exitWith {};
 
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
-SEN_range = worldSize/2; publicVariable "SEN_range";
+SEN_range = worldSize/2;
+publicVariable "SEN_range";
 SEN_centerPos = [SEN_range,SEN_range,0];
 SEN_occupiedLocation = [];
 SEN_whitelistLocation = [];

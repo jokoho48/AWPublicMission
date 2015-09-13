@@ -7,9 +7,6 @@ Description: removes multiple actions
 
         returns nothing
 __________________________________________________________________*/
-private ["_obj","_id"];
-
-_obj = _this select 0;
-_id = _this select 1;
+params ["_obj", "_id"];
 
 {_obj removeAction _x} count _id;

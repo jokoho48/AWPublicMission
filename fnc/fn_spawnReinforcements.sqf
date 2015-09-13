@@ -7,13 +7,8 @@ Description: send reinforcements to position
 
         returns boolean
 __________________________________________________________________*/
-private ["_startPos","_side","_minDist","_spawnDist","_patrolOnWP","_unitPool","_veh","_lz","_pos","_grp","_pilot","_patrolGrp","_helipad","_wp","_time"];
-
-_startPos = param [0,[0,0,0],[[]]];
-_side = param [1,SEN_enemySide];
-_minDist = param [2,600,[0]];
-_spawnDist = param [3,2500,[0]];
-_patrolOnWP = param [4,false];
+private ["_unitPool","_veh","_lz","_pos","_grp","_pilot","_patrolGrp","_helipad","_wp","_time"];
+params [["_startPos",[0,0,0],[[]]],["_side",SEN_enemySide],["_minDist",600,[0]],["_spawnDist",2500,[0]],["_patrolOnWP",false]];
 
 call {
     if (_side isEqualTo WEST) exitWith {

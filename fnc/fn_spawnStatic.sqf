@@ -7,13 +7,8 @@ Description: spawn static emplacements
 
              returns group
 __________________________________________________________________*/
-private ["_pos","_range","_count","_type","_side","_gunnerArray","_posArray","_counter","_unit","_static1","_static2","_static3","_random","_roads","_s","_road","_roadConnectedTo","_dir","_staticPos","_check","_static","_grp","_gunner","_bunker","_fort","_fortPos","_mrk"];
-
-_pos = param [0,[0,0,0],[[]]];
-_range = param [1,100,[0]];
-_count = param [2,1,[0]];
-_type = param [3,-1,[0]];
-_side = param [4,SEN_enemySide];
+private ["_gunnerArray", "_posArray", "_counter", "_unit", "_static1", "_static2", "_static3", "_random", "_roads", "_s", "_road", "_roadConnectedTo", "_dir", "_staticPos", "_check", "_static", "_grp", "_gunner", "_bunker", "_fort", "_fortPos", "_mrk"];
+params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_type", -1, [0]], ["_side", SEN_enemySide]];
 
 _gunnerArray = [];
 _posArray = [];

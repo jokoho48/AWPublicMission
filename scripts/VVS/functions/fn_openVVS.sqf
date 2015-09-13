@@ -5,8 +5,7 @@
     Description:
     Opens the VVS menu and fills in the blanks.
 */
-private["_sp"];
-_sp = [_this,3,"",["",[]]] call BIS_fnc_param;
+params [["_sp", "", [""]]];
 if(typeName _sp isEqualTo "STRING") then
 {
     if(_sp isEqualTo "") exitWith {closeDialog 0};

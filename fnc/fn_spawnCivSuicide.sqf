@@ -7,10 +7,8 @@ Description: spawns suicide bomber
 
              returns nothing
 __________________________________________________________________*/
-private ["_unit","_range","_dist","_grp","_targets","_targetPlayer"];
-
-_unit = _this select 0;
-_range = _this select 1;
+private ["_dist","_grp","_targets","_targetPlayer"];
+params ["_unit","_range"];
 _dist = 20;
 _grp = [[_unit]] call SEN_fnc_setSide;
 _unit = leader _grp;
@@ -24,9 +22,8 @@ _unit addVest "V_TacVestIR_blk";
 _unit addEventHandler ["Hit", {"HelicopterExploSmall" createVehicle ((_this select 0) modeltoworld [0,0,0]); (_this select 0) removeAllEventHandlers "Hit"}];
 
 [_unit,_targetPlayer,_dist] spawn {
-    _unit = vehicle (_this select 0);
-    _targetPlayer = _this select 1;
-    _dist = _this select 2;
+    params ["_unit", "_targetPlayer", "_dist"];
+    _unit = vehicle _unit;
     while {alive (driver _unit)} do {
         if ((_targetPlayer distance _unit) < (_dist*6 min 100)) then {
             playSound3D ["A3\Sounds_F\sfx\Beep_Target.wss", _unit, false, getPosATL _unit, 1, 1, 200];
@@ -36,9 +33,7 @@ _unit addEventHandler ["Hit", {"HelicopterExploSmall" createVehicle ((_this sele
 };
 
 [_unit,_targetPlayer,_dist] spawn {
-    _unit = _this select 0;
-    _targetPlayer = _this select 1;
-    _dist = _this select 2;
+    params ["_unit", "_targetPlayer", "_dist"];
     while {alive _unit} do {
         uiSleep 8;
         _unit doMove (getposatl _targetPlayer);

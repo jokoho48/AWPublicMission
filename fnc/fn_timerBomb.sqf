@@ -9,10 +9,8 @@ Description: runs timer for defuse explosive task
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_pos","_time","_hintCounter","_houses","_timeDisplay","_splosion"];
-
-_pos = _this select 0;
-_time = _this select 1;
+private ["_hintCounter", "_houses", "_timeDisplay", "_splosion"];
+params ["_pos", "_time"];
 
 _hintCounter = 60;
 _houses = (nearestObjects [_pos, ["house"], 150]);

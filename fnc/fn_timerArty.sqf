@@ -9,11 +9,8 @@ Description: runs timer for arty task
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_gunnerArray","_time","_targetPos","_i","_gunnerCount","_gunner","_hintCounter"];
-
-_gunnerArray = _this select 0;
-_targetPos = _this select 1;
-_time = _this select 2;
+private ["_i","_gunnerCount","_gunner","_hintCounter"];
+params ["_gunnerArray", "_targetPos", "_time"];
 
 _hintCounter = 60;
 

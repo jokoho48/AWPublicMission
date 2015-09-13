@@ -5,9 +5,8 @@ Last modified: 8/8/2015
 
 Description:  receive request for FOB control
 __________________________________________________________________*/
-private ["_requestor","_time","_id1","_id2"];
-
-_requestor = _this select 0;
+private ["_time","_id1","_id2"];
+params ["_requestor"];
 _time = time;
 SEN_fobResponse = -1;
 

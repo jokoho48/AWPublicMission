@@ -10,9 +10,7 @@ Description: scans config classes based on passed string. removes unwanted class
              returns array of class names
 __________________________________________________________________*/
 private ["_cfg","_array","_class","_base","_master","_type","_category","_formatted","_display","_parentArray","_scope","_blacklist"];
-
-_category = param [0,"",[""]];
-_blacklist = param [1,[],[[]]];
+params [["_category", "", [""]], ["_blacklist", [], [[]]]];
 
 _array = [];
 _formatted = toUpper _category;

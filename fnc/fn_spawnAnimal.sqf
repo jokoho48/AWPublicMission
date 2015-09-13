@@ -8,11 +8,7 @@ Description: spawns animals
              returns nothing
 __________________________________________________________________*/
 private ["_pos","_expression","_count","_trgVar","_agentArray","_type","_agent"];
-
-_pos = _this select 0;
-_expression = _this select 1;
-_count = _this select 2;
-_trgVar = _this select 3;
+params ["_pos", "_expression", "_count", "_trgVar"];
 _agentArray = [];
 _type = "";
 

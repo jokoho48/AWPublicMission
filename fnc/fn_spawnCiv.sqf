@@ -7,12 +7,8 @@ Description: spawns civilians
 
              returns nothing
 __________________________________________________________________*/
-private ["_pos","_unitCount","_vehCount","_trgVar","_unitArray","_vehArray","_driverArray","_grp","_vehgrp","_roads","_veh","_unit"];
-
-_pos = _this select 0;
-_unitCount = _this select 1;
-_vehCount = _this select 2;
-_trgVar = _this select 3;
+private ["_unitArray","_vehArray","_driverArray","_grp","_vehgrp","_roads","_veh","_unit"];
+params ["_pos", "_unitCount", "_vehCount", "_trgVar"];
 _unitArray = [];
 _vehArray = [];
 _driverArray = [];

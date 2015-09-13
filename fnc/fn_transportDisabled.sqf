@@ -9,12 +9,8 @@ Description: runs when transport is disabled enroute
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_requestor","_transport","_markers","_helipad","_pilot","_crew","_pilotArray"];
-
-_requestor = _this select 0;
-_transport = _this select 1;
-_markers = _this select 2;
-_helipad = _this select 3;
+private ["_pilot", "_crew", "_pilotArray"];
+params ["_requestor", "_transport", "_markers", "_helipad"];
 
 _pilot = driver _transport;
 _crew = crew _transport;

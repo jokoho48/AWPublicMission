@@ -7,11 +7,8 @@ Description: handles transport functionality
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_package","_requestor","_type","_dirArray","_spawnPos","_transport","_bbr","_p1","_p2","_maxWidth","_maxLength","_maxHeight","_maxDeminsion","_pos","_pilot","_fobHeliPad","_isEmpty","_dir","_s","_sel","_crew","_hlz","_mrk","_helipad","_t"];
-
-_package = _this select 0;
-_requestor = _package select 0;
-_type = _package select 1;
+private ["_dirArray","_spawnPos","_transport","_bbr","_p1","_p2","_maxWidth","_maxLength","_maxHeight","_maxDeminsion","_pos","_pilot","_fobHeliPad","_isEmpty","_dir","_s","_sel","_crew","_hlz","_mrk","_helipad","_t"];
+params ["_package","_requestor","_type"];
 _dirArray = [];
 _spawnPos = [0,0,0];
 if !((missionNameSpace getVariable ["SEN_transportReady",0]) isEqualTo 1) exitWith {

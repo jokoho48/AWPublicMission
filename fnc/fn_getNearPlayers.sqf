@@ -7,10 +7,8 @@ Description: gets near players
 
         returns array
 __________________________________________________________________*/
-private ["_pos","_range","_players"];
-
-_pos = _this select 0;
-_range = _this select 1;
+private "_players";
+params ["_pos","_range"];
 _players = [];
 
 {

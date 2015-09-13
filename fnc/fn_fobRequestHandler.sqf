@@ -9,13 +9,11 @@ if (!isServer) exitWith {};
 
 private ["_package","_requestor","_response","_addons","_addonsVeh","_userName"];
 
-_package = _this select 0;
-if (count _package isEqualTo 1) exitWith {
+
+if !((_this select 0) params ["_requestor", "_response"]) exitWith {
     [[_package select 0],"SEN_fnc_fobReceiveRequest",owner (getAssignedCuratorUnit SEN_curatorFOB)] call BIS_fnc_MP;
 };
 
-_requestor = _package select 0;
-_response = _package select 1;
 _userName = "SERVER";
 if !(isNull (getAssignedCuratorUnit SEN_curatorFOB)) then {
     _userName = name (getAssignedCuratorUnit SEN_curatorFOB);

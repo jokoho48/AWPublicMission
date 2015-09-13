@@ -9,7 +9,7 @@ Description: set FOB, handles recon and approval influence
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_unit","_pos","_radius","_reconRad","_addons","_addonsVeh","_mrk","_hq","_revealed","_mrkArray","_grps","_reveal","_hour","_min","_format","_bonus"];
+private ["_reconRad","_addons","_addonsVeh","_mrk","_hq","_revealed","_mrkArray","_grps","_reveal","_hour","_min","_format","_bonus"];
 params [["_unit", objNull], ["_pos", [0,0,0]],["_radius",100]];
 _reconRad = SEN_range*0.17 max 2500;
 _addons = ["A3_Structures_F_Mil_Cargo","A3_Structures_F_Mil_Fortification","A3_Structures_F_Mil_Helipads","A3_Structures_F_Mil_Shelters","A3_Structures_F_Civ_Lamps","A3_Structures_F_Mil_BagBunker","A3_Structures_F_Mil_BagFence","A3_Structures_F_Civ_Camping","ace_medical"];

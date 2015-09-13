@@ -7,7 +7,7 @@ Description: defend supply cache
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_townName","_townPos","_townSize","_avgTownSize","_task","_defendTown","_cachePool","_posCache","_roads","_cacheArray","_vehArray","_c","_cache","_pos","_dir","_transport","_grpWest","_e","_posEnemy","_grp","_vehEnemy","_count","_taskDescription"];
+private ["_townName", "_townPos", "_townSize", "_avgTownSize", "_task", "_defendTown", "_cachePool", "_posCache", "_roads", "_cacheArray", "_vehArray", "_c", "_cache", "_pos", "_dir", "_transport", "_grpWest", "_e", "_posEnemy", "_grp", "_vehEnemy", "_count", "_taskDescription"];
 
 _taskID = "defend";
 _taskText = "Defend Cache";

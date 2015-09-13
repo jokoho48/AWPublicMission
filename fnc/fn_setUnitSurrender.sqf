@@ -8,8 +8,7 @@ Description: set unit in surrender stance
         returns boolean
 __________________________________________________________________*/
 private ["_obj","_driver"];
-
-_obj = param [0,objNull,[objNull]];
+params [["_obj", objNull, [objNull]]];
 
 if (typeOf _obj isKindOf "Air") exitWith {[1,"fn_setUnitSurrender: Object is AIR type. Can't surrender."] call SEN_fnc_log;};
 

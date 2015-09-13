@@ -22,9 +22,7 @@ if (_pos isEqualTo []) exitWith {
     [] call SEN_fnc_setTask;
 };
 _grpArray = [_pos,SEN_enemySide,8,.25,1] call SEN_fnc_spawnSquad;
-_baseArray = _grpArray select 0;
-_vehArray = _grpArray select 1;
-_grp = _grpArray select 2;
+_grpArray params ["_baseArray", "_vehArray", "_grp"];
 _hq = nearestObjects [_pos, ["Land_Cargo_HQ_V3_F"], 100];
 _hq = (_hq select (random ((count _hq) - 1)));
 
@@ -48,7 +46,7 @@ _mrk setMarkerShape "ELLIPSE";
 _mrk setMarkerAlpha 0.7;
 _mrk setMarkerSize [_radius,_radius];
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Destroy",false] call BIS_fnc_taskCreate;
+[WEST, [_taskID], [_taskDescription, _taskText, ""], _mrk, false, 2, true, "Destroy", false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

@@ -5,8 +5,8 @@
     Description:
     Refreshes the filtering list.
 */
-private["_control","_curSel","_filter","_row"];
-_curSel = _this select 1;
+private["_curSel","_filter","_row"];
+params ["_control"];
 if(_curSel isEqualTo -1) exitWith {};
 
 _filter = lbData[38102,_curSel];
