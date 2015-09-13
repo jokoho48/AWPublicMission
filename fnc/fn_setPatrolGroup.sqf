@@ -8,7 +8,7 @@ Description: set units of group on patrol
              returns nothing
 __________________________________________________________________*/
 private "_houseArray";
-params [["_grp", grpNull, [objNull, grpNull]], ["_range", 100, [0]]]
+params [["_grp", grpNull, [objNull, grpNull]], ["_range", 100, [0]]];
 
 if (typeName _grp isEqualTo "OBJECT") then {_grp = group _grp};
 _grp setBehaviour "SAFE";

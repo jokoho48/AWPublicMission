@@ -13,8 +13,8 @@ params [["_pos1",[], [[]]], ["_pos2",[],[[]]]];
 _pos1 params ["_pos1X", "_pos1Y"];
 _pos2 params ["_pos2X", "_pos2Y"];
 
-_dX = ((_pos2X) - (_pos1X));
-_dY = ((_pos2Y) - (_pos1Y));
-_pos3 = [((cos(60) * _dX - sin(60) * _dY) + (_pos1X)), (sin(60) * _dX + cos(60) * _dY) + (_pos1Y
+_dX = (_pos2X - _pos1X);
+_dY = (_pos2Y - _pos1Y);
+_pos3 = [((cos(60) * _dX - sin(60) * _dY) + _pos1X), (sin(60) * _dX + cos(60) * _dY) + _pos1Y];
 
 _pos3
