@@ -7,7 +7,7 @@ magazines one for one in _items.
 */
 
 //Vehicle Array
-_vvsArray = [];
+JK_vvsArray = ["rhs_vehclass_aircraft", "rhs_vehclass_helicopter", "rhs_vehclass_helicopter_wd", "B_Heli_Light_01_F", "B_Heli_Light_01_armed_F", "B_Heli_Light_01_stripped_F"];
 
 //clothing - (string)
 _uniforms = ["rhs_uniform_FROG01_wd"];

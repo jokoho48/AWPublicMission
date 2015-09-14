@@ -28,12 +28,9 @@ _vehicleList = switch(_filter) do {
 if(count _vehicleList isEqualTo 0) exitWith {[]};
 {
     _cfgInfo = [_x] call VVS_fnc_cfgInfo;
-    if(count _cfgInfo > 0) then
-    {
-        if(_filter != "Ammo" && {VVS_SideOnly}) then
-        {
-            _side = switch((_cfgInfo select 5)) do
-            {
+    if(count _cfgInfo > 0) then {
+        if(_filter != "Ammo" && {VVS_SideOnly}) then {
+            _side = switch((_cfgInfo select 5)) do {
                 case 0: {east};
                 case 1: {west};
                 case 2: {resistance};
@@ -41,13 +38,10 @@ if(count _vehicleList isEqualTo 0) exitWith {[]};
                 default {sideUnknown};
             };
 
-            if(_side isEqualTo playerSide) then
-            {
+            if(_side isEqualTo playerSide) then {
                 _ret pushBack _x;
             };
-        }
-            else
-        {
+        } else {
             _ret pushBack _x;
         };
     };

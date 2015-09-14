@@ -173,5 +173,6 @@ if (name _unit == "joko // Jonas") then {
 } else {
     [_unit, _insignium] call BIS_fnc_setUnitInsignia;
 };
-
+JK_buildNotDone = true;
+[] call VVS_fnc_buildCfg;
 if(true)exitWith{};

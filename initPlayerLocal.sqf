@@ -4,7 +4,6 @@ Author: SENSEI
 Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
-
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
 [] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
@@ -21,7 +20,7 @@ if (SEN_debug isEqualTo 1) then {
 };
 
 // setup eventhandlers
-player addEventHandler["Fired",{
+player addEventHandler["Fired", {
     if (((_this select 0) distance (getmarkerpos "SEN_safezone_mrk")) < (getMarkerSize "SEN_safezone_mrk") select 0) then {deleteVehicle (_this select 6); ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;}
 }];
 

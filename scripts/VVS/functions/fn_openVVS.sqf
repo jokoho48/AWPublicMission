@@ -6,6 +6,11 @@
     Opens the VVS menu and fills in the blanks.
 */
 params ["", "", "", ["_sp", ""]];
+if (JK_buildNotDone) then {
+    hint "Please Wait Vehicle list is in baking Process";
+    waitUntil {!JK_buildNotDone};
+    hint "baking Done";
+};
 if(typeName _sp isEqualTo "STRING") then {
     if(_sp isEqualTo "") exitWith {closeDialog 0};
     VVS_SP = _sp;

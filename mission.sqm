@@ -4305,6 +4305,7 @@ class Mission
 			position[]={15081.585,17.91,17145.865};
 			a=6;
 			b=6;
+			activationBy="ANY";
 			interruptable=1;
 			age="UNKNOWN";
 			expCond="this && ((getPos (thisList select 0)) select 2 < 1) && speed (thisList select 0) < 1";

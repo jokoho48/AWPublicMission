@@ -37,7 +37,7 @@ if(_mode isEqualTo "All") then
     {
         lbAdd[38102,_x];
         lbSetData[38102,(lbSize 38102)-1,_x];
-    } foreach ["All","Car","Air","Ship",/*"Submarine",*/"Armored","Autonomous","Support"];
+    } foreach ["All","Car","Air","Ship","Armored","Autonomous","Support"];
 
     lbSetCurSel[38102,0];
 }
@@ -47,7 +47,7 @@ if(_mode isEqualTo "All") then
     _row = 0;
     _vehicleList = [_mode] call VVS_fnc_filterType;
 
-    if(count _vehicleList isEqualTo 0) exitWith {hint "There was an error and no vehicles could be fetched!"};
+    if(count _vehicleList isEqualTo 0) exitWith {hint "You dont have any Vehicle you can Spawn!"; 38100 closeDisplay 0;};
     {
         _cfgInfo = [_x] call VVS_fnc_cfgInfo;
         if(count _cfgInfo > 0) then
