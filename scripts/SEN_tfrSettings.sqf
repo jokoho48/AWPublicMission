@@ -12,7 +12,7 @@ if (!isServer) exitWith {};
 // TFR mod configuration
 #include "\task_force_radio\functions\common.sqf";
 
-tf_give_personal_radio_to_regular_soldier = false;
+tf_give_personal_radio_to_regular_soldier = true;
 publicVariable "tf_give_personal_radio_to_regular_soldier";
 tf_no_auto_long_range_radio = true;
 publicVariable "tf_no_auto_long_range_radio";
@@ -30,3 +30,9 @@ SEN_tfr_sw = "tf_anprc152"; // shortwave radio
 publicVariable "SEN_tfr_sw";
 SEN_tfr_lr = "tf_rt1523g_big"; // long range radio
 publicVariable "SEN_tfr_lr";
+
+// TS Channel Stuff
+tf_radio_channel_name = "LaufendeMission";
+publicVariable "tf_radio_channel_name";
+tf_radio_channel_password = "armaworld";
+publicVariable "tf_radio_channel_password";

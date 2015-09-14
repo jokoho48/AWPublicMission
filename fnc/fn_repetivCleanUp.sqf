@@ -90,4 +90,4 @@ if !(isServer) exitWith {};
             }, 1, [_object, _height]] call CBA_fnc_addPerframeHandler;
         };
     } forEach JK_objectStorage;
-}, 60, []] call CBA_fnc_addPerframeHandler;
+}, 120, []] call CBA_fnc_addPerframeHandler;

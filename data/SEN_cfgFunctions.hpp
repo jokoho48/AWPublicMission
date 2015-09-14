@@ -5,7 +5,7 @@ class SEN {
     tag = "SEN";
     class functions {
         file = "fnc";
-        class repetivCleanUp {postInit = 1;};
+        class repetivCleanUp {preInit = 1;};
         class removeAction;
         class log;
         class checkInMarker;
