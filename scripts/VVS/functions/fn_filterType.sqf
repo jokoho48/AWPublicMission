@@ -5,7 +5,7 @@
     Description:
     Filters through the incoming request and also checks if the side restriction is enabled.
 */
-private["_filter","_ret","_vehicleList"];
+private["_ret","_vehicleList"];
 params [["_filter", "", [""]]];
 if(_filter isEqualTo "") exitWith {[]};
 

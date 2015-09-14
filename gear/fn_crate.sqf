@@ -117,7 +117,7 @@ _fnc_UAV = {
     ]] call JK_fnc_createCrate;
 };
 
-VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>", VVS_fnc_openVVS, ["SEN_vehSpawn_mrk","All"], 99, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
+VVS addAction["<t color='#3f3fff'>Open Vehicle Menu</t>", VVS_fnc_openVVS, ["SEN_vehSpawn_mrk", "All"], 99, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
 ammonition addAction ["<t color='#3f3fff'>Request Radio Crate</t>", _fnc_Radio, [], 0, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
 
 ammonition addAction ["<t color='#3f3fff'>Request Ammo Crate</t>", _fnc_ammo];

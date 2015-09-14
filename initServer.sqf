@@ -3,6 +3,8 @@ Author: SENSEI
 
 Last modified: 8/5/2015
 __________________________________________________________________*/
+SEN_approvalCiv = profileNamespace getVariable ["SEN_approvalCiv", 0];
+publicVariable "SEN_approvalCiv";
 missionNameSpace setVariable ["SEN_transportReady", 1];
 if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
 [2000,0,false,100,2600,2600] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
@@ -23,3 +25,9 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 [] spawn compile preprocessFileLineNumbers "scripts\SEN_cleanup.sqf";
+
+
+"SEN_approvalCiv" addPublicVariableEventHandler {
+    profileNameSpace setVariable ["SEN_approvalCiv", _this select 1];
+    saveProfileNamespace;
+};

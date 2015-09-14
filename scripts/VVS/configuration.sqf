@@ -2,8 +2,6 @@
 VVS_SideOnly = true;
 
 //Only set to true if you are making pre-made vehicle lists with VVS_x (i.e VVS_Car)
-VVS_Premade_List = false;
-
 //If you are going to use Pre-set VVS Vehicles it is recommended to set this to true as it will not run through the config saving CPU resources on initialization, otherwise leave as default.
 VVS_Premade_List = false;
 

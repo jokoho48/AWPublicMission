@@ -365,7 +365,7 @@ class Mission
 					vehicle="Logic";
 					leader=1;
 					skill=0.60000002;
-					init="SEN_complete = 0; SEN_HCPresent = false; SEN_flagFOB_startPos = getpos SEN_flagFOB; SEN_defuseObj = objNull; SEN_IntelObj = objNull; SEN_IntelObjCiv = objNull; SEN_approvalCiv = 0;";
+					init="SEN_complete = 0; SEN_HCPresent = false; SEN_flagFOB_startPos = getpos SEN_flagFOB; SEN_defuseObj = objNull; SEN_IntelObj = objNull; SEN_IntelObjCiv = objNull;";
 				};
 			};
 		};

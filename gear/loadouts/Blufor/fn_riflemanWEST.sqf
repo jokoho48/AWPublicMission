@@ -119,7 +119,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
+_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 ///// No editing necessary below this line /////
 params ["_player"];

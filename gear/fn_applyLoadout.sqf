@@ -42,7 +42,7 @@ _jetPilot = [];
 _pjMedic = [];
 
 // insert Classnames of the units
-_commandClass = [];
+_commandClass = ["B_Soldier_SL_F"];
 _SLClass = ["B_Soldier_TL_F"];
 _medicsClass = ["B_medic_F"];
 _ARClass = [];
