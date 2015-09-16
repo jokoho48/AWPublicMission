@@ -10,8 +10,8 @@ magazines one for one in _items.
 JK_vvsArray = ["rhs_vehclass_aircraft", "rhs_vehclass_helicopter", "rhs_vehclass_helicopter_wd", "B_Heli_Light_01_F", "B_Heli_Light_01_armed_F", "B_Heli_Light_01_stripped_F"];
 
 //clothing - (string)
-_uniforms = ["rhs_uniform_FROG01_wd"];
-_vests = ["rhsusf_spc"];
+_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
+_vests = ["rhsusf_spc_corpsman"];
 _headgears = ["rhsusf_opscore_02_tan"];
 _backpacks = ["tf_rt1523g_rhs"];
 _insignium = "";
@@ -21,7 +21,7 @@ _goggles = "";
 //weapons - primary weapon - (string)
 _primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
 //primary weapon items - (array)
-_itemsPrimaryweapon = [["rhsusf_acc_ACOG3", "rhsusf_acc_ACOG2", "rhsusf_acc_ACOG", "rhsusf_acc_ACOG_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG2_USMC"],"rhsusf_acc_anpeq15side"];
+_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
@@ -112,13 +112,13 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
-        "rhsusf_ANPVS_15",
+        "ACE_NVG_Wide",
         "ItemMap",
         "ItemGPS"
         ];
 
 //items added to any container - (array)
-_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 ///// No editing necessary below this line /////
 
@@ -127,5 +127,6 @@ _player setCaptive true;    //unfortunately necessary due to the time consumed b
 [_player] call jk_loadOut_fnc_gear;
 _player setCaptive false;
 _player setVariable ["ace_medical_medicClass", 1];
-_player setVariable ['JK_CrateSpawnAllowed', true];
+_player setVariable ["JK_CrateSpawnAllowed", true];
+_player setVariable ["ACE_IsEngineer", 0];
 if (true) exitWith {};

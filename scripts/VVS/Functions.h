@@ -5,7 +5,6 @@ class VVS
     {
         file = "scripts\VVS\functions";
         class openVVS {};
-        class mainInit {postInit = 1;};
         class buildCfg {};
         class cfgInfo {};
         class mainDisplay {};
@@ -13,5 +12,6 @@ class VVS
         class filterType {};
         class spawnVehicle {};
         class checkBox {};
+        class hint {};
     };
 };

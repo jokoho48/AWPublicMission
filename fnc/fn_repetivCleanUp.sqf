@@ -12,6 +12,11 @@
     -
 */
 if !(isServer) exitWith {};
+
+if (SEN_HCPresent) then {[[],"SEN_fnc_repetivCleanUp",(owner SEN_HC)] call BIS_fnc_MP}; // if headless client active run loop on HC as well
+SEN_markerCleanup = [];
+SEN_objectCleanup = [];
+
 // Use an OEF EH to check for new garbage every 10 seconds. We pass an empty array as storage parameter.
 [{
     // Cycle through all units to detect near shells and enqueue them for removal.
@@ -45,8 +50,9 @@ if !(isServer) exitWith {};
         };
         nil
     } count allDead;
-
+    private "_delete1";
     // Cycle through the storage and check the time. Removal is done with an animation.
+    _delete1 = 0;
     {
         private ["_boundingBox", "_height"];
         _x params ["_object", "_enqueueTime"];
@@ -55,8 +61,8 @@ if !(isServer) exitWith {};
         if (_enqueueTime + 360 > time) exitWith {};
         if (!_object getVariable ["SEN_noClean", false]) then {
             // Remove the object from the storage.
-            JK_objectStorage deleteAt _forEachIndex;
-
+            JK_objectStorage deleteAt _forEachIndex + _delete1;
+            _delete1 = _delete1 + 1;
             // Disable collision with the surface.
             _object enableSimulationGlobal false;
 
@@ -90,4 +96,32 @@ if !(isServer) exitWith {};
             }, 1, [_object, _height]] call CBA_fnc_addPerframeHandler;
         };
     } forEach JK_objectStorage;
-}, 120, []] call CBA_fnc_addPerframeHandler;
+
+    // markers
+    if (SEN_markerCleanup isEqualTo []) then {
+        {
+            deleteMarker _x;
+            uiSleep 0.05;
+            if (getMarkerColor _x isEqualTo "") then {SEN_markerCleanup = SEN_markerCleanup - [_x]};
+        } forEach SEN_markerCleanup;
+    };
+    // objects
+    if (SEN_objectCleanup isEqualTo []) then {
+        private "_delete";
+        _delete = 0;
+        {
+            if (isNull _x) then {
+                SEN_objectCleanup deleteAt _forEachIndex + _delete;
+                _delete = _delete + 1;
+            };
+            if (_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"}) then {
+                if ({isPlayer _x} count (crew _x) isEqualTo 0) then {
+                    {deleteVehicle _x} forEach (crew _x);
+                    deleteVehicle _x;
+                };
+            } else {
+                if (([getPosATL _x,200] call SEN_fnc_getNearPlayers) isEqualTo []) then {deleteVehicle _x};
+            };
+        } forEach SEN_objectCleanup;
+    };
+}, 300, []] call CBA_fnc_addPerframeHandler;

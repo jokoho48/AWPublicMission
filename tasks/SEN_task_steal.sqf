@@ -46,7 +46,7 @@ _mrk setMarkerShape "ELLIPSE";
 _mrk setMarkerAlpha 0.7;
 _mrk setMarkerSize [_radius,_radius];
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Search",false] call BIS_fnc_taskCreate;
+[WEST,[_taskID],[_taskDescription, _taskText, ""], _posMrk,false,2,true,"Search",false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

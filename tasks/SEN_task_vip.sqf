@@ -50,7 +50,7 @@ _mrkVip setMarkerShape "ELLIPSE";
 _mrkVip setMarkerSize [350,350];
 _mrkVip setMarkerAlpha 0.7;
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Search",false] call BIS_fnc_taskCreate;
+[WEST,[_taskID], [_taskDescription, _taskText, ""], _mrkPos, false, 2, true, "Search", false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

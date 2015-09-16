@@ -10,10 +10,10 @@ magazines one for one in _items.
 JK_vvsArray = [];
 
 //clothing - (string)
-_uniforms = ["rhs_uniform_cu_ocp"];
-_vests = ["rhsusf_iotv_ocp_Grenadier"];
-_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess", "rhsusf_ach_helmet_M81", "rhsusf_ach_helmet_ocp", "rhsusf_ach_helmet_ESS_ocp", "rhsusf_ach_helmet_headset_ocp", "rhsusf_ach_helmet_headset_ess_ocp", "rhsusf_ach_helmet_camo_ocp", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
-_backpacks = ["rhsusf_assault_eagleaiii_ocp"];
+_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
+_vests = ["rhsusf_spc_iar"];
+_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
+_backpacks = ["rhsusf_assault_eagleaiii_coy"];
 _insignium = "";
 _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, _goggles will be added (or profile goggles will be removed when _goggles is left empty).
 _goggles = "";
@@ -22,7 +22,7 @@ _goggles = "";
 _primaryweapon = ["rhs_weap_m4a1_carryhandle_m203", "rhs_weap_m4a1_m203", "rhs_weap_m4a1_m320"];
 
 //primary weapon items - (array)
-_itemsPrimaryweapon = [["rhsusf_acc_ACOG3", "rhsusf_acc_ACOG2", "rhsusf_acc_ACOG", "rhsusf_acc_ACOG_USMC", "rhsusf_acc_ACOG3_USMC", "rhsusf_acc_ACOG2_USMC"],"rhsusf_acc_anpeq15side"];
+_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
@@ -113,13 +113,13 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
-        "rhsusf_ANPVS_15",
+        "ACE_NVG_Wide",
         "ItemMap",
         "ItemGPS"
         ];
 
 //items added to any container - (array)
-_items = ["ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 ///// No editing necessary below this line /////
 
@@ -127,7 +127,8 @@ params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
 _player setVariable ["ace_medical_medicClass", 0];
-_player setVariable ['JK_CrateSpawnAllowed', false];
+_player setVariable ["JK_CrateSpawnAllowed", false];
+_player setVariable ["ACE_IsEngineer", 0];
 _player setCaptive false;
 
 if (true) exitWith {};

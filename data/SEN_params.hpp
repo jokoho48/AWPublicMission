@@ -50,8 +50,8 @@ class param6 {
 };
 class param7 {
    title = "Occupied Location Count";
-   values[] = {1,2};
-   texts[] = {"1", "2"};
+   values[] = {1,2,3,4};
+   texts[] = {"1", "2", "3", "4"};
    default = 2;
    SEN_paramCode = "";
 };
@@ -64,9 +64,9 @@ class param8 {
 };
 class param9 {
     title = "Tasks Count";
-    values[] = {1,2,3,4};
-    texts[] = {"1", "2", "3", "4"};
-    default = 4;
+    values[] = {1, 2, 3, 4, 5, 6, 7};
+    texts[] = {"1", "2", "3", "4", "5", "6", "7"};
+    default = 7;
    SEN_paramCode = "";
 };
 class param10 {

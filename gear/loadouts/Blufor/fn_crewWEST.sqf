@@ -10,8 +10,8 @@ magazines one for one in _items.
 JK_vvsArray = ["rhs_vehclass_apc", "rhs_vehclass_apc_wd", "rhs_vehclass_ifv", "rhs_vehclass_ifv_wd", "rhs_vehclass_tank", "rhs_vehclass_tank_wd"];
 
 //clothing - (string)
-_uniforms = ["rhs_uniform_FROG01_m81"];
-_vests = ["rhsusf_spc"];
+_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
+_vests = ["rhsusf_spc_crewman"];
 _headgears = ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_ess"];
 _backpacks = [""];
 _insignium = "";
@@ -112,13 +112,13 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
-        "rhsusf_ANPVS_15",
+        "ACE_NVG_Wide",
         "ItemMap",
         "B_UavTerminal"
         ];
 
 //items added to any container - (array)
-_items = [];
+_items = ["ACE_Flashlight_MX991"];
 
 ///// No editing necessary below this line /////
 
@@ -126,7 +126,8 @@ params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
 _player setVariable ["ace_medical_medicClass", 0];
-_player setVariable ['JK_CrateSpawnAllowed', true];
+_player setVariable ["JK_CrateSpawnAllowed", true];
+_player setVariable ["ACE_IsEngineer", 2];
 _player setCaptive false;
 
 if (true) exitWith {};

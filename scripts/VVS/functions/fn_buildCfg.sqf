@@ -48,11 +48,10 @@ call {
                 if(count _cfgInfo > 0) then {
                     _cfgInfo params ["", "_scope", "_picture", "_displayName", "_vehicleClass", "_side", "", "_superClass"];
                     if (_scope >= 2 && { _picture != ""} && {_displayName != ""}) then {
-                        diag_log _cfgInfo;
                         if ((_className in JK_vvsArray) || {(_superClass in JK_vvsArray)} || {(_vehicleClass in JK_vvsArray)}) then {
                             if (!(_vehicleClass in VVS_R_Vehicles) || {!(_className in VVS_R_Vehicles)} || {!(_superClass in VVS_R_Vehicles)}) then {
                                 call {
-                                    if (_vehicleClass in ["rhs_vehclass_car", "rhs_vehclass_car_wd", "rhs_vehclass_mrap", "rhs_vehclass_mrap_wd", "rhs_vehclass_truck", "rhs_vehclass_truck_wd"] || {_className in ["B_Quadbike_01_F"]}) exitWith {VVS_pre_Car pushBack _className};
+                                    if (_vehicleClass in ["rhs_vehclass_car", "rhs_vehclass_car_wd", "rhs_vehclass_mrap", "rhs_vehclass_mrap_wd", "rhs_vehclass_truck", "rhs_vehclass_truck_wd"] || {_className in ["B_Quadbike_01_F", "rhsusf_rg33_m2_usmc_wd", "rhsusf_rg33_usmc_wd"]}) exitWith {VVS_pre_Car pushBack _className};
                                     if (_vehicleClass in ["rhs_vehclass_aircraft", "rhs_vehclass_helicopter", "rhs_vehclass_helicopter_wd"] || {_className in ["B_Heli_Light_01_F", "B_Heli_Light_01_armed_F", "B_Heli_Light_01_stripped_F"]}) exitWith {VVS_pre_Air pushBack _className};
                                     if (_vehicleClass in ["rhs_vehclass_apc", "rhs_vehclass_apc_wd", "rhs_vehclass_ifv", "rhs_vehclass_ifv_wd", "rhs_vehclass_tank", "rhs_vehclass_tank_wd"]) exitWith {VVS_pre_Armored pushBack _className};
                                     if (_vehicleClass isEqualTo "Autonomous") then {VVS_pre_Autonomous pushBack _className};

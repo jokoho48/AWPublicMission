@@ -7,9 +7,9 @@
 */
 params ["", "", "", ["_sp", ""]];
 if (JK_buildNotDone) then {
-    hint "Please Wait Vehicle list is in baking Process";
+    hintSilent "Please Wait Vehicle list is in baking Process";
     waitUntil {!JK_buildNotDone};
-    hint "baking Done";
+    hintSilent "baking Done";
 };
 if(typeName _sp isEqualTo "STRING") then {
     if(_sp isEqualTo "") exitWith {closeDialog 0};

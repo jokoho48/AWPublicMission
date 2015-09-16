@@ -19,6 +19,9 @@ _action = ['SEN_Civ','Civilians','',{},{true}] call ace_interact_menu_fnc_create
 _action = ['SEN_Transport','Request Transport','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
 
+_action = ['JK_Ticked','Check Tickets','',{hintSilent format ["Currently are %1 Tickets avaiable", JK_TicketSystem];},{true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
+
 /////////////////
 
 _action = ['SEN_Intel','Gather Intel','',{[] spawn SEN_fnc_getIntel;},{(vehicle player isEqualTo player) && {!(player getVariable ["SEN_inProgress",false])}}] call ace_interact_menu_fnc_createAction;
@@ -46,7 +49,3 @@ _action = ['SEN_Manual','Open Field Manual','',{[] spawn {(findDisplay 46) creat
     _action = ['SEN_Transport',format ['Call in %1',getText (configfile >> "CfgVehicles" >> _x >> "displayName")],'',{[_this select 2] call SEN_fnc_transportRequest;},{(vehicle player isEqualTo player)},{},_x] call ace_interact_menu_fnc_createAction;
     [player, 1, ["ACE_SelfActions","SEN_DCG","SEN_Transport"], _action] call ace_interact_menu_fnc_addActionToObject;
 } forEach SEN_airPoolWest;
-
-
-_action = ['JK_Ticked','Check Tickeds','',{},{hintSilent format ["Currently are %1 Ticked avaiable", JK_TicketSystem];}] call ace_interact_menu_fnc_createAction;
-[player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;

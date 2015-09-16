@@ -24,7 +24,6 @@ enableSaving [false, false];
 enableSentences false;
 enableRadio false;
 call SEN_fnc_setParams;
-[] call compile preprocessFileLineNumbers "scripts\zlt_fieldrepair.sqf";
 
 if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;

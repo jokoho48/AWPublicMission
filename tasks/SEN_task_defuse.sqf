@@ -119,7 +119,7 @@ if (SEN_debug isEqualTo 1) then {
     _mrkDebug2 setMarkerColor "ColorEAST";
 };
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Search",false] call BIS_fnc_taskCreate;
+[WEST, [_taskID], [_taskDescription, _taskText, ""], getMarkerPos _mrkDefuse, false, 2, true, "Search", false] call BIS_fnc_taskCreate;
 
 [_townPos, 3600] spawn SEN_fnc_timerBomb;
 

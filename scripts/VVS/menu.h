@@ -6,7 +6,7 @@ class VVS_Menu
     name = "VVS_Menu";
     movingEnabled = false;
     enableSimulation = true;
-    onLoad = "[] call VVS_fnc_mainDisplay;";
+    onLoad = "[] spawn VVS_fnc_mainDisplay;";
 
     class controlsBackground
     {
@@ -90,7 +90,7 @@ class VVS_Menu
             rowHeight = 0.050;
             x = 0.1; y = 0.26;
             w = 0.8; h = 0.49 (22 / 250);
-            onLBSelChanged = "systemChat str ['onLBSelChanged',_this]; false";
+            onLBSelChanged = "call VVS_fnc_hint;";
         };
 
         class FilterList : VVS_RscCombo

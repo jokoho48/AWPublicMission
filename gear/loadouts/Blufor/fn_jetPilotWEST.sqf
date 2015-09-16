@@ -113,20 +113,21 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
-        "rhsusf_ANPVS_15",
+        "ACE_NVG_Wide",
         "ItemMap",
         "ItemGPS"
         ];
 
 //items added to any container - (array)
-_items = ["ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
+_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 ///// No editing necessary below this line /////
 
 params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
-_player setVariable ['JK_CrateSpawnAllowed', true];
+_player setVariable ["JK_CrateSpawnAllowed", true];
+_player setVariable ["ACE_IsEngineer", 2];
 _player setCaptive false;
 
 if (true) exitWith {};

@@ -10,7 +10,7 @@ JK_fnc_createCrate = {
 
     params ["_crateType", ["_reloadTime", 20], "_content"];
 
-    _position = ((getMarkerPos "SEN_ammo_mrk") findEmptyPosition [0, 20]);
+    _position = ((getMarkerPos "SEN_ammo_mrk") findEmptyPosition [0, 10]);
     if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
     crateObject = _crateType createVehicle _position;
     if (!isNil "_content") then {
@@ -37,7 +37,7 @@ JK_fnc_createCrate = {
                 if ((_x select 0) isKindOf "Bag_Base") then {
                     crateObject addBackpackCargoGlobal _x;
                 };
-
+                nil
             } count crateContent;
             crateObject hideObjectGlobal false;
         }, "BIS_fnc_call", false] call BIS_fnc_MP;

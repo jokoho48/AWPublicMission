@@ -1,5 +1,6 @@
 //Only display vehicles for that players side, if true Opfor can only spawn Opfor vehicles and so on.
 VVS_SideOnly = true;
+VVS_Checkbox = true;
 
 //Only set to true if you are making pre-made vehicle lists with VVS_x (i.e VVS_Car)
 //If you are going to use Pre-set VVS Vehicles it is recommended to set this to true as it will not run through the config saving CPU resources on initialization, otherwise leave as default.
@@ -40,10 +41,6 @@ VVS_R_Submarine = [];
 VVS_R_Autonomous = [];
 VVS_R_Support = [];
 VVS_R_Ammo = ["GunrackTK_EP1","GunrackUS_EP1","Gunrack1","Gunrack2"];
-
-
-
-
 
 JK_VehicleTickets = [
     "rhs_vehclass_apc", 300,

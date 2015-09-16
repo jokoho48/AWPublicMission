@@ -88,7 +88,7 @@ _mrkArty setMarkerShape "ELLIPSE";
 _mrkArty setMarkerAlpha 0.7;
 _mrkArty setMarkerSize [_artyRadius,_artyRadius];
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],objNull,false,2,true,"Destroy",false] call BIS_fnc_taskCreate;
+[WEST, [_taskID], [_taskDescription, _taskText, ""], _posMrk, false, 2, true, "Destroy", false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

@@ -27,16 +27,17 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [] spawn compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
-[] spawn compile preprocessFileLineNumbers "scripts\SEN_cleanup.sqf";
-
 
 "SEN_approvalCiv" addPublicVariableEventHandler {
     profileNameSpace setVariable ["SEN_approvalCiv", _this select 1];
     saveProfileNamespace;
 };
 
-
 "JK_TicketSystem" addPublicVariableEventHandler {
     profileNamespace setVariable ["JK_TicketSystem", _this select 1];
     saveProfileNamespace;
 };
+addMissionEventHandler ["Ended", {
+    profileNamespace setVariable ["JK_TicketSystem", JK_TicketSystem];
+    saveProfileNamespace;
+}];
