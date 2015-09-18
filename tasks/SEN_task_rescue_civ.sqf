@@ -88,6 +88,10 @@ if (!alive _hostage) exitWith {
 };
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
+
+JK_TicketSystem = JK_TicketSystem + 1500;
+publicVariable "JK_TicketSystem";
+
 SEN_approvalCiv = SEN_approvalCiv + (40 + random 25); publicVariable "SEN_approvalCiv";
 {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
 SEN_objectCleanup pushBack _hostage;

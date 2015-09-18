@@ -1,37 +1,60 @@
 zbe_deleteunitsnotleaderfnc = {
-    {deleteVehicle _x;
-    } forEach units _this - [leader _this];
+    {
+        deleteVehicle _x;
+        nil
+    } count units _this - [leader _this];
 };
 
 zbe_deleteunitsnotleader = {
-    {_x call zbe_deleteunitsnotleaderfnc;
-    } forEach allGroups;
+    {
+        _x call zbe_deleteunitsnotleaderfnc;
+        nil
+    } count allGroups;
 };
 
 zbe_cache = {
     _toCache = (units _group) - [(_leader)];
-    {if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
-        _x enablesimulationglobal false;
-        _x hideobjectglobal true;};
-    } forEach _toCache;
-    };
+    {
+        if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
+            _x enablesimulationglobal false;
+            _x hideobjectglobal true;
+            _x disableAI "TARGET";
+            _x disableAI "AUTOTARGET";
+            _x disableAI "MOVE";
+            _x disableAI "ANIM";
+            _x disableAI "FSM";
+        };
+        nil
+    } count _toCache;
+};
 
 zbe_unCache = {
-    {if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
-        _x enablesimulationglobal true;
-        _x hideobjectglobal false;};
-    } forEach _toCache;
+    {
+        if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
+            _x enablesimulationglobal true;
+            _x hideobjectglobal false;
+            _x enableAI "TARGET";
+            _x enableAI "AUTOTARGET";
+            _x enableAI "MOVE";
+            _x enableAI "ANIM";
+            _x enableAI "FSM";
+        };
+        nil
+    } count _toCache;
 };
 
 zbe_closestUnit = {
     private["_dist", "_udist"];
     params ["_units", "_unit"];
     _dist = 10^5;
-    {_udist = _x distance _unit;
+    {
+        _udist = _x distance _unit;
         if (_udist < _dist) then {
-            _dist = _udist;};
-        } forEach _units;
-    _dist;
+            _dist = _udist;
+        };
+        nil
+    } count _units;
+    _dist
 };
 
 /* = {
@@ -47,36 +70,46 @@ zbe_closestUnit = {
 };Old function that is no longer used, left here for reference*/
 
 zbe_setPosLight = {
-    {   _testpos = (formationPosition _x);
+    {
+        _testpos = (formationPosition _x);
         if (!(isNil "_testpos") && (count _testpos > 0)) then {
             if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
                 _x setPos _testpos;
             };
         };
-    } forEach _toCache;
+        nil
+    } count _toCache;
 };
 
 zbe_setPosFull = {
-    {_testpos = (formationPosition _x);
-    if (!(isNil "_testpos") && (count _testpos > 0)) then {
-        if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
+    {
+        _testpos = (formationPosition _x);
+        if (!(isNil "_testpos") && (count _testpos > 0)) then {
+            if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
                 _x setPos _testpos;
                 _x allowDamage false;
-                [_x]spawn {sleep 3;(_this select 0) allowDamage true;};
+                [_x]spawn {
+                    sleep 3;
+                    (_this select 0) allowDamage true;
+                };
             };
         };
-    } forEach _toCache;
+        nil
+    } count _toCache;
 };
 
 zbe_removeDead = {
-    {if !(alive _x) then {
-        _x enablesimulation true;
-        _x hideobject false;
-        if (zbe_debug) then {
-            diag_log format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group];
+    _delete = 0;
+    {
+        if !(alive _x) then {
+            _x enablesimulation true;
+            _x hideobject false;
+            if (zbe_debug) then {
+                diag_log format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group];
+            };
+            _toCache deleteAt _forEachIndex - _delete;
+            _delete = _delete + 1;
         };
-    _toCache = _toCache - [_x];
-    };
     } forEach _toCache;
 };
 

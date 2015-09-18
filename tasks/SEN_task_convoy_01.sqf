@@ -134,6 +134,10 @@ if ({isPlayer _x} count (crew _transport) > 0) then {
     ["convoy_01", "succeeded"] call FHQ_TT_setTaskState;
     SEN_objectCleanup append _vehArray;
     [] call SEN_fnc_setTask;
+
+    JK_TicketSystem = JK_TicketSystem + 2500;
+    publicVariable "JK_TicketSystem";
+
 } else {
     ["convoy_01", "failed"] call FHQ_TT_setTaskState;
     SEN_objectCleanup append _vehArray;

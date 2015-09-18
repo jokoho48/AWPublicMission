@@ -56,6 +56,10 @@ if(SEN_debug isEqualTo 1) then {
 waitUntil {sleep 10; {(damage _x) > 0.95} forEach _cacheArray};
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
+
+JK_TicketSystem = JK_TicketSystem + 2500;
+publicVariable "JK_TicketSystem";
+
 {deleteVehicle _x} forEach _cacheArray;
 SEN_objectCleanup append _baseArray;
 SEN_markerCleanup pushBack _mrk;

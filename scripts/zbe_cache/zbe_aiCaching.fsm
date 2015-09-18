@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\Users\Ross\Desktop\PoseidonTools\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, zbe_aiCaching">*/
+/*%FSM<COMPILE "D:\Programme\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, zbe_aiCaching">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-193.483002,-91.140106,-103.483002,-41.140106,0.000000,"init"};
@@ -10,12 +10,12 @@ item5[] = {"unCache_for_AI_",4,218,-193.956940,129.134674,-103.956940,179.134674
 item6[] = {"unCache",2,250,-193.956955,218.653885,-103.956940,268.653931,0.000000,"unCache"};
 item7[] = {"reSync_leader",4,218,-259.751007,291.135986,-150.551178,348.335876,2.000000,"reSync leader"};
 item8[] = {"allDead_",4,218,-396.858551,304.806641,-306.858551,354.806641,3.000000,"allDead?"};
-item9[] = {"end",1,250,-519.399902,383.839478,-429.399597,433.839447,0.000000,"end"};
+item9[] = {"end",1,4346,-519.399902,383.839478,-429.399597,433.839447,0.000000,"end"};
 item10[] = {"delay",8,218,-453.643311,137.457932,-363.643311,187.457932,0.000000,"delay"};
 item11[] = {"delayed",2,250,-496.324066,202.799103,-406.323944,252.799118,0.000000,"delayed"};
 item12[] = {"done_delay__and",4,218,-484.096313,272.248962,-394.096191,322.248962,0.000000,"done delay?" \n "and setPos"};
 item13[] = {"delay",8,218,-60.272964,138.074768,29.727036,188.074768,0.000000,"delay"};
-item14[] = {"delayed_1",2,4346,-34.876671,226.961761,55.123352,276.961761,0.000000,"delayed"};
+item14[] = {"delayed_1",2,250,-34.876671,226.961761,55.123352,276.961761,0.000000,"delayed"};
 item15[] = {"done_delay_",4,218,-71.912933,312.674255,18.087072,362.674255,0.000000,"done delay?"};
 item16[] = {"unit_died_",4,218,-396.614685,84.259239,-306.614685,134.259216,3.000000,"unit died?"};
 item17[] = {"disabled_",4,218,-363.643097,367.045807,-273.643097,417.045837,3.000000,"disabled?"};
@@ -50,8 +50,8 @@ link24[] = {16,4};
 link25[] = {17,9};
 link26[] = {18,19};
 link27[] = {20,9};
-globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-738.175598,360.836456,773.329224,-371.251617,820,854,1};
-window[] = {2,-1,-1,-1,-1,869,-1245,-131,105,3,838};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-668.375244,291.033752,593.400635,-126.156036,1232,924,1};
+window[] = {2,-1,-1,-1,-1,894,130,1244,130,3,1250};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -64,11 +64,8 @@ class FSM
                         name = "init";
                         itemno = 0;
                         init = /*%FSM<STATEINIT""">*/"//I'm a very tall midget" \n
-                         "private[""_delayed"",""_distance"",""_group"",""_leader"",""_toCache"",""_fps"",""_debug"",""_t"",""_groupcount"",""_trandomc"",""_trandomu""];" \n
-                         "_distance = _this select 0;" \n
-                         "_group = _this select 1;" \n
-                         "_fps = _this select 2;" \n
-                         "_debug = _this select 3;" \n
+                         "private[""_delayed"",""_leader"",""_toCache"",""_t"",""_groupcount"",""_trandomc"",""_trandomu""];" \n
+                         "params [""_distance"", ""_group"", ""_fps"", ""_debug""];" \n
                          "_leader = leader _group;" \n
                          "_groupCount = ({alive _x} count units _group);" \n
                          "_trandomc = (1 + (random 2));" \n
@@ -118,7 +115,7 @@ class FSM
                         name = "begin";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
-                         "diag_log format [""ZBE_Cache starting for group %1"",_group];" \n
+                         "	diag_log format [""ZBE_Cache starting for group %1"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -274,7 +271,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""zbe_cacheDisabled"",true];" \n
                          "if (zbe_debug) then {" \n
-                         "diag_log format [""ZBE_Cache ending for group %1"",_group];" \n
+                         "	diag_log format [""ZBE_Cache ending for group %1"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -338,7 +335,7 @@ class FSM
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""zbe_cacheDisabled"",true];" \n
                          "if (zbe_debug) then {" \n
-                         "diag_log format [""ZBE_Cache ending for group as leader player %1"",_group];" \n
+                         "	diag_log format [""ZBE_Cache ending for group as leader player %1"",_group];" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

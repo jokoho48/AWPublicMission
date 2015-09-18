@@ -72,6 +72,10 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     };
 
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
+
+    JK_TicketSystem = JK_TicketSystem + 2000;
+    publicVariable "JK_TicketSystem";
+
     SEN_approvalCiv = SEN_approvalCiv + 30; publicVariable "SEN_approvalCiv";
     sleep _sleep;
     [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
@@ -138,6 +142,10 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     };
 
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
+
+    JK_TicketSystem = JK_TicketSystem + 2000;
+    publicVariable "JK_TicketSystem";
+
     SEN_approvalCiv = SEN_approvalCiv + 30; publicVariable "SEN_approvalCiv";
     sleep _sleep;
     [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";

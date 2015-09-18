@@ -55,6 +55,9 @@ if(SEN_debug isEqualTo 1) then {
 
 waitUntil {sleep 10; SEN_taskSuccess isEqualTo 1};
 
+JK_TicketSystem = JK_TicketSystem + 2000;
+publicVariable "JK_TicketSystem";
+
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 SEN_objectCleanup append _baseArray;
 SEN_markerCleanup pushBack _mrk;

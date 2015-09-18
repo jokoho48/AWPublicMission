@@ -185,18 +185,12 @@ player createDiaryRecord ["Diary", ["External Content", "<br/>
 
 player createDiaryRecord ["Diary", ["Dynamic Combat Generator", "Mission by SENSEI<br/><br/><img image='media\SEN_imgLogo.paa' width='128' height='64'/>"]];
 
-
 // setup ACE3
 [] call compile preprocessFileLineNumbers "scripts\SEN_ACE3Actions.sqf";
 player setVariable ["ACE_canMoveRallypoint", false];
 
+[] spawn compile preprocessFileLineNumbers "scripts\QS_icons.sqf";
+
 // setup radios
 if (SEN_acreEnabled) exitWith {[] call compile preprocessFileLineNumbers "scripts\SEN_acre2.sqf";};
 if (SEN_tfrEnabled) exitWith {[] spawn compile preprocessFileLineNumbers "scripts\SEN_tfr.sqf";};
-
-
-if (getPlayerUID player in ["76561198024742337"]) then {
-    _cur = "curator" createVehicle [0,0,0];
-    _cur addCuratorAddons activatedAddons;
-    player assignCurator _cur;
-};

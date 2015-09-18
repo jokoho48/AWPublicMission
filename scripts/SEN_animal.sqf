@@ -30,7 +30,7 @@ if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is
 
     _trg = createTrigger ["EmptyDetector",_pos];
     _trg setTriggerArea [_dist,_dist,0,FALSE];
-    _trg setTriggerActivation ["ANY","PRESENT",true];
+    _trg setTriggerActivation ["WEST","PRESENT",true];
     _trg setTriggerTimeout [5, 5, 5, true];
 
     _cond = format["{(isplayer _x && {getposATL (vehicle _x) distance %1 < %2} && {((getposATL _x) select 2) < 30})} count playableunits > 0",(getposATL _trg),_dist];

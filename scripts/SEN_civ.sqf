@@ -21,7 +21,7 @@ params ["_dist", "_air"];
     };
     _trg = createTrigger ["EmptyDetector",_townPos];
     _trg setTriggerArea [_dist,_dist,0,FALSE];
-    _trg setTriggerActivation ["ANY","PRESENT",true];
+    _trg setTriggerActivation ["WEST","PRESENT",true];
     _trg setTriggerTimeout [10, 10, 10, true];
     if (_air) then {
         _cond = format["{(isplayer _x && {getposATL (vehicle _x) distance %1 < %2})} count playableunits > 0",(getposATL _trg),_dist];
