@@ -40,10 +40,7 @@ _grpArray params ["_baseArray", "_vehArray", "_grp"];
 _posArty = getposATL ((nearestObjects [_pos, ["Land_DuctTape_F"], 200]) select 0);
 
 for "_j" from 1 to 3 do {
-    _arty = "O_MBT_02_arty_F" createVehicle [0,0,0];
-    _arty setObjectTextureGlobal [0, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
-    _arty setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
-    _arty setObjectTextureGlobal [3, "#(rgb,8,8,3)color(0.09,0.1,0.08,1)"];
+    _arty = "rhs_2s3_tv" createVehicle [0,0,0];
     _arty allowDamage false;
     _arty setDir (getDir _arty - 70);
     if (count _artyArray > 0) then {

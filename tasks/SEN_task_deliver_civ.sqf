@@ -20,9 +20,8 @@ _aidArray = [];
 _grp = grpNull;
 _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 
-_aid = "B_Truck_01_medical_F" createVehicle (getMarkerPos _spawnMrk);
+_aid = "rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy" createVehicle (getMarkerPos _spawnMrk);
 _aid setDir (markerDir _spawnMrk);
-_aid setObjectTextureGlobal [1, "#(rgb,8,8,3)color(0.9,0.05,0.05,1)"];
 _aid setVariable ["SEN_noClean", true];
 clearItemCargoGlobal _aid;
 clearMagazineCargoGlobal _aid;

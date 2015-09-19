@@ -11,7 +11,7 @@
     Example:
     -
 */
-if !(isServer) exitWith {};
+if (!isServer) exitWith {};
 
 if (SEN_HCPresent) then {[[],"SEN_fnc_repetivCleanUp",(owner SEN_HC)] call BIS_fnc_MP}; // if headless client active run loop on HC as well
 SEN_markerCleanup = [];
@@ -24,9 +24,11 @@ SEN_objectCleanup = [];
         // Cycle through all near shells.
         {
             // If the shell is not queued yet push it on the storage.
-            if (!(_x getVariable ["JK_var_queued", false])) then {
-                _x setVariable ["JK_var_queued", true];
-                JK_objectStorage pushBack [_x, time];
+            if !(_x getVariable ["SEN_noClean", false]) then {
+                if (!(_x getVariable ["JK_var_queued", false])) then {
+                    _x setVariable ["JK_var_queued", true];
+                    JK_objectStorage pushBack [_x, time];
+                };
             };
             nil
         } count (getPos _x nearObjects ["GrenadeHand", 100]);
@@ -35,8 +37,10 @@ SEN_objectCleanup = [];
 
     // Remove empty groups.
     {
-        if ((count units _x) == 0) then {
-            deleteGroup _x;
+        if !(_x getVariable ["SEN_noClean", false]) then {
+            if ((count units _x) == 0) then {
+                deleteGroup _x;
+            };
         };
         nil
     } count allGroups;
@@ -45,8 +49,10 @@ SEN_objectCleanup = [];
     {
         // If the shell is not queued yet push it on the storage.
         if (!(_x getVariable ["JK_var_queued", false])) then {
-            _x setVariable ["JK_var_queued", true];
-            JK_objectStorage pushBack [_x, time];
+            if !(_x getVariable ["SEN_noClean", false]) then {
+                _x setVariable ["JK_var_queued", true];
+                JK_objectStorage pushBack [_x, time];
+            };
         };
         nil
     } count allDead;
@@ -59,41 +65,43 @@ SEN_objectCleanup = [];
 
         // If the time has not passed exit. This assumes all following object are pushed after the current one.
         if (_enqueueTime + 360 > time) exitWith {};
-        if (!_object getVariable ["SEN_noClean", false]) then {
-            // Remove the object from the storage.
-            JK_objectStorage deleteAt _forEachIndex + _delete1;
-            _delete1 = _delete1 + 1;
-            // Disable collision with the surface.
-            _object enableSimulationGlobal false;
+        if !(_x getVariable ["SEN_noClean", false]) then {
+            if (!_object getVariable ["SEN_noClean", false]) then {
+                // Remove the object from the storage.
+                JK_objectStorage deleteAt _forEachIndex + _delete1;
+                _delete1 = _delete1 + 1;
+                // Disable collision with the surface.
+                _object enableSimulationGlobal false;
 
-            // Calculate the height of the object to determine whether its below surface.
-            _boundingBox = boundingBox _object;
-            _height = ((_boundingBox select 1) select 2) - ((_boundingBox select 0) select 2);
+                // Calculate the height of the object to determine whether its below surface.
+                _boundingBox = boundingBox _object;
+                _height = ((_boundingBox select 1) select 2) - ((_boundingBox select 0) select 2);
 
-            // Use an OEF EH to move the object slowly below the surface.
-            //@todo make this optional cause it should not be visible in general.
-            [{
-                private "_position";
+                // Use an OEF EH to move the object slowly below the surface.
+                //@todo make this optional cause it should not be visible in general.
+                [{
+                    private "_position";
 
-                params ["_args", "_idPFH"];
-                _args params ["_object", "_height"];
+                    params ["_args", "_idPFH"];
+                    _args params ["_object", "_height"];
 
-                // Get the current position and subtract some value from the z axis.
-                _position = getPosATL _object;
-                if (surfaceIsWater _position) then {
-                    _position = getPosASL _object;
-                };
-                _position set [2, (_position select 2) - 0.005];
+                    // Get the current position and subtract some value from the z axis.
+                    _position = getPosATL _object;
+                    if (surfaceIsWater _position) then {
+                        _position = getPosASL _object;
+                    };
+                    _position set [2, (_position select 2) - 0.005];
 
-                // Apply the position change.
-                _object setPos _position;
+                    // Apply the position change.
+                    _object setPos _position;
 
-                // If the object is below the surface delete it and remove the OEF EH.
-                if ((_position select 2) < (0 - _height)) then {
-                    deleteVehicle _object;
-                    [_idPFH] call CBA_fnc_removePerFrameHandler;
-                };
-            }, 1, [_object, _height]] call CBA_fnc_addPerframeHandler;
+                    // If the object is below the surface delete it and remove the OEF EH.
+                    if ((_position select 2) < (0 - _height)) then {
+                        deleteVehicle _object;
+                        [_idPFH] call CBA_fnc_removePerFrameHandler;
+                    };
+                }, 1, [_object, _height]] call CBA_fnc_addPerframeHandler;
+            };
         };
     } forEach JK_objectStorage;
 

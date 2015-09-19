@@ -14,10 +14,12 @@ _taskText = "Locate Officer";
 _taskDescription = "A high ranking enemy officer will be traveling to an occupied settlement today.<br/><br/>Find the officer and gather any relevant intel.";
 
 _town = SEN_occupiedLocation select (random ((count SEN_occupiedLocation) - 1));
+_townMarker = SEN_occupiedLocation select (random ((count SEN_occupiedLocation) - 1));
 _unitType = SEN_officerPool select (random ((count SEN_officerPool) - 1));
 _officerTown = getpos _town;
 _officerTown set [2,0];
-SEN_intelObj = (createGroup SEN_enemySide) createUnit [_unitType,_officerTown, [], 0, "NONE"]; publicVariable "SEN_intelObj";
+SEN_intelObj = (createGroup SEN_enemySide) createUnit [_unitType, _officerTown, [], 0, "NONE"];
+publicVariable "SEN_intelObj";
 removeFromRemainsCollector [SEN_intelObj];
 
 SEN_intelObj addEventHandler ["hit", {
@@ -28,7 +30,7 @@ SEN_intelObj addEventHandler ["hit", {
 }];
 [group SEN_intelObj,90] spawn SEN_fnc_setPatrolGroup;
 
-[WEST, [_taskID], [_taskDescription, _taskText, ""], _officerTown, false, -1, true, "Search", false] call BIS_fnc_taskCreate;
+[WEST, [_taskID], [_taskDescription, _taskText, ""], getPos _townMarker, false, -1, true, "Search", false] call BIS_fnc_taskCreate;
 
 if(SEN_debug isEqualTo 1) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

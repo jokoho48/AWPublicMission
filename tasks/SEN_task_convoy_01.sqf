@@ -19,13 +19,13 @@ _speed = 40;
 _vehArray = [];
 
 if (SEN_enemySide isEqualTo EAST) then {
-    _type1 = "O_Truck_03_transport_F";
-    _type2 = "O_MRAP_02_hmg_F";
-    _type3 = "O_MRAP_02_F";
+    _type1 = "rhs_gaz66_vv";
+    _type2 = "rhs_tigr_msv";
+    _type3 = "rhs_tigr_ffv_msv";
 } else {
-    _type1 = "I_Truck_02_transport_F";
-    _type2 = "I_MRAP_03_hmg_F";
-    _type3 = "I_MRAP_03_F";
+    _type1 = "rhs_ural_chdkz";
+    _type2 = "rhs_uaz_open_chdkz";
+    _type3 = "RHS_UAZ_chdkz";
 };
 
 for "_i" from 0 to 9 do {
