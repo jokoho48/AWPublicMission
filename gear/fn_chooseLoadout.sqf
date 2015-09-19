@@ -33,5 +33,11 @@ _fnc_gear_Call = {
     if !(isNull _x) then {
         _x call _fnc_gear_Call;
     };
+
+    clearWeaponCargoGlobal _x;
+    clearMagazineCargoGlobal _x;
+    clearItemCargoGlobal _x;
+    clearBackpackCargoGlobal _x;
+
     false
 } count _this;
