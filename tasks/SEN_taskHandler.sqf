@@ -21,12 +21,16 @@ SEN_taskList = [
     "steal"
 ];
 
+SEN_taskList = [SEN_taskList] call CBA_fnc_shuffle;
+
 SEN_taskListCiv = [
     "rescue",
     "deliver",
     "stabilize",
     "identify"
 ];
+
+SEN_taskListCiv = [SEN_taskListCiv] call CBA_fnc_shuffle;
 
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};
 

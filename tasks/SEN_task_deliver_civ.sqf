@@ -96,7 +96,7 @@ for "_i" from 1 to 3 do {
 JK_TicketSystem = JK_TicketSystem + 1500;
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = SEN_approvalCiv + (40 + random 25); publicVariable "SEN_approvalCiv";
+SEN_approvalCiv = SEN_approvalCiv + (120 + random 30); publicVariable "SEN_approvalCiv";
 sleep 10;
 SEN_objectCleanup append _aidArray;
 SEN_objectCleanup pushBack _aid;

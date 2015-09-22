@@ -4,10 +4,10 @@ Author: SENSEI
 Last modified: 8/5/2015
 __________________________________________________________________*/
 
-JK_TicketSystem = profileNameSpace getVariable ["JK_TicketSystem", 2000];
+JK_TicketSystem = profileNameSpace getVariable ["JK_TicketSystem", 5000];
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = profileNamespace getVariable ["SEN_approvalCiv", -150];
+SEN_approvalCiv = profileNamespace getVariable ["SEN_approvalCiv", -754];
 publicVariable "SEN_approvalCiv";
 
 missionNameSpace setVariable ["SEN_transportReady", 1];
@@ -28,16 +28,20 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 
-"SEN_approvalCiv" addPublicVariableEventHandler {
-    profileNameSpace setVariable ["SEN_approvalCiv", _this select 1];
-    saveProfileNamespace;
-};
+[] spawn {
+    waitUntil {sleep 5; !isNil "bis_fnc_init"};
+    "SEN_approvalCiv" addPublicVariableEventHandler {
+        profileNameSpace setVariable ["SEN_approvalCiv", _this select 1];
+        saveProfileNamespace;
+    };
 
-"JK_TicketSystem" addPublicVariableEventHandler {
-    profileNamespace setVariable ["JK_TicketSystem", _this select 1];
-    saveProfileNamespace;
+    "JK_TicketSystem" addPublicVariableEventHandler {
+        profileNamespace setVariable ["JK_TicketSystem", _this select 1];
+        saveProfileNamespace;
+    };
+
+    addMissionEventHandler ["Ended", {
+        profileNamespace setVariable ["JK_TicketSystem", JK_TicketSystem];
+        saveProfileNamespace;
+    }];
 };
-addMissionEventHandler ["Ended", {
-    profileNamespace setVariable ["JK_TicketSystem", JK_TicketSystem];
-    saveProfileNamespace;
-}];

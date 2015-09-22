@@ -6,6 +6,7 @@ class SEN {
     class functions {
         file = "fnc";
         class repetivCleanUp {preInit = 1;};
+        class civHit;
         class removeAction;
         class log;
         class checkInMarker;

@@ -66,7 +66,7 @@ _QS_ST_enableGroupIcons = true;                                // BOOL. true to 
 
 //================= DIPLOMACY - set the Friendly factions for each faction.
 
-_QS_ST_friendlySides_Dynamic = true;                        // BOOL. Set true to allow faction alliances to change dynamically (IE. AAF may not always be loyal to NATO) and be represented on the map. Default true.
+_QS_ST_friendlySides_Dynamic = false;                        // BOOL. Set true to allow faction alliances to change dynamically (IE. AAF may not always be loyal to NATO) and be represented on the map. Default true.
 _QS_ST_friendlySides_EAST = [                                // ARRAY (NUMBER). Uncomment the relevant number(s). Remove comma after last used entry (important!).
     //1,        //EAST is friendly to WEST
     //2,        //EAST is friendly to INDEPENDENT/RESISTANCE
@@ -120,7 +120,7 @@ _QS_ST_autonomousVehicles_Modded = [];                        // ARRAY (STRING).
 
 _QS_ST_showAll = 0;                                        // NUMBER. Intended for Debug / Development use only! Caution: Will cause lag if 1 or 2! Settings -  0 = Disabled (Recommended). 1 = Reveal all Units + vehicles. 2 = Reveal all mission objects + vehicles + units. May override below configurations if set at 1 or 2.
 _QS_ST_showFactionOnly = true;                                // BOOL. will override ST_showFriendlySides true. If true then will only show players faction. If false then can show friendly factions. Default false.
-_QS_ST_showAI = true;                                        // BOOL. false = players only, true = players and AI. Default true.
+_QS_ST_showAI = false;                                        // BOOL. false = players only, true = players and AI. Default true.
 _QS_ST_AINames = false;                                    // BOOL. Set true to show human names for AI with the map/vehicle icons. Set false and will be named 'AI'. Default false.
 _QS_ST_showCivilianIcons = false;                            // BOOL. Set true to allow showing of civilians, only works if Dynamic Diplomacy is enabled above. Default false.
 _QS_ST_iconMapText = true;                                    // BOOL. true to show unit/vehicle icon text on the map. false to only show the icon and NO text (name/class). Default true.

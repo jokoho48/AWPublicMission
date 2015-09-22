@@ -27,7 +27,8 @@ zbe_cached_cars = [];
 zbe_cached_air = [];
 zbe_cached_boat = [];
 
-[{
+[] spawn {
+while {true} do {
     zbe_players = allPlayers;
     {
         private "_disable";
@@ -100,9 +101,9 @@ zbe_cached_boat = [];
     } forEach zbe_cached_boat;
 
     zbe_allVehicles = (_assetscar + _assetsair + _assetsboat);
-
-}, 20, []] call CBA_fnc_addPerFrameHandler;
-
+    uiSleep 30;
+};
+};
 // Vehicle Caching Beta (for client FPS)
 
 
