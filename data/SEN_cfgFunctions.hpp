@@ -5,7 +5,8 @@ class SEN {
     tag = "SEN";
     class functions {
         file = "fnc";
-        class repetivCleanUp {preInit = 1;};
+        class repetivCleanUp { preInit = 1; };
+        //class Compass3d { postInit = 1; };
         class civHit;
         class removeAction;
         class log;
@@ -27,8 +28,8 @@ class SEN {
         class spawnAnimal;
         class spawnReinforcements;
         class spawnVVS;
-        class settingsPre {preInit = 1;};
-        class settingsPost {postInit = 1;};
+        class settingsPre { preInit = 1; };
+        class settingsPost { postInit = 1; };
         //class setGarage;
         //class garage;
         class setOwner;
