@@ -10,6 +10,9 @@ publicVariable "JK_TicketSystem";
 SEN_approvalCiv = profileNamespace getVariable ["SEN_approvalCiv", -754];
 publicVariable "SEN_approvalCiv";
 
+SEN_blacklistLocation = profileName getVariable ["SEN_ClearedCitiys", []];
+publicVariable "SEN_blacklistLocation";
+
 missionNameSpace setVariable ["SEN_transportReady", 1];
 if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
 [1500,0,false,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
@@ -24,9 +27,9 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
 waitUntil {sleep 1; SEN_complete isEqualTo 2};
 
 [] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
-[] spawn compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
+[] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
-[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 
 [] spawn {
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
@@ -40,8 +43,14 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
         saveProfileNamespace;
     };
 
+    "SEN_ClearedCitiys" addPublicVariableEventHandler {
+        profileNamespace setVariable ["SEN_ClearedCitiys", _this select 1];
+        saveProfileNamespace;
+    };
+
     addMissionEventHandler ["Ended", {
         profileNamespace setVariable ["JK_TicketSystem", JK_TicketSystem];
+        profileNamespace setVariable ["SEN_ClearedCitiys", SEN_ClearedCitiys];
         saveProfileNamespace;
     }];
 };

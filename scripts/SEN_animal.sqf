@@ -20,7 +20,6 @@ while {_counter < _count} do {
         _posArray pushBack [_ret select 0 select 0,_str];
         _counter = _counter + 1;
     };
-    uiSleep 0.1;
 };
 
 if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is empty."] call SEN_fnc_log};
@@ -52,4 +51,5 @@ if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is
         _mrk setMarkerText _str;
         _mrk setMarkerAlpha 0.5;
     };
-} forEach _posArray;
+    nil
+} count _posArray;

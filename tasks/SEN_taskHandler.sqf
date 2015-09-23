@@ -35,6 +35,5 @@ SEN_taskListCiv = [SEN_taskListCiv] call CBA_fnc_shuffle;
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};
 
 [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_officer.sqf";
-sleep 15;
 call SEN_fnc_setTaskCiv;
 [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";

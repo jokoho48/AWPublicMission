@@ -41,4 +41,5 @@ params ["_dist", "_air"];
         _mrk setMarkerAlpha 0.5;
         _mrk setMarkerSize [_dist,_dist];
     };
+    nil
 } count SEN_whitelistLocation;
