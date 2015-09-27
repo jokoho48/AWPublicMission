@@ -4,13 +4,30 @@ Author: SENSEI
 Last modified: 8/5/2015
 __________________________________________________________________*/
 
-JK_TicketSystem = profileNameSpace getVariable ["JK_TicketSystem", 5000];
+if (isNil "db_fnc_save") then {
+    db_fnc_save = {
+        profileNamespace setVariable [_this select 0, call compile _this select 1];
+        saveProfileNamespace;
+    };
+};
+
+jk_db_fnc_load = if (isNil "db_fnc_load") then {
+    {
+        profileNameSpace getVariable _this;
+    }
+} else {
+    {
+        (_this select 0) call db_fnc_load;
+    }
+};
+
+JK_TicketSystem = "JK_TicketSystem" call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = profileNamespace getVariable ["SEN_approvalCiv", -754];
+SEN_approvalCiv = "SEN_approvalCiv" call jk_db_fnc_load;
 publicVariable "SEN_approvalCiv";
 
-SEN_blacklistLocation = profileName getVariable ["SEN_ClearedCitiys", []];
+SEN_blacklistLocation = "SEN_ClearedCitiys" call jk_db_fnc_load;
 publicVariable "SEN_blacklistLocation";
 
 missionNameSpace setVariable ["SEN_transportReady", 1];
@@ -33,24 +50,16 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 
 [] spawn {
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
-    "SEN_approvalCiv" addPublicVariableEventHandler {
-        profileNameSpace setVariable ["SEN_approvalCiv", _this select 1];
-        saveProfileNamespace;
-    };
+    [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
+        params ["_key", "_value"];
+        _value = str _value;
+        [_key, _value] db_fnc_save;
+    }] call JK_Core_fnc_addVariableEventHandler;
 
-    "JK_TicketSystem" addPublicVariableEventHandler {
-        profileNamespace setVariable ["JK_TicketSystem", _this select 1];
-        saveProfileNamespace;
+    "JK_registerPlayer" addPublicVariableEventHandler {
+        params ["_player"];
+        (owner (_this select 1)) publicVariableClient "JK_TicketSystem";
+        (owner (_this select 1)) publicVariableClient "SEN_ClearedCitiys";
+        (owner (_this select 1)) publicVariableClient "SEN_approvalCiv";
     };
-
-    "SEN_ClearedCitiys" addPublicVariableEventHandler {
-        profileNamespace setVariable ["SEN_ClearedCitiys", _this select 1];
-        saveProfileNamespace;
-    };
-
-    addMissionEventHandler ["Ended", {
-        profileNamespace setVariable ["JK_TicketSystem", JK_TicketSystem];
-        profileNamespace setVariable ["SEN_ClearedCitiys", SEN_ClearedCitiys];
-        saveProfileNamespace;
-    }];
 };

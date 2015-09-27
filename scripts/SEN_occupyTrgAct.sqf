@@ -8,9 +8,7 @@ __________________________________________________________________*/
 if (!isServer) exitWith {};
 
 private ["_town","_mrk","_pos","_townName","_townType","_radius","_approval","_enemyArray","_threshold","_t","_players","_hint","_mrkOfficer"];
-
-_town = (_this select 0);
-_mrk = _this select 1;
+params ["_town", "_mrk"];
 
 _town = call compile (_town);
 _pos = getpos _town;
@@ -81,7 +79,6 @@ if (count _players > 0) then {
 _mrk setMarkerText format ["Liberated %1",_townType];
 _mrk setMarkerColor "ColorWEST";
 SEN_ClearedCitiys pushBack _townName;
-publicVariable "SEN_ClearedCitiys";
 
 SEN_approvalCiv = SEN_approvalCiv + _approval; publicVariable "SEN_approvalCiv";
 if (SEN_debug isEqualTo 1) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
