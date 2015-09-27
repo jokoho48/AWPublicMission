@@ -22,7 +22,7 @@ if (isNil "JK_VariableEventhandler") then {
         _variable = _namespace getVariable _varName;
         if !(_variable isEqualTo _variableOld) then {
             [_varName, _variable, _namespace] call _code;
-            _variableOld = _variable;
+            _x set [2, _variable];
         };
         nil
     } count JK_VariableEventhandler;
