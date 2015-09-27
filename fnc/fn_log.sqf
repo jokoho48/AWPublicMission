@@ -22,7 +22,7 @@ _this set [1,_msg];
 _this deleteAt 0;
 
 diag_log format _this;
-["ArmaRedisClient.log", format _this + " TARGET:" + str player] remoteExecCall ["db_fnc_log", 2, false];
+["ArmAWorldPublicMissionErrorLog.log", format _this + " TARGET:" + str player] remoteExecCall ["db_fnc_log", 2, false];
 if (SEN_debug isEqualTo 1) then {
     hintSilent format _this;
 };

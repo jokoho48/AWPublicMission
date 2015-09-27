@@ -18,7 +18,7 @@ SEN_whitelistLocation = [];
 
 waitUntil {!isNil "SEN_blacklistLocation"};
 
-_SEN_blacklistLocationReal = ["Sagonisi","Ekali","Timurkalay","Delfinaki","Kalithea","Ioannina"]; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
+_SEN_blacklistLocationReal = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
 _SEN_blacklistLocation = SEN_blacklistLocation + _SEN_blacklistLocationReal;
 _SEN_safeZoneSize = ((getMarkerSize "SEN_safezone_mrk") select 0);
 _SEN_safeZoneX = [((getMarkerPos "SEN_safezone_mrk") select 0) - _SEN_safeZoneSize, ((getMarkerPos "SEN_safezone_mrk") select 1) + _SEN_safeZoneSize, 0];
