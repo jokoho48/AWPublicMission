@@ -39,8 +39,7 @@ if (_isOK) then {
 } else {
     if !(isNil "JK_Debug") then {
         _error = format["Error Event:%1 can not set because Event is Protected"];
-        diag_log _error;
-        hint _error;
+        [1,_error] call SEN_fnc_log;
     };
     _return = false;
 };

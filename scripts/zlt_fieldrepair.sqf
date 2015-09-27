@@ -99,7 +99,7 @@ zlt_frpr_getPartsRepairTime = {
     {
         _cdmg = _veh getHitPointDamage (_x);
         if (not isNil {_cdmg} ) then {
-            diag_log str ["REPAIR ", _x, _cdmg];
+            [0, str ["REPAIR ", _x, _cdmg]] call SEN_fnc_log;
             if (_cdmg > 0.64) exitWith {_rprTime = _rprTime + ( if (_x in zlt_hardRepairParts) then {DEFAULT_FIELDREPAIR_EACH_HARDPART_TIME} else {DEFAULT_FIELDREPAIR_EACH_PART_TIME}); };
         };
     }  forEach zlt_repair_hps;
@@ -149,7 +149,6 @@ zlt_prc_repairvehicle = {
     _length = _maxlength;
     _cycle = 0;
     while {alive player and (player distance _veh) < 7 and (vehicle player isEqualTo player) and speed _veh < 3 and not _repairFinished and zlt_mutexAction and (_cycle < 3 or (["medic",animationState player] call BIS_fnc_inString))} do {
-    //    diag_log ("ANIM STATE = "+str(animationState player));
         (format[STR_REPAIR_MSG_STRING, _length, _vehname] ) call zlt_fnc_notify;
         if (_length <= 0) then {_repairFinished = true;};
         _length = _length - 1;

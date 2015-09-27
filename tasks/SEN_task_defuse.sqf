@@ -22,7 +22,7 @@ _townSize = size _bombTown;
 _avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);
 _radius = (_avgTownSize*.80);
 _radius2 = ((_avgTownSize*.20) max 60) min 90;
-diag_log str _radius2;
+[0, str _radius2] call SEN_fnc_log;
 //hint str _radius2;
 
 _taskID = "defuse";

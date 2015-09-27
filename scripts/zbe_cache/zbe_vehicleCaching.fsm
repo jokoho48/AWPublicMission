@@ -34,8 +34,8 @@ link14[] = {11,12};
 link15[] = {12,4};
 link16[] = {13,14};
 link17[] = {14,6};
-globals[] = {0.000000,0,0,0,0,640,480,3,24,6316128,1,-470.042419,205.722290,470.120453,-142.643646,1019,924,1};
-window[] = {2,-1,-1,-1,-1,822,104,1148,104,3,1037};
+globals[] = {0.000000,0,0,0,0,640,480,3,24,6316128,1,-392.453949,283.310760,461.499146,-151.264969,1019,924,1};
+window[] = {2,-1,-1,-1,-1,1138,771,1815,420,3,1037};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -74,7 +74,7 @@ class FSM
                         name = "begin";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
-                         "	diag_log format [""ZBE_Cache starting for vehicle %1"",_vehicle];" \n
+                         "	[0, format [[""ZBE_Cache starting for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -189,7 +189,7 @@ class FSM
                         name = "End";
                         itemno = 8;
                         init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
-                         "diag_log format [""ZBE_Cache ending for vehicle %1"",_vehicle];" \n
+                         "	[0, format [""ZBE_Cache ending for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links

@@ -59,7 +59,7 @@ for "_s" from 1 to 20 do {
     _sel = (_dirArray select (random ((count _dirArray) - 1))) select 0;
     _spawnPos = [_pos,5000,6000,_dirArray select _sel] call SEN_fnc_findRandomPos;
     {if (_spawnPos distance (getpos _x) < (SEN_range*0.2 max 2500)) exitWith {_spawnPos = [0,0,0]}} forEach SEN_occupiedLocation;
-    if !(_spawnPos isEqualTo [0,0,0]) exitWith {diag_log "good pos"};
+    if !(_spawnPos isEqualTo [0,0,0]) exitWith {};
     uiSleep 0.1;
 };
 if (_spawnPos isEqualTo [0,0,0]) then {

@@ -105,7 +105,7 @@ zbe_removeDead = {
             _x enablesimulation true;
             _x hideobject false;
             if (zbe_debug) then {
-                diag_log format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group];
+                [0,format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group]] call SEN_fnc_log;
             };
             _toCache deleteAt _forEachIndex - _delete;
             _delete = _delete + 1;

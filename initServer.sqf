@@ -21,13 +21,13 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
     }
 };
 
-JK_TicketSystem = "JK_TicketSystem" call jk_db_fnc_load;
+JK_TicketSystem = call compile (["JK_TicketSystem", str 9850] call jk_db_fnc_load);
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = "SEN_approvalCiv" call jk_db_fnc_load;
+SEN_approvalCiv = call compile (["SEN_approvalCiv", str (-502)] call jk_db_fnc_load);
 publicVariable "SEN_approvalCiv";
 
-SEN_blacklistLocation = "SEN_ClearedCitiys" call jk_db_fnc_load;
+SEN_blacklistLocation = call compile (["SEN_ClearedCitiys", str []] call jk_db_fnc_load);
 publicVariable "SEN_blacklistLocation";
 
 missionNameSpace setVariable ["SEN_transportReady", 1];
@@ -52,7 +52,7 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
     params ["_key", "_value"];
     _value = str _value;
-    [_key, _value] db_fnc_save;
+    [_key, _value] spawn db_fnc_save;
 }] call JK_Core_fnc_addVariableEventHandler;
 
 [] spawn {
