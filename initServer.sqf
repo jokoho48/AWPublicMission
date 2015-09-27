@@ -48,14 +48,15 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 
+
+[["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
+    params ["_key", "_value"];
+    _value = str _value;
+    [_key, _value] db_fnc_save;
+}] call JK_Core_fnc_addVariableEventHandler;
+
 [] spawn {
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
-    [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
-        params ["_key", "_value"];
-        _value = str _value;
-        [_key, _value] db_fnc_save;
-    }] call JK_Core_fnc_addVariableEventHandler;
-
     "JK_registerPlayer" addPublicVariableEventHandler {
         params ["_player"];
         (owner (_this select 1)) publicVariableClient "JK_TicketSystem";
