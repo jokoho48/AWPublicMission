@@ -15,13 +15,17 @@ JK_cachedLeaderArray = [];
         {
             if !(isPlayer (leader _x)) then {
                 if ((vehicle (leader _x)) isKindOf "Man" && {!isNil {(leader _x) getVariable "JK_CachedUnits"}}) then {
-                    _distance = [_x, JK_maxInfDistance1, JK_maxInfDistance2] spawn JK_fnc_checkPlayerDistance;
-                    if (_distance != 0) then {
-                        [_x] spawn JK_fnc_uncacheLeader;
-                    } else {
-                        if (_distance == 1) then {
+                    _distance = [_x, JK_maxInfDistance1, JK_maxInfDistance2] call JK_fnc_checkPlayerDistance;
+                    switch (_distance) do {
+                        case 0: {
+                            if (_x getVariable [""]) then {
+                                [_x] spawn JK_fnc_uncacheLeader;
+                            };
+                        };
+                        case 1: {
                             [_x] spawn JK_fnc_cacheLeader;
-                        } else {
+                        };
+                        case 2: {
                             [_x] spawn JK_fnc_cacheAll;
                         };
                     };
@@ -30,7 +34,7 @@ JK_cachedLeaderArray = [];
             };
         } count allGroups;
         {
-            _distance = [_x, JK_maxInfDistance1, JK_maxInfDistance2] spawn JK_fnc_checkPlayerDistance;
+            _distance = [_x, JK_maxInfDistance1, JK_maxInfDistance2] call JK_fnc_checkPlayerDistance;
             if (_distance != 0) then {
                 [_x] spawn JK_fnc_uncacheAll;
             };

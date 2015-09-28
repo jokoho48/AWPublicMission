@@ -12,9 +12,6 @@ _taskText = "Defend FOB Against Rebel Attack";
 _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards FOB Pirelli. Defend the FOB against the rebel attack!";
 
 _sleep = 2700;
-_rebelWeapon = "";
-_rebelMag = "";
-if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebelMag = "30Rnd_65x39_caseless_green";} else {_rebelWeapon = "arifle_TRG20_F"; _rebelMag = "30Rnd_556x45_Stanag_Tracer_Green";};
 
 if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
     [0,"Rebel task skipped."] call SEN_fnc_log;
@@ -32,15 +29,8 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
 
-    _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,CIVILIAN] call SEN_fnc_spawnGroup;
+    _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 1,RESISTANCE] call SEN_fnc_spawnGroup;
     _rebelGrp = [units _rebelGrp] call SEN_fnc_setSide;
-    {
-        _x addVest "V_TacVest_khk";
-        _x addWeapon _rebelWeapon;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-    } forEach units _rebelGrp;
 
     if(SEN_debug isEqualTo 1) then {
         _mrkPatrol = createMarker [format["SEN_rebel_%1",time],getposATL leader _rebelGrp];
@@ -107,15 +97,8 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         sleep _sleep;
         [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
     };
-    _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,CIVILIAN] call SEN_fnc_spawnGroup;
+    _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,RESISTANCE] call SEN_fnc_spawnGroup;
     _rebelGrp = [units _rebelGrp] call SEN_fnc_setSide;
-    {
-        _x addVest "V_TacVest_khk";
-        _x addWeapon _rebelWeapon;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-    } forEach units _rebelGrp;
 
     if(SEN_debug isEqualTo 1) then {
         _mrkPatrol = createMarker [format["SEN_rebel_%1",time],getposATL leader _rebelGrp];

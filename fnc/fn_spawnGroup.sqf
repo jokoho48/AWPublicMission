@@ -11,16 +11,18 @@ private ["_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"]
 
 params [["_pos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side",SEN_enemySide], ["_uncache",false]];
 
-_grp = createGroup _side;
-_grp allowfleeing 0;
-_driverArray = [];
+
 
 call {
     if (_side isEqualTo WEST) exitWith {_unitPool = SEN_unitPoolWest; _vehPool = SEN_vehPoolWest; _airPool = SEN_airPoolWest;};
     if (_side isEqualTo CIVILIAN) exitWith {_unitPool = SEN_unitPoolCiv; _vehPool = SEN_vehPoolCiv; _airPool = SEN_airPoolCiv};
-
+    if (_side isEqualTo RESISTANCE) exitWith {_unitPool = SEN_unitPoolRebel; _vehPool = SEN_vehPoolRebel; _airPool = SEN_airPoolRebel; _side = CIVILIAN;};
     _unitPool = SEN_unitPool; _vehPool = SEN_vehPool; _airPool = SEN_airPool;
 };
+
+_grp = createGroup _side;
+_grp allowfleeing 0;
+_driverArray = [];
 
 for "_j" from 0 to (_count - 1) do {
     call {
@@ -45,7 +47,7 @@ for "_j" from 0 to (_count - 1) do {
     };
 };
 
-if (_uncache) then {_grp setVariable ["zbe_cacheDisabled", true, true]};
+if (_uncache) then {_grp setVariable ["JK_noCache", true, true]};
 if (_type isEqualTo 0) exitWith {_grp};
 
 _driverArray

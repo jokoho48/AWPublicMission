@@ -38,7 +38,7 @@ for "_i" from 1 to _count do {
         _return pushBack _grp;
         _grp setBehaviour "COMBAT";
 
-        if (_uncache) then {_grp setVariable ["zbe_cacheDisabled", true, true]};
+        if (_uncache) then {_grp setVariable ["JK_noCache", true, true]};
 
         if(SEN_debug isEqualTo 1) then {
             _mrk = createMarker [format["SEN_sniper_%1_%2",_grp,_i],getposATL leader _grp];

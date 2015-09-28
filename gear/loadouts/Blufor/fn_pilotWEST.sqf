@@ -45,7 +45,7 @@ _40mmFlareGreen = 0;
 _40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-_handgun = "hgun_Pistol_heavy_01_F";
+_handgun = "rhsusf_weap_m1911a1";
 
 //handgun items - (array)
 _itemsHandgun = ["optic_MRD"];

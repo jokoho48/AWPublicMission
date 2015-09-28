@@ -16,15 +16,15 @@ _lead = leader _grp;
 _unitArray = units _grp;
 _houseArray = (getposATL _lead) nearObjects ["house",_range];
 /*[0,"fn_setPatrolGroup: group leader: %1, house array: %2.",_lead, _houseArray] call SEN_fnc_log;*/
-
+_grp setVariable ["JK_isMove", _range];
 if (count _houseArray > 0) then {
     {
     //_x setVariable ["SEN_patrol_exit",false];
-        [_x,_range,_houseArray] spawn SEN_fnc_setPatrolUnit;
+        [_x, _range, _houseArray] spawn SEN_fnc_setPatrolUnit;
     } forEach _unitArray;
 } else {
     {
     //_x setVariable ["SEN_patrol_exit",false];
-        [_x,_range] spawn SEN_fnc_setPatrolUnit;
+        [_x, _range] spawn SEN_fnc_setPatrolUnit;
     } forEach _unitArray;
 };
