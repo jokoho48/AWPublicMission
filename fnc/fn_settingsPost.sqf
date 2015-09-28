@@ -8,7 +8,9 @@ Description: postInit settings
         returns nothing
 __________________________________________________________________*/
 if !(isServer) exitWith {};
-waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
+"SEN_safezone_mrk" setMarkerAlpha 0;
+[] spawn {
+waitUntil {!isNil "JK_DBSetup"};
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
 SEN_range = worldSize/2;
 publicVariable "SEN_range";
@@ -45,7 +47,6 @@ if !(isNil "SEN_HC") then {
 };
 
 // safezone setup
-"SEN_safezone_mrk" setMarkerAlpha 0;
 _trgSafeZone = createTrigger ["EmptyDetector", getMarkerPos "SEN_safezone_mrk"];
 _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
 _trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x} forEach crew _x; deleteVehicle _x; }; } forEach thisList;", ""];
@@ -157,3 +158,4 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
 [0,"fn_settingsPost complete."] call SEN_fnc_log;
+};

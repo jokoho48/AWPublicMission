@@ -5,7 +5,7 @@ _time = 1800;
 _times = 0;
 
 {
-    _code = compile format ["hint parseText '%1'", _x];
+    _code = compile format ["hint parseText ""%1""", _x];
     [_code, [], _time] call ace_common_fnc_waitAndExecute;
     _times = _time + _times;
     nil

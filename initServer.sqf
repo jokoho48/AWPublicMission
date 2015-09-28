@@ -3,10 +3,11 @@ Author: SENSEI
 
 Last modified: 8/5/2015
 __________________________________________________________________*/
-waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
+[] spawn {
+waitUntil {!isNil "JK_DBSetup"};
 if (isNil "db_fnc_save") then {
     db_fnc_save = {
-        profileNamespace setVariable [_this select 0, call compile _this select 1];
+        profileNamespace setVariable [_this select 0, _this select 1];
         saveProfileNamespace;
     };
 };
@@ -17,13 +18,13 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
     { (_this select 0) call db_fnc_load }
 };
 
-JK_TicketSystem = call compile (["JK_TicketSystem", str 9850] call jk_db_fnc_load);
+JK_TicketSystem = ["JK_TicketSystem", 9850] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = call compile (["SEN_approvalCiv", str (-502)] call jk_db_fnc_load);
+SEN_approvalCiv = ["SEN_approvalCiv", -502] call jk_db_fnc_load;
 publicVariable "SEN_approvalCiv";
 
-SEN_blacklistLocation = call compile (["SEN_ClearedCitiys", str []] call jk_db_fnc_load);
+SEN_blacklistLocation = ["SEN_ClearedCitys", []] call jk_db_fnc_load;
 publicVariable "SEN_blacklistLocation";
 
 missionNameSpace setVariable ["SEN_transportReady", 1];
@@ -45,7 +46,7 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 
 
-[["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
+[["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitys"], {
     params ["_key", "_value"];
     [_key, str _value] spawn db_fnc_save;
 }] call JK_Core_fnc_addVariableEventHandler;
@@ -55,7 +56,8 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
     "JK_registerPlayer" addPublicVariableEventHandler {
         params ["" ,"_player"];
         (owner _player) publicVariableClient "JK_TicketSystem";
-        (owner _player) publicVariableClient "SEN_ClearedCitiys";
+        (owner _player) publicVariableClient "SEN_ClearedCitys";
         (owner _player) publicVariableClient "SEN_approvalCiv";
     };
+};
 };

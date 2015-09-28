@@ -26,7 +26,8 @@ if (typeName _varNames != "ARRAY") then {
 };
 
 {
-    _variable = _namespace getVariable _x;
+    _variable = _namespace getVariable [_x, "hudlehudlehudlehudlehudlehudlehudle"];
     JK_VariableEventhandler pushBack [_x, _namespace, _variable, _code];
-} count _varNames
+    nil
+} count _varNames;
 nil

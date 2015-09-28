@@ -7,7 +7,7 @@ JK_usedDifferentGear = false;
 //#define JK_cachedDebug
 
 JK_cachedAllArray = [];
-
+JK_cachedLeaderArray = [];
 #include "fn_functions.sqf"
 
 [] spawn {

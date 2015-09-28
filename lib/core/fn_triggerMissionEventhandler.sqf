@@ -15,7 +15,7 @@
 {
     private ["_eventCode", "_eventVariable"];
 
-    params ["_name" ,"_target"]
+    _x params ["_name" ,"_target"];
     // get Event Content
     _eventVariable = missionNamespace getVariable [_name, [{ hint "Error Event Not Found"; },[],0]];
 
@@ -43,5 +43,5 @@
         [_eventParameter,_eventCode,"BIS_fnc_spawn",_target, false, true] call BIS_fnc_MP;
     };
 
-    missioNameSpace setVariable [_name, _eventVariable];
+    missionNameSpace setVariable [_name, _eventVariable];
 } forEach _this;
