@@ -19,7 +19,9 @@ License:
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 __________________________________________________________________*/
-["Preload"] call BIS_fnc_arsenal;
+if (isServer) then {
+    waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
+}
 enableSaving [false, false];
 enableSentences false;
 enableRadio false;

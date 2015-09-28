@@ -8,7 +8,7 @@ Description: preInit settings
          returns nothing
 __________________________________________________________________*/
 if (!isServer) exitWith {};
-
+waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;
 SEN_debug = (paramsArray select 1); publicVariable "SEN_debug";
 if ((paramsArray select 3) isEqualTo -1) then {

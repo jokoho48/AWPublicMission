@@ -8,7 +8,7 @@ Description: postInit settings
         returns nothing
 __________________________________________________________________*/
 if !(isServer) exitWith {};
-
+waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
 SEN_range = worldSize/2;
 publicVariable "SEN_range";

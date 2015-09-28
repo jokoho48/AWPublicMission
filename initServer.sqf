@@ -3,7 +3,7 @@ Author: SENSEI
 
 Last modified: 8/5/2015
 __________________________________________________________________*/
-
+waitUntil {diag_log "error"; !isNil "JK_DBSetup"};
 if (isNil "db_fnc_save") then {
     db_fnc_save = {
         profileNamespace setVariable [_this select 0, call compile _this select 1];
