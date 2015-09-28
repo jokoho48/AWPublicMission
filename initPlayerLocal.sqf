@@ -62,6 +62,7 @@ call {
 
 JK_registerPlayer = player;
 publicVariableServer "JK_registerPlayer";
+
 // misc settings
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];

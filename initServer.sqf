@@ -47,16 +47,15 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitiys"], {
     params ["_key", "_value"];
-    _value = str _value;
-    [_key, _value] spawn db_fnc_save;
+    [_key, str _value] spawn db_fnc_save;
 }] call JK_Core_fnc_addVariableEventHandler;
 
 [] spawn {
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
     "JK_registerPlayer" addPublicVariableEventHandler {
-        params ["_player"];
-        (owner (_this select 1)) publicVariableClient "JK_TicketSystem";
-        (owner (_this select 1)) publicVariableClient "SEN_ClearedCitiys";
-        (owner (_this select 1)) publicVariableClient "SEN_approvalCiv";
+        params ["" ,"_player"];
+        (owner _player) publicVariableClient "JK_TicketSystem";
+        (owner _player) publicVariableClient "SEN_ClearedCitiys";
+        (owner _player) publicVariableClient "SEN_approvalCiv";
     };
 };
