@@ -26,4 +26,4 @@ if (isNil "JK_VariableEventhandler") then {
         };
         nil
     } count JK_VariableEventhandler;
-}0, []] call CBA_fnc_addPerFrameHandler;
+}, 0, []] call CBA_fnc_addPerFrameHandler;

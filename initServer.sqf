@@ -12,13 +12,9 @@ if (isNil "db_fnc_save") then {
 };
 
 jk_db_fnc_load = if (isNil "db_fnc_load") then {
-    {
-        profileNameSpace getVariable _this;
-    }
+    { profileNameSpace getVariable _this }
 } else {
-    {
-        (_this select 0) call db_fnc_load;
-    }
+    { (_this select 0) call db_fnc_load }
 };
 
 JK_TicketSystem = call compile (["JK_TicketSystem", str 9850] call jk_db_fnc_load);
