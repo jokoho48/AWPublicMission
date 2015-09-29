@@ -150,7 +150,7 @@ class FSM
                                         priority = 3.000000;
                                         to="end";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(_group getVariable ""zbe_cacheDisabled"")"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(_group getVariable ""JK_noCache"")"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -269,7 +269,7 @@ class FSM
                         name = "end";
                         itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
-                         "_group setVariable [""zbe_cacheDisabled"",true];" \n
+                         "_group setVariable [""JK_noCache"",true];" \n
                          "if (zbe_debug) then {" \n
                          "	[0, format [""ZBE_Cache ending for group %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
@@ -333,7 +333,7 @@ class FSM
                         name = "exitIsPlayer";
                         itemno = 19;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
-                         "_group setVariable [""zbe_cacheDisabled"",true];" \n
+                         "_group setVariable [""JK_noCache"",true];" \n
                          "if (zbe_debug) then {" \n
                          "	[0, format [""ZBE_Cache ending for group as leader player %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;

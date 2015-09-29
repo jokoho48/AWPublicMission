@@ -32,7 +32,7 @@ while {true} do {
     zbe_players = allPlayers;
     {
         private "_disable";
-        _disable = _x getVariable "zbe_cacheDisabled";
+        _disable = _x getVariable "JK_noCache";
         if (isNil "_disable") then {_disable = false};
         if (!_disable && {!(_x in zbe_cachedGroups)}) then {
             // zbe_cachedGroups = zbe_cachedGroups + [_x];
