@@ -10,12 +10,9 @@ if (!isServer) exitWith {};
 private ["_pos","_houseArray"];
 
 _wreckArray = ["Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_UAZ_F","Land_Wreck_Ural_F","Land_Wreck_Van_F","Land_Wreck_Skodovka_F","Land_Wreck_CarDismantled_F","Land_Wreck_Car3_F","Land_Wreck_Car_F"];
-_rebelWeapon = "";
-_rebelMag = "";
 _vehPos = [];
 _pos = [];
 _houseArray = [];
-if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebelMag = "30Rnd_65x39_caseless_green";} else {_rebelWeapon = "arifle_TRG20_F"; _rebelMag = "30Rnd_556x45_Stanag_Tracer_Green";};
 _returnTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
 _returnPos = getpos _returnTown;
 _returnPos set [2,0];
@@ -48,15 +45,8 @@ _hostage = (createGroup CIVILIAN) createUnit [SEN_unitPoolCiv select (random ((c
 _hostage allowdamage false;
 _hostage setDir random 360;
 _pos set [2,0];
-_grp = [_pos,0,((call SEN_fnc_setStrength) max 4) min 15,CIVILIAN,true] call SEN_fnc_spawnGroup;
+_grp = [_pos,0,((call SEN_fnc_setStrength) max 4) min 15,RESISTANCE,true] call SEN_fnc_spawnGroup;
 _grp = [units _grp] call SEN_fnc_setSide;
-{
-    _x addVest "V_TacVest_khk";
-    _x addWeapon _rebelWeapon;
-    _x addMagazine _rebelMag;
-    _x addMagazine _rebelMag;
-    _x addMagazine _rebelMag;
-} forEach units _grp;
 [_grp,90] spawn SEN_fnc_setPatrolGroup;
 
 sleep 3;

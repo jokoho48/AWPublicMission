@@ -39,19 +39,8 @@ _civ disableAI "ANIM";
 
 if (random 1 < 0.7) then {
     _ambush = true;
-    _rebelWeapon = "";
-    _rebelMag = "";
-    if (SEN_enemySide isEqualTo EAST) then {_rebelWeapon = "arifle_Katiba_F"; _rebelMag = "30Rnd_65x39_caseless_green";} else {_rebelWeapon = "arifle_TRG20_F"; _rebelMag = "30Rnd_556x45_Stanag_Tracer_Green";};
-    _grp = [([_pos,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 15,CIVILIAN,true] call SEN_fnc_spawnGroup;
+    _grp = [([_pos,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 15,RESISTANCE,true] call SEN_fnc_spawnGroup;
     _grp = [units _grp] call SEN_fnc_setSide;
-    {
-        _x addVest "V_TacVest_khk";
-        _x addWeapon _rebelWeapon;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-        _x addMagazine _rebelMag;
-        _x setUnitPos "MIDDLE";
-    } forEach units _grp;
 };
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],_vehPos,false,1,true,"C",false] call BIS_fnc_taskCreate;

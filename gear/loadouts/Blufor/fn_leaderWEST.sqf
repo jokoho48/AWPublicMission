@@ -54,7 +54,7 @@ _itemsHandgun = [];
 _handgunAmmo = 2;
 
 //weapons - launcher - (string)
-_launcher = "rhs_weap_M136";
+_launcher = "tf47_at4_HEDP";
 _launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific _launcherHandle. Test it out.
 
 //launcher ammo (if a launcher is given) - (integer)
@@ -129,6 +129,7 @@ _player setCaptive true;    //unfortunately necessary due to the time consumed b
 _player setVariable ["ace_medical_medicClass", 0];
 _player setVariable ["JK_CrateSpawnAllowed", true];
 _player setVariable ["ACE_IsEngineer", 0];
+_player setVariable ["JK_isPilot", false];
 _player setCaptive false;
 
 if (true) exitWith {};

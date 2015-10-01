@@ -87,6 +87,17 @@ _fnc_ammo = {
             ["UGL_FlareGreen_F", 15],
             ["UGL_FlareCIR_F", 15],
 
+            //AT
+            ["tf47_at4_heat", 5],
+            ["tf47_at4_HEDP", 5],
+            ["tf47_at4_HP", 5],
+
+            ["tf47_m3maaws_HEAT", 5],
+            ["tf47_m3maaws_HEDP", 5],
+            ["tf47_m3maaws_HE", 5],
+            ["tf47_m3maaws_SMOKE", 5],
+            ["tf47_m3maaws_ILLUM", 5],
+
             //MG Munition
             ["rhs_200rnd_556x45_M_SAW", 30],
             ["rhsusf_100Rnd_762x51", 30],
@@ -95,6 +106,9 @@ _fnc_ammo = {
             ["30Rnd_556x45_Stanag", 55],
             ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", 45],
 
+
+            ["SatchelCharge_Remote_Mag", 4],
+            ["DemoCharge_Remote_Mag", 6],
             //Marksman
             ["rhsusf_20Rnd_762x51_m118_special_Mag", 20]
         ]
@@ -106,7 +120,30 @@ _fnc_Radio = {
 };
 
 _fnc_misc = {
-    ["ACE_Box_Misc", 5] call JK_fnc_createCrate;
+    ["ACE_Box_Misc", 60, [
+        ["ACE_HuntIR_monitor", 3],
+        ["ACE_UAVBattery", 2],
+        ["ACE_RangeCard", 2],
+        ["ACE_Kestrel4500", 2],
+        ["ACE_Flashlight_MX991", 5],
+        ["ACE_Cellphone", 2],
+        ["ACE_DeadManSwitch", 2],
+        ["ACE_DefusalKit", 2],
+        ["ACE_M26_Clacker", 2],
+        ["ACE_Clacker", 2],
+        ["ACE_EarPlugs", 5],
+        ["ACE_DAGR", 2],
+        ["ACE_CableTie", 5],
+        ["ACE_IR_Strobe_Item", 5],
+        ["ACE_ATragMX", 2],
+        ["ACE_SpottingScope", 2],
+        ["ACE_SpareBarrel", 5],
+        ["ACE_RangeTable_82mm", 2],
+        ["ACE_microDAGR", 5],
+        ["ACE_bodyBag", 5],
+        ["ACE_MapTools", 5],
+        ["ACE_wirecutter", 2]
+    ]] call JK_fnc_createCrate;
 };
 
 _fnc_UAV = {

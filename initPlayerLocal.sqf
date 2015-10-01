@@ -88,6 +88,16 @@ if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
     };
 };
 
+
+JK_var_PilotsOnly_EVH = addMissionEventHandler ["Draw3D", {
+    if (alive player && !(player getVariable ["JK_isPilot", false])) then {
+        if (vehicle player isKindOf "Air" && (player == assignedDriver vehicle player || player == (vehicle player) turretUnit [0])) then {
+            doGetOut player;
+            hint "Only Pilots are allowed to fly.";
+        };
+    };
+}];
+
 waitUntil {sleep 0.1; !isNull (findDisplay 46)};
 
 // setup briefing

@@ -128,6 +128,6 @@ _player setCaptive true;    //unfortunately necessary due to the time consumed b
 [_player] call jk_loadOut_fnc_gear;
 _player setVariable ["JK_CrateSpawnAllowed", true];
 _player setVariable ["ACE_IsEngineer", 2];
+_player setVariable ["JK_isPilot", true];
 _player setCaptive false;
-
 if (true) exitWith {};

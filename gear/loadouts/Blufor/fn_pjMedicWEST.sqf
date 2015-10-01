@@ -129,4 +129,5 @@ _player setCaptive false;
 _player setVariable ["ace_medical_medicClass", 1];
 _player setVariable ["JK_CrateSpawnAllowed", true];
 _player setVariable ["ACE_IsEngineer", 0];
+_player setVariable ["JK_isPilot", false];
 if (true) exitWith {};

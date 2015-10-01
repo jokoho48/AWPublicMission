@@ -11,7 +11,7 @@ JK_vvsArray = [];
 
 //clothing - (string)
 _uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-_vests = ["rhsusf_spc_corpsman"];
+_vests = ["rhsusf_spc_rifleman"];
 _headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
 _backpacks = ["rhsusf_assault_eagleaiii_coy"];
 _insignium = "";
@@ -20,12 +20,13 @@ _goggles = "";
 
 //weapons - primary weapon - (string)
 _primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
+
 //primary weapon items - (array)
 _itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 8;
+_primaryweaponAmmo = 11;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -60,17 +61,17 @@ _launcherHandle = 0;    //should stay the way it is. Determines the class of amm
 _launcherAmmo = 0;
 
 //binocular - (string)
-_binocular = "Binocular";
+_binocular = "ACE_Vector";
 
 //throwables - (integer)
-_grenadeHE = 0;
-_grenadeSmokeWhite = 3;
+_grenadeHE = 2;
+_grenadeSmokeWhite = 2;
 _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;
-_grenadeSmokeRed = 2;
-_grenadeSmokePurple = 1;
+_grenadeSmokeRed = 0;
+_grenadeSmokePurple = 0;
 _grenadeSmokeBlue = 1;
-_grenadeSmokeGreen = 2;
+_grenadeSmokeGreen = 1;
 _chemlightYellow = 0;
 _chemlightRed = 0;
 _chemlightGreen = 0;
@@ -78,14 +79,14 @@ _chemlightBlue = 0;
 _IRgrenade = 0;
 
 //ACE Items
-_IVBagSaline250 = 0;
+_IVBagSaline250 = 1;
 _IVBagSaline500 = 0;
-_IVBagSaline1000 = 10;
-_epinephrine = 15;
-_morphine = 15;
+_IVBagSaline1000 = 0;
+_epinephrine = 3;
+_morphine = 3;
 _atropine = 0;
 
-_fieldDressing = 30;
+_fieldDressing = 10;
 _packingBandage = 0;
 _elasticBandage = 0;
 _quikclot = 0;
@@ -105,7 +106,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = [];
+_itemsBackpack = ["tf47_m3maaws_HEAT", "tf47_m3maaws_HEDP", "tf47_m3maaws_HEAT"];
 
 //linked items - (array)
 _itemsLink = [
@@ -125,9 +126,9 @@ _items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","
 params ["_player"];
 _player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
 [_player] call jk_loadOut_fnc_gear;
-_player setCaptive false;
-_player setVariable ["ace_medical_medicClass", 1];
+_player setVariable ["ace_medical_medicClass", 0];
 _player setVariable ["JK_CrateSpawnAllowed", false];
 _player setVariable ["ACE_IsEngineer", 0];
 _player setVariable ["JK_isPilot", false];
+_player setCaptive false;
 if (true) exitWith {};

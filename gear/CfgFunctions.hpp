@@ -22,6 +22,7 @@ class JK_loadOut
         class assmgWEST {};
         class mgWEST {};
         class atWEST {};
+        class atassWEST {};
         class commandWEST {};
         class grenadierWEST {};
         class leaderWEST {};

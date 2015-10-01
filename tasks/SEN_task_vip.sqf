@@ -29,7 +29,7 @@ if (_posVIP isEqualTo []) exitWith {
     [] call SEN_fnc_setTask;
 };
 
-_vipGrp = [_posVIP,0,1,CIVILIAN] call SEN_fnc_spawnGroup;
+_vipGrp = [_posVIP,0,1,RESISTANCE] call SEN_fnc_spawnGroup;
 _vip = leader _vipGrp;
 _vip allowDamage false;
 _grpArray = [([_posVIP,5,30] call SEN_fnc_findRandomPos),SEN_enemySide,8,.25] call SEN_fnc_spawnSquad;

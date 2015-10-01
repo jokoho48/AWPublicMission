@@ -155,7 +155,7 @@ _QS_ST_iconTextFonts = [                                    // ARRAY (STRING). I
 //==================================================================================//
 
 _QS_ST_GPSDist = 300;                                        // NUMBER. Distance from player that units shown on GPS. Higher number = lower script performance. Not significant but every 1/10th of a frame counts! Default 300
-_QS_ST_GPSshowNames = false;                                // BOOL. true to show unit names on the GPS display. Default false.
+_QS_ST_GPSshowNames = true;                                // BOOL. true to show unit names on the GPS display. Default false.
 _QS_ST_GPSshowGroupOnly = true;                                // BOOL. true to show only group members on the GPS display. Default true.
 _QS_ST_iconTextSize_GPS = 0.05;                                // NUMBER. Icon Text Size on GPS display. Default is 0.05.
 _QS_ST_iconShadowGPS = 1;                                    // NUMBER. Icon Shadow on GPS. 0 = no shadow. 1 = shadow. 2 = outline. Must be 0, 1, or 2. Default 1.
@@ -165,7 +165,7 @@ _QS_ST_iconShadowGPS = 1;                                    // NUMBER. Icon Sha
 //==================================================================================//
 
 _QS_ST_showGroupMapIcons = true;                            // BOOL. Group icons displayed on map. Default true.
-_QS_ST_showGroupHudIcons = false;                            // BOOL. Group icons displayed on player 3D HUD. Default false.
+_QS_ST_showGroupHudIcons = true;                            // BOOL. Group icons displayed on player 3D HUD. Default false.
 _QS_ST_showAIGroups = true;                                // BOOL. Show Groups with AI leaders. Default true.
 _QS_ST_showAINames = false;                                // BOOL. Show AI Names. If false, when names are listed with Group features, will only display as '[AI]'. Default false.
 _QS_ST_groupInteractiveIcons = true;                        // BOOL. Group icons are interactable (mouse hover and mouse click for group details). Default true.
@@ -200,57 +200,8 @@ QS_ST_STR_text2 = 'This group is not in your faction!';        // STRING. Text s
 //==============================================================================================================================//
 
 _QS_fnc_isIncapacitated = {
-    private '_cond';
-    params ["_u", "_medicalSystem"];
-    _cond = false;
-    if (_medicalSystem isEqualTo 'BIS') then {
-        if (!isNil {_u getVariable 'BIS_revive_incapacitated'}) then {
-            if ((_u getVariable 'BIS_revive_incapacitated')) then {
-                _cond = true;
-            };
-        };
-    } else {
-        if (_medicalSystem isEqualTo 'BTC') then {
-            if (!isNil {_u getVariable 'BTC_need_revive'}) then {
-                if ((_u getVariable 'BTC_need_revive') isEqualTo 1) then {
-                    _cond = true;
-                };
-            };
-        } else {
-            if (_medicalSystem isEqualTo 'FAR') then {
-                if (!isNil {_u getVariable 'FAR_isUnconscious'}) then {
-                    if ((_u getVariable 'FAR_isUnconscious') isEqualTo 1) then {
-                        _cond = true;
-                    };
-                };
-            } else {
-                if (_medicalSystem isEqualTo 'AIS') then {
-                    if (!isNil {_u getVariable 'unit_is_unconscious'}) then {
-                        if ((_u getVariable 'unit_is_unconscious')) then {
-                            _cond = true;
-                        };
-                    };
-                } else {
-                    if (_medicalSystem isEqualTo 'AWS') then {
-                        if (!isNil {_u getVariable 'tcb_ais_agony'}) then {
-                            if ((_u getVariable 'tcb_ais_agony')) then {
-                                _cond = true;
-                            };
-                        };
-                    } else {
-                        if (_medicalSystem isEqualTo 'ACE') then {
-                            if (!isNil {_u getVariable 'ACE_isUnconscious'}) then {
-                                if ((_u getVariable 'ACE_isUnconscious')) then {
-                                    _cond = true;
-                                };
-                            };
-                        };
-                    };
-                };
-            };
-        };
-    };
-    _cond;
+    params ["_u"];
+    _u getVariable ['ACE_isUnconscious', false]
 };
 _QS_fnc_iconColor = {
     private ['_u','_c','_a','_ps','_ms','_i','_ic','_display','_QS_ST_X','_v'];
@@ -259,16 +210,14 @@ _QS_fnc_iconColor = {
     _ps = side _u;
     _exit = false;
     if (!(_v isKindOf 'Man')) then {
-        if (!isNil {_v getVariable 'QS_ST_drawEmptyVehicle'}) then {
-            if (_v getVariable 'QS_ST_drawEmptyVehicle') then {
-                if ((count (crew _v)) isEqualTo 0) then {
-                    _exit = true;
-                    _c = _QS_ST_X select 78;
-                    _c set [3,0.65];
-                    if (_ms > 0.80) then {
-                        if (_display isEqualTo 1) then {
-                            _c set [3,0];
-                        };
+        if (_v getVariable ['QS_ST_drawEmptyVehicle', false]) then {
+            if ((count (crew _v)) isEqualTo 0) then {
+                _exit = true;
+                _c = _QS_ST_X select 78;
+                _c set [3,0.65];
+                if (_ms > 0.80) then {
+                    if (_display isEqualTo 1) then {
+                        _c set [3,0];
                     };
                 };
             };
@@ -297,8 +246,8 @@ _QS_fnc_iconColor = {
         };
     };
     if (_exit) exitWith {_c;};
-    if (!isNil {_u getVariable 'QS_ST_iconColor'}) then {
-        _ic = _u getVariable 'QS_ST_iconColor';
+    _ic = _u getVariable 'QS_ST_iconColor';
+    if (!isNil "_ic") then {
         if (_ps isEqualTo (_ic select 1)) then {
             _c = _ic select 0;
             _c set [3,_a];
@@ -333,7 +282,7 @@ _QS_fnc_iconSize = {
     _i = _v getVariable 'QS_ST_iconSize';
     if ((!isNil {_i}) && (_i in [(_QS_ST_X select 22),(_QS_ST_X select 26),(_QS_ST_X select 23),(_QS_ST_X select 25),(_QS_ST_X select 24),22])) exitWith {_i;};
     if (_v isKindOf 'Man') exitWith {_i = _QS_ST_X select 22;_i;};
-    if ((!isNil {_v getVariable 'QS_ST_drawEmptyVehicle'}) && (_v getVariable 'QS_ST_drawEmptyVehicle') && ((count (crew _v)) isEqualTo 0)) exitWith {_i = _QS_ST_X select 79;_i;};
+    if ((_v getVariable ['QS_ST_drawEmptyVehicle', true]) && ((count (crew _v)) isEqualTo 0)) exitWith {_i = _QS_ST_X select 79;_i;};
     if (_v isKindOf 'StaticWeapon') exitWith {_i = _QS_ST_X select 26; _i;};
     if (_v isKindOf 'LandVehicle') exitWith {_i = _QS_ST_X select 23;_i;};
     if (_v isKindOf 'Air') exitWith {_i = _QS_ST_X select 25;_i;};
@@ -345,24 +294,17 @@ _QS_fnc_iconSize = {
 _QS_fnc_iconPosDir = {
     private '_posDir';
     params ['_v','_display','_delay'];
+    _posDir = [getPosASL _v,getDir _v];
     if (_display isEqualTo 1) then {
         if (_delay > 0) then {
             if (time > QS_ST_iconUpdatePulseTimer) then {
                 _posDir = [getPosASL _v,getDir _v];
                 _v setVariable ['QS_ST_lastPulsePos',_posDir,false];
             } else {
-                if (!isNil {_v getVariable 'QS_ST_lastPulsePos'}) then {
-                    _posDir = _v getVariable 'QS_ST_lastPulsePos';
-                } else {
-                    _posDir = [getPosASL _v,getDir _v];
-                    _v setVariable ['QS_ST_lastPulsePos',_posDir,false];
-                };
+                _posDir = _v getVariable ['QS_ST_lastPulsePos', [getPosASL _v,getDir _v]];
+                _v setVariable ['QS_ST_lastPulsePos',_posDir,false];
             };
-        } else {
-            _posDir = [getPosASL _v,getDir _v];
         };
-    } else {
-        _posDir = [getPosASL _v,getDir _v];
     };
     _posDir;
 };
@@ -951,7 +893,7 @@ _QS_fnc_groupIconText = {
     _text = '';
     if (_di isEqualTo 1) then {
         if ((_QS_ST_X select 36)) then {
-            _text = groupId _grp;
+            _text = (leader _grp) getVariable ["JK_Name", ""];
         };
     };
     _text;
@@ -1428,7 +1370,7 @@ if (_QS_ST_X select 2) then {
                             };
                         };
                     };
-                    uiSleep 1;
+                    uiSleep 0.1;
                 } count allGroups;
                 _groupUpdateDelay = time + _groupUpdateDelay_timer;
             };
@@ -1451,7 +1393,7 @@ if (_QS_ST_X select 2) then {
                     };
                 };
             };
-            uiSleep 5;
+            uiSleep 0.5;
         };
     };
 };

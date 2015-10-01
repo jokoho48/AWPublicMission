@@ -8,47 +8,48 @@ Call from initPlayerLocal.sqf via:
     _this select 0 = object - target the loadout is applied to.
     _this select 1 = boolean - whether or not the target in _zeus is supposed to be invincible.
 */
-JK_var_gearByClasses = true;
+JK_var_gearByClasses = false;
 // insert names of new units here in their correspondent Objects:
 //commanders
-_command = [];
+_command = ["a_sl", "b_sl", "plt_sgt"];
 //group leaders
-_SL = [];
+_SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
 //medics
-_medics = [];
-//Assaultriflemen
-_AR = [];
+_medics = ["plt_med", "a_med", "b_med"];
+
 //MG-Schützen
-_MG = [];
-//assistant Assaultriflemen
-_assMG = [];
+_MG = ["b1_ar" ,"b2_ar", "a1_ar", "a2_ar"];
+//assistant MG
+_assMG = ["b1_aar", "b2_aar", "a1_aar", "a2_aar"];
 //AT-Soldiers/AT-Specialists
-_AT = [];
+_AT = ["a1_at", "a2_at", "b1_at", "b2_at"];
+//AT-Assistent
+_ATass = ["a1_ab", "a2_ab", "b1_ab", "b2_ab"];
 //Grenadiers
-_grenadier = [];
+_grenadier = ["b2_rm", "a2_rm"];
 //Riflemen
-_soldier = [];
+_soldier = ["a1_rm", "b1_rm"];
 //designated Marksmen
-_marksmen = [];
+_marksmen = [""];
 //engineers/repair-/explosive-specialists
-_spec = [];
+_spec = ["plt_eng"];
 //pilots
-_pilots = [];
+_pilots = ["r_1", "r_2", "r_3"];
 //Crew
-_crew = [];
+_crew = ["rh1_driver", "rh1_co", "rh1_gunner"];
 //Pilot
-_jetPilot = [];
+_jetPilot = ["pj_1", "pj_2"];
 //PJ
-_pjMedic = [];
+_pjMedic = ["r_4"];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
 _SLClass = ["B_Soldier_TL_F"];
 _medicsClass = ["B_medic_F"];
-_ARClass = [];
-_MGClass = [];
-_assMGClass = [];
-_ATClass = [];
+_MGClass = ["B_soldier_AR_F"];
+_assMGClass = ["B_soldier_AAR_F"];
+_ATClass = ["B_soldier_LAT_F"];
+_ATassClass = ["B_Soldier_A_F"];
 _grenadierClass = [];
 _soldierClass = ["B_Soldier_F"];
 _marksmenClass = [];
@@ -71,10 +72,10 @@ if (!JK_var_gearByClasses) then {
         case (_object in _command): {"command"};
         case (_object in _SL): {"leader"};
         case (_object in _medics): {"medic"};
-        case (_object in _AR): {"ARman"};
         case (_object in _MG): {"MG"};
         case (_object in _assMG): {"assMG"};
         case (_object in _AT): {"AT"};
+        case (_object in _ATass): {"ATAss"};
         case (_object in _grenadier): {"grenadier"};
         case (_object in _soldier): {"Rifleman"};
         case (_object in _marksmen): {"marksman"};
@@ -91,10 +92,10 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _commandClass): {"command"};
         case (typeOf _target in _SLClass): {"leader"};
         case (typeOf _target in _medicsClass): {"medic"};
-        case (typeOf _target in _ARClass): {"ARman"};
         case (typeOf _target in _MGClass): {"MG"};
         case (typeOf _target in _assMGClass): {"assMG"};
         case (typeOf _target in _ATClass): {"AT"};
+        case (typeOf _target in _ATassClass): {"ATAss"};
         case (typeOf _target in _grenadierClass): {"grenadier"};
         case (typeOf _target in _soldierClass): {"Rifleman"};
         case (typeOf _target in _marksmenClass): {"marksman"};
@@ -107,6 +108,6 @@ if (_class == "" || JK_var_gearByClasses) then {
     };
 };
 
-[_target,_class] call JK_loadOut_fnc_selectGear;
+[_target, _class] call JK_loadOut_fnc_selectGear;
 
 if (true) exitWith {};
