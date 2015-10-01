@@ -7,8 +7,9 @@ Call from initPlayerLocal.sqf via:
 */
 
 ///// No editing necessary below this line /////
-params [["_target", player, [objNull]]];
 
-//call for the loadout function
-[_target] call jk_loadOut_fnc_applyLoadout;
-if (true) exitWith {};
+_this spawn {
+    waitUntil {!isNil "JK_TF47_Launcher"};
+    params [["_target", player, [objNull]]];
+    [_target] call jk_loadOut_fnc_applyLoadout;
+};

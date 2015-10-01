@@ -88,15 +88,15 @@ _fnc_ammo = {
             ["UGL_FlareCIR_F", 15],
 
             //AT
-            ["tf47_at4_heat", 5],
-            ["tf47_at4_HEDP", 5],
-            ["tf47_at4_HP", 5],
+            ["rhs_weap_M136", 5],
+            //["tf47_at4_HEDP", 5],
+            //["tf47_at4_HP", 5],
 
-            ["tf47_m3maaws_HEAT", 5],
-            ["tf47_m3maaws_HEDP", 5],
-            ["tf47_m3maaws_HE", 5],
-            ["tf47_m3maaws_SMOKE", 5],
-            ["tf47_m3maaws_ILLUM", 5],
+            //["tf47_m3maaws_HEAT", 5],
+            //["tf47_m3maaws_HEDP", 5],
+            //["tf47_m3maaws_HE", 5],
+            //["tf47_m3maaws_SMOKE", 5],
+            //["tf47_m3maaws_ILLUM", 5],
 
             //MG Munition
             ["rhs_200rnd_556x45_M_SAW", 30],

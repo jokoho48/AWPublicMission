@@ -187,7 +187,10 @@ _action = ['SEN_Disarm','Disarm Detonator','',{createDialog 'KeypadDefuse';},{!i
 _action = ['SEN_Manual','Open Field Manual','',{[] spawn {(findDisplay 46) createDisplay "RscDisplayFieldManual"}},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-{
-    _action = ['SEN_Transport',format ['Call in %1',getText (configfile >> "CfgVehicles" >> _x >> "displayName")],'',{[_this select 2] call SEN_fnc_transportRequest;},{(vehicle player isEqualTo player)},{},_x] call ace_interact_menu_fnc_createAction;
-    [player, 1, ["ACE_SelfActions","SEN_DCG","SEN_Transport"], _action] call ace_interact_menu_fnc_addActionToObject;
-} forEach SEN_airPoolWest;
+[] spawn {
+    waitUntil {!isNil "SEN_airPoolWest"};
+    {
+        _action = ['SEN_Transport',format ['Call in %1',getText (configfile >> "CfgVehicles" >> _x >> "displayName")],'',{[_this select 2] call SEN_fnc_transportRequest;},{(vehicle player isEqualTo player)},{},_x] call ace_interact_menu_fnc_createAction;
+        [player, 1, ["ACE_SelfActions","SEN_DCG","SEN_Transport"], _action] call ace_interact_menu_fnc_addActionToObject;
+    } forEach SEN_airPoolWest;
+};

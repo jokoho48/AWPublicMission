@@ -5,12 +5,12 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
+JK_TF47_Launcher = (isClass (configFile >> "CfgPatches" >> "tf47_launchers"));
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
 [] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
 [] call compile preprocessFileLineNumbers "scripts\intro.sqf";
 private "_prefix";
-
 // workaround for acre, if inventory full and can't add radio, acre throws rpt error: (Warning: Radio ID ACRE_PRC343_ID_1 was returned for a non-existent baseclass...)
 if ((backpack player) isEqualTo "") then {player addBackpack "B_Kitbag_cbr"};
 
