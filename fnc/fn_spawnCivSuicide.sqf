@@ -20,7 +20,7 @@ _targetPlayer = _targets select (random ((count _targets) - 1));
 [0,"Bomber target is %1.",name _targetPlayer] call SEN_fnc_log;
 _unit addVest "V_TacVestIR_blk";
 _unit addEventHandler ["Hit", {"HelicopterExploSmall" createVehicle ((_this select 0) modeltoworld [0,0,0]); (_this select 0) removeAllEventHandlers "Hit"}];
-
+_unit setVariable ["JK_isBomber", true, true];
 [_unit,_targetPlayer,_dist] spawn {
     params ["_unit", "_targetPlayer", "_dist"];
     _unit = vehicle _unit;

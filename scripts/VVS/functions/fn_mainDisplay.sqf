@@ -44,9 +44,9 @@ if(_mode isEqualTo "All") then {
     {
         _cfgInfo = [_x] call VVS_fnc_cfgInfo;
         if(count _cfgInfo > 0) then {
-            _costs = (JK_VehicleTickets find (_cfgInfo select 4)) + 1;
-            if (_costs == 0) then {_costs = (JK_VehicleTickets find "Default") + 1;};
-            _costs = format ["%1 Tickets" ,JK_VehicleTickets select _costs];
+            _costs = [JK_VehicleTickets, _cfgInfo select 4] call BIS_fnc_findInPairs;
+            if (_costs == -1) then {_costs = [JK_VehicleTickets, "Default"] call BIS_fnc_findInPairs;};
+            _costs = format ["%1 Tickets" ,(JK_VehicleTickets select _costs) select 1];
             _sideName = switch ((_cfgInfo select 5)) do {case 0: {"EAST"}; case 1: {"WEST"}; case 2: {"GUER"}; case 3: {"CIV"}; default {"UNKNOWN"}};
             _control lnbAddRow["",_cfgInfo select 3,_sideName,_costs];
             if !((_cfgInfo select 2) isEqualTo "pictureThing") then {_control lnbSetPicture[[_row,0],_cfgInfo select 2]};

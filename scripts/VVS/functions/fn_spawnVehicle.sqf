@@ -23,3 +23,4 @@ if(isNil "_position") exitWith {hintSilent "The spawn position marker doesn't ex
 closeDialog 0;
 player setVariable ["SEN_inProgress",false];
 [[_className,_position,_direction],"SEN_fnc_spawnVVS",false] call BIS_fnc_MP;
+[[2,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2", name player, str _className]], "SEN_fnc_log", false] call BIS_fnc_MP;

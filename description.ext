@@ -7,7 +7,7 @@ class Header {
 overviewPicture = "media\SEN_imgLogo.paa";
 Author = "SENSEI edit for Armaworld";
 onLoadName = "Dynamic Combat Gen. Edit for Armaworld";
-onLoadMission = "DCG 3.0.9 edit V15";
+onLoadMission = "DCG 3.0.9 edit V16";
 loadScreen = "media\SEN_imgLogo.paa";
 briefing = 0;
 respawn = 3;

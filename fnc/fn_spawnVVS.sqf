@@ -17,11 +17,10 @@ _cfgInfo = [_className] call VVS_fnc_cfgInfo;
 
 _vehicleType = _cfgInfo select 4;
 
-_index = JK_VehicleTickets find _vehicleType;
-if (_index == -1) then {
-    _index = JK_VehicleTickets find "Default";
-};
-_costs = JK_VehicleTickets select (_index + 1);
+_index = [JK_VehicleTickets, _vehicleType] call BIS_fnc_findInPairs;
+if (_index == -1) then {_index = [JK_VehicleTickets, "Default"] call BIS_fnc_findInPairs;};
+
+_costs = (JK_VehicleTickets select _index) select 1;
 
 if ((JK_TicketSystem - _costs) <= 0) exitWith {
     hintSilent "You not have enoth Tickets";

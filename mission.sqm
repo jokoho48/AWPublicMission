@@ -4013,14 +4013,14 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={15085.302,17.91,16565.334};
+			position[]={15082.887,16.413155,16360.646};
 			name="SEN_safezone_mrk";
 			markerType="ELLIPSE";
 			type="Empty";
 			colorName="ColorWEST";
 			fillName="Border";
-			a=1150;
-			b=1150;
+			a=1800;
+			b=1800;
 			drawBorder=1;
 		};
 		class Item4

@@ -3,11 +3,12 @@ Author: SENSEI
 
 Last modified: 8/5/2015
 __________________________________________________________________*/
+JK_DBSetup = true;
 [] spawn {
 waitUntil {!isNil "JK_DBSetup"};
 if (isNil "db_fnc_save") then {
     db_fnc_save = {
-        profileNamespace setVariable [_this select 0, _this select 1];
+        profileNamespace setVariable [_this select 0, call compile (_this select 1)];
         saveProfileNamespace;
     };
 };
