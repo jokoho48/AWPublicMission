@@ -59,10 +59,10 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
     "JK_registerPlayer" addPublicVariableEventHandler {
         params ["" ,"_player"];
-        (owner _player) publicVariableClient "JK_TicketSystem";
-        (owner _player) publicVariableClient "SEN_ClearedCitys";
-        (owner _player) publicVariableClient "SEN_approvalCiv";
-        (owner _player) publicVariableClient "JK_TF47_Launcher";
+        publicVariable "JK_TicketSystem";
+        publicVariable "SEN_ClearedCitys";
+        publicVariable "SEN_approvalCiv";
+        publicVariable "JK_TF47_Launcher";
     };
 };
 };

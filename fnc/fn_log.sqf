@@ -19,7 +19,7 @@ if (typeName _type isEqualTo "SCALAR") then {
         "SEN_LOG: "
     };
 };
-_time = if (!isNil "JK_DBSetup") then {
+_time = if (!isNil "JK_DBSetup" && !isNil "db_fnc_time") then {
     call db_fnc_time;
 } else {
     str serverTime;

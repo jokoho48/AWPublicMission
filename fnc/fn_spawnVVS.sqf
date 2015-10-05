@@ -13,6 +13,10 @@ private ["_cfgInfo","_vehicle"];
 
 params [["_className", "", [""]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
 
+if (0 != count (nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))])) exitWith {
+    hint format ["Fail to spawn %1, not Enoth space.", _className];
+};
+
 _cfgInfo = [_className] call VVS_fnc_cfgInfo;
 
 _vehicleType = _cfgInfo select 4;
@@ -25,10 +29,10 @@ _costs = (JK_VehicleTickets select _index) select 1;
 if ((JK_TicketSystem - _costs) <= 0) exitWith {
     hintSilent "You not have enoth Tickets";
 };
+
 JK_TicketSystem = JK_TicketSystem - _costs;
 publicVariable "JK_TicketSystem";
 
-{deleteVehicle _x} count (nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))]);
 uiSleep 0.1;
 _position set [2,0.5];
 
