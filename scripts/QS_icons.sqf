@@ -165,8 +165,8 @@ _QS_ST_iconShadowGPS = 1;                                    // NUMBER. Icon Sha
 //==================================================================================//
 
 _QS_ST_showGroupMapIcons = true;                            // BOOL. Group icons displayed on map. Default true.
-_QS_ST_showGroupHudIcons = true;                            // BOOL. Group icons displayed on player 3D HUD. Default false.
-_QS_ST_showAIGroups = true;                                // BOOL. Show Groups with AI leaders. Default true.
+_QS_ST_showGroupHudIcons = false;                            // BOOL. Group icons displayed on player 3D HUD. Default false.
+_QS_ST_showAIGroups = false;                                // BOOL. Show Groups with AI leaders. Default true.
 _QS_ST_showAINames = false;                                // BOOL. Show AI Names. If false, when names are listed with Group features, will only display as '[AI]'. Default false.
 _QS_ST_groupInteractiveIcons = true;                        // BOOL. Group icons are interactable (mouse hover and mouse click for group details). Default true.
 _QS_ST_groupInteractiveIcons_showClass = true;                // BOOL. true to show units vehicle class when revealing group details with interactive map group click. Default true.
