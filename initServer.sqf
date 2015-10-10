@@ -64,5 +64,18 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
         publicVariable "SEN_approvalCiv";
         publicVariable "JK_TF47_Launcher";
     };
+    addMissionEventHandler ["HandleDisconnect", {
+        private "_count";
+        _count = count allPlayers;
+        if !(isNil "SEN_HC") then {
+            if (_count == 1) then {
+                ["Won"] call BIS_fnc_endMissionServer;
+            };
+        } else {
+            if (_count == 0) then {
+                ["Won"] call BIS_fnc_endMissionServer;
+            };
+        };
+    }];
 };
 };
