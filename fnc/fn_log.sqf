@@ -27,7 +27,7 @@ _time = if (!isNil "JK_DBSetup" && !isNil "db_fnc_time") then {
 _msg = _type + _msg;
 _this set [1,_msg];
 _this deleteAt 0;
-_text = (format _this + " TARGET:" + str player);
+_text = format ["[%1] %2 | TARGET: %3", _time, (format _this), if (isNull player) then {"Server"} else {str player}];
 diag_log _text;
 _text spawn {
     private "_text";
