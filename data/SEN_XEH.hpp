@@ -6,3 +6,11 @@ class Extended_Hit_Eventhandlers {
         };
     };
 };
+class Extended_PostInit_EventHandlers
+{
+    class st_map_gestures
+    {
+        clientInit = "st_map_gestures_init_ext_post_eh = [] spawn compile preprocessFileLineNumbers 'lib\mapGestures\clientInit.sqf'";
+        serverInit = "st_map_gestures_svr_init_ext_post_eh = [] spawn compile preprocessFileLineNumbers 'lib\mapGestures\clientInit.sqf'";
+    };
+};
