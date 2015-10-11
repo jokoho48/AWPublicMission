@@ -8,7 +8,7 @@ Description: formats and logs messages to RPT
              returns nothing
 __________________________________________________________________*/
 params ["_type", "_msg"];
-if !(isServer) exitWith {_this remoteExecCall ["SEN_fnc_log", false];};
+if !(isServer) exitWith {_this remoteExecCall ["SEN_fnc_log", 2];};
 
 if !(typeName _msg isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
 
