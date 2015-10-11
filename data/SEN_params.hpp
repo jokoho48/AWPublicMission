@@ -43,8 +43,8 @@ class param5 {
 };
 class param6 {
    title = "Armored Patrol Count";
-   values[] = {0,20,50,80};
-   texts[] = {"None", "Low", "Medium", "High"};
+   values[] = {0,20,50,80, 120};
+   texts[] = {"None", "Low", "Medium", "High", "Very High"};
    default = 20;
    SEN_paramCode = "";
 };
@@ -57,8 +57,8 @@ class param7 {
 };
 class param8 {
    title = "Occupied Location Enemy Count";
-   values[] = {20,40};
-   texts[] = {"Low", "High"};
+   values[] = {20, 30, 40, 80, 120};
+   texts[] = {"Low", "Medium", "High", "Very High", "To High to Play"};
    default = 40;
    SEN_paramCode = "";
 };
@@ -83,6 +83,9 @@ class param11 {
    default = 1;
    SEN_paramCode = "";
 };
+#include "\a3\functions_f\Params\paramWeather.hpp"
+#include "\a3\Functions_F_MP_Mark\Params\paramTimeAcceleration.hpp"
+
 /*
 class param12 {
    title = "---------------------- ACE 3 Parameters ----------------------";

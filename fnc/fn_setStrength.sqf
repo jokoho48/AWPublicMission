@@ -10,7 +10,7 @@ __________________________________________________________________*/
 private ["_strength", "_playerCount"];
 
 _playerCount = count (call SEN_fnc_getPlayers);
-_strength = ceil ((_playerCount max 1) * abs(log(((_playerCount max 1)/3)/256)));
+_strength = ceil ((_playerCount max 1) * abs(log(((_playerCount max 1)/6)/256)));
 
 _strength
 

@@ -29,12 +29,6 @@ fn_STMG_MapGestures_InitVariables =
     player setVariable ["STMG_MapGestures_Transmit",false,true];
 };
 
-
-
-
-
-
-
 fn_STMG_MapGesture_SanitizeNameToAlphabet =
 {
     _name = _this select 0;
@@ -100,7 +94,6 @@ fn_STMG_MapGestures_MapDraw =
     };
 };
 
-
 // Should only run this once, due to the spawned waitUntil. If we re-init it, we need to do STMG_MapGestures_Active = false first
 fn_STMG_MapGestures_Init_Receiver =
 {
@@ -137,14 +130,6 @@ fn_STMG_MapGestures_Init_Receiver =
 
     [] spawn fn_STMG_MapGestures_ClientMonitor;
 };
-
-
-
-
-
-
-
-
 
 
 // Can update, reinit this. It will remove existing handlers, then add new ones.
