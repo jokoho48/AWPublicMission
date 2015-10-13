@@ -22,8 +22,9 @@ if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
 if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _targetPos = getPosATL SEN_flagFOB;
     _spawnPos = [_targetPos,600,700] call SEN_fnc_findRandomPos;
-    if (([allPlayers ,_spawnPos] call zbe_closestUnit) <= 1000) then {
-        while {([allPlayers ,_spawnPos] call zbe_closestUnit) <= 1000} do {
+
+    if (([_spawnPos,200] call SEN_fnc_getNearPlayers) isEqualTo []) then {
+        while {(([_spawnPos,200] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
             _spawnPos = [_targetPos,600,700] call SEN_fnc_findRandomPos;
         };
     };
@@ -97,8 +98,8 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     };
     _spawnPos = [getposATL _tar,400,500] call SEN_fnc_findRandomPos;
 
-    if (([allPlayers ,_spawnPos] call zbe_closestUnit) <= 1000) then {
-        while {([allPlayers ,_spawnPos] call zbe_closestUnit) <= 1000} do {
+    if (([_spawnPos,200] call SEN_fnc_getNearPlayers) isEqualTo []) then {
+        while {(([_spawnPos,200] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
             _spawnPos = [getposATL _tar,400,500] call SEN_fnc_findRandomPos;
         };
     };

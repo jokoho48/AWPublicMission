@@ -33,8 +33,10 @@ publicVariable "SEN_blacklistLocation";
 
 missionNameSpace setVariable ["SEN_transportReady", 1];
 if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
-[1500,0,false,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
-
+[] spawn {
+    waitUntil {!isNil "SEN_debug"};
+    [1500,0,SEN_debug == 1,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
+};
 if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     _med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
     {
@@ -59,10 +61,10 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
     waitUntil {sleep 5; !isNil "bis_fnc_init"};
     "JK_registerPlayer" addPublicVariableEventHandler {
         params ["" ,"_player"];
-        publicVariable "JK_TicketSystem";
-        publicVariable "SEN_ClearedCitys";
-        publicVariable "SEN_approvalCiv";
-        publicVariable "JK_TF47_Launcher";
+        (owner _player) publicVariableClient "JK_TicketSystem";
+        (owner _player) publicVariableClient "SEN_ClearedCitys";
+        (owner _player) publicVariableClient "SEN_approvalCiv";
+        (owner _player) publicVariableClient "JK_TF47_Launcher";
     };
 };
 };

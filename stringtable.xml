@@ -67,5 +67,27 @@
             <English>Para Jumper Medic</English>
             <German>Medevac Crew</German>
         </Key>
+        // Repair
+       <Key ID="STR_JK_REPAIR_DAMAGE">
+           <English>Current damage:</English>
+           <German>Aktueller Schaden:</German>
+       </Key>
+       <Key ID="STR_JK_REPAIR_FUEL">
+           <English>Current fuel:</English>
+           <German>Aktueller Tankstand:</German>
+       </Key>
+       <Key ID="STR_JK_REPAIR_MAG">
+           <English>Current Magazine Reloading:</English>
+           <German>Aktuell nachzuladendes Magazin:</German>
+       </Key>
+       <Key ID="STR_JK_REPAIR_NOMAG">
+           <English>None Magazines Used</English>
+           <German>Kein Magazine Verbraucht</German>
+       </Key>
+
+       <Key ID="STR_JK_ONLYPILOTS">
+           <English>Only Pilots are allowed to fly.</English>
+           <German>Nur Piloten Dürfen Fliegen</German>
+       </Key>
     </Package>
 </Project>

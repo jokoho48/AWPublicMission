@@ -7,8 +7,13 @@ Description: preInit settings
 
          returns nothing
 __________________________________________________________________*/
-if (!isServer) exitWith {};
+db_fnc_log = {};
+if (isNil "db_fnc_log" && {!(db_fnc_log isEqualTo {})}) then {
+    db_fnc_log = {};
+};
 SEN_debug = (paramsArray select 1); publicVariable "SEN_debug";
+if (!isServer) exitWith {};
+
 [] spawn {
 waitUntil {!isNil "JK_DBSetup"};
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;

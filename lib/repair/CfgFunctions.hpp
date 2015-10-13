@@ -1,9 +1,9 @@
 class JK_repair
 {
-    tag = "repair";
+    tag = "JK_repair";
     class JK_repair
     {
-        file = "repair";
+        file = "lib\repair";
         class uiVehicleStatus {};
         class xreload {};
     };

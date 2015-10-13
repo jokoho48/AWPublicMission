@@ -19,9 +19,7 @@ License:
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 __________________________________________________________________*/
-if (isNil "db_fnc_log") then {
-    db_fnc_log = {};
-};
+
 waitUntil { !isServer  || {!isNil "JK_DBSetup"}};
 enableSaving [false, false];
 enableSentences false;
@@ -51,3 +49,4 @@ if (hasInterface) then {
     }] call ace_common_fnc_addEventHandler;
 };
 */
+call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";

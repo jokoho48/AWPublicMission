@@ -58,7 +58,7 @@ if (_count > 0) then {
         {
             //_object vehicleChat format ["Reloading %1", _x];
             _object setVariable ["JK_MagazineReloading", _x, false];
-            //[_object] call JK_repair_fnc_uiVehicleStatus;
+            [_object] call JK_repair_fnc_uiVehicleStatus;
             sleep x_reload_time_factor;
             if (!alive _object || !((_posObject distance (getPos _object)) < _maxDistance)) exitWith {_endMsg = "Servicing cancelled";};
             _object addMagazine _x;
@@ -85,7 +85,7 @@ if (_count > 0) then {
                 {
                     //_object vehicleChat format ["Reloading %1", _x];
                     _object setVariable ["JK_MagazineReloading", _x, false];
-                    //[_object] call JK_repair_fnc_uiVehicleStatus;
+                    [_object] call JK_repair_fnc_uiVehicleStatus;
                     sleep x_reload_time_factor;
                     if (!alive _object || !((_posObject distance (getPos _object)) < _maxDistance)) exitWith {_endMsg = "Servicing cancelled";};
                     _object addMagazine _x;
@@ -99,6 +99,7 @@ if (_count > 0) then {
 };
 _object setVehicleAmmo 1;    // Reload turrets / drivers magazine
 
+_object setVariable ["JK_MagazineReloading", "Magazine Full Reloaded", false];
 sleep x_reload_time_factor;
 
 while {(fuel _object < 0.99 || damage _object > 0.001) } do {
@@ -113,3 +114,4 @@ while {(fuel _object < 0.99 || damage _object > 0.001) } do {
 };
 
 [_object, _endMsg] call JK_repair_fnc_uiVehicleStatus;
+_object setVariable ["JK_MagazineReloading", "", false];
