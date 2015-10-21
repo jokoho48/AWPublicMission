@@ -6,6 +6,7 @@ Last modified: 7/21/2015
 Description:  creates actions for ACE3 interaction menu
 __________________________________________________________________*/
 if !(hasInterface) exitWith {};
+private "_action";
 JK_Names = [];
 
 JK_fnc_isGroup = {
