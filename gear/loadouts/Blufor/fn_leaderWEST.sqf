@@ -19,7 +19,7 @@ _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be 
 _goggles = "";
 
 //weapons - primary weapon - (string)
-_primaryweapon = ["rhs_weap_m4a1_carryhandle_m203", "rhs_weap_m4a1_m203", "rhs_weap_m4a1_m320"];
+_primaryweapon = ["rhs_weap_m16a4_carryhandle_M203", "rhs_weap_m4_m203", "rhs_weap_m4_m203S", "rhs_weap_m4_m320"];
 
 //primary weapon items - (array)
 _itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side"];
