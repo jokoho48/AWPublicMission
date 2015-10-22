@@ -8,8 +8,5 @@ Call from initPlayerLocal.sqf via:
 
 ///// No editing necessary below this line /////
 
-_this spawn {
-    waitUntil {!isNil "JK_TF47_Launcher"};
-    params [["_target", player, [objNull]]];
-    [_target] call jk_loadOut_fnc_applyLoadout;
-};
+params [["_target", player, [objNull]]];
+[_target] call jk_loadOut_fnc_applyLoadout;

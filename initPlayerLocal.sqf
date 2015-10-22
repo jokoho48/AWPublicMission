@@ -5,7 +5,6 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
-JK_TF47_Launcher = (isClass (configFile >> "CfgPatches" >> "tf47_launchers"));
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 [player] call JK_loadOut_fnc_loadoutsInit;
 [] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
