@@ -52,7 +52,7 @@ _itemsHandgun = [];
 
 //handgun ammo (if a handgun is given) - (integer)
 _handgunAmmo = 2;
-_launcher = "rhs_weap_M136";
+
 //weapons - launcher - (string)
 _launcher = "tf47_at4_HEDP";
 
