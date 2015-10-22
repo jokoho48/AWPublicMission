@@ -115,21 +115,21 @@ player createDiaryRecord ["rules",
 <br />
 <br />Richtlinien zu den Bestrafungen:
 <br />
-<br />-	Unbewusster Regelverstoß und störendes Verhalten:
+<br />-    Unbewusster Regelverstoß und störendes Verhalten:
 <br />
-<br />		= Mündlich / Schriftliche Mitteilung zur Unterlassung, oder Verwarnung.
+<br />        = Mündlich / Schriftliche Mitteilung zur Unterlassung, oder Verwarnung.
 <br />
-<br />-	Geringfügige oder erstmaliger Regelverstoß:
+<br />-    Geringfügige oder erstmaliger Regelverstoß:
 <br />
-<br />		= Kick, oder 0 - 3 Tage Bann.
+<br />        = Kick, oder 0 - 3 Tage Bann.
 <br />
-<br />-	Ernsthafter oder wiederholender Regelverstoß:
+<br />-    Ernsthafter oder wiederholender Regelverstoß:
 <br />
-<br />		= 3 - 7 Tage Bann.
+<br />        = 3 - 7 Tage Bann.
 <br />
-<br />-	Administrativer Bann (Hack/Exploit/Beleidigung/Mobbing):
+<br />-    Administrativer Bann (Hack/Exploit/Beleidigung/Mobbing):
 <br />
-<br />		= permanenter Bann.
+<br />        = permanenter Bann.
 <br />
 <br />
 <br />Die oben genannten Bestrafung sind Ermessenssache des jeweiligen Admins.

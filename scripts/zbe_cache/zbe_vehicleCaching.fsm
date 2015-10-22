@@ -74,7 +74,7 @@ class FSM
                         name = "begin";
                         itemno = 2;
                         init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
-                         "	[0, format [""ZBE_Cache starting for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
+                         "    [0, format [""ZBE_Cache starting for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
@@ -189,7 +189,7 @@ class FSM
                         name = "End";
                         itemno = 8;
                         init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
-                         "	[0, format [""ZBE_Cache ending for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
+                         "    [0, format [""ZBE_Cache ending for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
