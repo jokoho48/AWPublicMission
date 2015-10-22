@@ -54,22 +54,12 @@ _itemsHandgun = [];
 _handgunAmmo = 2;
 
 //weapons - launcher - (string)
-_launcher = "rhs_weap_M136";
-if (JK_TF47_Launcher) then {
-    _launcher = "tf47_m3maaws";
-} else {
-    _launcher = "rhs_weap_M136";
-};
+_launcher = "tf47_m3maaws";
+
 _launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific _launcherHandle. Test it out.
 
 //launcher ammo (if a launcher is given) - (integer)
-_launcherAmmo = 1;
-if (JK_TF47_Launcher) then {
-    _launcherAmmo = 2;
-} else {
-    _launcherAmmo = 1;
-};
-
+_launcherAmmo = 2;
 
 //binocular - (string)
 _binocular = "ACE_Vector";
@@ -117,12 +107,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = [];
-if (JK_TF47_Launcher) then {
-    _itemsBackpack = ["tf47_m3maaws_HEAT"];
-} else {
-    _itemsBackpack = [];
-};
+_itemsBackpack = ["tf47_m3maaws_HEAT"];
 
 //linked items - (array)
 _itemsLink = [
