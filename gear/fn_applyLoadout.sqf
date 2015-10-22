@@ -41,6 +41,10 @@ _crew = ["rh1_driver", "rh1_co", "rh1_gunner"];
 _jetPilot = ["pj_1", "pj_2"];
 //PJ
 _pjMedic = ["r_4"];
+//AT-SMAW
+_ATmk153 = [];
+//Paratrooper
+_paratrooper = [];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
@@ -49,9 +53,11 @@ _medicsClass = ["B_medic_F"];
 _MGClass = ["B_soldier_AR_F"];
 _assMGClass = ["B_soldier_AAR_F"];
 _ATClass = ["B_soldier_LAT_F"];
+_ATmk153Class = ["B_Soldier_HAT_F"];
 _ATassClass = ["B_Soldier_A_F"];
 _grenadierClass = [];
 _soldierClass = ["B_Soldier_F"];
+_paratrooperClass = ["B_Soldier_P_F"];
 _marksmenClass = [];
 _specClass = [];
 _pilotsClass = ["B_Pilot_F"];
@@ -73,8 +79,10 @@ if (!JK_var_gearByClasses) then {
         case (_object in _SL): {"leader"};
         case (_object in _medics): {"medic"};
         case (_object in _MG): {"MG"};
+        case (_object in _paratrooper): {"paratrooper"};
         case (_object in _assMG): {"assMG"};
         case (_object in _AT): {"AT"};
+        case (_object in _ATmk153): {"ATmk153"};
         case (_object in _ATass): {"ATAss"};
         case (_object in _grenadier): {"grenadier"};
         case (_object in _soldier): {"Rifleman"};
@@ -95,9 +103,11 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _MGClass): {"MG"};
         case (typeOf _target in _assMGClass): {"assMG"};
         case (typeOf _target in _ATClass): {"AT"};
+        case (typeOf _target in _ATmk153Class): {"ATmk153"};
         case (typeOf _target in _ATassClass): {"ATAss"};
         case (typeOf _target in _grenadierClass): {"grenadier"};
         case (typeOf _target in _soldierClass): {"Rifleman"};
+        case (typeOf _target in _paratrooperClass): {"paratrooper"};
         case (typeOf _target in _marksmenClass): {"marksman"};
         case (typeOf _target in _specClass): {"specialist"};
         case (typeOf _target in _pilotsClass): {"pilot"};
