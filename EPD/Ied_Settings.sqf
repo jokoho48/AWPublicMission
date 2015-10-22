@@ -3,17 +3,17 @@ EPD_IED_debug = SEN_debug == 1;
 hideIedSectionMarkers = true;  //sets the alpha to 0 after spawning IEDs at a section
 hideSafeZoneMarkers = true;  //sets the alpha to 0 of a safezone
 
-itemsRequiredToDisarm = ["ToolKit"];   //"MineDetector" or "ToolKit" for example
+itemsRequiredToDisarm = ["ACE_DefusalKit"];   //"MineDetector" or "ToolKit" for example
 betterDisarmers = []; // people who are better at disarming
 
 baseDisarmChance = 90; //how well everybody can disarm
 bonusDisarmChance = 0; //increase that the "betterDisarmers" get
 
-secondaryChance = 2; //Chance that a secondary IED will spawn.
+secondaryChance = 10; //Chance that a secondary IED will spawn.
 
-smallChance = 3; //Chance that a small IED will be chosen.
-mediumChance = 2; //Chance that a medium IED will be chosen.
-largeChance = 1; //Chance that a large IED will be chosen.
+smallChance = 20; //Chance that a small IED will be chosen.
+mediumChance = 40; //Chance that a medium IED will be chosen.
+largeChance = 60; //Chance that a large IED will be chosen.
 
 iedSecondaryItems = ["Land_CanisterOil_F","Land_FMradio_F","Land_Canteen_F","Land_CerealsBox_F","Land_BottlePlastic_V1_F","Land_HandyCam_F","Land_PowderedMilk_F","Land_RiceBox_F","Land_TacticalBacon_F","Land_VitaminBottle_F","Land_BottlePlastic_V2_F"];
 
