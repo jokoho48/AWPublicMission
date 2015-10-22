@@ -19,9 +19,6 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
     { (_this select 0) call db_fnc_load }
 };
 
-JK_TF47_Launcher = (isClass (configFile >> "CfgPatches" >> "tf47_launchers"));
-publicVariable "JK_TF47_Launcher";
-
 JK_TicketSystem = ["JK_TicketSystem", 9850] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
@@ -64,7 +61,6 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
         (owner _player) publicVariableClient "JK_TicketSystem";
         (owner _player) publicVariableClient "SEN_ClearedCitys";
         (owner _player) publicVariableClient "SEN_approvalCiv";
-        (owner _player) publicVariableClient "JK_TF47_Launcher";
     };
 };
 };

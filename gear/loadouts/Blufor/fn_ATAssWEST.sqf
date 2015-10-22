@@ -55,7 +55,6 @@ _handgunAmmo = 2;
 
 //weapons - launcher - (string)
 _launcher = "";
-
 _launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific _launcherHandle. Test it out.
 
 //launcher ammo (if a launcher is given) - (integer)
