@@ -3,17 +3,17 @@ EPD_IED_debug = SEN_debug == 1;
 hideIedSectionMarkers = true;  //sets the alpha to 0 after spawning IEDs at a section
 hideSafeZoneMarkers = true;  //sets the alpha to 0 of a safezone
 
-itemsRequiredToDisarm = ["ToolKit"];   //"MineDetector" or "ToolKit" for example
+itemsRequiredToDisarm = ["ACE_DefusalKit"];   //"MineDetector" or "ToolKit" for example
 betterDisarmers = []; // people who are better at disarming
 
 baseDisarmChance = 90; //how well everybody can disarm
 bonusDisarmChance = 0; //increase that the "betterDisarmers" get
 
-secondaryChance = 2; //Chance that a secondary IED will spawn.
+secondaryChance = 10; //Chance that a secondary IED will spawn.
 
-smallChance = 3; //Chance that a small IED will be chosen.
-mediumChance = 2; //Chance that a medium IED will be chosen.
-largeChance = 1; //Chance that a large IED will be chosen.
+smallChance = 20; //Chance that a small IED will be chosen.
+mediumChance = 40; //Chance that a medium IED will be chosen.
+largeChance = 60; //Chance that a large IED will be chosen.
 
 iedSecondaryItems = ["Land_CanisterOil_F","Land_FMradio_F","Land_Canteen_F","Land_CerealsBox_F","Land_BottlePlastic_V1_F","Land_HandyCam_F","Land_PowderedMilk_F","Land_RiceBox_F","Land_TacticalBacon_F","Land_VitaminBottle_F","Land_BottlePlastic_V2_F"];
 
@@ -29,47 +29,31 @@ waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
 predefinedLocations = [];
 iedInitialArray = [];
 
-{
-	private ["_id", "_townSize", "_avgTownSize", "_pos"];
-	_id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];
-	_location = if (typeName _x == "ARRAY") then {
-		_pos = _x;
-		nearestLocation [_x, ""]
-	} else {
-		_pos = getPos _x;
-		_x
-	};
-	_townSize = size _location;
-	_avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);
-	predefinedLocations pushBack [_id, _pos, _avgTownSize];
-	iedInitialArray pushBack [_id, floor(random 6), "West"];
-	nil
-} count SEN_occupiedLocation;
-
 private "_tempCitiyArray";
-_tempCitiyArray = [];
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
-_tempCitiyArray pushBack (SEN_whitelistLocation call BIS_fnc_selectRandom);
+_tempwlLocations = +SEN_whitelistLocation;
+_tempCitiyArray = +SEN_occupiedLocation;
+for "_i" from floor (random (count _tempwlLocations - 1)) to 0 step -1 do {
+    private "_var"
+    _var = (_tempwlLocations call BIS_fnc_selectRandom);
+    _tempCitiyArray pushBack _var;
+    _tempwlLocations deleteAt _tempwlLocations find _var;
+};
 
 {
-	private ["_id", "_townSize", "_avgTownSize", "_pos"];
-	_id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];
-	_location = if (typeName _x == "ARRAY") then {
-		_pos = _x;
-		nearestLocation [_x, ""]
-	} else {
-		_pos = getPos _x;
-		_x
-	};
-	_townSize = size _location;
-	_avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);
-	predefinedLocations pushBack [_id, _pos, _avgTownSize];
-	iedInitialArray pushBack [_id, floor(random 6), "West"];
-	nil
+    private ["_id", "_townSize", "_avgTownSize", "_pos"];
+    _id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];
+    _location = if (typeName _x == "ARRAY") then {
+        _pos = _x;
+        nearestLocation [_x, ""]
+    } else {
+        _pos = getPos _x;
+        _x
+    };
+    _townSize = size _location;
+    _avgTownSize = (((_townSize select 0) + (_townSize select 1))*2);
+    predefinedLocations pushBack [_id, _pos, _avgTownSize];
+    iedInitialArray pushBack [_id, floor(random 6), "West"];
+    nil
 } count _tempCitiyArray;
 
 iedPredefinedLocationsSize = count predefinedLocations;
@@ -110,31 +94,31 @@ allowExplosiveToTriggerIEDs = true;
 //http://community.bistudio.com/wiki/side
 /*
 iedInitialArray = [
-	["AllCities","West"],
-	["AllVillages","West"]
-	["AltisRandom1",6,"West"],
-	["AltisRandom2",6,"West"],
-	["AltisRandom3",6,"West"],
-	["AltisRandom4",6,"West"],
-	["AltisRandom5",6,"West"],
-	["AltisRandom6",6,"West"],
-	["AltisRandom7",6,"West"],
-	["AltisRandom8",6,"West"],
-	["AltisRandom9",6,"West"],
-	["AltisRandom10",6,"West"],
-	["AltisRandom11",6,"West"],
-	["AltisRandom12",6,"West"],
-	["AltisRandom13",6,"West"],
-	["AltisRandom14",6,"West"],
-	["AltisRandom15",6,"West"],
-	["AltisRandom16",6,"West"],
-	//["Gravia", 20, [0, 30, 0, 0], "West" ],
-	//["Lakka", 2, 8,  ["West","East"] ],
-	//["OreoKastro", "West"],
-	//["Athira", 2, "West" ],
-	//["IEDSINGLE1", "West"],
-	//["IEDSINGLE2", 50 ,"West"],
-	//["IEDSINGLE3", [0,0,0,100], "West"]
+    ["AllCities","West"],
+    ["AllVillages","West"]
+    ["AltisRandom1",6,"West"],
+    ["AltisRandom2",6,"West"],
+    ["AltisRandom3",6,"West"],
+    ["AltisRandom4",6,"West"],
+    ["AltisRandom5",6,"West"],
+    ["AltisRandom6",6,"West"],
+    ["AltisRandom7",6,"West"],
+    ["AltisRandom8",6,"West"],
+    ["AltisRandom9",6,"West"],
+    ["AltisRandom10",6,"West"],
+    ["AltisRandom11",6,"West"],
+    ["AltisRandom12",6,"West"],
+    ["AltisRandom13",6,"West"],
+    ["AltisRandom14",6,"West"],
+    ["AltisRandom15",6,"West"],
+    ["AltisRandom16",6,"West"],
+    //["Gravia", 20, [0, 30, 0, 0], "West" ],
+    //["Lakka", 2, 8,  ["West","East"] ],
+    //["OreoKastro", "West"],
+    //["Athira", 2, "West" ],
+    //["IEDSINGLE1", "West"],
+    //["IEDSINGLE2", 50 ,"West"],
+    //["IEDSINGLE3", [0,0,0,100], "West"]
 ];
 */
 //Place the mapLocations, predefinedLocations, and markerNames of places you don't want any IEDs spawning
