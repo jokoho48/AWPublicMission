@@ -64,7 +64,7 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
     };
 };
 };
-
+/*
 addMissionEventHandler ["HandleDisconnect", {
     private ["_count", "_allPlayer"];
     params ["_unit", "_id", "_uid", "_name"];
@@ -79,3 +79,4 @@ addMissionEventHandler ["HandleDisconnect", {
         [["Won"], "BIS_fnc_endMissionServer", false] call BIS_fnc_MP;
     };
 }];
+*/

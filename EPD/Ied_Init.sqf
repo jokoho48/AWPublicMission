@@ -19,7 +19,7 @@ publicVariable "explosiveSuperClasses";
 
 projectilesToIgnore = ["SmokeShell", "FlareCore", "IRStrobeBase", "GrenadeHand_stone", "Smoke_120mm_AMOS_White", "TMR_R_DG32V_F"];
 publicVariable "projectilesToIgnore";
-
+waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
 call compile preprocessFileLineNumbers "EPD\Ied_Settings.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\ExplosionFunctions.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\CreationFunctions.sqf";
@@ -30,7 +30,7 @@ call compile preprocessFileLineNumbers "EPD\IED\DisarmFunctions.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\DictionaryFunctions.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\TriggerFunctions.sqf";
 
-
+waitUntil {!isNil "iedLargeItems" && !isNil "iedSecondaryItems"};
 iedSecondaryItemsCount = count iedSecondaryItems;
 iedSmallItemsCount = count iedSmallItems;
 iedMediumItemsCount = count iedMediumItems;
@@ -41,6 +41,7 @@ if(isserver) then {
     call GET_PLACES_OF_INTEREST;
 
     iedSafeRoads = [];
+    waitUntil {!isNil "iedSafeZones"};
     {
         _locationAndSize = (_x) call GET_CENTER_LOCATION_AND_SIZE;
         _roads = ((_locationAndSize select 0) nearRoads (_locationAndSize select 1));

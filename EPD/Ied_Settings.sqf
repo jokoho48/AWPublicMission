@@ -2,7 +2,7 @@
 EPD_IED_debug = SEN_debug == 1;
 hideIedSectionMarkers = true;  //sets the alpha to 0 after spawning IEDs at a section
 hideSafeZoneMarkers = true;  //sets the alpha to 0 of a safezone
-
+iedSafeZones = ["SEN_safezone_mrk"];
 itemsRequiredToDisarm = ["ACE_DefusalKit"];   //"MineDetector" or "ToolKit" for example
 betterDisarmers = []; // people who are better at disarming
 
@@ -23,6 +23,9 @@ iedMediumItems = ["Land_Portable_generator_F","Land_WoodenBox_F","Land_MetalBarr
 
 iedLargeItems = ["Land_Bricks_V2_F","Land_Bricks_V3_F","Land_Bricks_V4_F","Land_GarbageBags_F","Land_GarbagePallet_F","Land_GarbageWashingMachine_F","Land_JunkPile_F","Land_Tyres_F","Land_Wreck_Skodovka_F","Land_Wreck_Car_F","Land_Wreck_Car3_F","Land_Wreck_Car2_F","Land_Wreck_Offroad_F","Land_Wreck_Offroad2_F"];
 
+//Place the mapLocations, predefinedLocations, and markerNames of places you don't want any IEDs spawning
+iedSafeZones = ["SEN_safezone_mrk"];
+
 waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
 //If you want to use locations without making markers on the map, define them here. Altis has been provided as an example. ***THESE ARE NOT WHERE THE ACTUAL IEDS ARE SPAWNED***
 //["Name",[LocationX,LocationY,LocationZ],size]
@@ -33,10 +36,10 @@ private "_tempCitiyArray";
 _tempwlLocations = +SEN_whitelistLocation;
 _tempCitiyArray = +SEN_occupiedLocation;
 for "_i" from floor (random (count _tempwlLocations - 1)) to 0 step -1 do {
-    private "_var"
+    private "_var";
     _var = (_tempwlLocations call BIS_fnc_selectRandom);
     _tempCitiyArray pushBack _var;
-    _tempwlLocations deleteAt _tempwlLocations find _var;
+    _tempwlLocations deleteAt (_tempwlLocations find _var);
 };
 
 {
@@ -121,5 +124,3 @@ iedInitialArray = [
     //["IEDSINGLE3", [0,0,0,100], "West"]
 ];
 */
-//Place the mapLocations, predefinedLocations, and markerNames of places you don't want any IEDs spawning
-iedSafeZones = ["SEN_safezone_mrk"];
