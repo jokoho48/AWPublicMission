@@ -114,7 +114,8 @@ _itemsLink = [
         "ItemWatch",
         "ItemCompass",
         "ItemMap",
-        "ItemGPS"
+        "ItemGPS",
+        "ACE_NVG_Wide"
         ];
 
 //items added to any container - (array)

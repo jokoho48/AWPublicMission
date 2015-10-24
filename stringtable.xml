@@ -55,36 +55,36 @@
             <German>Fallschirmjäger</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraARman">
-            <English>ParaARman</English>
+            <English>Paratrooper(M249)</English>
             <German>Fallschirmjäger(M249)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraDropMedic">
-            <English>ParaDrop-Medic</English>
+            <English>Paratrooper(Medic)</English>
             <German>Fallschirmjäger(Sanitäter)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraExExpert">
-            <English>ParaExplosive-Expert</English>
-            <German>Fallschirmjäger(SpExperte)</German>
+            <English>Paratrooper(Explosiv)</English>
+            <German>Fallschirmjäger(Explosiv)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraGrenadier">
-            <English>ParaGrenadier</English>
+            <English>Paratrooper(Grenadier)</English>
             <German>Fallschirmjäger(Grenadier)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraLeader">
-            <English>ParaLeader</English>
+            <English>Paratrooper(Leader)</English>
             <German>Fallschirmjäger(Truppführer)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraMarksman">
-            <English>ParaMarksman</English>
+            <English>Paratrooper(Marksman)</English>
             <German>Fallschirmjäger(GrpScharf)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraStormtrooper">
-            <English>Paradrop Stormtrooper</English>
-            <German>Fallschirmjäger(CQC)</German>
+            <English>Paratrooper(Breacher)</English>
+            <German>Fallschirmjäger(Breacher)</German>
         </Key>
         <Key ID="STR_JK_GEAR_stormtrooper">
-            <English>Stormtrooper</English>
-            <German>Schütze(CQC)</German>
+            <English>Rifleman(Breacher)</English>
+            <German>Schütze(Breacher)</German>
         </Key>
         <Key ID="STR_JK_GEAR_MARKSMAN">
             <English>Marksman</English>

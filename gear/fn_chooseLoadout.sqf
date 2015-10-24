@@ -21,14 +21,14 @@ JK_SpeczialClasses = ["Pilot","Crew","jetPilot","pjMedic"];
 JK_classes = JK_USMC + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
-    _this addAction ["<t color=""#00FF00"">USMC Gear</t>", {JK_Gear = "USMC"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
-    _this addAction ["<t color=""#0011FF"">Paratrooper Gear</t>", {JK_Gear = "Para"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
-    _this addAction ["<t color=""#F3FF00"">Special Gear</t>", {JK_Gear = "Spec"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
-    _this addAction ["<t color=""#AE2020"">Back</t>", {JK_Gear = "Main"}, [], 0, false, false, "", "JK_Gear != 'Main'"];
+    _this addAction ["<t color=""#00FF00"">USMC Gear</t>", {JK_Gear = "USMC"}, [], 99, false, false, "", "(_target distance _this < 3) && JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#0011FF"">Paratrooper Gear</t>", {JK_Gear = "Para"}, [], 99, false, false, "", "(_target distance _this < 3) && JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#F3FF00"">Special Gear</t>", {JK_Gear = "Spec"}, [], 99, false, false, "", "(_target distance _this < 3) && JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#AE2020"">Back</t>", {JK_Gear = "Main"}, [], 0, false, false, "", "(_target distance _this < 3) && JK_Gear != 'Main'"];
     {
         private ["_string", "_cond", "_color"];
         _color = "00FF00";
-        _cond = call {
+        _cond = "(_target distance _this < 3) && " + call {
             if (_x in JK_USMC) exitWith {_color = "00FF00";"JK_Gear == 'USMC'"};
             if (_x in JK_Para) exitWith {_color = "0011FF";"JK_Gear == 'Para'"};
             if (_x in JK_SpeczialClasses) exitWith {_color = "F3FF00";"JK_Gear == 'Spec'"};

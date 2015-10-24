@@ -19,7 +19,7 @@ _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be 
 _goggles = "G_Combat";
 
 //weapons - primary weapon - (string)
-_primaryweapon = ["rhs_weap_M590_5RD"];
+_primaryweapon = "rhs_weap_M590_8RD";
 
 //primary weapon items - (array)
 _itemsPrimaryweapon = [];

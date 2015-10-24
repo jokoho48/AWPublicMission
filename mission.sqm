@@ -4174,7 +4174,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=3;
+		items=4;
 		class Item0
 		{
 			position[]={15081.762,17.91,17145.814};
@@ -4216,6 +4216,21 @@ class Mission
 			age="UNKNOWN";
 			expCond="player in thisList && local player";
 			expActiv="JK_SpawnMarker = ""SEN_ammo_mrk"";";
+			class Effects
+			{
+			};
+		};
+		class Item3
+		{
+			position[]={15207.218,17.948874,17337.768};
+			a=3;
+			b=3;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="player in thisList && local player";
+			expDesactiv="JK_Gear = ""Main""";
 			class Effects
 			{
 			};
