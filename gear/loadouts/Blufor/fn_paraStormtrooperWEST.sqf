@@ -119,7 +119,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 ///// No editing necessary below this line /////
 params ["_player"];
