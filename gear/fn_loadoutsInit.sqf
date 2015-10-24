@@ -10,3 +10,4 @@ Call from initPlayerLocal.sqf via:
 
 params [["_target", player, [objNull]]];
 [_target] call jk_loadOut_fnc_applyLoadout;
+[SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;

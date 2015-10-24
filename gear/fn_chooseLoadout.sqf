@@ -14,18 +14,34 @@
 */
 
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
-
-JK_classes = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","paraStormtrooper","stormtrooper","Marksman","Specialist","Pilot","Crew","jetPilot","pjMedic"];
+JK_Gear = "Main";
+JK_USMC = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","stormtrooper","Marksman","Specialist"];
+JK_Para = ["paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","paraStormtrooper"];
+JK_SpeczialClasses = ["Pilot","Crew","jetPilot","pjMedic"];
+JK_classes = JK_USMC + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
+    _this addAction ["<t color=""#00FF00"">USMC Gear</t>", {JK_Gear = "USMC"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#0011FF"">Paratrooper Gear</t>", {JK_Gear = "Para"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#F3FF00"">Special Gear</t>", {JK_Gear = "Spec"}, [], 99, false, false, "", "JK_Gear == 'Main'"];
+    _this addAction ["<t color=""#AE2020"">Back</t>", {JK_Gear = "Main"}, [], 0, false, false, "", "JK_Gear != 'Main'"];
     {
-        private "_string";
+        private ["_string", "_cond", "_color"];
+        _color = "00FF00";
+        _cond = call {
+            if (_x in JK_USMC) exitWith {_color = "00FF00";"JK_Gear == 'USMC'"};
+            if (_x in JK_Para) exitWith {_color = "0011FF";"JK_Gear == 'Para'"};
+            if (_x in JK_SpeczialClasses) exitWith {_color = "F3FF00";"JK_Gear == 'Spec'"};
+            "true"
+        };
+
         _string = (format ["STR_JK_GEAR_%1", toUpper _x]);
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
-        _string = (format["<t color=""#00FF00"">%1</t>",_string]);
+        _string = (format["<t color=""#%2"">%1</t>",_string, _color]);
         _this addAction [_string, {
             [player, _this select 3] call JK_loadOut_fnc_selectGear;
-        }, toLower _x, _foreachindex, false, true, "", "true"];
+            JK_Gear = "Main";
+        }, toLower _x, _foreachindex + 1, false, true, "", _cond];
     } forEach JK_classes;
 };
 
