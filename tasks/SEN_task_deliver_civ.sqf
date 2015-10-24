@@ -93,10 +93,11 @@ for "_i" from 1 to 3 do {
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 
-JK_TicketSystem = JK_TicketSystem + 1500;
+JK_TicketSystem = JK_TicketSystem + 400;
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = SEN_approvalCiv + (120 + random 30); publicVariable "SEN_approvalCiv";
+SEN_approvalCiv = SEN_approvalCiv + (30 + random 15);
+publicVariable "SEN_approvalCiv";
 sleep 10;
 SEN_objectCleanup append _aidArray;
 SEN_objectCleanup pushBack _aid;

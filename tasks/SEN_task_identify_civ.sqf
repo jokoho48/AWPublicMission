@@ -43,11 +43,11 @@ if !(count _vehArray isEqualTo 0) then {
 
 waitUntil {sleep 10; SEN_taskSuccess isEqualTo 2};
 
-JK_TicketSystem = JK_TicketSystem + 1500;
+JK_TicketSystem = JK_TicketSystem + 500;
 publicVariable "JK_TicketSystem";
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
-SEN_approvalCiv = SEN_approvalCiv + (120 + random 30); publicVariable "SEN_approvalCiv";
+SEN_approvalCiv = SEN_approvalCiv + (30 + random 15); publicVariable "SEN_approvalCiv";
 SEN_objectCleanup append _baseArray;
 sleep SEN_taskSleepCiv;
 [] call SEN_fnc_setTaskCiv;

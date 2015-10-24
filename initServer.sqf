@@ -19,10 +19,10 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
     { (_this select 0) call db_fnc_load }
 };
 
-JK_TicketSystem = ["JK_TicketSystem", 9850] call jk_db_fnc_load;
+JK_TicketSystem = ["JK_TicketSystem", 4000] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
-SEN_approvalCiv = ["SEN_approvalCiv", -502] call jk_db_fnc_load;
+SEN_approvalCiv = ["SEN_approvalCiv", -1500] call jk_db_fnc_load;
 publicVariable "SEN_approvalCiv";
 
 SEN_blacklistLocation = ["SEN_ClearedCitys", []] call jk_db_fnc_load;

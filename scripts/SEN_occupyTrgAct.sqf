@@ -26,9 +26,9 @@ _enemyArray = [];
 [0,"OccupyTrgAct: %1",_radius] call SEN_fnc_log;
 
 call {
-    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 100};
-    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 75};
-    _townType = "Town"; _approval = 50;
+    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45};
+    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 30};
+    _townType = "Town"; _approval = 15;
 };
 
 {

@@ -145,7 +145,7 @@ if (SEN_armed) exitWith {
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 
-JK_TicketSystem = JK_TicketSystem + 3000;
+JK_TicketSystem = JK_TicketSystem + 400;
 publicVariable "JK_TicketSystem";
 
 deleteVehicle SEN_intelObj;

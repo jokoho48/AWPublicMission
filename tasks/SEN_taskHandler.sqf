@@ -21,8 +21,6 @@ SEN_taskList = [
     "steal"
 ];
 
-SEN_taskList = [SEN_taskList] call CBA_fnc_shuffle;
-
 SEN_taskListCiv = [
     "rescue",
     "deliver",
@@ -30,7 +28,10 @@ SEN_taskListCiv = [
     "identify"
 ];
 
-SEN_taskListCiv = [SEN_taskListCiv] call CBA_fnc_shuffle;
+for "_s" from floor(random 100) to 0 step -1 do {
+    SEN_taskList = [SEN_taskList] call CBA_fnc_shuffle;
+    SEN_taskListCiv = [SEN_taskListCiv] call CBA_fnc_shuffle;
+};
 
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};
 

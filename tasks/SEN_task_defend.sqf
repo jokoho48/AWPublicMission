@@ -111,7 +111,7 @@ if (({_x distance _posCache < 20} count (units _grp)) > 0) exitWith {
 missionNameSpace setVariable ["SEN_fobLock", false];
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 
-JK_TicketSystem = JK_TicketSystem + 2000;
+JK_TicketSystem = JK_TicketSystem + 400;
 publicVariable "JK_TicketSystem";
 
 SEN_objectCleanup append _cacheArray;

@@ -78,7 +78,7 @@ if (!alive _vip) exitWith {
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 
-JK_TicketSystem = JK_TicketSystem + 2000;
+JK_TicketSystem = JK_TicketSystem + 200;
 publicVariable "JK_TicketSystem";
 
 SEN_objectCleanup pushBack _vip;

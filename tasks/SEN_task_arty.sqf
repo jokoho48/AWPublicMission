@@ -113,7 +113,7 @@ if (SEN_armed) exitWith {
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 SEN_defused = true;
 
-JK_TicketSystem = JK_TicketSystem + 2000;
+JK_TicketSystem = JK_TicketSystem + 600;
 publicVariable "JK_TicketSystem";
 
 SEN_objectCleanup append _artyArray;

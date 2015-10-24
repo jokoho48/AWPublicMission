@@ -10,7 +10,7 @@ _taskText = "Debriefing (Mission Complete)";
 _taskDescription = "Return to MOB Dodge and assess the mission outcome.";
 
 [[SEN_mob_laptop,["<t color='#FFFFFF'>End Mission</t>",{[["SEN_end",true,true],"BIS_fnc_endMission",true,false] call BIS_fnc_MP;},[],110,false]],"addAction",true,false,true] call BIS_fnc_MP;
-JK_TicketSystem = JK_TicketSystem + 4000;
+JK_TicketSystem = JK_TicketSystem + 500;
 publicVariable "JK_TicketSystem";
 
 

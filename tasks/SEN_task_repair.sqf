@@ -59,7 +59,7 @@ if ((getposASL _supplies select 2) < -3 || damage _supplies > 0.9 || isNull _sup
 
 [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 
-JK_TicketSystem = JK_TicketSystem + 1000;
+JK_TicketSystem = JK_TicketSystem + 300;
 publicVariable "JK_TicketSystem";
 
 SEN_objectCleanup append (units _grp);

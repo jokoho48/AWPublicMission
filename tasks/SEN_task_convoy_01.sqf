@@ -135,7 +135,7 @@ if ({isPlayer _x} count (crew _transport) > 0) then {
     SEN_objectCleanup append _vehArray;
     [] call SEN_fnc_setTask;
 
-    JK_TicketSystem = JK_TicketSystem + 2500;
+    JK_TicketSystem = JK_TicketSystem + 200;
     publicVariable "JK_TicketSystem";
 
 } else {
