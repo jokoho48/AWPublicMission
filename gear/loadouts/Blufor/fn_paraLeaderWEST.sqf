@@ -64,7 +64,7 @@ _launcherAmmo = 1;
 _binocular = "ACE_Vector";
 
 //throwables - (integer)
-_grenadeHE = 2;
+_grenadeHE = 0;
 _grenadeSmokeWhite = 2;
 _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;

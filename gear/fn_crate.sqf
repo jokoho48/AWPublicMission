@@ -1,4 +1,4 @@
-private ["_fnc_medical", "_fnc_ammo","_fnc_at_ammo", "_fnc_misc", "_fnc_Radio"];
+private ["_fnc_medical", "_fnc_ammo","_fnc_mg_ammo","_fnc_nade","_fnc_exp","_fnc_at_ammo","_fnc_at_M3_ammo","_fnc_at_smaw_ammo","_fnc_para","_fnc_static_ammo","_fnc_static_at_ammo","_fnc_at_ammo", "_fnc_misc", "_fnc_Radio"];
 JK_fnc_createCrate = {
     private "_crate";
     if (!(JK_ammoSuppAvail)) exitWith {
@@ -279,8 +279,9 @@ _fnc_misc = {
             ["ACE_bodyBag", 5],
             ["ACE_MapTools", 5],
             ["ACE_wirecutter", 2],
-            ["rhsusf_acc_eotech_552", 2],
+            ["rhsusf_acc_ACOG_USMC", 2],
             ["rhsusf_acc_SR25S", 2],
+            ["rhsusf_acc_anpeq15side", 2],
             ["rhsusf_acc_compm4", 2]
     ]] call JK_fnc_createCrate;
 };
@@ -303,7 +304,7 @@ ammonition addAction ["<t color='#3f3fff'>Request Explosives Crate</t>", _fnc_ex
 ammonition addAction ["<t color='#3f3fff'>Request AT4-Ammo Crate</t>", _fnc_at_ammo];
 ammonition addAction ["<t color='#3f3fff'>Request AT-M3MAAWS-Ammo Crate</t>", _fnc_at_M3_ammo];
 ammonition addAction ["<t color='#3f3fff'>Request AT-SMAW-Ammo Crate</t>", _fnc_at_smaw_ammo];
-ammonition addAction ["<t color='#3f3fff'>Request ACE Misc Crate</t>", _fnc_misc];
+ammonition addAction ["<t color='#3f3fff'>Request Equipment Crate</t>", _fnc_misc];
 ammonition addAction ["<t color='#3f3fff'>Request Medic Crate</t>", _fnc_medical];
 ammonition addAction ["<t color='#3f3fff'>Request Paradrop Crate</t>", _fnc_para];
 ammonition addAction ["<t color='#3f3fff'>Request UAV Crate</t>", _fnc_UAV];

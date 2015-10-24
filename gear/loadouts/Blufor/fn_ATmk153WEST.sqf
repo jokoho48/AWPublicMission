@@ -26,7 +26,7 @@ _itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 11;
+_primaryweaponAmmo = 6;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -65,14 +65,14 @@ _launcherAmmo = 1;
 _binocular = "ACE_Vector";
 
 //throwables - (integer)
-_grenadeHE = 2;
+_grenadeHE = 0;
 _grenadeSmokeWhite = 2;
 _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;
 _grenadeSmokeRed = 0;
 _grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 1;
-_grenadeSmokeGreen = 1;
+_grenadeSmokeBlue = 0;
+_grenadeSmokeGreen = 0;
 _chemlightYellow = 0;
 _chemlightRed = 0;
 _chemlightGreen = 0;
