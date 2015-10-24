@@ -36,7 +36,7 @@ iedSmallItemsCount = count iedSmallItems;
 iedMediumItemsCount = count iedMediumItems;
 iedLargeItemsCount = count iedLargeItems;
 
-if(isserver) then {
+if(isServer) then {
 
     call GET_PLACES_OF_INTEREST;
 
@@ -90,10 +90,9 @@ if(isserver) then {
                 _nextHandleSpot = _nextHandleSpot + 1;
             };
         };
-
     } foreach iedInitialArray;
 
-    waituntil{sleep .5; [_handles] call CHECK_ARRAY;};
+    waituntil{sleep 0.5; [_handles] call CHECK_ARRAY;};
 
     //_script = iedArray call IED;
     publicVariable "iedDictionary";
@@ -103,8 +102,9 @@ if(isserver) then {
 
 
 };
+[] spawn {
+    waituntil{sleep .5; (!isNull player && iedsAdded)};
+    //player sidechat "Synching IEDs... You may experience lag for a few seconds";
 
-waituntil{sleep .5; (!isnull player and iedsAdded)};
-//player sidechat "Synching IEDs... You may experience lag for a few seconds";
-
-[] call ADD_DISARM_AND_PROJECTILE_DETECTION;
+    [] call ADD_DISARM_AND_PROJECTILE_DETECTION;
+};

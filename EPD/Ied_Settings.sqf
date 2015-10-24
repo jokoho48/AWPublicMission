@@ -29,36 +29,39 @@ iedSafeZones = ["SEN_safezone_mrk"];
 waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
 //If you want to use locations without making markers on the map, define them here. Altis has been provided as an example. ***THESE ARE NOT WHERE THE ACTUAL IEDS ARE SPAWNED***
 //["Name",[LocationX,LocationY,LocationZ],size]
-predefinedLocations = [];
-iedInitialArray = [];
-
-private "_tempCitiyArray";
-_tempwlLocations = +SEN_whitelistLocation;
-_tempCitiyArray = +SEN_occupiedLocation;
-for "_i" from floor (random (count _tempwlLocations - 1)) to 0 step -1 do {
-    private "_var";
-    _var = (_tempwlLocations call BIS_fnc_selectRandom);
-    _tempCitiyArray pushBack _var;
-    _tempwlLocations deleteAt (_tempwlLocations find _var);
-};
-
-{
-    private ["_id", "_townSize", "_avgTownSize", "_pos"];
-    _id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];
-    _location = if (typeName _x == "ARRAY") then {
-        _pos = _x;
-        nearestLocation [_x, ""]
-    } else {
-        _pos = getPos _x;
-        _x
+if (isServer) then {
+    predefinedLocations = [];
+    iedInitialArray = [];
+    private ["_tempwlLocations" ,"_tempCitiyArray"];
+    _tempwlLocations = +SEN_whitelistLocation;
+    _tempCitiyArray = +SEN_occupiedLocation;
+    for "_i" from floor (random (count _tempwlLocations - 1)) to 0 step -1 do {
+        private "_var";
+        _var = (_tempwlLocations call BIS_fnc_selectRandom);
+        _tempCitiyArray pushBack _var;
+        _tempwlLocations deleteAt (_tempwlLocations find _var);
     };
-    _townSize = size _location;
-    _avgTownSize = (((_townSize select 0) + (_townSize select 1))*2);
-    predefinedLocations pushBack [_id, _pos, _avgTownSize];
-    iedInitialArray pushBack [_id, floor(random 6), "West"];
-    nil
-} count _tempCitiyArray;
 
+    {
+        private ["_id", "_townSize", "_avgTownSize", "_pos"];
+        _id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];
+        _location = if (typeName _x == "ARRAY") then {
+            _pos = _x;
+            nearestLocation [_x, ""]
+        } else {
+            _pos = getPos _x;
+            _x
+        };
+        _townSize = size _location;
+        _avgTownSize = (((_townSize select 0) + (_townSize select 1))*2);
+        predefinedLocations pushBack [_id, _pos, _avgTownSize];
+        iedInitialArray pushBack [_id, floor(random 6), "West"];
+        nil
+    } count _tempCitiyArray;
+    publicVariable "predefinedLocations";
+    publicVariable "iedInitialArray";
+};
+waitUntil {!isNil "predefinedLocations" && !isNil "iedInitialArray"};
 iedPredefinedLocationsSize = count predefinedLocations;
 
 /***************EXPERIMENTAL***********************/

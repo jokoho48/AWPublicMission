@@ -1890,7 +1890,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=198;
+		items=199;
 		class Item0
 		{
 			position[]={15107.574,17.91,17184.059};
@@ -3971,10 +3971,21 @@ class Mission
 			skill=0.60000002;
 			init="this enableSimulation false;";
 		};
+		class Item198
+		{
+			position[]={15105.087,17.91,17175.797};
+			azimut=-225.461;
+			id=264;
+			side="EMPTY";
+			vehicle="Land_Noticeboard_F";
+			skill=0.60000002;
+			text="ammonition2";
+			init="this enableSimulation true;this setVectorUp [0,0,1]; this allowdamage false;";
+		};
 	};
 	class Markers
 	{
-		items=21;
+		items=22;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4153,10 +4164,17 @@ class Mission
 			a=0.60000002;
 			b=0.60000002;
 		};
+		class Item21
+		{
+			position[]={15133.465,17.91,17164.855};
+			name="SEN_ammo_mrk_1";
+			type="Empty";
+			angle=-47.030998;
+		};
 	};
 	class Sensors
 	{
-		items=1;
+		items=3;
 		class Item0
 		{
 			position[]={15081.762,17.91,17145.814};
@@ -4168,6 +4186,36 @@ class Mission
 			age="UNKNOWN";
 			expCond="this && ((getPos (thisList select 0)) select 2 < 1) && speed (thisList select 0) < 1";
 			expActiv="_xhandle= [(thislist select 0)] spawn JK_repair_fnc_xreload;";
+			class Effects
+			{
+			};
+		};
+		class Item1
+		{
+			position[]={15106.229,17.91,17184.189};
+			a=10;
+			b=10;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="player in thisList && local player";
+			expActiv="JK_SpawnMarker = ""SEN_ammo_mrk_1"";";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]={15179.994,17.905634,17351.73};
+			a=10;
+			b=10;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			expCond="player in thisList && local player";
+			expActiv="JK_SpawnMarker = ""SEN_ammo_mrk"";";
 			class Effects
 			{
 			};

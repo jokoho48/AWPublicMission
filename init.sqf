@@ -49,4 +49,4 @@ if (hasInterface) then {
     }] call ace_common_fnc_addEventHandler;
 };
 */
-call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
+//call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";

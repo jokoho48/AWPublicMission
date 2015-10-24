@@ -61,6 +61,8 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
         (owner _player) publicVariableClient "JK_TicketSystem";
         (owner _player) publicVariableClient "SEN_ClearedCitys";
         (owner _player) publicVariableClient "SEN_approvalCiv";
+        (owner _player) publicVariableClient "predefinedLocations";
+        (owner _player) publicVariableClient "iedInitialArray";
     };
 };
 };

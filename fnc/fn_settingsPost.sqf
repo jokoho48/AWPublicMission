@@ -138,6 +138,8 @@ for "_s" from 1 to (paramsArray select 7) do {
     };
 };
 
+call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
+
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";
