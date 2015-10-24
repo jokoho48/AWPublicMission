@@ -119,7 +119,7 @@ if (!JK_var_gearByClasses) then {
         case (_object in _AT): {"AT"};
         case (_object in _ATmk153): {"ATmk153"};
         case (_object in _ATass): {"ATAss"};
-        case (_object in _ATass): {"ATAssmk153"};
+        case (_object in _ATassmk153): {"ATAssmk153"};
         case (_object in _grenadier): {"grenadier"};
         case (_object in _soldier): {"Rifleman"};
         case (_object in _marksmen): {"marksman"};
