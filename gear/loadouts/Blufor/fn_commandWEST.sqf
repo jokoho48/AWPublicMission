@@ -52,7 +52,7 @@ _itemsHandgun = [];
 
 //handgun ammo (if a handgun is given) - (integer)
 _handgunAmmo = 2;
-_launcher = "rhs_weap_M136";
+
 //weapons - launcher - (string)
 _launcher = "tf47_at4_HEDP";
 
@@ -65,7 +65,7 @@ _launcherAmmo = 1;
 _binocular = "ACE_Vector";
 
 //throwables - (integer)
-_grenadeHE = 3;
+_grenadeHE = 0;
 _grenadeSmokeWhite = 2;
 _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;

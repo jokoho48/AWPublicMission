@@ -108,7 +108,6 @@ _itemsVest = [];
 //items added specifically to Backpack: - (array)
 _itemsBackpack = ["tf47_m3maaws_HEAT", "tf47_m3maaws_HEDP", "tf47_m3maaws_HEAT"];
 
-
 //linked items - (array)
 _itemsLink = [
         "ItemRadio",

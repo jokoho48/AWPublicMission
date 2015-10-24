@@ -26,7 +26,7 @@ _itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 8;
+_primaryweaponAmmo = 6;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -54,12 +54,12 @@ _itemsHandgun = [];
 _handgunAmmo = 2;
 
 //weapons - launcher - (string)
-_launcher = "tf47_m3maaws";
+_launcher = "tf47_smaw_green";
 
 _launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific _launcherHandle. Test it out.
 
 //launcher ammo (if a launcher is given) - (integer)
-_launcherAmmo = 2;
+_launcherAmmo = 1;
 
 //binocular - (string)
 _binocular = "ACE_Vector";
@@ -71,8 +71,8 @@ _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;
 _grenadeSmokeRed = 0;
 _grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 1;
-_grenadeSmokeGreen = 1;
+_grenadeSmokeBlue = 0;
+_grenadeSmokeGreen = 0;
 _chemlightYellow = 0;
 _chemlightRed = 0;
 _chemlightGreen = 0;
@@ -107,7 +107,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = ["tf47_m3maaws_HEAT"];
+_itemsBackpack = ["tf47_smaw_HEAA","tf47_smaw_SR"];
 
 //linked items - (array)
 _itemsLink = [
@@ -131,6 +131,6 @@ _player setVariable ["ace_medical_medicClass", 0];
 _player setVariable ["JK_CrateSpawnAllowed", false];
 _player setVariable ["ACE_IsEngineer", 0];
 _player setVariable ["JK_isPilot", false];
-_player addSecondaryWeaponItem "tf47_optic_m3maaws";
+_player addSecondaryWeaponItem "tf47_optic_smaw";
 _player setCaptive false;
 if (true) exitWith {};

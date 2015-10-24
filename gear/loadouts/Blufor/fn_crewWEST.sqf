@@ -112,7 +112,6 @@ _itemsLink = [
         "ItemRadio",
         "ItemWatch",
         "ItemCompass",
-        "ACE_NVG_Wide",
         "ItemMap",
         "B_UavTerminal"
         ];
