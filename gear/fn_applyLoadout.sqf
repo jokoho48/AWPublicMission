@@ -59,8 +59,10 @@ _paraGrenadier = [];
 _paraLeader = [];
 //Para-Drop-
 _paraMarksman = [];
-//CQC SHotgun Stormtrooper
+//CQC Shotgun Stormtrooper
 _stormtrooper = [];
+//CQC Shotgun Para-Variant
+_paraStormtrooper = [];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
@@ -81,6 +83,7 @@ _paraExExpertClass = [];
 _paraGrenadierClass = [];
 _paraLeaderClass = [];
 _paraMarksmanClass = [];
+_paraStormtrooperClass = [];
 _stormtrooperClass = [];
 _marksmenClass = [];
 _specClass = [];
@@ -111,6 +114,7 @@ if (!JK_var_gearByClasses) then {
         case (_object in _paraLeader): {"paraLeader"};
         case (_object in _paraMarksman): {"paraMarksman"};
         case (_object in _stormtrooper): {"stormtrooper"};
+        case (_object in _paraStormtrooper): {"paraStormtrooper"};
         case (_object in _assMG): {"assMG"};
         case (_object in _AT): {"AT"};
         case (_object in _ATmk153): {"ATmk153"};
@@ -147,6 +151,7 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _paraGrenadierClass): {"paraGrenadier"};
         case (typeOf _target in _paraLeadeClassr): {"paraLeader"};
         case (typeOf _target in _paraMarksmanClass): {"paraMarksman"};
+        case (typeOf _target in _paraStormtrooperClass): {"paraStormtrooper"};
         case (typeOf _target in _stormtrooperClass): {"stormtrooper"};
         case (typeOf _target in _marksmenClass): {"marksman"};
         case (typeOf _target in _specClass): {"specialist"};

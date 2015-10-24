@@ -90,6 +90,10 @@
             <English>ParaMarksman</English>
             <German>Fallschirmjäger(GrpScharf)</German>
         </Key>
+        <Key ID="STR_JK_GEAR_paraStormtrooper">
+            <English>Paradrop Stormtrooper</English>
+            <German>Fallschirmjäger(CQC)</German>
+        </Key>
         <Key ID="STR_JK_GEAR_stormtrooper">
             <English>Stormtrooper</English>
             <German>Schütze(CQC)</German>

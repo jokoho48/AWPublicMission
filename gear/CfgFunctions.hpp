@@ -28,6 +28,7 @@ class JK_loadOut
         class paraGrenadierWEST {};
         class paraLeaderWEST {};
         class paraMarksmanWEST {};
+        class paraStormtrooperWEST {};
         class stormtrooperWEST {};
         class atWEST {};
         class atmk153WEST {};

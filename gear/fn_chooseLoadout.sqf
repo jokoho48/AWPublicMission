@@ -15,7 +15,7 @@
 
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 
-JK_classes = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","stormtrooper","Marksman","Specialist","Pilot","Crew","jetPilot","pjMedic"];
+JK_classes = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","paraStormtrooper","stormtrooper","Marksman","Specialist","Pilot","Crew","jetPilot","pjMedic"];
 reverse JK_classes;
 _fnc_gear_Call = {
     {
