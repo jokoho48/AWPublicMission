@@ -95,7 +95,8 @@ JK_objectStorage = [];
 
             // If the time has not passed exit. This assumes all following object are pushed after the current one.
             if (_enqueueTime + 360 > time) exitWith {};
-            if (!_object getVariable ["SEN_noClean", false]) then {
+            if !(_object getVariable ["SEN_noClean", false]) then {
+
                 // Remove the object from the storage.
                 JK_objectStorage deleteAt _forEachIndex + _delete1;
                 _delete1 = _delete1 + 1;
@@ -119,7 +120,7 @@ JK_objectStorage = [];
                     if (surfaceIsWater _position) then {
                         _position = getPosASL _object;
                     };
-                    _position set [2, (_position select 2) - 0.005];
+                    _position set [2, (_position select 2) - 0.05];
 
                     // Apply the position change.
                     _object setPos _position;

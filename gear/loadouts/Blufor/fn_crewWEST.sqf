@@ -21,7 +21,7 @@ _goggles = "";
 //weapons - primary weapon - (string)
 _primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 //primary weapon items - (array)
-_itemsPrimaryweapon = [];
+_itemsPrimaryweapon = [["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.

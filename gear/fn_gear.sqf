@@ -94,7 +94,11 @@ if (_primaryweaponTracers >= 1) then {
 };
 {
     if (typeName _x == "ARRAY") then {
-        _unit addPrimaryWeaponItem (_x call BIS_fnc_selectRandom);
+        private "_primAttachmentTemp";
+        _primAttachmentTemp = (_x call BIS_fnc_selectRandom);
+        if (_primAttachmentTemp != "") then {
+            _unit addPrimaryWeaponItem _primAttachmentTemp;
+        };
     } else {
         _unit addPrimaryWeaponItem _x;
     };

@@ -28,7 +28,7 @@ SEN_taskListCiv = [
     "identify"
 ];
 
-for "_s" from floor(random 100) to 0 step -1 do {
+for "_s" from floor(random 10) to 0 step -1 do {
     SEN_taskList = [SEN_taskList] call CBA_fnc_shuffle;
     SEN_taskListCiv = [SEN_taskListCiv] call CBA_fnc_shuffle;
 };
