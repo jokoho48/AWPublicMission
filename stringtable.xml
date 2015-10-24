@@ -36,7 +36,7 @@
         </Key>
         <Key ID="STR_JK_GEAR_AtAss">
             <English>Assistent AT Gunner(M3MAAWS)</English>
-            <German>AT Assistent(M3MAAWS)</German>
+            <German>AT-Assistent(M3MAAWS)</German>
         </Key>
         <Key ID="STR_JK_GEAR_AT">
             <English>AT-Gunner</English>
@@ -47,8 +47,12 @@
             <German>AT-Schütze</German>
         </Key>
         <Key ID="STR_JK_GEAR_AtAss">
-            <English>Assistent AT Gunner</English>
-            <German>AT Assistent</German>
+            <English>Assistent AT Gunner(M3MAAWs)</English>
+            <German>AT-Assistent(M3MAAWs)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AtAssmk153">
+            <English>Assistent AT Gunner(SMAW)</English>
+            <German>AT-Assistent(SMAW)</German>
         </Key>
         <Key ID="STR_JK_GEAR_GRENADIER">
             <English>Grenadier</English>
@@ -61,6 +65,34 @@
         <Key ID="STR_JK_GEAR_paratrooper">
             <English>Paratrooper</English>
             <German>Fallschirmjäger</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraARman">
+            <English>ParaARman</English>
+            <German>Fallschirmjäger(M249)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraDropMedic">
+            <English>ParaDrop-Medic</English>
+            <German>Fallschirmjäger(Sanitäter)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraExExpert">
+            <English>ParaExplosive-Expert</English>
+            <German>Fallschirmjäger(SpExperte)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraGrenadier">
+            <English>ParaGrenadier</English>
+            <German>Fallschirmjäger(Grenadier)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraLeader">
+            <English>ParaLeader</English>
+            <German>Fallschirmjäger(Truppführer)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraMarksman">
+            <English>ParaMarksman</English>
+            <German>Fallschirmjäger(GrpScharf)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_stormtrooper">
+            <English>Stormtrooper</English>
+            <German>Schütze(CQC)</German>
         </Key>
         <Key ID="STR_JK_GEAR_MARKSMAN">
             <English>Marksman</English>

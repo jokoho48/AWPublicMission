@@ -22,9 +22,17 @@ class JK_loadOut
         class assmgWEST {};
         class mgWEST {};
         class paratrooperWEST {};
+        class paraARmanWEST {};
+        class paraDropMedicWEST {};
+        class paraExExpertWEST {};
+        class paraGrenadierWEST {};
+        class paraLeaderWEST {};
+        class paraMarksmanWEST {};
+        class stormtrooperWEST {};
         class atWEST {};
         class atmk153WEST {};
         class atassWEST {};
+        class ATAssmk153WEST {};
         class commandWEST {};
         class grenadierWEST {};
         class leaderWEST {};

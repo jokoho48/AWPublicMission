@@ -30,7 +30,7 @@ _primaryweaponAmmo = 10;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
-_40mmHeGrenadesAmmo = 15;
+_40mmHeGrenadesAmmo = 14;
 _40mmSmokeGrenadesWhite = 2;
 _40mmSmokeGrenadesYellow = 2;
 _40mmSmokeGrenadesOrange = 0;

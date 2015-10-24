@@ -43,8 +43,24 @@ _jetPilot = ["pj_1", "pj_2"];
 _pjMedic = ["r_4"];
 //AT-SMAW
 _ATmk153 = [];
+//AT-SMAW-Assistant
+_ATAssmk153 = [];
 //Paratrooper
 _paratrooper = [];
+//Para-Drop-
+_paraARman = [];
+//Para-Drop-
+_paraDropMedic = [];
+//Para-Drop-
+_paraExExpert = [];
+//Para-Drop-
+_paraGrenadier = [];
+//Para-Drop-
+_paraLeader = [];
+//Para-Drop-
+_paraMarksman = [];
+//CQC SHotgun Stormtrooper
+_stormtrooper = [];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
@@ -55,9 +71,17 @@ _assMGClass = ["B_soldier_AAR_F"];
 _ATClass = ["B_soldier_LAT_F"];
 _ATmk153Class = ["B_Soldier_HAT_F"];
 _ATassClass = ["B_Soldier_A_F"];
+_ATAssmk153Class = [];
 _grenadierClass = [];
 _soldierClass = ["B_Soldier_F"];
 _paratrooperClass = ["B_Soldier_P_F"];
+_paraARmanClass = [];
+_paraDropMedicClass = [];
+_paraExExpertClass = [];
+_paraGrenadierClass = [];
+_paraLeaderClass = [];
+_paraMarksmanClass = [];
+_stormtrooperClass = [];
 _marksmenClass = [];
 _specClass = [];
 _pilotsClass = ["B_Pilot_F"];
@@ -80,10 +104,18 @@ if (!JK_var_gearByClasses) then {
         case (_object in _medics): {"medic"};
         case (_object in _MG): {"MG"};
         case (_object in _paratrooper): {"paratrooper"};
+        case (_object in _paraARman): {"paraARman"};
+        case (_object in _paraDropMedic): {"paraDropMedic"};
+        case (_object in _paraExExpert): {"paraExExpert"};
+        case (_object in _paraGrenadier): {"paraGrenadier"};
+        case (_object in _paraLeader): {"paraLeader"};
+        case (_object in _paraMarksman): {"paraMarksman"};
+        case (_object in _stormtrooper): {"stormtrooper"};
         case (_object in _assMG): {"assMG"};
         case (_object in _AT): {"AT"};
         case (_object in _ATmk153): {"ATmk153"};
         case (_object in _ATass): {"ATAss"};
+        case (_object in _ATass): {"ATAssmk153"};
         case (_object in _grenadier): {"grenadier"};
         case (_object in _soldier): {"Rifleman"};
         case (_object in _marksmen): {"marksman"};
@@ -105,9 +137,17 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _ATClass): {"AT"};
         case (typeOf _target in _ATmk153Class): {"ATmk153"};
         case (typeOf _target in _ATassClass): {"ATAss"};
+        case (typeOf _target in _ATAssmk153Class): {"ATAssmk153"};
         case (typeOf _target in _grenadierClass): {"grenadier"};
         case (typeOf _target in _soldierClass): {"Rifleman"};
         case (typeOf _target in _paratrooperClass): {"paratrooper"};
+        case (typeOf _target in _paraARmanClass): {"paraARman"};
+        case (typeOf _target in _paraDropMedicClass): {"paraDropMedic"};
+        case (typeOf _target in _paraExExpertClass): {"paraExExpert"};
+        case (typeOf _target in _paraGrenadierClass): {"paraGrenadier"};
+        case (typeOf _target in _paraLeadeClassr): {"paraLeader"};
+        case (typeOf _target in _paraMarksmanClass): {"paraMarksman"};
+        case (typeOf _target in _stormtrooperClass): {"stormtrooper"};
         case (typeOf _target in _marksmenClass): {"marksman"};
         case (typeOf _target in _specClass): {"specialist"};
         case (typeOf _target in _pilotsClass): {"pilot"};
