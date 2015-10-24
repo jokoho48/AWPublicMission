@@ -99,7 +99,26 @@ PRIMARY_EXPLOSION = {
                 [[_iedPosition, _iedArray select 2, _this select 0 select 0], "CREATE_SECONDARY_IED", false, false] call BIS_fnc_MP;
             };
         };
-
+        {
+            if (isPlayer _x) then {
+                private ["_distance" ,"_distanceDamage"];
+                _distance = (_iedPosition distance _x);
+                _distanceDamage = _distance - 25;
+                _distanceDamage = _distanceDamage / 25;
+                _distanceDamage = _distanceDamage - _distanceDamage - _distanceDamage;
+                if (local _x) then {
+                    [_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                } else {
+                    [[_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                };
+                if (_distance > 10) then {
+                    [_x, true] call ace_medical_fnc_setUnconscious;
+                };
+            };
+            nil
+        } count (_iedPosition nearEntities ["Man", 1000]);
         sleep 5;
         publicVariable "iedDictionary";
     } catch {

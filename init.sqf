@@ -25,7 +25,7 @@ enableSaving [false, false];
 enableSentences false;
 enableRadio false;
 call SEN_fnc_setParams;
-
+call compile preprocessFileLineNumbers "fixXEH.sqf";
 if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
