@@ -124,6 +124,7 @@ _fnc_nade = {
             ["UGL_FlareYellow_F", 15],
             ["UGL_FlareRed_F", 15],
             ["UGL_FlareGreen_F", 15],
+            ["ACE_M84", 5],
             ["UGL_FlareCIR_F", 15]
         ]
     ] call JK_fnc_createCrate;
@@ -187,6 +188,7 @@ _fnc_static_ammo = {
             ["UGL_FlareRed_F", 15],
             ["UGL_FlareGreen_F", 15],
             ["UGL_FlareCIR_F", 15],
+            ["ACE_M84", 5],
 
             //MG Munition
             ["rhs_200rnd_556x45_M_SAW", 30],

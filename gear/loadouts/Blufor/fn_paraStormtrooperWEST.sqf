@@ -70,7 +70,7 @@ _grenadeSmokeYellow = 0;
 _grenadeSmokeOrange = 0;
 _grenadeSmokeRed = 0;
 _grenadeSmokePurple = 0;
-_grenadeSmokeBlue = 1;
+_grenadeSmokeBlue = 0;
 _grenadeSmokeGreen = 1;
 _chemlightYellow = 0;
 _chemlightRed = 0;
@@ -79,7 +79,7 @@ _chemlightBlue = 0;
 _IRgrenade = 0;
 
 //ACE Items
-_IVBagSaline250 = 1;
+_IVBagSaline250 = 0;
 _IVBagSaline500 = 0;
 _IVBagSaline1000 = 0;
 _epinephrine = 3;
@@ -103,7 +103,7 @@ _MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be added
 _itemsUniform = [];
 
 //items added specifically to vest: - (array)
-_itemsVest = [];
+_itemsVest = ["ACE_Clacker","DemoCharge_Remote_Mag"];
 
 //items added specifically to Backpack: - (array)
 _itemsBackpack = [];
@@ -119,7 +119,7 @@ _itemsLink = [
         ];
 
 //items added to any container - (array)
-_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
+_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_M84"];
 
 ///// No editing necessary below this line /////
 params ["_player"];
