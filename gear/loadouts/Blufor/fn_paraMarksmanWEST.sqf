@@ -19,10 +19,10 @@ _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be 
 _goggles = "";
 
 //weapons - primary weapon - (string)
-_primaryweapon = "rhs_weap_sr25";
+_primaryweapon = "rhs_weap_m14ebrri";
 
 //primary weapon items - (array)
-_itemsPrimaryweapon = ["optic_DMS","rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod"];
+_itemsPrimaryweapon = ["optic_DMS","rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
