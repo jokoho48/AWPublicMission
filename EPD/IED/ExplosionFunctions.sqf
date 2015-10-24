@@ -102,7 +102,7 @@ PRIMARY_EXPLOSION = {
         {
             if (isPlayer _x) then {
                 private ["_distance" ,"_distanceDamage"];
-                _distance = (_iedPosition distance _x);
+                _distance = (_iedPosition distance _x) min 25;
                 _distanceDamage = _distance - 25;
                 _distanceDamage = _distanceDamage / 25;
                 _distanceDamage = _distanceDamage - _distanceDamage - _distanceDamage;
@@ -118,7 +118,7 @@ PRIMARY_EXPLOSION = {
                 };
             };
             nil
-        } count (_iedPosition nearEntities ["Man", 1000]);
+        } count (_iedPosition nearEntities ["Man", 25]);
         sleep 5;
         publicVariable "iedDictionary";
     } catch {
