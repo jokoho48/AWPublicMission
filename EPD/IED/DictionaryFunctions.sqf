@@ -23,30 +23,34 @@ GET_IED_SECTION_INFORMATION = {
 };
 
 REMOVE_IED_ARRAY = {
-    _sectionName = _this select 0;
-    _iedName = _this select 1;
+    private ["_iedArray"];
+    params ["_sectionName", "_iedName"];
 
     _sectionDictionary = [iedDictionary, _sectionName] call Dictionary_fnc_get;
     _ieds = [_sectionDictionary, "ieds"] call Dictionary_fnc_get;
     _iedArray = [_ieds, _iedName] call Dictionary_fnc_get;
-
-    _position = getpos (_iedArray select 0);
-
-    deleteVehicle (_iedArray select 0); //item
-    deleteVehicle (_iedArray select 1); //trigger
+    if (typeName _iedArray != "ARRAY") exitWith {};
+    if !(isNull (_iedArray select 0)) then {
+        deleteVehicle (_iedArray select 0); //item
+    };
+    if (typeName _iedArray != "ARRAY") exitWith {};
+    diag_log _iedArray;
+    if !(isNull (_iedArray select 1)) then {
+        deleteVehicle (_iedArray select 1); //trigger
+    };
     [_ieds, _iedName] call Dictionary_fnc_remove;
-
+    if (typeName _iedArray != "ARRAY") exitWith {};
     deleteMarker (_iedArray select 4);
-
+    if (typeName _iedArray != "ARRAY") exitWith {};
     terminate (_iedArray select 5);
+    if (typeName _iedArray != "ARRAY") exitWith {};
     terminate (_iedArray select 6);
-
-    _position;
+    if (typeName _iedArray != "ARRAY") exitWith {};
 };
 
 PREPARE_IED_FOR_CLEANUP = {
-    _sectionName = _this select 0;
-    _iedName = _this select 1;
+    private ["_iedArray"];
+    params ["_sectionName", "_iedName"];
 
     _sectionDictionary = [iedDictionary, _sectionName] call Dictionary_fnc_get;
     _ieds = [_sectionDictionary, "ieds"] call Dictionary_fnc_get;
@@ -128,17 +132,14 @@ REMOVE_IED_SECTION = {
 };
 
 ADD_IED_TO_SECTION = {
-    _sectionDictionary = _this select 0;
-    _iedName = _this select 1;
-    _iedArray = _this select 2;
+    params ["_sectionDictionary", "_iedName", "_iedArray"];
     _iedsDictionary = [_sectionDictionary, "ieds"] call Dictionary_fnc_get;
     [_iedsDictionary, _iedName, _iedArray] call Dictionary_fnc_set;
 };
 
 ADD_TRIGGER_TO_IED = {
-    _sectionDictionary = _this select 0;
-    _iedName = _this select 1;
-    _trigger = _this select 2;
+    private ["_iedArray"];
+    params ["_sectionDictionary", "_iedName", "_trigger"];
     _iedsDictionary = [_sectionDictionary, "ieds"] call Dictionary_fnc_get;
     _iedArray = [_iedsDictionary, _iedName] call Dictionary_fnc_get;
     _iedArray set [1, _trigger];
@@ -146,8 +147,8 @@ ADD_TRIGGER_TO_IED = {
 
 REMOVE_TRIGGER_FROM_IED = {
     try{
-        _sectionDictionary = _this select 0;
-        _iedName = _this select 1;
+        private ["_iedArray"];
+        params ["_sectionDictionary", "_iedName"];
         _iedsDictionary = [_sectionDictionary, "ieds"] call Dictionary_fnc_get;
         _iedArray = [_iedsDictionary, _iedName] call Dictionary_fnc_get;
         _trigger = _iedArray select 1;

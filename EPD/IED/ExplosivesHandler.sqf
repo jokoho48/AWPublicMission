@@ -135,6 +135,8 @@ EXPLOSION_EVENT_HANDLER = {
                     //call compile format["terminate pd_%2; [_iedPosition, _ied, _iedNumber] call EXPLOSIVESEQUENCE_%1", _iedSize, _iedNumber ];
                     _ied removeAllEventHandlers "HitPart";
                     call compile format['["%2", "%3" ] call EXPLOSIVESEQUENCE_%1', _iedSize, _sectionName,_iedName ];
+                    JK_isExploded = true;
+                    publicVariable "JK_isExploded";
                 //};
             };
         };

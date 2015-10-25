@@ -24,14 +24,23 @@ EXPLOSIVESEQUENCE_SECONDARY = {
 };
 
 PRIMARY_EXPLOSION = {
+    private ["_iedArray"];
     _iedArray = [];
     try{
         _iedArray = (_this select 0) call GET_IED_ARRAY;
         if(typeName _iedArray != "ARRAY") exitWith {if(EPD_IED_debug) then { hint "attempt to blow up already disarmed ied caught";};};
 
         _iedPosition = getpos (_iedArray select 0);
-        playSound3D ["z\ace\addons\explosives\Data\Audio\Cellphone_Ring.wss",objNull, false, getPosASL (_iedArray select 0),3.16228,1,75];
-        sleep 2;
+        if !(isNil "JK_isExploded") then {
+            playSound3D ["z\ace\addons\explosives\Data\Audio\Cellphone_Ring.wss",objNull, false, getPosASL (_iedArray select 0),3.16228,1,75];
+            JK_isExploded = nil;
+            publicVariable "JK_isExploded";
+            sleep 2;
+        } else {
+            JK_isExploded = nil;
+            publicVariable "JK_isExploded";
+        };
+
         terminate (_iedArray select 5);    //need to stop these so we don't get double explosions
         deleteVehicle (_iedArray select 1);  //need to stop these so we don't get double explosions
         (_iedArray select 0) removeAllEventHandlers "HitPart";
@@ -109,12 +118,14 @@ PRIMARY_EXPLOSION = {
                 if (local _x) then {
                     [_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
                     [_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, true] call ace_medical_fnc_setUnconscious;
                 } else {
                     [[_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
                     [[_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, true], "ace_medical_fnc_setUnconscious", _x] call BIS_fnc_MP;
                 };
                 if (_distance > 10) then {
-                    [_x, true] call ace_medical_fnc_setUnconscious;
+
                 };
             };
             nil

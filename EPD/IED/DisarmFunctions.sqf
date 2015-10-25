@@ -3,6 +3,7 @@
 /* Rewritten by Brian Sweeney - [EPD] Brian*/
 
 DISARM_ADD_ACTION = {
+    private ["_iedArray"];
     params ["_sectionName", "_iedName"];
 
     _iedArray = [_sectionName, _iedName] call GET_IED_ARRAY;

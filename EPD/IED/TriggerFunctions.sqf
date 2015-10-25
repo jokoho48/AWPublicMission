@@ -39,6 +39,7 @@ TRIGGER_STATUS_LOOP = {
 };
 
 TRIGGER_CHECK = {
+    private ["_iedArray"];
     _sectionName = _this select 0;
     _iedName = _this select 1;
     _thisList = _this select 2;
