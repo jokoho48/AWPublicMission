@@ -31,15 +31,18 @@ call {
     _townType = "Town"; _approval = 15;
 };
 
-{
-    if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x};
-} forEach (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]);
-_threshold = round ((count _enemyArray)*0.30);
-
-[0,"OccupyTrgAct: %1",_enemyArray] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_threshold] call SEN_fnc_log;
-
-waitUntil {sleep 10; {alive _x} count _enemyArray <= _threshold};
+waitUntil {
+    private "_count";
+    sleep 10;
+    _enemyArray = [];
+    _count = ({
+        _ret = false;
+        if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x; _ret = true;};
+        _ret
+    } count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]));
+    _threshold = round ((_count)*0.30);
+    {alive _x} count _enemyArray <= _threshold
+};
 
 _t = time;
 _players = (call SEN_fnc_getPlayers);
@@ -58,16 +61,20 @@ uiSleep 60;
 if (count _enemyArray > 0) then {
     {
         call {
-            if (typeOf _x isKindOf "AIR") exitWith {
-                _x setBehaviour "CARELESS";
-                SEN_objectCleanup pushBack _x;
+            if (random 1 < 0.2) then {
+                if (typeOf _x isKindOf "AIR") exitWith {
+                    _x setBehaviour "CARELESS";
+                    _x land "LAND";
+                    SEN_objectCleanup pushBack _x;
+                };
+                if !(local _x) then {
+                    [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
+                    if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
+                } else {
+                    [_x] call SEN_fnc_setUnitSurrender;
+                    if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
+                };
             };
-            if !(local _x) exitWith {
-                [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
-                if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
-            };
-            [_x] call SEN_fnc_setUnitSurrender;
-            if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
         };
     } forEach _enemyArray;
 };
@@ -78,14 +85,18 @@ if (count _players > 0) then {
 };
 _mrk setMarkerText format ["Liberated %1",_townType];
 _mrk setMarkerColor "ColorWEST";
+_mrk setMarkerType "b_unknown";
 SEN_ClearedCitys pushBack _townName;
+publicVariable "SEN_ClearedCitys";
 
 SEN_approvalCiv = SEN_approvalCiv + _approval; publicVariable "SEN_approvalCiv";
 if (SEN_debug isEqualTo 1) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
 
 uiSleep 10;
 
-if (random 1 < 0.25) then {[_pos,SEN_enemySide,_radius+200] spawn SEN_fnc_spawnReinforcements};
+for "_i" from floor(random 10) to 0 do {
+    if (random 1 < 0.25) then {[_pos,SEN_enemySide,_radius+200] spawn SEN_fnc_spawnReinforcements; sleep 10;};
+};
 
 if !(isNull SEN_intelObj) then {
     if (getposATL SEN_intelObj distance _pos < _radius) then {
