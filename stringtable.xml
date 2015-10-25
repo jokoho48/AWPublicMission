@@ -15,7 +15,7 @@
             <German>Sanitäter</German>
         </Key>
         <Key ID="STR_JK_GEAR_ARMAN">
-            <English>Automaitc-Rifleman</English>
+            <English>Automatic-Rifleman</English>
             <German>Automatik-Schütze</German>
         </Key>
         <Key ID="STR_JK_GEAR_MG">
@@ -51,11 +51,11 @@
             <German>Schütze</German>
         </Key>
         <Key ID="STR_JK_GEAR_paratrooper">
-            <English>Paratrooper</English>
-            <German>Fallschirmjäger</German>
+            <English>Paratrooper(AT-4)</English>
+            <German>Fallschirmjäger(AT-4)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraARman">
-            <English>Paratrooper(Automaitc-Rifleman)</English>
+            <English>Paratrooper(Automatic-Rifleman)</English>
             <German>Fallschirmjäger(Automatik-Schütze)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraDropMedic">
@@ -82,9 +82,25 @@
             <English>Paratrooper(Breacher)</English>
             <German>Fallschirmjäger(Zugangstechniker)</German>
         </Key>
+        <Key ID="STR_JK_GEAR_paraAssAR">
+            <English>Paratrooper(Assistant-Automatic-Rifleman)</English>
+            <German>Fallschirmjäger(Automatik-Schütze-Assistent)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_paraSpecOps">
+            <English>Paratrooper(Commando)</English>
+            <German>Fallschirmjäger(Kommando)</German>
+        </Key>
         <Key ID="STR_JK_GEAR_stormtrooper">
             <English>Rifleman(Breacher)</English>
             <German>Zugangstechniker</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SpecOps">
+            <English>Commando</English>
+            <German>Kommando</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_radioOp">
+            <English>Radio-Operator</English>
+            <German>Funker</German>
         </Key>
         <Key ID="STR_JK_GEAR_MARKSMAN">
             <English>Marksman</English>

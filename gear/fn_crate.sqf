@@ -194,6 +194,8 @@ _fnc_static_ammo = {
             //MG Munition
             ["rhs_200rnd_556x45_M_SAW", 30],
             ["rhsusf_100Rnd_762x51", 30],
+
+            //CQC
             ["rhsusf_5Rnd_00Buck", 30],
 
             // Normal
