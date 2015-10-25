@@ -4,6 +4,7 @@ Author: SENSEI
 Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
+["JK_AssignTFARFrequencies", "OnRadiosReceived", compile preprocessFileLineNumbers "tfarSettings.sqf", player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
 [] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
@@ -89,9 +90,9 @@ if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
 
 JK_var_PilotsOnly_EVH = addMissionEventHandler ["Draw3D", {
     if (alive player && !(player getVariable ["JK_isPilot", false])) then {
-        if (vehicle player isKindOf "Air" && (player == assignedDriver vehicle player || player == (vehicle player) turretUnit [0])) then {
+        if ((vehicle player isKindOf "Air" || vehicle player isKindOf "ParachuteBase") && (player == assignedDriver vehicle player || player == (vehicle player) turretUnit [0])) then {
             doGetOut player;
-            hint "Only Pilots are allowed to fly.";
+            hintSilent "Only Pilots are allowed to fly.";
         };
     };
 }];
@@ -204,4 +205,3 @@ player setVariable ["ACE_canMoveRallypoint", false];
 
 // setup radios
 if (SEN_acreEnabled) exitWith {[] call compile preprocessFileLineNumbers "scripts\SEN_acre2.sqf";};
-if (SEN_tfrEnabled) exitWith {[] spawn compile preprocessFileLineNumbers "scripts\SEN_tfr.sqf";};

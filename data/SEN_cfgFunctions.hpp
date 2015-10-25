@@ -42,7 +42,6 @@ class SEN {
         class setPatrolUnit;
         class setPatrolVeh;
         class setAcreRadio;
-        class setTfrRadio;
         class setTaskCiv;
         class setTask;
         class setTimer;

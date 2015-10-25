@@ -22,7 +22,6 @@ __________________________________________________________________*/
 SEN_debug = 0;
 waitUntil { !isServer  || {!isNil "JK_DBSetup"}};
 enableSaving [false, false];
-["JK_AssignTFARFrequencies", "OnRadiosReceived", compile preprocessFileLineNumbers "tfarSettings.sqf", player] call TFAR_fnc_addEventHandler;
 enableSentences false;
 enableRadio false;
 call SEN_fnc_setParams;
