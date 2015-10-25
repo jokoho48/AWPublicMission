@@ -26,7 +26,7 @@ _itemsPrimaryweapon = [];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 14;
+_primaryweaponAmmo = 9;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -106,7 +106,7 @@ _itemsUniform = [];
 _itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-_itemsBackpack = ["DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","ACE_Clacker","ACE_Clacker","ACE_M84","ACE_M84"];
+_itemsBackpack = ["DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","ACE_Clacker","ACE_M84","ACE_M84","ACE_DefusalKit"];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [

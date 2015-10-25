@@ -66,12 +66,13 @@ _fnc_ammo = {
             // Normal
             ["30Rnd_556x45_Stanag", 55],
             ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", 45],
+            ["rhsusf_mag_7x45acp_MHP", 5],
 
             //CQC
-            ["rhsusf_5Rnd_00Buck", 20],
+            ["rhsusf_8Rnd_00Buck", 15],
 
             //Marksman
-            ["rhsusf_20Rnd_762x51_m118_special_Mag", 25]
+            ["rhsusf_20Rnd_762x51_m118_special_Mag", 20]
         ]
     ] call JK_fnc_createCrate;
 };
@@ -81,8 +82,8 @@ _fnc_mg_ammo = {
         10,
         [
             //MG Munition
-            ["rhs_200rnd_556x45_M_SAW", 10],
-            ["rhsusf_100Rnd_762x51", 10]
+            ["rhs_200rnd_556x45_M_SAW", 11],
+            ["rhsusf_100Rnd_762x51", 11]
         ]
     ] call JK_fnc_createCrate;
 };
@@ -244,17 +245,17 @@ _fnc_at_M3_ammo = {
         10,
         [
             //AT
-            ["tf47_m3maaws_HEAT", 5],
-            ["tf47_m3maaws_HEDP", 3],
+            ["tf47_m3maaws_HEAT", 7],
+            ["tf47_m3maaws_HEDP", 2],
             ["tf47_m3maaws_HE", 2],
             ["tf47_m3maaws_SMOKE", 2],
-            ["tf47_m3maaws_ILLUM", 3]
+            ["tf47_m3maaws_ILLUM", 2]
         ]
     ] call JK_fnc_createCrate;
 };
 
 _fnc_Radio = {
-    ["ACE_Box_Misc", 5, [["tf_rt1523g_rhs", 4]]] call JK_fnc_createCrate;
+    ["ACE_Box_Misc", 5, [["tf_rt1523g_rhs", 3],["rhsusf_falconii", 10],["rhsusf_assault_eagleaiii_coy", 10],["tf_rt1523g_big_rhs", 1]]] call JK_fnc_createCrate;
 };
 
 _fnc_misc = {
@@ -297,7 +298,7 @@ _fnc_Empty = {
 };
 VVS addAction ["<t color='#AE2020'>Open Vehicle Menu</t>", VVS_fnc_openVVS, ["SEN_vehSpawn_mrk", "All"], 99, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
 _fnc_attachCrateAction = {
-    _this addAction ["<t color='#AE2020'>Request Radio Crate</t>", _fnc_Radio, [], 0, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
+    _this addAction ["<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio, [], 0, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
     _this addAction ["<t color='#AE2020'>Request Ammo Crate</t>", _fnc_ammo];
     _this addAction ["<t color='#AE2020'>Request Mg-Ammo Crate</t>", _fnc_mg_ammo];
     _this addAction ["<t color='#AE2020'>Request Grenade Crate</t>", _fnc_nade];
