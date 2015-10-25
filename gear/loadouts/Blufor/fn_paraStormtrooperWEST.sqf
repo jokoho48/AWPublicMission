@@ -19,14 +19,14 @@ _useProfileGoggles = 1;        //If set to 1, goggles from your profile will be 
 _goggles = "G_Combat";
 
 //weapons - primary weapon - (string)
-_primaryweapon = "rhs_weap_M590_5RD";
+_primaryweapon = "rhs_weap_M590_8RD";
 
 //primary weapon items - (array)
 _itemsPrimaryweapon = [];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
-_primaryweaponAmmo = 13;
+_primaryweaponAmmo = 8;
 _primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -103,7 +103,7 @@ _MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be added
 _itemsUniform = [];
 
 //items added specifically to vest: - (array)
-_itemsVest = ["ACE_Clacker","DemoCharge_Remote_Mag"];
+_itemsVest = ["ACE_Clacker","DemoCharge_Remote_Mag","ACE_DefusalKit"];
 
 //items added specifically to Backpack: - (array)
 _itemsBackpack = [];
@@ -111,7 +111,7 @@ _itemsBackpack = [];
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
         "ItemRadio",
-        "ItemWatch",
+        "ACE_Altimeter",
         "ItemCompass",
         "ACE_NVG_Wide",
         "ItemMap",

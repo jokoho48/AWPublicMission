@@ -55,16 +55,16 @@
             <German>Fallschirmjäger</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraARman">
-            <English>Paratrooper(M249)</English>
-            <German>Fallschirmjäger(M249)</German>
+            <English>Paratrooper(Automaitc-Rifleman)</English>
+            <German>Fallschirmjäger(Automatik-Schütze)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraDropMedic">
             <English>Paratrooper(Medic)</English>
             <German>Fallschirmjäger(Sanitäter)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraExExpert">
-            <English>Paratrooper(Explosiv)</English>
-            <German>Fallschirmjäger(Explosiv)</German>
+            <English>Paratrooper(Explosive-Expert)</English>
+            <German>Fallschirmjäger(Sprengstoffexperte)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraGrenadier">
             <English>Paratrooper(Grenadier)</English>
@@ -76,15 +76,15 @@
         </Key>
         <Key ID="STR_JK_GEAR_paraMarksman">
             <English>Paratrooper(Marksman)</English>
-            <German>Fallschirmjäger(GrpScharf)</German>
+            <German>Fallschirmjäger(Gruppenscharfschütze)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraStormtrooper">
             <English>Paratrooper(Breacher)</English>
-            <German>Fallschirmjäger(Breacher)</German>
+            <German>Fallschirmjäger(Zugangstechniker)</German>
         </Key>
         <Key ID="STR_JK_GEAR_stormtrooper">
             <English>Rifleman(Breacher)</English>
-            <German>Schütze(Breacher)</German>
+            <German>Zugangstechniker</German>
         </Key>
         <Key ID="STR_JK_GEAR_MARKSMAN">
             <English>Marksman</English>
