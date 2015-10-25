@@ -20,7 +20,7 @@ License:
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 __________________________________________________________________*/
 SEN_debug = 0;
-waitUntil { !isServer  || {!isNil "JK_DBSetup"}};
+waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
 enableSaving [false, false];
 enableSentences false;
 enableRadio false;

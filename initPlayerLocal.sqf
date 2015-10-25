@@ -4,7 +4,10 @@ Author: SENSEI
 Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
-["JK_AssignTFARFrequencies", "OnRadiosReceived", compile preprocessFileLineNumbers "tfarSettings.sqf", player] call TFAR_fnc_addEventHandler;
+private "_fnc_tfarSettings";
+_fnc_tfarSettings = compile preprocessFileLineNumbers "tfarSettings.sqf";
+call _fnc_tfarSettings;
+["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
 [] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";

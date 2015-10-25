@@ -18,17 +18,10 @@ class JK_loadOut
     class loadoutsWEST
     {
         file = "gear\loadouts\Blufor";
+        // USMC
         class armanWEST {};
         class assmgWEST {};
         class mgWEST {};
-        class paratrooperWEST {};
-        class paraARmanWEST {};
-        class paraDropMedicWEST {};
-        class paraExExpertWEST {};
-        class paraGrenadierWEST {};
-        class paraLeaderWEST {};
-        class paraMarksmanWEST {};
-        class paraStormtrooperWEST {};
         class stormtrooperWEST {};
         class atWEST {};
         class atmk153WEST {};
@@ -39,12 +32,24 @@ class JK_loadOut
         class leaderWEST {};
         class marksmanWEST {};
         class medicWEST {};
-        class pilotWEST {};
         class riflemanWEST {};
         class specialistWEST {};
+
+        // Paratrooper
+        class paratrooperWEST {};
+        class paraARmanWEST {};
+        class paraDropMedicWEST {};
+        class paraExExpertWEST {};
+        class paraGrenadierWEST {};
+        class paraLeaderWEST {};
+        class paraMarksmanWEST {};
+        class paraStormtrooperWEST {};
+
+        // Special
         class CrewWEST {};
         class jetPilotWEST {};
         class pjMedicWEST {};
+        class pilotWEST {};
     };
 };
 class JK_Logistic_fnc_crate {file = "gear\fn_crate.sqf";};

@@ -8,6 +8,18 @@ tf_same_sw_frequencies_for_side = true;
 tf_same_lr_frequencies_for_side = true;
 tf_default_radioVolume = 4;
 
+//radios
+BLU_F_personal_tf_faction_radio = "tf_anprc152";
+BLU_G_F_personal_tf_faction_radio = "tf_anprc148jem";
+BLU_F_rifleman_tf_faction_radio = "tf_rf7800str";
+BLU_G_F_rifleman_tf_faction_radio = "tf_anprc154";
+
+IND_F_personal_tf_faction_radio = "tf_anprc148jem";
+IND_F_rifleman_tf_faction_radio = "tf_anprc154";
+
+OPF_F_personal_tf_faction_radio = "tf_fadak";
+OPF_F_rifleman_tf_faction_radio = "tf_pnr1000a";
+
 // TS Channel Stuff
 tf_radio_channel_name = "LaufendeMission";
 tf_radio_channel_password = "armaworld";
