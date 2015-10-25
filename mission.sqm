@@ -921,19 +921,19 @@ class Mission
 						};
 						class Item2
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="simulateForGroupMembers";
 						};
 						class Item3
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="simulateForEveryone";
 						};
 						class Item4
 						{
-							value="1";
+							value="0";
 							parentCls="ace_advanced_ballistics_ModuleSettings";
 							typeName="disabledInFullAutoMode";
 						};
