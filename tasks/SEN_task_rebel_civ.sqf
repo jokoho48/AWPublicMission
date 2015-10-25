@@ -128,9 +128,9 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     [0,"Rebel target: %1",name _tar] call SEN_fnc_log;
     [WEST,[_taskID],[_taskDescription, _taskText, ""],getposATL _tar,false,2,true,"C",false] call BIS_fnc_taskCreate;
 
-    waitUntil {sleep 10; isNull _tar || {alive _x} count units _rebelGrp isEqualTo 0 || ((getposATL _tar distance getposATL (leader _rebelGrp) > 1000) && !(isPlayer((leader _rebelGrp) findNearestEnemy (leader _rebelGrp))))};
+    waitUntil {sleep 10; isNull _tar || {alive _x} count units _rebelGrp isEqualTo 0 || ((getposATL _tar distance getposATL (leader _rebelGrp) > 1500) && !(isPlayer((leader _rebelGrp) findNearestEnemy (leader _rebelGrp))))};
 
-    if (((getposATL _tar distance getposATL (leader _rebelGrp) > 1000) && !(isPlayer((leader _rebelGrp) findNearestEnemy (leader _rebelGrp)))) || {isNull _tar}) exitWith {
+    if (((getposATL _tar distance getposATL (leader _rebelGrp) > 2000) && !(isPlayer((leader _rebelGrp) findNearestEnemy (leader _rebelGrp)))) || {isNull _tar}) exitWith {
         [_taskID, "CANCELED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
         sleep _sleep;

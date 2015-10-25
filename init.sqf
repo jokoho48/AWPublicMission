@@ -12,7 +12,6 @@ To Do:
 
 Known Issues:
     momentary lag when SEN_occupy.sqf runs
-    ACE3 - ACE_server.pbo overwrites ACE variables set by DCG
 
 License:
     Copyright 2015 Nicholas Clark (SENSEI). All rights reserved.
@@ -21,6 +20,13 @@ License:
 __________________________________________________________________*/
 SEN_debug = (paramsArray select 1);
 waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
+if (SEN_debug == 1) then {
+    ["JK_MapClickEvent1","onMapSingleClick",{
+        if (_alt && _shift) then {
+            _this setPos _pos;
+        };
+    },player] call BIS_fnc_addStackedEventHandler;
+};
 enableSaving [false, false];
 enableSentences false;
 enableRadio false;
