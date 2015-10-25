@@ -1,10 +1,5 @@
 TRIGGER_STATUS_LOOP = {
-
-    _iedPosition = _this select 0;
-    _sectionDictionary = _this select 1;
-    _sectionName = _this select 2;
-    _iedName = _this select 3;
-    _iedSize = _this select 4;
+    params ["_iedPosition", "_sectionDictionary", "_sectionName", "_iedName", "_iedSize"];
 
     _triggerActive = false;
     while{true} do {
@@ -31,18 +26,13 @@ TRIGGER_STATUS_LOOP = {
                 [_sectionDictionary, _iedName] call REMOVE_TRIGGER_FROM_IED;
             };
         };
-
-
-
         sleep 5;
     };
 };
 
 TRIGGER_CHECK = {
-    private ["_iedArray"];
-    _sectionName = _this select 0;
-    _iedName = _this select 1;
-    _thisList = _this select 2;
+    private ["_iedArray", "_iedPos", "_minDistance", "_minHeight", "_maxSpeed", "_validItemsInTrigger"];
+    params ["_sectionName", "_iedName", "_thisList"];
 
     _iedArray = [_sectionName, _iedName] call GET_IED_ARRAY;
 
@@ -86,5 +76,5 @@ TRIGGER_CHECK = {
     //slow walk forward without gear averages 2.95
     //slow crouch forward without gear averages 1.97
     //crawl forward averages without gear averages 0.30
-    if((_maxSpeed > 2.8) and (_minHeight < 3)) then { true; } else {false;};
-}
+    if((_maxSpeed > 2.8) and (_minHeight < 3)) then { true; } else { false; };
+};

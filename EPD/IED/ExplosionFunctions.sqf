@@ -109,7 +109,7 @@ PRIMARY_EXPLOSION = {
             };
         };
         {
-            if (isPlayer _x) then {
+            if (isPlayer _x && player == vehicle player) then {
                 private ["_distance" ,"_distanceDamage"];
                 _distance = (_iedPosition distance _x) min 25;
                 _distanceDamage = _distance - 25;
@@ -118,10 +118,18 @@ PRIMARY_EXPLOSION = {
                 if (local _x) then {
                     [_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
                     [_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, "hand_l", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 2) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, "hand_r", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 3) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, "leg_l", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 4) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
+                    [_x, "leg_r", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 5) + _distanceDamage, _x, "explosive", 0] call ace_medical_fnc_handleDamage;
                     [_x, true] call ace_medical_fnc_setUnconscious;
                 } else {
                     [[_x, "head", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 0) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
                     [[_x, "body", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 1) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, "hand_l", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 2) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, "hand_r", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 3) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, "leg_l", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 4) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
+                    [[_x, "leg_r", ((_x getvariable ["ace_medical_bodyPartStatus", [0,0,0,0,0,0]]) select 5) + _distanceDamage, _x, "explosive", 0], "ace_medical_fnc_handleDamage", _x, false, true] call BIS_fnc_MP;
                     [[_x, true], "ace_medical_fnc_setUnconscious", _x] call BIS_fnc_MP;
                 };
                 if (_distance > 10) then {

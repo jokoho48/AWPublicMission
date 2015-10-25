@@ -35,7 +35,10 @@ CREATE_FAKE = {
     _junk setPos _junkPosition;
     _junk enableSimulation false;
     _junk allowDamage false;
-
+    if (isNil "JK_IED") then {
+        JK_IED = [];
+    };
+    JK_IED pushBack _junk;
     _fakeName = call CREATE_RANDOM_IED_NAME;
     _markerName = "fake"+_fakeName;
     [_fakesDictionary, _fakeName, [_junk, _markerName]] call Dictionary_fnc_set;
@@ -158,6 +161,10 @@ CREATE_IED = {
     };
 
     _ied = _iedObject createVehicle _iedPos;
+    if (isNil "JK_IED") then {
+        JK_IED = [];
+    };
+    JK_IED pushBack _ied;
     _ied setDir random 360;
     _ied enableSimulation false;
     _ied allowDamage false;
@@ -212,6 +219,10 @@ CREATE_SECONDARY_IED = {
     };
 
     _ied = _iedObject createVehicle _iedPos;
+    if (isNil "JK_IED") then {
+        JK_IED = [];
+    };
+    JK_IED pushBack _ied;
     _ied setDir random 360;
     _ied enableSimulation false;
     _ied allowDamage false;

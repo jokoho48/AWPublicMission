@@ -30,6 +30,7 @@ class SEN {
         class spawnVVS;
         class settingsPre { preInit = 1; };
         class settingsPost { postInit = 1; };
+        class EOD {postInit = 1;};
         //class setGarage;
         //class garage;
         class setOwner;

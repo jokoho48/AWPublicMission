@@ -4,23 +4,19 @@ PROJECTILE_DETECTION = {
     //Detects projectiles that go near this object
 
     if(allowExplosiveToTriggerIEDs) then {
+        private ["_range", "_fired"];
         _range = 35;
-        _ied = _this select 0;
-        _sectionName = _this select 1;
-        _iedName = _this select 2;
-        _iedSize = _this select 3;
+        params ["_ied", "_sectionName", "_iedName", "_iedSize"];
 
         _fired = [];
-        while {alive _ied} do
-        {
+        while {alive _ied} do {
+            private "_ammo";
             _nearProjectiles = (position _ied) nearObjects ["Default",_range]; //Default = superclass of ammo
-            if (count _nearProjectiles >=1) then
-            {
+            if (count _nearProjectiles >=1) then {
                 _ammo = _nearProjectiles select 0;
-                if (!(_ammo in _fired)) then
-                {
+                if (!(_ammo in _fired)) then {
                     [_ammo, _ied, _iedSize, typeof _ammo, getpos _ammo, _sectionName, _iedName] spawn EXPLOSIVE_WATCHER;
-                    _fired = _fired + [_ammo];
+                    _fired pushBack _ammo;
                 };
 
             };
@@ -32,16 +28,9 @@ PROJECTILE_DETECTION = {
 
 //Since explosions don't trigger any hit events for planted explosives and a few others for these items, we have to detect them a funky way
 EXPLOSIVE_WATCHER = {
+    private "_isExplosive";
+    params ["_ammoToWatch", "_ied", "_iedSize", "_class", "_position", "_sectionName", "_iedName", "_trigger"];
     _isExplosive = false;
-    _ammoToWatch = _this select 0;
-    _ied = _this select 1;
-    _iedSize = _this select 2;
-    _class = _this select 3;
-    _position = _this select 4;
-    _sectionName = _this select 5;
-    _iedName = _this select 6;
-    _trigger = _this select 7;
-
     {
         if(_class iskindof _x) then {
             _isExplosive = true;

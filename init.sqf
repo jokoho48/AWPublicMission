@@ -22,7 +22,7 @@ SEN_debug = (paramsArray select 1);
 waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
 if (SEN_debug == 1) then {
     ["JK_MapClickEvent1","onMapSingleClick",{
-        if (_alt && _shift) then {
+        if (_ctrl) then {
             _this setPos _pos;
         };
     },player] call BIS_fnc_addStackedEventHandler;
