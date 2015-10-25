@@ -112,7 +112,7 @@ _itemsBackpack = [];
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 _itemsLink = [
         "ItemRadio",
-        "ItemWatch",
+        "ACE_Altimeter",
         "ItemCompass",
         "ACE_NVG_Wide",
         "ItemMap",
