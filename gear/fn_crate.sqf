@@ -296,23 +296,25 @@ _fnc_UAV = {
 _fnc_Empty = {
     ["ACE_Box_Misc", 0, []] call JK_fnc_createCrate;
 };
-VVS addAction ["<t color='#AE2020'>Open Vehicle Menu</t>", VVS_fnc_openVVS, ["SEN_vehSpawn_mrk", "All"], 99, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
+
 _fnc_attachCrateAction = {
-    _this addAction ["<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio, [], 0, false, false, "", "player getVariable ['JK_CrateSpawnAllowed', false]"];
-    _this addAction ["<t color='#AE2020'>Request Ammo Crate</t>", _fnc_ammo];
-    _this addAction ["<t color='#AE2020'>Request Mg-Ammo Crate</t>", _fnc_mg_ammo];
-    _this addAction ["<t color='#AE2020'>Request Grenade Crate</t>", _fnc_nade];
-    _this addAction ["<t color='#AE2020'>Request Explosives Crate</t>", _fnc_exp];
-    _this addAction ["<t color='#AE2020'>Request AT4-Ammo Crate</t>", _fnc_at_ammo];
-    _this addAction ["<t color='#AE2020'>Request AT-M3MAAWS-Ammo Crate</t>", _fnc_at_M3_ammo];
-    _this addAction ["<t color='#AE2020'>Request AT-SMAW-Ammo Crate</t>", _fnc_at_smaw_ammo];
-    _this addAction ["<t color='#AE2020'>Request Equipment Crate</t>", _fnc_misc];
-    _this addAction ["<t color='#AE2020'>Request Medic Crate</t>", _fnc_medical];
-    _this addAction ["<t color='#AE2020'>Request Paradrop Crate</t>", _fnc_para];
-    _this addAction ["<t color='#AE2020'>Request UAV Crate</t>", _fnc_UAV];
-    _this addAction ["<t color='#AE2020'>Request Non-Moving-Ammo Crate</t>", _fnc_static_ammo];
-    _this addAction ["<t color='#AE2020'>Request Non-Moving-AT-Ammo Crate</t>", _fnc_static_at_ammo];
-    _this addAction ["<t color='#AE2020'>Request Empty Crate</t>", _fnc_Empty];
+    [_this, "<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio, {player getVariable ['JK_CrateSpawnAllowed', false]}] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Ammo Crate</t>", _fnc_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Mg-Ammo Crate</t>", _fnc_mg_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Grenade Crate</t>", _fnc_nade] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Explosives Crate</t>", _fnc_exp] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request AT4-Ammo Crate</t>", _fnc_at_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request AT-M3MAAWS-Ammo Crate</t>", _fnc_at_M3_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request AT-SMAW-Ammo Crate</t>", _fnc_at_smaw_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Equipment Crate</t>", _fnc_misc] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Medic Crate</t>", _fnc_medical] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Paradrop Crate</t>", _fnc_para] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request UAV Crate</t>", _fnc_UAV] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Non-Moving-Ammo Crate</t>", _fnc_static_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Non-Moving-AT-Ammo Crate</t>", _fnc_static_at_ammo] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Empty Crate</t>", _fnc_Empty] call JK_Core_fnc_addAction;
 };
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;
+
+[VVS, "<t color='#AE2020'>Open Vehicle Menu</t>", VVS_fnc_openVVS, {player getVariable ['JK_CrateSpawnAllowed', false]}, ["SEN_vehSpawn_mrk", "All"]] call JK_Core_fnc_addAction;

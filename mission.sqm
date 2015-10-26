@@ -1435,7 +1435,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="1";
+							value="0";
 							parentCls="ace_mk6mortar_module";
 							typeName="allowComputerRangefinder";
 						};
@@ -3445,6 +3445,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_HelipadSquare_F";
 			skill=0.60000002;
+			text="JK_sellingPoint";
 			init="this enableSimulation false;";
 		};
 		class Item149
