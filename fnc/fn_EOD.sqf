@@ -61,5 +61,5 @@ JK_fnc_addAction = {
 [] spawn {
     waitUntil {!isNull player};
     call JK_fnc_addAction;
-    player addEventHandler ["Respawn", {JK_fnc_addAction}];
+    player addEventHandler ["Respawn", JK_fnc_addAction];
 };

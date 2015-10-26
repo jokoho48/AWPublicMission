@@ -56,6 +56,7 @@ DISARM_ACTION = {
         //publicVariable "iedDictionary";          //not needed as the explosion will update
     };
     (_iedArray select 0) removeAllEventHandlers "HitPart";
+    JK_IED deleteAt (JK_IED find (_iedArray select 0));
     terminate (_iedArray select 5);
 };
 

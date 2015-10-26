@@ -1705,7 +1705,7 @@ class Mission
 						};
 						class Item10
 						{
-							value="1";
+							value="1.2";
 							parentCls="ACE_moduleMedicalSettings";
 							typeName="bleedingCoefficient";
 						};
