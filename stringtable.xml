@@ -15,7 +15,7 @@
             <German>Sanitäter</German>
         </Key>
         <Key ID="STR_JK_GEAR_ARMAN">
-            <English>Automaitc-Rifleman</English>
+            <English>Automatic-Rifleman</English>
             <German>Automatik-Schütze</German>
         </Key>
         <Key ID="STR_JK_GEAR_MG">
@@ -55,7 +55,7 @@
             <German>Fallschirmjäger</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraARman">
-            <English>Paratrooper(Automaitc-Rifleman)</English>
+            <English>Paratrooper(Automatic-Rifleman)</English>
             <German>Fallschirmjäger(Automatik-Schütze)</German>
         </Key>
         <Key ID="STR_JK_GEAR_paraDropMedic">
