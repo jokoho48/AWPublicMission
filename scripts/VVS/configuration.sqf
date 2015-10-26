@@ -1,63 +1,242 @@
-//Only display vehicles for that players side, if true Opfor can only spawn Opfor vehicles and so on.
-VVS_SideOnly = true;
 VVS_Checkbox = true;
 
-//Only set to true if you are making pre-made vehicle lists with VVS_x (i.e VVS_Car)
-//If you are going to use Pre-set VVS Vehicles it is recommended to set this to true as it will not run through the config saving CPU resources on initialization, otherwise leave as default.
-VVS_Premade_List = false;
-
-/*
-    *SENSEI EDIT*
-                                    Addon Vehicles
-        If your desired vehicles are not automatically fetched, place the classnames in the arrays below.
-        Be sure to not place vanilla classnames in these arrays, only 3rd party content.
-
-        Example:
-        VVS_Air = ["B_mas_UH1Y_F", "B_mas_CH_47F"];
-*/
-VVS_Car = [];
-VVS_Air = [];
-VVS_Ship = [];
-VVS_Armored = [];
-VVS_Submarine = [];
-VVS_Autonomous = [];
-VVS_Support = [];
-VVS_Ammo = [];
-
-/*
-                                    Vehicle restriction
-        Again, similar to VAS's functionality. If you want to restrict a specific vehicle you can do it or
-        you can restrict an entire vehicle set by using its base class.
-
-        Example:
-        VVS_Car = ["Quadbike_01_base_F"]; //Completely removes all quadbikes for all sides
-        VVS_Air = ["B_Heli_Light_01_armed_F"]; //Removes the Pawnee
-*/
-VVS_R_Car = [];
-VVS_R_Air = [];
-VVS_R_Ship = [];
-VVS_R_Armored = [];
-VVS_R_Submarine = [];
-VVS_R_Autonomous = [];
-VVS_R_Support = [];
-VVS_R_Ammo = ["GunrackTK_EP1","GunrackUS_EP1","Gunrack1","Gunrack2"];
-
-JK_VehicleTickets = [
-    ["rhs_vehclass_apc", 300],
-    ["rhs_vehclass_apc_wd", 300],
-    ["rhs_vehclass_ifv", 300],
-    ["rhs_vehclass_ifv_wd", 300],
-    ["rhs_vehclass_car", 100],
-    ["rhs_vehclass_car_wd", 100],
-    ["rhs_vehclass_mrap", 150],
-    ["rhs_vehclass_mrap_wd", 150],
-    ["rhs_vehclass_truck", 50],
-    ["rhs_vehclass_truck_wd", 50],
-    ["rhs_vehclass_tank", 500],
-    ["rhs_vehclass_tank_wd", 500],
-    ["rhs_vehclass_aircraft", 1000],
-    ["rhs_vehclass_helicopter", 200],
-    ["rhs_vehclass_helicopter_wd", 200],
-    ["Autonomous", 200],
-    ["Default", 200]
+JK_ListTickets = [
+    [
+        "HMMVYs",
+        [
+            "rhsusf_m1025_w_s",
+            "rhsusf_m998_w_s_2dr_halftop",
+            "rhsusf_m998_w_s_2dr",
+            "rhsusf_m998_w_s_2dr_fulltop",
+            "rhsusf_m998_w_s_4dr_halftop",
+            "rhsusf_m998_w_s_4dr",
+            "rhsusf_m998_w_s_4dr_fulltop",
+            "rhsusf_m1025_w",
+            "rhsusf_m998_w_2dr_fulltop",
+            "rhsusf_m998_w_2dr_halftop",
+            "rhsusf_m998_w_2dr",
+            "rhsusf_m998_w_4dr_fulltop",
+            "rhsusf_m998_w_4dr_halftop",
+            "rhsusf_m998_w_4dr",
+            "rhsusf_M1078A1P2_wd_fmtv_usarmy",
+            "rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy",
+            "rhsusf_M1078A1P2_wd_open_fmtv_usarmy",
+            "rhsusf_M1078A1P2_B_wd_fmtv_usarmy",
+            "rhsusf_M1078A1P2_B_wd_fmtv_usarmy",
+            "rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy",
+            "rhsusf_M1083A1P2_wd_fmtv_usarmy",
+            "rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy",
+            "rhsusf_M1083A1P2_wd_open_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_wd_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy"
+        ],
+        200,
+        "Leader",
+        "CAR1"
+    ],
+    [
+        "Armed HMMVYs",
+        [
+            "rhsusf_m1025_w_s_m2",
+            "rhsusf_m1025_w_s_Mk19",
+            "rhsusf_m1025_w_m2",
+            "rhsusf_m1025_w_mk19",
+            "rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",
+            "rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy",
+            "rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_M2_wd_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy",
+            "rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy"
+        ],
+        250,
+        "Leader",
+        "CAR2"
+    ],
+    [
+        "MRAPs",
+        [
+            "rhsusf_rg33_usmc_wd",
+            "rhsusf_rg33_m2_usmc_wd"
+        ],
+        300,
+        "Leader",
+        "CAR3"
+    ],
+    [
+        "Panzer",
+        [
+            "rhsusf_m1a1aimwd_usarmy",
+            "rhsusf_m1a1aim_tuski_wd",
+            "rhsusf_m1a2sep1wd_usarmy",
+            "rhsusf_m1a2sep1tuskiwd_usarmy",
+            "rhsusf_m1a2sep1tuskiiwd_usarmy",
+            "rhsusf_m1a1fep_wd",
+            "rhsusf_m1a1fep_od"
+        ],
+        600,
+        "Crew",
+        "TANK"
+    ],
+    [
+        "Schützenpanzerwagen",
+        [
+            "rhsusf_m113_usarmy_supply",
+            "rhsusf_m113_usarmy",
+            "rhsusf_m113_usarmy_M240",
+            "rhsusf_m113_usarmy_medical",
+            "rhsusf_m113_usarmy_MK19",
+            "rhsusf_m113_usarmy_unarmed"
+        ],
+        400,
+        "Crew",
+        "SPW"
+    ],
+    [
+        "Schützenpanzer",
+        [
+            "RHS_M2A2_wd",
+            "RHS_M2A2_BUSKI_WD",
+            "RHS_M2A3_wd",
+            "RHS_M2A3_BUSKI_wd",
+            "RHS_M2A3_BUSKIII_wd",
+            "RHS_M6_wd"
+        ],
+        500,
+        "Crew",
+        "SPZ"
+    ],
+    [
+        "Leichte Helikopter",
+        [
+            "B_Heli_Light_01_armed_F",
+            "B_Heli_Light_01_F"
+        ],
+        350,
+        "Pilot",
+        "LightHeli"
+    ],
+    [
+        "Transport Helikopter",
+        [
+            "RHS_UH1Y_FFAR",
+            "RHS_UH1Y",
+            "RHS_UH1Y_UNARMED",
+            "RHS_CH_47F",
+            "RHS_UH60M",
+            "RHS_UH60M_MEV2",
+            "RHS_UH60M_MEV"
+        ],
+        400,
+        "Pilot",
+        "THeli"
+    ],
+    [
+        "Kampf Helikopter",
+        [
+            "RHS_AH1Z_wd_CS",
+            "RHS_AH1Z_wd_GS",
+            "RHS_AH1Z_wd",
+            "RHS_AH64D_wd_AA",
+            "RHS_AH64D_wd_CS",
+            "RHS_AH64D_wd_GS",
+            "RHS_AH64D_wd"
+        ],
+        700,
+        "Pilot",
+        "KHeli"
+    ],
+    [
+        "Flugzeuge",
+        [
+            "RHS_C130J",
+            "RHS_A10"
+        ],
+        1000,
+        "Pilot",
+        "Plane"
+    ],
+    [
+        "Other",
+        [
+            "B_Quadbike_01_F"
+        ],
+        50,
+        "All",
+        "All"
+    ]
 ];
+
+/*
+// Leader
+"rhsusf_m1025_w_s",
+"rhsusf_m998_w_s_2dr_halftop",
+"rhsusf_m998_w_s_2dr",
+"rhsusf_m998_w_s_2dr_fulltop",
+"rhsusf_m998_w_s_4dr_halftop",
+"rhsusf_m998_w_s_4dr",
+"rhsusf_m998_w_s_4dr_fulltop",
+"rhsusf_m1025_w",
+"rhsusf_m998_w_2dr_fulltop",
+"rhsusf_m998_w_2dr_halftop",
+"rhsusf_m998_w_2dr",
+"rhsusf_m998_w_4dr_fulltop",
+"rhsusf_m998_w_4dr_halftop",
+"rhsusf_m998_w_4dr",
+"rhsusf_M1078A1P2_wd_fmtv_usarmy",
+"rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy",
+"rhsusf_M1078A1P2_wd_open_fmtv_usarmy",
+"rhsusf_M1078A1P2_B_wd_fmtv_usarmy",
+"rhsusf_M1078A1P2_B_wd_fmtv_usarmy",
+"rhsusf_M1078A1P2_B_wd_open_fmtv_usarmy",
+"rhsusf_M1083A1P2_wd_fmtv_usarmy",
+"rhsusf_M1083A1P2_wd_flatbed_fmtv_usarmy",
+"rhsusf_M1083A1P2_wd_open_fmtv_usarmy",
+"rhsusf_M1083A1P2_B_wd_fmtv_usarmy",
+"rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy",
+"rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy"
+
+"rhsusf_rg33_usmc_wd",
+"rhsusf_rg33_m2_usmc_wd"
+
+
+// Crew
+
+"rhsusf_m113_usarmy_supply",
+"rhsusf_m113_usarmy",
+"rhsusf_m113_usarmy_M240",
+"rhsusf_m113_usarmy_medical",
+"rhsusf_m113_usarmy_MK19",
+"rhsusf_m113_usarmy_unarmed"
+
+"RHS_M2A2_wd",
+"RHS_M2A2_BUSKI_WD",
+"RHS_M2A3_wd",
+"RHS_M2A3_BUSKI_wd",
+"RHS_M2A3_BUSKIII_wd",
+"RHS_M6_wd"
+
+
+// Pilots
+"RHS_UH1Y_FFAR",
+"RHS_UH1Y",
+"RHS_UH1Y_UNARMED",
+"RHS_CH_47F",
+"RHS_UH60M",
+"RHS_UH60M_MEV2",
+"RHS_UH60M_MEV"
+
+"B_Heli_Light_01_armed_F",
+"B_Heli_Light_01_F"
+
+"RHS_AH1Z_wd_CS",
+"RHS_AH1Z_wd_GS",
+"RHS_AH1Z_wd",
+"RHS_AH64D_wd_AA",
+"RHS_AH64D_wd_CS",
+"RHS_AH64D_wd_GS",
+"RHS_AH64D_wd"
+
+"RHS_C130J",
+"RHS_A10"
+*/

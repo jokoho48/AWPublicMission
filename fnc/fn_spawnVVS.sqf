@@ -19,8 +19,6 @@ if (0 != count (nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox
 
 _cfgInfo = [_className] call VVS_fnc_cfgInfo;
 
-_vehicleType = _cfgInfo select 4;
-
 _index = [JK_VehicleTickets, _vehicleType] call BIS_fnc_findInPairs;
 if (_index == -1) then {_index = [JK_VehicleTickets, "Default"] call BIS_fnc_findInPairs;};
 

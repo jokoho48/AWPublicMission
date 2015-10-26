@@ -44,24 +44,12 @@ class VVS_Menu
         {
             idc = -1;
             colorBackground[] = {0,0,0,0};
-            text = "Clear Vehicle Cargo:";
+            text = "";
             sizeEx = 0.04;
             x = 0.105;
             y = 0.805;
             w = 0.8;
             h = (1 / 25);
-        };
-
-        class CargoCheck : VVS_RscActiveText
-        {
-            idc = VVS_CargoCheck;
-            text = "No";
-            action = "[] call VVS_fnc_checkBox";
-            sizeEx = 0.04;
-            colorDisabled[] = {1, 1, 1, 0.3};
-
-            x = 0.32; y = 0.805;
-            w = 0.275; h = 0.04;
         };
 
         class Title : VVS_RscTitle
