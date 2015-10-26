@@ -34,6 +34,7 @@ class JK_loadOut
         class medicWEST {};
         class riflemanWEST {};
         class specialistWEST {};
+        class radioOpWEST {};
 
         // Paratrooper
         class paratrooperWEST {};
@@ -44,12 +45,15 @@ class JK_loadOut
         class paraLeaderWEST {};
         class paraMarksmanWEST {};
         class paraStormtrooperWEST {};
+        class paraAssARWEST {};
+        class paraSpecOpsWEST {};
 
         // Special
         class CrewWEST {};
         class jetPilotWEST {};
         class pjMedicWEST {};
         class pilotWEST {};
+        class SpecOpsWEST {};
     };
 };
 class JK_Logistic_fnc_crate {file = "gear\fn_crate.sqf";};
