@@ -102,6 +102,14 @@
             <English>Radio-Operator</English>
             <German>Funker</German>
         </Key>
+        <Key ID="STR_JK_GEAR_mortarTeamBipod">
+            <English>Mortar-Observer(Bipod)</English>
+            <German>Mörser-Beobachter(Bipod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_mortarTeamTube">
+            <English>Mortar-Gunner(Tube)</English>
+            <German>Mörser-Richtschütze(Tube)</German>
+        </Key>
         <Key ID="STR_JK_GEAR_MARKSMAN">
             <English>Marksman</English>
             <German>Gruppenscharfschütze</German>
