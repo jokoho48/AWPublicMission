@@ -15,9 +15,9 @@
 
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 JK_Gear = "Main";
-JK_USMC = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","stormtrooper","Marksman","Specialist"];
-JK_Para = ["paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","paraStormtrooper"];
-JK_SpeczialClasses = ["Pilot","Crew","jetPilot","pjMedic"];
+JK_USMC = ["Command","Leader","Medic","ARMan","MG","AssMG","At","ATmk153","AtAss","ATAssmk153","Grenadier","Rifleman","stormtrooper","Marksman","Specialist","radioOp"];
+JK_Para = ["paratrooper","paraARman","paraDropMedic","paraExExpert","paraGrenadier","paraLeader","paraMarksman","paraStormtrooper","paraAssAR"];
+JK_SpeczialClasses = ["Pilot","Crew","jetPilot","pjMedic","mortarTeamBipod","mortarTeamTube"];
 JK_classes = JK_USMC + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
