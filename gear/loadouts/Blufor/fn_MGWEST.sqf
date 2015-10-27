@@ -22,7 +22,7 @@ _goggles = "G_Combat";
 _primaryweapon = ["rhs_weap_m240G", "rhs_weap_m240B_CAP", "rhs_weap_m240B_CAP"];
 
 //primary weapon items - (array)
-_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15A"];
+_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.

@@ -22,7 +22,7 @@ _goggles = "";
 _primaryweapon = "rhs_weap_sr25";
 
 //primary weapon items - (array)
-_itemsPrimaryweapon = ["optic_DMS","rhsusf_acc_anpeq15A","rhsusf_acc_harris_bipod", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
+_itemsPrimaryweapon = ["optic_DMS","rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 _ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific _ARhandles. Test it out.
