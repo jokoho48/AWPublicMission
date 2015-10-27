@@ -16,7 +16,6 @@ _command = ["a_sl", "b_sl", "plt_sgt"];
 _SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
 //medics
 _medics = ["plt_med", "a_med", "b_med"];
-
 //MG-Schützen
 _MG = ["b1_ar" ,"b2_ar", "a1_ar", "a2_ar"];
 //assistant MG
@@ -71,6 +70,10 @@ _paraStormtrooper = [];
 _paraAssAR = [];
 //SpecOps Para-Variant
 _paraSpecOps = [];
+//Mortar team (Bipod)
+_mortarTeamBipod = [];
+//Mortar team (Tube)
+_mortarTeamTube = [];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
@@ -102,6 +105,8 @@ _pilotsClass = ["B_Pilot_F"];
 _crewClass = ["B_crew_F"];
 _jetPilotClass = [];
 _pjMedicClass = [];
+_mortarTeamBipodClass = [];
+_mortarTeamTubeClass = [];
 
 ///// No editing necessary below this line /////
 private ["_object","_target"];
@@ -142,6 +147,8 @@ if (!JK_var_gearByClasses) then {
         case (_object in _crew): {"crew"};
         case (_object in _jetPilot): {"jetPilot"};
         case (_object in _pjMedic): {"pjMedic"};
+        case (_object in _mortarTeamBipod): {"mortarTeamBipod"};
+        case (_object in _mortarTeamTube): {"mortarTeamTube"};
         default{""};
     };
 };
@@ -176,7 +183,9 @@ if (_class == "" || JK_var_gearByClasses) then {
         case (typeOf _target in _pilotsClass): {"pilot"};
         case (typeOf _target in _crewClass): {"crew"};
         case (typeOf _target in _jetPilotClass): {"jetPilot"};
-        case (typeOf _target  in _pjMedicClass): {"pjMedic"};
+        case (typeOf _target in _pjMedicClass): {"pjMedic"};
+        case (typeOf _target in _mortarTeamBipodClass): {"mortarTeamBipod"};
+        case (typeOf _target in _mortarTeamTubeClass): {"mortarTeamTube"};
         default {"Rifleman"};
     };
 };

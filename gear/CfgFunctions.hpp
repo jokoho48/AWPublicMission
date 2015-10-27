@@ -54,6 +54,8 @@ class JK_loadOut
         class pjMedicWEST {};
         class pilotWEST {};
         class SpecOpsWEST {};
+        class mortarTeamBipodWEST {};
+        class mortarTeamTubeWEST {};
     };
 };
 class JK_Logistic_fnc_crate {file = "gear\fn_crate.sqf";};
