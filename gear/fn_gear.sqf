@@ -6,6 +6,7 @@ If custom content is added to the units, they possibly have to be added to _glrf
 define per cfgFunctions or from init.sqf or initPlayerLocal.sqf as early as possible via
 call JK_loadOut_fnc_gear;
 */
+_unit setCaptive true;
 
 private ["_uniform", "_headgear", "_vest", "_backpack", "_count"];
 params ["_unit"];
@@ -95,6 +96,19 @@ if (JK_primaryweaponTracers >= 1) then {
     };
     nil
 } count JK_itemsPrimaryweapon;
+
+{
+    if (typeName _x == "ARRAY") then {
+        private "_secAttachmentTemp";
+        _secAttachmentTemp = (_x call BIS_fnc_selectRandom);
+        if (_secAttachmentTemp != "") then {
+            _unit addSecondaryWeaponItem _secAttachmentTemp;
+        };
+    } else {
+        _unit addSecondaryWeaponItem  _x;
+    };
+    nil
+} count JK_launcherItems
 _unit selectWeapon JK_primaryweapon;
 
 _ivBag = if (ace_medical_level == 1) then {
@@ -170,4 +184,10 @@ if (name _unit == "joko // Jonas") then {
 };
 JK_buildNotDone = true;
 [] call VVS_fnc_buildCfg;
-if(true)exitWith{};
+
+_unit setVariable ["ace_medical_medicClass", JK_medicClass];
+_unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];
+_unit setVariable ["ACE_IsEngineer", JK_isEngineer];
+_unit setVariable ["JK_isPilot", JK_isPilot];
+
+_unit setCaptive false;

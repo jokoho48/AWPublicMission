@@ -57,6 +57,7 @@ JK_handgunAmmo = 2;
 JK_launcher = "tf47_smaw_green";
 
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
+JK_launcherItems = [];
 
 //launcher ammo (if a launcher is given) - (integer)
 JK_launcherAmmo = 1;
@@ -122,15 +123,10 @@ JK_itemsLink = [
 //items added to any container - (array)
 JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
+JK_medicClass = 0;
+JK_spawnAllowed = false;
+JK_isEngineer = 0;
+JK_isPilot = false;
+
 ///// No editing necessary below this line /////
-
-params ["_player"];
-_player setCaptive true;    //unfortunately necessary due to the time consumed by changing the weapon
-[_player] call jk_loadOut_fnc_gear;
-_player setVariable ["ace_medical_medicClass", 0];
-_player setVariable ["JK_CrateSpawnAllowed", false];
-_player setVariable ["ACE_IsEngineer", 0];
-_player setVariable ["JK_isPilot", false];
-_player addSecondaryWeaponItem "tf47_optic_smaw";
-_player setCaptive false;
-
+_this call jk_loadOut_fnc_gear;
