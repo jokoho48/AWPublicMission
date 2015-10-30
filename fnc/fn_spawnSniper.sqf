@@ -40,7 +40,7 @@ for "_i" from 1 to _count do {
 
         if (_uncache) then {_grp setVariable ["JK_noCache", true, true]};
 
-        if(SEN_debug isEqualTo 1) then {
+        if(SEN_debug) then {
             _mrk = createMarker [format["SEN_sniper_%1_%2",_grp,_i],getposATL leader _grp];
             _mrk setMarkerType "mil_dot";
             _mrk setMarkerColor "ColorEAST";

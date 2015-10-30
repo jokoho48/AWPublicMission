@@ -56,7 +56,7 @@ if (!isServer) exitWith {};
         _trgOccupy setTriggerStatements ["this", _trgAct, ""];
     };
 
-    if (SEN_debug isEqualTo 1) then {
+    if (SEN_debug) then {
         _radius = (((_townSize select 0) + (_townSize select 1))/2) + 100;
         _mrk = createMarker [format["SEN_occupy_AO_%1",_townName],_townPos];
         _mrk setMarkerShape "ELLIPSE";

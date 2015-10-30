@@ -18,9 +18,9 @@ License:
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 __________________________________________________________________*/
-SEN_debug = (paramsArray select 1);
+SEN_debug = (paramsArray select 1) isEqualTo 1;
 waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
-if (SEN_debug == 1) then {
+if (SEN_debug) then {
     ["JK_MapClickEvent1","onMapSingleClick",{
         if (_ctrl) then {
             _this setPos _pos;

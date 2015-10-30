@@ -17,7 +17,7 @@ private "_prefix";
 if ((backpack player) isEqualTo "") then {player addBackpack "B_Kitbag_cbr"};
 
 // setup debug
-if (SEN_debug isEqualTo 1) then {
+if (SEN_debug) then {
     player allowDamage false;
     player addEventHandler ["respawn",{(_this select 0) allowDamage false}];
 };

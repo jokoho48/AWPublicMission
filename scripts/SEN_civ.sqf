@@ -33,7 +33,7 @@ params ["_dist", "_air"];
     _trgDe = format ["missionNameSpace setvariable [%1,false]",str _trgVar];
     _trg setTriggerStatements [_cond,_trgAct,_trgDe];
 
-    if (SEN_debug isEqualTo 1) then {
+    if (SEN_debug) then {
         [0,"Creating civilian trigger at %1.", text _x] call SEN_fnc_log;
         _mrk = createMarker [format["%1_DEBUG",_trgVar],getposATL _trg];
         _mrk setMarkerColor "ColorBlack";

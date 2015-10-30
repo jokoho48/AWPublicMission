@@ -38,7 +38,7 @@ if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is
     _trgDe = format ["missionNameSpace setvariable [%1,false]",str _trgVar];
     _trg setTriggerStatements [_cond,_trgAct,_trgDe];
 
-    if (SEN_debug isEqualTo 1) then {
+    if (SEN_debug) then {
         [0,"Creating animal trigger: Position: %1, Expression: %2.", _pos,_str] call SEN_fnc_log;
         _mrk = createMarker [format["%1_DEBUG",_trgVar],getposATL _trg];
         _mrk setMarkerColor "ColorGreen";

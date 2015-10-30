@@ -108,7 +108,7 @@ _mrkDefuse setMarkerColor "ColorRED";
 _mrkDefuse setMarkerShape "ELLIPSE";
 _mrkDefuse setMarkerAlpha 0.7;
 _mrkDefuse setMarkerSize [_radius2,_radius2];
-if (SEN_debug isEqualTo 1) then {
+if (SEN_debug) then {
     _mrkDebug1 = createMarker ["SEN_defuse3_mrk",(getposATL SEN_defuseObj)];
     _mrkDebug1 setMarkerType "mil_dot";
     _mrkDebug1 setMarkerText "DET";
@@ -139,7 +139,7 @@ if (SEN_armed) exitWith {
     deleteVehicle SEN_defuseObj;
     SEN_objectCleanup append [_platform1,_platform2];
     SEN_markerCleanup append [_mrkDefuse,_mrkDet];
-    if (SEN_debug isEqualTo 1) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
+    if (SEN_debug) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
     [] call SEN_fnc_setTask;
 };
 
@@ -152,5 +152,5 @@ deleteVehicle SEN_intelObj;
 deleteVehicle SEN_defuseObj;
 SEN_objectCleanup append [_platform1,_platform2];
 SEN_markerCleanup append [_mrkDefuse,_mrkDet];
-if (SEN_debug isEqualTo 1) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
+if (SEN_debug) then {SEN_markerCleanup append [_mrkDebug1,_mrkDebug2]};
 [] call SEN_fnc_setTask;

@@ -1,6 +1,6 @@
 /***************SETTINGS***********************/
 JK_isExploded = false;
-EPD_IED_debug = SEN_debug == 1;
+EPD_IED_debug = SEN_debug;
 hideIedSectionMarkers = true;  //sets the alpha to 0 after spawning IEDs at a section
 hideSafeZoneMarkers = true;  //sets the alpha to 0 of a safezone
 iedSafeZones = ["SEN_safezone_mrk"];

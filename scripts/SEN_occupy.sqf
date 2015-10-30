@@ -90,7 +90,7 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
                     _grp = (group _driver);
                     [_driver,(SEN_range*0.20 max 2000),false] spawn SEN_fnc_setPatrolVeh;
                 };
-                if (SEN_debug isEqualTo 1) then {
+                if (SEN_debug) then {
                     _mrkPatrol = createMarker [format["SEN_patrol_%1",_grp],_pos];
                     _mrkPatrol setMarkerType "o_unknown";
                     _mrkPatrol setMarkerColor "ColorEAST";

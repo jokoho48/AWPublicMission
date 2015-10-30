@@ -90,7 +90,7 @@ SEN_ClearedCitys pushBack _townName;
 publicVariable "SEN_ClearedCitys";
 
 SEN_approvalCiv = SEN_approvalCiv + _approval; publicVariable "SEN_approvalCiv";
-if (SEN_debug isEqualTo 1) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
+if (SEN_debug) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
 
 uiSleep 10;
 

@@ -34,6 +34,6 @@ _text spawn {
     waitUntil {!isNil "JK_DBSetup"};
     ["ArmAWorldPublicMissionErrorLog.log", _this] call db_fnc_log;
 };
-if (SEN_debug isEqualTo 1) then {
+if (SEN_debug) then {
     hintSilent _text;
 };

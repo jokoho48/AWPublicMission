@@ -15,7 +15,7 @@ _posArray = [];
 _counter = 50;
 
 call {
-    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "O_GMG_01_high_F"; _static2 = "O_HMG_01_high_F"; _static3 = "O_Mortar_01_F"};
+    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "O_GMG_01_high_F"; _static2 = "RHS_NSV_TriPod_MSV"; _static3 = "O_Mortar_01_F"};
     if (_side isEqualTo WEST) exitWith {_unit = SEN_unitPoolWest select (random ((count SEN_unitPoolWest) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
     if (_side isEqualTo CIVILIAN) exitWith {_unit = SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
 
@@ -129,7 +129,7 @@ for "_s" from 0 to _counter do {
 
 if !(count _gunnerArray isEqualTo _count) then {[1,"fn_spawnStatic. Gunner array does not equal passed count."] call SEN_fnc_log};
 
-if(SEN_debug isEqualTo 1 && {!(count _gunnerArray isEqualTo 0)}) then {
+if(SEN_debug && {!(count _gunnerArray isEqualTo 0)}) then {
     {
         _mrk = createMarker [format["SEN_static_%1_%2",_x,getposATL _x],getposATL _x];
         _mrk setMarkerType "mil_dot";

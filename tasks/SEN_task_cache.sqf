@@ -48,7 +48,7 @@ _mrk setMarkerSize [_radius,_radius];
 
 [WEST, [_taskID], [_taskDescription, _taskText, ""], _mrk, false, 2, true, "Destroy", false] call BIS_fnc_taskCreate;
 
-if(SEN_debug isEqualTo 1) then {
+if(SEN_debug) then {
     [_taskID] call BIS_fnc_taskSetCurrent;
     [_taskID,_pos] call BIS_fnc_taskSetDestination;
 };
