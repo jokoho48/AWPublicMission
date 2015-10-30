@@ -37,9 +37,7 @@ iedMediumItemsCount = count iedMediumItems;
 iedLargeItemsCount = count iedLargeItems;
 
 if(isServer) then {
-
     call GET_PLACES_OF_INTEREST;
-
     iedSafeRoads = [];
     waitUntil {!isNil "iedSafeZones"};
     {
