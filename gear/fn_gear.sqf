@@ -10,17 +10,13 @@ call JK_loadOut_fnc_gear;
 private ["_uniform", "_headgear", "_vest", "_backpack", "_count"];
 params ["_unit"];
 
-//a lot of arrays
-_medicBackPacks = ["B_AssaultPack_rgr_Medic","B_FieldPack_ocamo_Medic","B_FieldPack_oucamo_Medic","B_AssaultPack_rgr_ReconMedic"];
-_NVGoggles = ["NVGoggles","NVGoggles_OPFOR","NVGoggles_INDEP"];
-
 //randomizers:
-_uniform = _uniforms call BIS_fnc_selectRandom;
-_headgear = _headgears call BIS_fnc_selectRandom;
-_vest = _vests call BIS_fnc_selectRandom;
-_backpack = _backpacks call BIS_fnc_selectRandom;
+_uniform = JK_uniforms call BIS_fnc_selectRandom;
+_headgear = JK_headgears call BIS_fnc_selectRandom;
+_vest = JK_vests call BIS_fnc_selectRandom;
+_backpack = JK_backpacks call BIS_fnc_selectRandom;
 
-if (typeName _primaryWeapon == "ARRAY") then {_primaryWeapon = _primaryWeapon call BIS_fnc_selectRandom;};
+if (typeName JK_primaryweapon == "ARRAY") then {JK_primaryweapon = JK_primaryweapon call BIS_fnc_selectRandom;};
 
 
 //removals:
@@ -39,24 +35,19 @@ if (_backpack != "") then {
     _unit addBackpack _backpack;
 };
 _unit addHeadgear _headgear;
-if (_useProfileGoggles == 0) then {
+if (JK_useProfileGoggles == 0) then {
     removeGoggles _unit;
-    _unit addGoggles _goggles;
+    _unit addGoggles JK_goggles;
 };
 
-//removing FAKs/MediKits/AGM medic stuff again and adding FAKs/MediKits
-if (_backpack in _medicBackPacks) then {
-    _unit removeItems "MediKit";
-    _unit removeItems "FirstAidKit";
-};
 if (_mediKit == 0) then {
-    for "_i" from 1 to _FirstAidKits do    {
+    for "_i" from 1 to JK_FirstAidKits do    {
         _unit addItem "FirstAidKit";
     };
 };
 if (_mediKit >= 1) then {
     _unit addItemToBackpack "MediKit";
-    for "_i" from 1 to _FirstAidKits do    {
+    for "_i" from 1 to JK_FirstAidKits do    {
         _unit addItemToBackpack "FirstAidKit";
     };
 };
@@ -69,28 +60,28 @@ _IR_GrenType = switch (side (group _unit)) do {
     default {"I_IR_Grenade"};
 };
 
-_grenadeArray = [["HandGrenade", _grenadeHE], ["SmokeShell", _grenadeSmokeWhite],["SmokeShellYellow", _grenadeSmokeYellow],["SmokeShellOrange", _grenadeSmokeOrange],["SmokeShellRed", _grenadeSmokeRed],["SmokeShellPurple", _grenadeSmokePurple],["SmokeShellBlue", _grenadeSmokeBlue],["SmokeShellGreen", _grenadeSmokeGreen],["Chemlight_Yellow", _chemlightYellow],["Chemlight_Red", _chemlightRed],["Chemlight_Green", _chemlightGreen],["Chemlight_Blue", _chemlightBlue],[_IR_GrenType, _IRgrenade],["1Rnd_HE_Grenade_shell", _40mmHeGrenadesAmmo],["1Rnd_Smoke_Grenade_shell", _40mmSmokeGrenadesWhite],["1Rnd_SmokeYellow_Grenade_shell", _40mmSmokeGrenadesYellow],["1Rnd_SmokeOrange_Grenade_shell", _40mmSmokeGrenadesOrange],["1Rnd_SmokeRed_Grenade_shell", _40mmSmokeGrenadesRed],["1Rnd_SmokePurple_Grenade_shell", _40mmSmokeGrenadesPurple],["1Rnd_SmokeBlue_Grenade_shell", _40mmSmokeGrenadesBlue],["1Rnd_SmokeGreen_Grenade_shell", _40mmSmokeGrenadesGreen],["UGL_FlareWhite_F", _40mmFlareWhite],["UGL_FlareYellow_F", _40mmFlareYellow],["UGL_FlareRed_F", _40mmFlareRed],["UGL_FlareGreen_F", _40mmFlareGreen],["UGL_FlareCIR_F", _40mmFlareIR]];
+JK_grenadeArray = [["HandGrenade", JK_grenadeHE], ["SmokeShell", JK_grenadeSmokeWhite],["SmokeShellYellow", JK_grenadeSmokeYellow],["SmokeShellOrange", JK_grenadeSmokeOrange],["SmokeShellRed", JK_grenadeSmokeRed],["SmokeShellPurple", JK_grenadeSmokePurple],["SmokeShellBlue", JK_grenadeSmokeBlue],["SmokeShellGreen", JK_grenadeSmokeGreen],["Chemlight_Yellow", JK_chemlightYellow],["Chemlight_Red", JK_chemlightRed],["Chemlight_Green", JK_chemlightGreen],["Chemlight_Blue", JK_chemlightBlue],[_IR_GrenType, JK_IRgrenade],["1Rnd_HE_Grenade_shell", JK_40mmHeGrenadesAmmo],["1Rnd_Smoke_Grenade_shell", JK_40mmSmokeGrenadesWhite],["1Rnd_SmokeYellow_Grenade_shell", JK_40mmSmokeGrenadesYellow],["1Rnd_SmokeOrange_Grenade_shell", JK_40mmSmokeGrenadesOrange],["1Rnd_SmokeRed_Grenade_shell", JK_40mmSmokeGrenadesRed],["1Rnd_SmokePurple_Grenade_shell", JK_40mmSmokeGrenadesPurple],["1Rnd_SmokeBlue_Grenade_shell", JK_40mmSmokeGrenadesBlue],["1Rnd_SmokeGreen_Grenade_shell", JK_40mmSmokeGrenadesGreen],["UGL_FlareWhite_F", JK_40mmFlareWhite],["UGL_FlareYellow_F", JK_40mmFlareYellow],["UGL_FlareRed_F", JK_40mmFlareRed],["UGL_FlareGreen_F", JK_40mmFlareGreen],["UGL_FlareCIR_F", JK_40mmFlareIR]];
 {
     _unit addMagazines _x;
     nil
-} count _grenadeArray;
+} count JK_grenadeArray;
 
 //weapons
-[_unit,_binocular,1] call BIS_fnc_addWeapon;
-[_unit,_handgun,_handgunAmmo] call BIS_fnc_addWeapon;
-{_unit addHandgunItem _x; true} count _itemsHandgun;
-[_unit,_launcher,_launcherAmmo,_launcherHandle] call BIS_fnc_addWeapon;
-if (_primaryweaponTracers >= 1) then {
+[_unit,JK_binocular,1] call BIS_fnc_addWeapon;
+[_unit,JK_handgun,JK_handgunAmmo] call BIS_fnc_addWeapon;
+{_unit addHandgunItem _x; true} count JK_itemsHandgun;
+[_unit,JK_launcher,JK_launcherAmmo,JK_launcherHandle] call BIS_fnc_addWeapon;
+if (JK_primaryweaponTracers >= 1) then {
     if (_primaryWeapon == "arifle_MX_SW_Black_F" || _primaryWeapon == "arifle_MX_SW_F") then {
-        [_unit, _primaryWeapon, _primaryweaponTracers, _ARhandle + 1] call BIS_fnc_addWeapon;
-        [_unit, _primaryWeapon, _primaryweaponAmmo, _ARhandle] call BIS_fnc_addWeapon;
+        [_unit, _primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
+        [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
     }
     else {
-        [_unit, _primaryWeapon, _primaryweaponAmmo, _ARhandle] call BIS_fnc_addWeapon;
-        [_unit, _primaryWeapon, _primaryweaponTracers, _ARhandle + 1] call BIS_fnc_addWeapon;
+        [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
+        [_unit, _primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
     };
 } else {
-    [_unit, _primaryWeapon, _primaryweaponAmmo, _ARhandle] call BIS_fnc_addWeapon;
+    [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
 };
 {
     if (typeName _x == "ARRAY") then {
@@ -103,8 +94,8 @@ if (_primaryweaponTracers >= 1) then {
         _unit addPrimaryWeaponItem _x;
     };
     nil
-} count _itemsPrimaryweapon;
-_unit selectWeapon _primaryweapon;
+} count JK_itemsPrimaryweapon;
+_unit selectWeapon JK_primaryweapon;
 
 _ivBag = if (ace_medical_level == 1) then {
      "ACE_bloodIV";
@@ -112,70 +103,70 @@ _ivBag = if (ace_medical_level == 1) then {
     "ACE_salineIV";
 };
 
-for "_i" from 1 to _IVBagSaline250 do {
+for "_i" from 1 to JK_IVBagSaline250 do {
     _unit addItem format [_ivBag,"_250"];
 };
 
-for "_i" from 1 to _IVBagSaline500 do {
+for "_i" from 1 to JK_IVBagSaline500 do {
     _unit addItem format [_ivBag,"_500"];
 };
 
-for "_i" from 1 to _IVBagSaline1000 do {
+for "_i" from 1 to JK_IVBagSaline1000 do {
     _unit addItem _ivBag;
 };
 
-for "_i" from 1 to _epinephrine do {
+for "_i" from 1 to JK_epinephrine do {
     _unit addItem "ACE_epinephrine";
 };
 
-for "_i" from 1 to _morphine do {
+for "_i" from 1 to JK_morphine do {
     _unit addItem "ACE_morphine";
 };
 
-for "_i" from 1 to _atropine do {
+for "_i" from 1 to JK_atropine do {
     _unit addItem "ACE_atropine";
 };
 
-for "_i" from 1 to _fieldDressing do {
+for "_i" from 1 to JK_fieldDressing do {
     _unit addItem "ACE_fieldDressing";
 };
 
-for "_i" from 1 to _packingBandage do {
+for "_i" from 1 to JK_packingBandage do {
     _unit addItem "ACE_packingBandage";
 };
 
-for "_i" from 1 to _elasticBandage do {
+for "_i" from 1 to JK_elasticBandage do {
     _unit addItem "ACE_elasticBandage";
 };
 
-for "_i" from 1 to _quikclot do {
+for "_i" from 1 to JK_quikclot do {
     _unit addItem "ACE_quikclot";
 };
 
-for "_i" from 1 to _tourniquet do {
+for "_i" from 1 to JK_tourniquet do {
     _unit addItem "ACE_tourniquet";
 };
 
-for "_i" from 1 to _earPlugs do {
+for "_i" from 1 to JK_earPlugs do {
     _unit addItem "ACE_EarPlugs";
 };
 
-for "_i" from 1 to _swapBarrel do {
+for "_i" from 1 to JK_swapBarrel do {
     _unit addItem "ACE_SpareBarrel";
 };
 
 //items:
-{_unit linkitem _x; false} count _itemslink;
-{_unit addItemToUniform _x; false} count _itemsUniform;
-{_unit addItemToVest _x; false} count _itemsVest;
+{_unit linkitem _x; false} count JK_itemslink;
+{_unit addItemToUniform _x; false} count JK_itemsUniform;
+{_unit addItemToVest _x; false} count JK_itemsVest;
 if (_backpack != "") then {
-    {_unit addItemToBackpack _x; false} count _itemsBackpack;
+    {_unit addItemToBackpack _x; false} count JK_itemsBackpack;
 };
-{_unit addItem _x; false} count _items;
+{_unit addItem _x; false} count JK_items;
 if (name _unit == "joko // Jonas") then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {
-    [_unit, _insignium] call BIS_fnc_setUnitInsignia;
+    [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
 };
 JK_buildNotDone = true;
 [] call VVS_fnc_buildCfg;

@@ -34,4 +34,4 @@ if !(isNil 'JK_respawn_EVH') then {
 JK_respawn_EVH = _unit addEventhandler['Respawn', _func];
 [_unit] call _func;
 
-if (true) exitWith {};
+

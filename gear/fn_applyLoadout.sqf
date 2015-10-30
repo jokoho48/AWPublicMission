@@ -192,4 +192,4 @@ if (_class == "" || JK_var_gearByClasses) then {
 
 [_target, _class] call JK_loadOut_fnc_selectGear;
 
-if (true) exitWith {};
+
