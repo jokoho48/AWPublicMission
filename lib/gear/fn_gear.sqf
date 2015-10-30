@@ -41,12 +41,12 @@ if (JK_useProfileGoggles == 0) then {
     _unit addGoggles JK_goggles;
 };
 
-if (_mediKit == 0) then {
+if (JK_mediKit == 0) then {
     for "_i" from 1 to JK_FirstAidKits do    {
         _unit addItem "FirstAidKit";
     };
 };
-if (_mediKit >= 1) then {
+if (JK_mediKit >= 1) then {
     _unit addItemToBackpack "MediKit";
     for "_i" from 1 to JK_FirstAidKits do    {
         _unit addItemToBackpack "FirstAidKit";
@@ -73,16 +73,15 @@ JK_grenadeArray = [["HandGrenade", JK_grenadeHE], ["SmokeShell", JK_grenadeSmoke
 {_unit addHandgunItem _x; true} count JK_itemsHandgun;
 [_unit,JK_launcher,JK_launcherAmmo,JK_launcherHandle] call BIS_fnc_addWeapon;
 if (JK_primaryweaponTracers >= 1) then {
-    if (_primaryWeapon == "arifle_MX_SW_Black_F" || _primaryWeapon == "arifle_MX_SW_F") then {
-        [_unit, _primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
-        [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
-    }
-    else {
-        [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
-        [_unit, _primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
+    if (JK_primaryWeapon in ["arifle_MX_SW_Black_F", "arifle_MX_SW_F"]) then {
+        [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
+        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
+    } else {
+        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
+        [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
     };
 } else {
-    [_unit, _primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
+    [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
 };
 {
     if (typeName _x == "ARRAY") then {
@@ -108,7 +107,7 @@ if (JK_primaryweaponTracers >= 1) then {
         _unit addSecondaryWeaponItem  _x;
     };
     nil
-} count JK_launcherItems
+} count JK_launcherItems;
 _unit selectWeapon JK_primaryweapon;
 
 _ivBag = if (ace_medical_level == 1) then {

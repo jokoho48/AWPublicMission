@@ -8,16 +8,17 @@ class JK_loadOut
     tag = "JK_loadOut";
     class core
     {
-        file = "gear";
+        file = "lib\gear";
         class applyLoadout {};
         class gear {};
         class loadoutsInit {};
         class chooseLoadout{};
         class selectGear {};
+        class crate {postInit = 1};
     };
     class loadoutsWEST
     {
-        file = "gear\loadouts\Blufor";
+        file = "lib\gear\loadouts\Blufor";
         // USMC
         class armanWEST {};
         class assmgWEST {};
@@ -58,4 +59,3 @@ class JK_loadOut
         class mortarTeamTubeWEST {};
     };
 };
-class JK_Logistic_fnc_crate {file = "gear\fn_crate.sqf";};

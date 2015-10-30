@@ -47,7 +47,7 @@ class Params {
 class CfgFunctions {
     #include "scripts\VVS\Functions.h"
     #include "data\SEN_cfgFunctions.hpp"
-    #include "gear\cfgFunctions.hpp"
+    #include "lib\gear\cfgFunctions.hpp"
     #include "lib\repair\cfgFunctions.hpp"
     #include "lib\core\cfgFunctions.hpp"
     #include "lib\caching\cfgFunctions.hpp"

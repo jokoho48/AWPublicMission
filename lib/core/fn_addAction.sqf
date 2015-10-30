@@ -15,7 +15,7 @@
  * Index <Integer>
  *
  * Example:
- * [player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction
+ * [player, "test", {test}, {"test" == "test"}, [], 9, 12.1] call JK_Core_fnc_addAction
  *
  * Public: No
  */
