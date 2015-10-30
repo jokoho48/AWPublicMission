@@ -2,10 +2,7 @@
 private "_compare";
 params ["_wire","_cutWire"];
 
-//compare wires
-_compare = [_wire, _cutWire] call BIS_fnc_areEqual;
-
-if (_compare) then {
+if (_wire isEqualTo _cutWire) then {
     ["<t size='0.6'>EXPLOSIVES DEFUSED</t>"] spawn bis_fnc_dynamicText;
     SEN_defused = true; publicVariableServer "SEN_defused";
 } else {

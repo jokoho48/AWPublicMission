@@ -2,10 +2,7 @@
 private ["_code","_inputCode","_compare"];
 params ["_code", "_inputCode"];
 
-//compare codes
-_compare = [_code, _inputCode] call BIS_fnc_areEqual;
-
-if (_compare) then {
+if (_code isEqualTo _inputCode) then {
     ["<t size='0.6'>EXPLOSIVES DEFUSED</t>"] spawn bis_fnc_dynamicText;
     SEN_defused = true; publicVariableServer "SEN_defused";
 } else {
