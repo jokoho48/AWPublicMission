@@ -28,7 +28,7 @@ _fnc_gear_Call = {
     {
         private ["_string", "_cond", "_color"];
         _color = "00FF00";
-        _cond = "(_target distance _this < 3) && " + call {
+        _cond = call {
             if (_x in JK_USMC) exitWith {_color = "00FF00";"JK_Gear == 'USMC'"};
             if (_x in JK_Para) exitWith {_color = "0011FF";"JK_Gear == 'Para'"};
             if (_x in JK_SpeczialClasses) exitWith {_color = "F3FF00";"JK_Gear == 'Spec'"};
@@ -38,10 +38,10 @@ _fnc_gear_Call = {
         _string = (format ["STR_JK_GEAR_%1", toUpper _x]);
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
         _string = (format["<t color=""#%2"">%1</t>",_string, _color]);
-        _this addAction [_string, {
+        [_this, _string, {
             [player, _this select 3] call JK_loadOut_fnc_selectGear;
             JK_Gear = "Main";
-        }, toLower _x, _foreachindex + 1, false, true, "", _cond];
+        }, _cond, toLower _x, _foreachindex + 1, 3] call JK_Core_fnc_addAction;
     } forEach JK_classes;
 };
 

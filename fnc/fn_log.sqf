@@ -8,19 +8,19 @@ Description: formats and logs messages to RPT
              returns nothing
 __________________________________________________________________*/
 params ["_type", "_msg"];
-if !(isServer) exitWith {_this remoteExecCall ["SEN_fnc_log", 2];};
+if !(isServer) then {_this remoteExecCall ["SEN_fnc_log", 2];};
 
 if !(typeName _msg isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
 
 if (typeName _type isEqualTo "SCALAR") then {
     _type = call {
-        if (_type isEqualTo 1) exitWith {"SEN_WARNING: "};
-        if (_type isEqualTo 2) exitWith {"SEN_ERROR: "};
-        "SEN_LOG: "
+        if (_type isEqualTo 1) exitWith {"WARNING: "};
+        if (_type isEqualTo 2) exitWith {"ERROR: "};
+        "LOG: "
     };
 };
 _time = if (!isNil "JK_DBSetup" && !isNil "db_fnc_time") then {
-    call db_fnc_time;
+    [true] call db_fnc_time;
 } else {
     str serverTime;
 };

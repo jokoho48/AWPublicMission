@@ -54,7 +54,7 @@ sleep 3;
 [_hostage] call SEN_fnc_setUnitHostage;
 _hostage allowdamage true;
 
-[WEST,[_taskID],[_taskDescription, _taskText, ""],_vehPos,false,1,true,"C",false] call BIS_fnc_taskCreate;
+[WEST,[_taskID],[_taskDescription, _taskText, ""],_pos,false,1,true,"C",false] call BIS_fnc_taskCreate;
 
 waitUntil {sleep 10; (_hostage getVariable ["ace_captives_ishandcuffed", false])};
 
