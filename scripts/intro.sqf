@@ -1,12 +1,14 @@
-if (!isPlayer player) exitWith {};
+if (!hasInterface) exitWith {};
+waitUntil {!isNull player};
+waitUntil {!isNull (findDisplay 46)};
 private  ["_handle", "_time", "_times"];
 _handle = createdialog "AW_INTRO";
-_time = 1800;
-_times = 0;
+_time = 120;
+_times = 10;
 
 {
     _code = compile format ["hint parseText ""%1""", _x];
-    [_code, [], _time] call ace_common_fnc_waitAndExecute;
+    [_code, [], _times] call ace_common_fnc_waitAndExecute;
     _times = _time + _times;
     nil
 } count [
