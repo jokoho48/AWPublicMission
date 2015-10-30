@@ -22,7 +22,7 @@ JK_classes = JK_USMC + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
     //[player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction;
-    [_this ,"<t color='#00FF00'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 12, 3];
+    [_this ,"<t color='#00FF00'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 12, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#0011FF'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 12, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#F3FF00'>Crew/Special Gear</t>", {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 12, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Back</t>", {JK_Gear = "Main"}, {JK_Gear != "Main"}, nil, 12, 3] call JK_Core_fnc_addAction;

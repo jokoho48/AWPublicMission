@@ -157,9 +157,6 @@ if (true) then {
 _action = ['SEN_Civ','Civilian','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
 
-_action = ['SEN_FOB','Foward Operating Base','',{},{true}] call ace_interact_menu_fnc_createAction;
-[player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
-
 _action = ['SEN_Transport','Request Transport','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
 
@@ -168,16 +165,9 @@ _action = ['JK_Tickets','Check Tickets','',{hintSilent format ["Currently are %1
 
 _action = ['SEN_Approval','Check Civilian Approval','',{call SEN_fnc_checkApproval;},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG", "SEN_Civ"], _action] call ace_interact_menu_fnc_addActionToObject;
-/////////////////
 
 _action = ['SEN_Intel','Gather Intel','',{[] spawn SEN_fnc_getIntel;},{(vehicle player isEqualTo player) && {!(player getVariable ["SEN_inProgress",false])}}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
-
-//_action = ['SEN_FOB_create','Deploy FOB Pirelli','',{[] spawn SEN_fnc_fobCreate;},{(vehicle player isEqualTo player) && {!(player getVariable ["SEN_inProgress",false])} && {(speed player < 1)} && {(getMarkerColor "sen_fob_mrk" isEqualTo "")}}] call ace_interact_menu_fnc_createAction;
-//[player, 1, ["ACE_SelfActions","SEN_DCG","SEN_FOB"], _action] call ace_interact_menu_fnc_addActionToObject;
-
-//_action = ['SEN_FOB_request','Request FOB Pirelli Control','',{call SEN_fnc_fobRequest;},{(vehicle player isEqualTo player) && {!(player getVariable ["SEN_inProgress",false])}}] call ace_interact_menu_fnc_createAction;
-//[player, 1, ["ACE_SelfActions","SEN_DCG","SEN_FOB"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _action = ['SEN_Question','Question Nearby Civilians','',{call SEN_fnc_onCivQuestion;},{(vehicle player isEqualTo player)}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions", "SEN_DCG", "SEN_Civ"], _action] call ace_interact_menu_fnc_addActionToObject;

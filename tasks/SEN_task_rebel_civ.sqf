@@ -60,7 +60,6 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         createVehicle ["R_TBG32V_F", _targetPos,[],0,"CAN_COLLIDE"];
         {if (random 1 > 0.5) then {createVehicle ["R_TBG32V_F", getposATL _x,[],0,"CAN_COLLIDE"]}; _x setDamage 1} foreach (curatorEditableObjects SEN_curatorFOB);
         sleep 8;
-        call SEN_fnc_fobDelete;
         [_taskID, "FAILED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
         sleep _sleep;

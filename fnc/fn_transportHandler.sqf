@@ -39,16 +39,6 @@ if (_pos isEqualTo []) exitWith {
     missionNameSpace setVariable ["SEN_transportReady", 1];
     deleteVehicle _transport;
 };
-// check if near FOB and has helipad
-if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
-    if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
-        _fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
-        if(!isNil "_fobHeliPad") then {
-            _isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
-            if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
-        };
-    };
-};
 
 {
     _dir = ([_pos, getpos _x] call BIS_fnc_dirTo) + 180;
@@ -151,16 +141,6 @@ if (_pos isEqualTo []) exitWith {
     deleteVehicle _transport;
     uiSleep 300;
     missionNameSpace setVariable ["SEN_transportReady", 1];
-};
-// check if near FOB and has helipad
-if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
-    if (_pos distance getMarkerPos "sen_fob_mrk" < 100) then {
-        _fobHeliPad = (nearestObjects [_pos, ["Land_HelipadCircle_F","Land_HelipadCivil_F","Land_HelipadEmpty_F","Land_HelipadRescue_F","Land_HelipadSquare_F","Land_JumpTarget_F"], 100]) select 0;
-        if(!isNil "_fobHeliPad") then {
-            _isEmpty = (getPosATL _fobHeliPad) isFlatEmpty [_maxDeminsion, 0, 0.6, _maxDeminsion, 0, false, _fobHeliPad];
-            if (count _isEmpty > 0) then {_pos = getPosATL _fobHeliPad};
-        };
-    };
 };
 {if (isPlayer _x) then {["SEN_transportWelcome","playSound",owner _x] call BIS_fnc_MP}} forEach (crew _transport);
 _hlz setMarkerPos _pos;

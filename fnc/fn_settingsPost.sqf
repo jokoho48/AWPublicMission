@@ -55,9 +55,6 @@ if (SEN_enemySide isEqualTo EAST) then {_trgSafeZone setTriggerActivation ["EAST
 // transport setup
 "SEN_transportRequest" addPublicVariableEventHandler {[_this select 1] spawn SEN_fnc_transportHandler};
 
-// FOB request setup
-"SEN_fobRequest" addPublicVariableEventHandler {[_this select 1] spawn SEN_fnc_fobRequestHandler};
-
 // debug setup
 if (SEN_debug) then {
     [] spawn {
