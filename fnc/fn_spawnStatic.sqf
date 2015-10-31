@@ -15,7 +15,7 @@ _posArray = [];
 _counter = 50;
 
 call {
-    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "O_GMG_01_high_F"; _static2 = "RHS_NSV_TriPod_MSV"; _static3 = "O_Mortar_01_F"};
+    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "RHS_NSV_TriPod_MSV"; _static2 = (["O_GMG_01_high_F", "O_HMG_01_high_F"] call BIS_fnc_selectRandom); _static3 = "O_Mortar_01_F"};
     if (_side isEqualTo WEST) exitWith {_unit = SEN_unitPoolWest select (random ((count SEN_unitPoolWest) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
     if (_side isEqualTo CIVILIAN) exitWith {_unit = SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
 
