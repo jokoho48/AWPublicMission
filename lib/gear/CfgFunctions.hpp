@@ -20,6 +20,7 @@ class JK_loadOut
     {
         file = "lib\gear\loadouts\Blufor";
         // USMC
+        class FTLWEST {};
         class armanWEST {};
         class assmgWEST {};
         class mgWEST {};

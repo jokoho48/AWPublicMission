@@ -62,7 +62,7 @@ JK_launcherItems = ["tf47_optic_m3maaws"];
 JK_launcherAmmo = 2;
 
 //binocular - (string)
-JK_binocular = "ACE_Vector";
+JK_binocular = "Binocular";
 
 //throwables - (integer)
 JK_grenadeHE = 0;

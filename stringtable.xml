@@ -7,6 +7,10 @@
             <German>Kommander</German>
         </Key>
         <Key ID="STR_JK_GEAR_LEADER">
+            <English>Squad Leader</English>
+            <German>Gruppen Führer</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_FTL">
             <English>Team Leader</English>
             <German>Truppführer</German>
         </Key>

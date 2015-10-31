@@ -63,7 +63,7 @@ JK_launcherItems = [];
 JK_launcherAmmo = 1;
 
 //binocular - (string)
-JK_binocular = "ACE_Vector";
+JK_binocular = "Binocular";
 
 //throwables - (integer)
 JK_grenadeHE = 0;

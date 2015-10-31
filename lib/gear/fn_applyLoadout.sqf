@@ -14,6 +14,8 @@ JK_var_gearByClasses = false;
 _command = ["a_sl", "b_sl", "plt_sgt"];
 //group leaders
 _SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
+//FireTeam Leader
+_FTL = [];
 //medics
 _medics = ["plt_med", "a_med", "b_med"];
 //MG-Schützen
@@ -78,6 +80,7 @@ _mortarTeamTube = [];
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
 _SLClass = ["B_Soldier_TL_F"];
+_FTLClass = [];
 _medicsClass = ["B_medic_F"];
 _MGClass = ["B_soldier_AR_F"];
 _assMGClass = ["B_soldier_AAR_F"];
@@ -120,6 +123,7 @@ if (!JK_var_gearByClasses) then {
     _class = switch true do {
         case (_object in _command): {"command"};
         case (_object in _SL): {"leader"};
+        case (_object in _FTL): {"FTL"};
         case (_object in _medics): {"medic"};
         case (_object in _MG): {"MG"};
         case (_object in _stormtrooper): {"stormtrooper"};
@@ -155,6 +159,7 @@ if (!JK_var_gearByClasses) then {
 if (_class == "" || JK_var_gearByClasses) then {
     _class = switch true do {
         case (typeOf _target in _commandClass): {"command"};
+        case (typeOf _target in _FTLClass): {"FTL"};
         case (typeOf _target in _SLClass): {"leader"};
         case (typeOf _target in _medicsClass): {"medic"};
         case (typeOf _target in _MGClass): {"MG"};
@@ -191,5 +196,3 @@ if (_class == "" || JK_var_gearByClasses) then {
 };
 
 [_target, _class] call JK_loadOut_fnc_selectGear;
-
-

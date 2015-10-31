@@ -123,9 +123,9 @@ JK_itemsLink = [
 JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 JK_medicClass = 0;
-JK_spawnAllowed = false;
-JK_isEngineer = 0;
-JK_isPilot = false;
+JK_spawnAllowed = true;
+JK_isEngineer = 2;
+JK_isPilot = true;
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;

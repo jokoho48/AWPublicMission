@@ -188,5 +188,4 @@ _unit setVariable ["ace_medical_medicClass", JK_medicClass];
 _unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];
 _unit setVariable ["ACE_IsEngineer", JK_isEngineer];
 _unit setVariable ["JK_isPilot", JK_isPilot];
-
 _unit setCaptive false;
