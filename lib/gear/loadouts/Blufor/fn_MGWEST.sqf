@@ -26,8 +26,8 @@ JK_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 3;
-JK_primaryweaponTracers = 2;
+JK_primaryweaponAmmo = 0;
+JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
@@ -51,7 +51,7 @@ JK_handgun = "rhsusf_weap_m1911a1";
 JK_itemsHandgun = [];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 2;
+JK_handgunAmmo = 1;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -120,7 +120,13 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",
+    "rhsusf_100Rnd_762x51",
+    "rhsusf_100Rnd_762x51",
+    "rhsusf_100Rnd_762x51",
+    "rhsusf_100Rnd_762x51_m62_tracer",
+    "rhsusf_100Rnd_762x51_m62_tracer"
+];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;
