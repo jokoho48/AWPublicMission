@@ -38,6 +38,7 @@ if (isServer || (!isServer && !hasInterface)) then {
     waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
     [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 };
+[] spawn JK_Core_fnc_clientInit;
 /*
 if (hasInterface) then {
     ["playerInventoryChanged", {

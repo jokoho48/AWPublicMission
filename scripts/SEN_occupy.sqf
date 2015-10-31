@@ -38,7 +38,18 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
     call {
         if (_townType isEqualTo "NameCityCapital") exitWith {
             [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
+            [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
+            [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
+            [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             _grp = [_townPos,0,_strength,SEN_enemySide] call SEN_fnc_spawnGroup;
             _vehArray = [([_townPos, 50, 150, 2, 0, 1, 0] call BIS_fnc_findSafePos),1,1,SEN_enemySide] call SEN_fnc_spawnGroup;
@@ -51,7 +62,14 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
         };
         if (_townType isEqualTo "NameCity") exitWith {
             [_townPos,ceil random 3,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
+            [_townPos,ceil random 3,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
+            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             _grp = [_townPos,0,_strength*.75,SEN_enemySide] call SEN_fnc_spawnGroup;
             [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
@@ -59,14 +77,12 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
                 _vehArray = [([_townPos, 50, 150, 2, 0, 1, 0] call BIS_fnc_findSafePos),1,1,SEN_enemySide] call SEN_fnc_spawnGroup;
                 [(_vehArray select 0),_avgTownSize*2,false] spawn SEN_fnc_setPatrolVeh;
             };
-            if (random 1 < 0.25) then {
-                _airArray = [_townPos,2,1] call SEN_fnc_spawnGroup;
-                [(_airArray select 0),2000,true] spawn SEN_fnc_setPatrolVeh;
-            };
         };
         // NameVillage
         [_townPos,ceil random 2,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
         [_townPos,_avgTownSize,1] call SEN_fnc_spawnTower;
+        [_townPos,_avgTownSize,1] call SEN_fnc_spawnTower;
+        [_townPos, _avgTownSize*0.45, 1] call SEN_fnc_spawnStatic;
         [_townPos, _avgTownSize*0.45, 1] call SEN_fnc_spawnStatic;
         _grp = [_townPos,0,_strength*.50,SEN_enemySide] call SEN_fnc_spawnGroup;
         [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;

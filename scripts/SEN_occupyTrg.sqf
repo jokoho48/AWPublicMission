@@ -6,6 +6,7 @@ Last modified: 7/25/2015
 Description: create triggers over occupied locations that monitor enemy count
 __________________________________________________________________*/
 if (!isServer) exitWith {};
+JK_fnc_occupyTrgAct = compile preprocessFileLineNumbers "scripts\SEN_occupyTrgAct.sqf";
 
 {
     _townPos = getpos _x;
@@ -25,7 +26,7 @@ if (!isServer) exitWith {};
             _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
             _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
             _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-            _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+            _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
             _trgOccupy setTriggerStatements ["this", _trgAct, ""];
 
         };
@@ -39,7 +40,7 @@ if (!isServer) exitWith {};
             _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
             _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
             _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-            _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+            _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
             _trgOccupy setTriggerStatements ["this", _trgAct, ""];
         };
 
@@ -52,7 +53,7 @@ if (!isServer) exitWith {};
         _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
         _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
         _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
-        _trgAct = format ["[%1,%2] spawn compile preprocessFileLineNumbers 'scripts\SEN_occupyTrgAct.sqf'",str _var,str _mrkOccupy];
+        _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
         _trgOccupy setTriggerStatements ["this", _trgAct, ""];
     };
 
