@@ -35,6 +35,10 @@ for "_s" from floor(random 10) to 0 step -1 do {
 
 if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SEN_taskList};
 
+if (isNil "SEN_fnc_rebelTastCiv") then {
+    SEN_fnc_rebelTastCiv = compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
+};
+
 [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_officer.sqf";
 call SEN_fnc_setTaskCiv;
-[] spawn compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
+[] spawn SEN_fnc_rebelTastCiv;

@@ -7,7 +7,7 @@ class Header {
 overviewPicture = "media\SEN_imgLogo.paa";
 Author = "SENSEI edit for Armaworld";
 onLoadName = "Dynamic Combat Gen. Edit for Armaworld";
-onLoadMission = "DCG 3.0.9 edit V20";
+onLoadMission = "DCG 3.0.9 edit V22";
 loadScreen = "media\SEN_imgLogo.paa";
 briefing = 0;
 respawn = 3;
@@ -47,7 +47,7 @@ class Params {
 class CfgFunctions {
     #include "scripts\VVS\Functions.h"
     #include "data\SEN_cfgFunctions.hpp"
-    #include "gear\cfgFunctions.hpp"
+    #include "lib\gear\cfgFunctions.hpp"
     #include "lib\repair\cfgFunctions.hpp"
     #include "lib\core\cfgFunctions.hpp"
     #include "lib\caching\cfgFunctions.hpp"

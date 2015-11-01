@@ -46,7 +46,7 @@ JK_fnc_startLoop = {
             playSound "button_click";
             JK_lastTime = time;
         };
-    }, 0, []] call CBA_fnc_addPerFrameHandler;
+    }, 0.00001, []] call CBA_fnc_addPerFrameHandler;
 };
 
 JK_fnc_stopLoop = {
@@ -55,8 +55,8 @@ JK_fnc_stopLoop = {
 };
 
 JK_fnc_addAction = {
-    player addAction ["<t color='#AE2020'>Start Mine Detector</t>", JK_fnc_startLoop, [], 99, false, false, "", "vehicle player == player && isNil'JK_idPFH' && 'MineDetector' in items player"];
-    player addAction ["<t color='#AE2020'>Stop Mine Detector</t>", JK_fnc_stopLoop, [], 99, false, false, "", "!isNil'JK_idPFH'"];
+    [player, "<t color='#AE2020'>Start Mine Detector</t>", JK_fnc_startLoop, {vehicle player == player && isNil'JK_idPFH' && 'MineDetector' in items player}] call JK_Core_fnc_addAction;
+    [player, "<t color='#AE2020'>Stop Mine Detector</t>", JK_fnc_stopLoop, {!isNil'JK_idPFH'}] call JK_Core_fnc_addAction;
 };
 [] spawn {
     waitUntil {!isNull player};

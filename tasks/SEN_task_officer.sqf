@@ -32,7 +32,7 @@ SEN_intelObj addEventHandler ["hit", {
 
 [WEST, [_taskID], [_taskDescription, _taskText, ""], getPos _townMarker, false, -1, true, "Search", false] call BIS_fnc_taskCreate;
 
-if(SEN_debug isEqualTo 1) then {
+if(SEN_debug) then {
     [_taskID] call BIS_fnc_taskSetCurrent;
     [_taskID,getPosATL SEN_intelObj] call BIS_fnc_taskSetDestination;
 };

@@ -148,7 +148,7 @@ class Mission
 		year=2035;
 		month=6;
 		day=24;
-		hour=12;
+		hour=14;
 		minute=0;
 		startFogDecay=0.013;
 		forecastFogDecay=0.013;
@@ -175,6 +175,7 @@ class Mission
 					rank="MAJOR";
 					skill=0.60000002;
 					text="plt_co";
+					init="this setVariable [""ACE_canMoveRallypoint"", true, true];";
 					description="Platoon Commander";
 				};
 				class Item1
@@ -1435,7 +1436,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="1";
+							value="0";
 							parentCls="ace_mk6mortar_module";
 							typeName="allowComputerRangefinder";
 						};
@@ -2041,7 +2042,7 @@ class Mission
 			vehicle="Land_Laptop_unfolded_F";
 			skill=0.60000002;
 			text="SEN_mob_laptop";
-			init="this setdir 223.83;this setposATL [15221.524414,17333.591797,1.28584];this setVectorUp [0,0,1]; this enableSimulation false; this addAction [""<t color='#ff1111'>Dismantle FOB Pirelli</t>"",""scripts\SEN_deleteFOB.sqf"",[],-90,false]; this addAction [""<t color='#ff1111'>Clean MOB Dodge</t>"",""scripts\SEN_cleanMOB.sqf"",[],-90,false]; this allowDamage false; ";
+			init="this setdir 223.83;this setposATL [15221.524414,17333.591797,1.28584];this setVectorUp [0,0,1]; this enableSimulation false; this allowDamage false; ";
 		};
 		class Item14
 		{
@@ -3445,6 +3446,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_HelipadSquare_F";
 			skill=0.60000002;
+			text="JK_sellingPoint";
 			init="this enableSimulation false;";
 		};
 		class Item149
@@ -3985,7 +3987,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=22;
+		items=23;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4171,13 +4173,21 @@ class Mission
 			type="Empty";
 			angle=-47.030998;
 		};
+		class Item22
+		{
+			position[]={15212.957,17.957888,17305.168};
+			name="JK_TP";
+			text="Teleport";
+			type="b_hq";
+			colorName="ColorWEST";
+		};
 	};
 	class Sensors
 	{
 		items=4;
 		class Item0
 		{
-			position[]={15081.762,17.91,17145.814};
+			position[]={15081.576,17.91,17145.863};
 			a=6;
 			b=6;
 			activationBy="ANY";
@@ -4192,7 +4202,7 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={15106.229,17.91,17184.189};
+			position[]={15105.019,17.91,17175.717};
 			a=10;
 			b=10;
 			activationBy="WEST";
@@ -4207,7 +4217,7 @@ class Mission
 		};
 		class Item2
 		{
-			position[]={15179.994,17.905634,17351.73};
+			position[]={15178.411,17.903959,17352.057};
 			a=10;
 			b=10;
 			activationBy="WEST";

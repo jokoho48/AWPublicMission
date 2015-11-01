@@ -31,8 +31,6 @@ class SEN {
         class settingsPre { preInit = 1; };
         class settingsPost { postInit = 1; };
         class EOD {postInit = 1;};
-        //class setGarage;
-        //class garage;
         class setOwner;
         class setParams;
         class setUnitSurrender;
@@ -42,7 +40,6 @@ class SEN {
         class setPatrolGroup;
         class setPatrolUnit;
         class setPatrolVeh;
-        class setAcreRadio;
         class setTaskCiv;
         class setTask;
         class setTimer;
@@ -54,7 +51,6 @@ class SEN {
         class findRuralFlatPos;
         class findPosArray;
         class onCivQuestion;
-        class getCfgClass;
         class getIntel;
         class getNearPlayers;
         class getPlayers;
@@ -64,15 +60,5 @@ class SEN {
         class transportResponse;
         class transportHandler;
         class transportDisabled;
-        class fobCreate;
-        class fobDelete;
-        class fobRequestHandler;
-        class fobRequest;
-        class fobAnswerRequest;
-        class fobReceiveRequest;
-        class fobSetup;
-        class fobSetEH;
-        class fobRemoveEH;
-        class fobAddAddon;
     };
 };

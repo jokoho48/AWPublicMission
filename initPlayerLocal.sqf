@@ -5,26 +5,28 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 if (!hasInterface) exitWith {}; // headless client exit
 private "_fnc_tfarSettings";
+[] spawn compile preprocessFileLineNumbers "scripts\intro.sqf";
 _fnc_tfarSettings = compile preprocessFileLineNumbers "tfarSettings.sqf";
 call _fnc_tfarSettings;
 ["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
-[] call compile preprocessFileLineNumbers "gear\fn_crate.sqf";
-[] call compile preprocessFileLineNumbers "scripts\intro.sqf";
 private "_prefix";
 // workaround for acre, if inventory full and can't add radio, acre throws rpt error: (Warning: Radio ID ACRE_PRC343_ID_1 was returned for a non-existent baseclass...)
 if ((backpack player) isEqualTo "") then {player addBackpack "B_Kitbag_cbr"};
 
 // setup debug
-if (SEN_debug isEqualTo 1) then {
+if (SEN_debug) then {
     player allowDamage false;
     player addEventHandler ["respawn",{(_this select 0) allowDamage false}];
 };
 
 // setup eventhandlers
 player addEventHandler["Fired", {
-    if (((_this select 0) distance (getmarkerpos "SEN_safezone_mrk")) < (getMarkerSize "SEN_safezone_mrk") select 0) then {deleteVehicle (_this select 6); ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;}
+    if (((_this select 0) distance (getmarkerpos "SEN_safezone_mrk")) < (getMarkerSize "SEN_safezone_mrk") select 0) then {
+        deleteVehicle (_this select 6);
+        ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;
+    };
 }];
 
 // check if addons enabled

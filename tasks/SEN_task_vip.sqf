@@ -52,7 +52,7 @@ _mrkVip setMarkerAlpha 0.7;
 
 [WEST,[_taskID], [_taskDescription, _taskText, ""], _mrkPos, false, 2, true, "Search", false] call BIS_fnc_taskCreate;
 
-if(SEN_debug isEqualTo 1) then {
+if(SEN_debug) then {
     [_taskID] call BIS_fnc_taskSetCurrent;
     [_taskID,getPosATL _vip] call BIS_fnc_taskSetDestination;
 };

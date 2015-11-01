@@ -8,32 +8,32 @@ Description: formats and logs messages to RPT
              returns nothing
 __________________________________________________________________*/
 params ["_type", "_msg"];
-if !(isServer) exitWith {_this remoteExecCall ["SEN_fnc_log", 2];};
+if !(isServer) then {_this remoteExecCall ["SEN_fnc_log", 2];};
 
 if !(typeName _msg isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
 
 if (typeName _type isEqualTo "SCALAR") then {
     _type = call {
-        if (_type isEqualTo 1) exitWith {"SEN_WARNING: "};
-        if (_type isEqualTo 2) exitWith {"SEN_ERROR: "};
-        "SEN_LOG: "
+        if (_type isEqualTo 1) exitWith {"WARNING: "};
+        if (_type isEqualTo 2) exitWith {"ERROR: "};
+        "LOG: "
     };
 };
 _time = if (!isNil "JK_DBSetup" && !isNil "db_fnc_time") then {
-    call db_fnc_time;
+    [true, "_", 2] call db_fnc_time;
 } else {
     str serverTime;
 };
 _msg = _type + _msg;
 _this set [1,_msg];
 _this deleteAt 0;
-_text = format ["[%1] %2 | TARGET: %3", _time, (format _this), if (isNull player) then {"Server"} else {str player}];
+_text = format ["[%2] %1", (format _this), _time];
 diag_log _text;
 _text spawn {
     private "_text";
     waitUntil {!isNil "JK_DBSetup"};
     ["ArmAWorldPublicMissionErrorLog.log", _this] call db_fnc_log;
 };
-if (SEN_debug isEqualTo 1) then {
+if (SEN_debug) then {
     hintSilent _text;
 };

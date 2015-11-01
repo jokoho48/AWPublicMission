@@ -12,9 +12,6 @@ _taskText = "Defend FOB Against Rebel Attack";
 _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards FOB Pirelli. Defend the FOB against the rebel attack!";
 
 _sleep = 2700;
-if (isNil "SEN_fnc_rebelTastCiv") then {
-    SEN_fnc_rebelTastCiv = compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
-};
 
 if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
     [0,"Rebel task skipped."] call SEN_fnc_log;
@@ -41,7 +38,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 1,RESISTANCE] call SEN_fnc_spawnGroup;
     _rebelGrp = [units _rebelGrp] call SEN_fnc_setSide;
 
-    if(SEN_debug isEqualTo 1) then {
+    if(SEN_debug) then {
         _mrkPatrol = createMarker [format["SEN_rebel_%1",time],getposATL leader _rebelGrp];
         _mrkPatrol setMarkerType "o_unknown";
         _mrkPatrol setMarkerColor "ColorCIV";
@@ -63,7 +60,6 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         createVehicle ["R_TBG32V_F", _targetPos,[],0,"CAN_COLLIDE"];
         {if (random 1 > 0.5) then {createVehicle ["R_TBG32V_F", getposATL _x,[],0,"CAN_COLLIDE"]}; _x setDamage 1} foreach (curatorEditableObjects SEN_curatorFOB);
         sleep 8;
-        call SEN_fnc_fobDelete;
         [_taskID, "FAILED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
         sleep _sleep;
@@ -113,7 +109,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _rebelGrp = [_spawnPos,0,((call SEN_fnc_setStrength) max 5) min 12,RESISTANCE] call SEN_fnc_spawnGroup;
     _rebelGrp = [units _rebelGrp] call SEN_fnc_setSide;
 
-    if(SEN_debug isEqualTo 1) then {
+    if(SEN_debug) then {
         _mrkPatrol = createMarker [format["SEN_rebel_%1",time],getposATL leader _rebelGrp];
         _mrkPatrol setMarkerType "o_unknown";
         _mrkPatrol setMarkerColor "ColorCIV";

@@ -13,5 +13,4 @@ _taskDescription = "Return to MOB Dodge and assess the mission outcome.";
 JK_TicketSystem = JK_TicketSystem + 500;
 publicVariable "JK_TicketSystem";
 
-
 [WEST,[_taskID],[_taskDescription, _taskText, ""],getPosATL SEN_mob_laptop,false,2,true,"Default",false] call BIS_fnc_taskCreate;
