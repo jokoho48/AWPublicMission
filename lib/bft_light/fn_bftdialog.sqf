@@ -70,8 +70,7 @@ BG_fnc_bftdialog_editButton = {
                 lbClear BG_UI_BFT_lbIcon;
 
 
-                private ["_color","_icon","_name","_text","_classes","_side"];
-                _classes = "getText (_x >> 'markerClass') == 'NATO_BLUFOR' ||   getText (_x >> 'markerClass') == 'NATO_OPFOR' ||   getText (_x >> 'markerClass') == 'NATO_Independent'" configClasses (configfile >> "CfgMarkers");
+                private ["_color", "_icon", "_name", "_text", "_side"];
                 {
                     _name = configName _x;
                     _color = (_x >> "color") call BIS_fnc_colorConfigToRGBA;
@@ -89,7 +88,7 @@ BG_fnc_bftdialog_editButton = {
                       };
                     };
 
-                    if (_side == side player) then {
+                    if (_side == playerSide) then {
                         _tmp = BG_UI_BFT_lbIcon lbAdd _text;
                         BG_UI_BFT_lbIcon lbSetPicture [_tmp, _icon];
                         BG_UI_BFT_lbIcon lbSetPictureColor [_tmp, _color];
@@ -100,10 +99,10 @@ BG_fnc_bftdialog_editButton = {
                         };
                     };
 
-                } forEach _classes;
+                } forEach BG_BFT_classes;
                 BG_UI_BFT_lbIcon ctrlCommit 0;
 
-                BG_UI_BFT_tbName ctrlSetText (group player getVariable ["BG_BFT_groupId", groupId group player]);
+                BG_UI_BFT_tbName ctrlSetText ((group player) getVariable ["BG_BFT_groupId", (groupId (group player))]);
                 BG_UI_BFT_tbName ctrlCommit 0;
                 BG_UI_BFT_ctrlGroup ctrlCommit 0;
                 BG_UI_BFT_editButton ctrlCommit 0;
@@ -113,6 +112,6 @@ BG_fnc_bftdialog_editButton = {
     };
 };
 with uiNamespace do {
-    BG_UI_BFT_editButton ctrlAddEventHandler ["ButtonClick",missionNamespace getVariable "BG_fnc_bftdialog_editButton"];
+    BG_UI_BFT_editButton ctrlAddEventHandler ["ButtonClick", missionNamespace getVariable "BG_fnc_bftdialog_editButton"];
     BG_UI_BFT_editButton ctrlCommit 0;
 };

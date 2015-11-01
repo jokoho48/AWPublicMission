@@ -5,11 +5,14 @@ BG_BFT_onlyPlayer = false;
 
 BG_BFT_iconTypes=[];
 
-private ["_keys","_values","_classes","_side"];
+player setVariable ["BG_BFT_playerSide", playerSide, true];
+
+private ["_keys", "_values", "_side"];
 _keys = [];
 _values = [];
 
-_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO_Independent']" configClasses (configfile >> "CfgMarkers");
+BG_BFT_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO_Independent']" configClasses (configfile >> "CfgMarkers");
+uiNamespace setVariable ["BG_BFT_classes", BG_BFT_classes];
 {
     _keys pushBack configName _x;
     _values pushBack [
@@ -28,17 +31,26 @@ _classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO
             independent
         };
     }];
-} forEach _classes;
+} forEach BG_BFT_classes;
 
 BG_BFT_iconTypes = [_keys,_values];
 
-[{
-    [] call BG_fnc_iconUpdateLoop;
-}, 10, []] call CBA_fnc_addPerFrameHandler;
 [] call BG_fnc_iconUpdateLoop;
 
 [] spawn {
     waitUntil {!isNull ((findDisplay 12) displayCtrl 51)};
     [] call BG_fnc_bftdialog;
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",BG_fnc_drawEvent];
+    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onLoad",{
+        BG_BFT_PFHID = [{
+            [] call BG_fnc_iconUpdateLoop;
+        }, 10, []] call CBA_fnc_addPerFrameHandler;
+        [] call BG_fnc_iconUpdateLoop;
+    }];
+    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onUnload",{
+        if (!isNil "BG_BFT_PFHID") then {
+            [BG_BFT_PFHID] call CBA_fnc_removePerFrameHandler;
+            BG_BFT_PFHID = nil;
+        };
+    }];
 };

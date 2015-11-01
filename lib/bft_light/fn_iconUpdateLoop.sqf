@@ -5,31 +5,34 @@ _groups = [];
 _textSize = 0.06;
 _font = "PuristaSemiBold";
 _align = "right";
-_defaultIcon = switch (side player) do {
+_defaultIcon = switch (playerSide) do {
     case (west): {
       "b_unknown"
     };
     case (east): {
       "o_unknown"
     };
-    case (independent) :{
+    case (independent): {
       "n_unknown"
+    };
+    default {
+        "hd_unknown"
     };
 };
 
 if (BG_BFT_onlyPlayer) then {
     {
-        if (!((group _x) in _groups) && side _x == side player) then {
+        if (!((group _x) in _groups) && {_x getVariable ["JK_playerSide", side _x] == playerSide}) then {
             _groups pushBack group _x;
-            _icon = group _x getVariable ["BG_BFT_icon", _defaultIcon];
-            _text = group _x getVariable ["BG_BFT_groupId", groupId _x];
+            _icon = (group _x) getVariable ["BG_BFT_icon", _defaultIcon];
+            _text = (group _x) getVariable ["BG_BFT_groupId", groupId _x];
             _iconType = (BG_BFT_iconTypes select 0) find _icon;
-            if (_iconType>=0) then {
+            if (_iconType >= 0) then {
                 _iconType = (BG_BFT_iconTypes select 1) select _iconType;
                 _icons pushBack [
                   _iconType select 0,
                   _iconType select 1,
-                  leader group _x,
+                  leader _x,
                   _iconType select 2,
                   _iconType select 2,
                   0,
@@ -45,11 +48,11 @@ if (BG_BFT_onlyPlayer) then {
     } count allPlayers;
 } else {
     {
-        if (side _x == side player) then {
+        if (_x getVariable ["BG_BFT_playerSide", side _x] == playerSide) then {
             _icon = _x getVariable ["BG_BFT_icon", _defaultIcon];
             _text = _x getVariable ["BG_BFT_groupId", groupId _x];
             _iconType = (BG_BFT_iconTypes select 0) find _icon;
-            if (_iconType>=0) then {
+            if (_iconType >= 0) then {
                 _iconType = (BG_BFT_iconTypes select 1) select _iconType;
                 _icons pushBack [
                 _iconType select 0,
