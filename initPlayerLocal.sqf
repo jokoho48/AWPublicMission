@@ -203,7 +203,7 @@ player createDiaryRecord ["Diary", ["Dynamic Combat Generator", "Mission by SENS
 [] call compile preprocessFileLineNumbers "scripts\SEN_ACE3Actions.sqf";
 player setVariable ["ACE_canMoveRallypoint", false];
 
-[] spawn compile preprocessFileLineNumbers "scripts\QS_icons.sqf";
+//[] spawn compile preprocessFileLineNumbers "scripts\QS_icons.sqf";
 
 // setup radios
 if (SEN_acreEnabled) exitWith {[] call compile preprocessFileLineNumbers "scripts\SEN_acre2.sqf";};
