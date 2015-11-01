@@ -119,44 +119,43 @@ _object = str _target;
 _class = "";
 
 //switch to select the applicable loadout function
-if (!JK_var_gearByClasses) then {
-    _class = switch true do {
-        case (_object in _command): {"command"};
-        case (_object in _SL): {"leader"};
-        case (_object in _FTL): {"FTL"};
-        case (_object in _medics): {"medic"};
-        case (_object in _MG): {"MG"};
-        case (_object in _stormtrooper): {"stormtrooper"};
-        case (_object in _assMG): {"assMG"};
-        case (_object in _AT): {"AT"};
-        case (_object in _ATmk153): {"ATmk153"};
-        case (_object in _ATass): {"ATAss"};
-        case (_object in _ATassmk153): {"ATAssmk153"};
-        case (_object in _grenadier): {"grenadier"};
-        case (_object in _soldier): {"Rifleman"};
-        case (_object in _marksmen): {"marksman"};
-        case (_object in _radioOp): {"radioOp"};
-        case (_object in _SpecOps): {"SpecOps"};
-        case (_object in _spec): {"specialist"};
-        case (_object in _paratrooper): {"paratrooper"};
-        case (_object in _paraARman): {"paraARman"};
-        case (_object in _paraDropMedic): {"paraDropMedic"};
-        case (_object in _paraExExpert): {"paraExExpert"};
-        case (_object in _paraGrenadier): {"paraGrenadier"};
-        case (_object in _paraLeader): {"paraLeader"};
-        case (_object in _paraMarksman): {"paraMarksman"};
-        case (_object in _paraStormtrooper): {"paraStormtrooper"};
-        case (_object in _paraAssAR): {"paraAssAR"};
-        case (_object in _pilots): {"pilot"};
-        case (_object in _crew): {"crew"};
-        case (_object in _jetPilot): {"jetPilot"};
-        case (_object in _pjMedic): {"pjMedic"};
-        case (_object in _mortarTeamBipod): {"mortarTeamBipod"};
-        case (_object in _mortarTeamTube): {"mortarTeamTube"};
-        default{""};
-    };
+_class = switch true do {
+    case (_object in _command): {"command"};
+    case (_object in _SL): {"leader"};
+    case (_object in _FTL): {"FTL"};
+    case (_object in _medics): {"medic"};
+    case (_object in _MG): {"MG"};
+    case (_object in _stormtrooper): {"stormtrooper"};
+    case (_object in _assMG): {"assMG"};
+    case (_object in _AT): {"AT"};
+    case (_object in _ATmk153): {"ATmk153"};
+    case (_object in _ATass): {"ATAss"};
+    case (_object in _ATassmk153): {"ATAssmk153"};
+    case (_object in _grenadier): {"grenadier"};
+    case (_object in _soldier): {"Rifleman"};
+    case (_object in _marksmen): {"marksman"};
+    case (_object in _radioOp): {"radioOp"};
+    case (_object in _SpecOps): {"SpecOps"};
+    case (_object in _spec): {"specialist"};
+    case (_object in _paratrooper): {"paratrooper"};
+    case (_object in _paraARman): {"paraARman"};
+    case (_object in _paraDropMedic): {"paraDropMedic"};
+    case (_object in _paraExExpert): {"paraExExpert"};
+    case (_object in _paraGrenadier): {"paraGrenadier"};
+    case (_object in _paraLeader): {"paraLeader"};
+    case (_object in _paraMarksman): {"paraMarksman"};
+    case (_object in _paraStormtrooper): {"paraStormtrooper"};
+    case (_object in _paraAssAR): {"paraAssAR"};
+    case (_object in _pilots): {"pilot"};
+    case (_object in _crew): {"crew"};
+    case (_object in _jetPilot): {"jetPilot"};
+    case (_object in _pjMedic): {"pjMedic"};
+    case (_object in _mortarTeamBipod): {"mortarTeamBipod"};
+    case (_object in _mortarTeamTube): {"mortarTeamTube"};
+    default{""};
 };
-if (_class == "" || JK_var_gearByClasses) then {
+
+if (_class == "") then {
     _class = switch true do {
         case (typeOf _target in _commandClass): {"command"};
         case (typeOf _target in _FTLClass): {"FTL"};
