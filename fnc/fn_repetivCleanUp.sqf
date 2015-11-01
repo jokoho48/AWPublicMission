@@ -54,38 +54,8 @@ JK_objectStorage = [];
                 };
             };
             nil
-        } count allMissionObjects ("WeaponHolder");
-
-        {
-            if !(_x getVariable ["SEN_noClean", false]) then {
-                if (!(_x getVariable ["JK_var_queued", false])) then {
-                    _x setVariable ["JK_var_queued", true];
-                    JK_objectStorage pushBack [_x, time];
-                };
-            };
-            nil
-        } count allMissionObjects ("GroundWeaponHolder");
-
-        {
-            if !(_x getVariable ["SEN_noClean", false]) then {
-                if (!(_x getVariable ["JK_var_queued", false])) then {
-                    _x setVariable ["JK_var_queued", true];
-                    JK_objectStorage pushBack [_x, time];
-                };
-            };
-            nil
-        } count allMissionObjects ("WeaponHolderSimulated");
-        // Cycle through all dead units and enqueue them for removal.
-        {
-            // If the shell is not queued yet push it on the storage.
-            if (!(_x getVariable ["JK_var_queued", false])) then {
-                if !(_x getVariable ["SEN_noClean", false]) then {
-                    _x setVariable ["JK_var_queued", true];
-                    JK_objectStorage pushBack [_x, time];
-                };
-            };
-            nil
-        } count allDead;
+        } count allMissionObjects ("WeaponHolder") + allMissionObjects ("GroundWeaponHolder") + allMissionObjects ("WeaponHolderSimulated") + allDead;
+        
         private "_delete1";
         // Cycle through the storage and check the time. Removal is done with an animation.
         _delete1 = 0;

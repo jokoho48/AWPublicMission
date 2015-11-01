@@ -7,7 +7,7 @@ Description:
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_town","_mrk","_pos","_townName","_townType","_radius","_approval","_enemyArray","_threshold","_t","_players","_hint","_mrkOfficer"];
+private ["_town","_mrk","_pos","_townName","_townType","_radius","_approval","_enemyArray","_threshold","_t","_players","_hint","_mrkOfficer", "_oldThreshold"];
 params ["_town", "_mrk"];
 
 _town = call compile (_town);
@@ -31,16 +31,24 @@ call {
     _townType = "Town"; _approval = 15;
 };
 
+_count = ({
+    _ret = false;
+    if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x; _ret = true;};
+    _ret
+} count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]));
+_oldThreshold = round ((_count)*0.30);
+
 waitUntil {
     private "_count";
-    sleep 10;
+    sleep 15;
+    _count = 9999;
     _enemyArray = [];
     _count = ({
         _ret = false;
         if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x; _ret = true;};
         _ret
     } count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]));
-    _threshold = round ((_count)*0.30);
+    _threshold = (round ((_count)*0.30) max _oldThreshold);
     {alive _x} count _enemyArray <= _threshold
 };
 

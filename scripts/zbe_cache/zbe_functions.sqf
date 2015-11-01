@@ -82,18 +82,20 @@ zbe_setPosLight = {
 };
 
 zbe_setPosFull = {
+    _near = (leader (_toCache select 0)) nearTargets 100;
     {
+        private "_unit";
+        _unit = _x;
         _testpos = (formationPosition _x);
         if (!(isNil "_testpos") && (count _testpos > 0)) then {
             if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
+                _testpos set [2,0];
                 _x setPos _testpos;
-                _x allowDamage false;
-                [_x]spawn {
-                    sleep 3;
-                    (_this select 0) allowDamage true;
-                };
             };
         };
+        {
+            _unit reveal [_x select 4, _x select 5];
+        } count _near;
         nil
     } count _toCache;
 };
