@@ -7,6 +7,28 @@ BG_BFT_iconTypes=[];
 
 player setVariable ["BG_BFT_playerSide", playerSide, true];
 
+["playerInventoryChanged", {
+    private "_ctrl";
+    _ctrl = uiNameSpace getVariable "BG_UI_BFT_ctrlGroup";
+    if (!isNil "_ctrl" && {ctrlShown _ctrl}) then {
+        call BG_fnc_bftdialog_editButton;
+    };
+    with uiNamespace do {
+        BG_UI_BFT_editButton ctrlShow false;
+    };
+    _var = 0;
+    if ("ACE_DAGR" in (Items player)) then {
+        _var = 1;
+    };
+    if ("ACE_HuntIR_monitor" in (Items player)) then {
+        _var = 2;
+        with uiNamespace do {
+            BG_UI_BFT_editButton ctrlShow true;
+        };
+    };
+    player setVariable ["BG_BFT_item", _var, true];
+}] call ace_common_fnc_addEventhandler;
+
 private ["_keys", "_values", "_side"];
 _keys = [];
 _values = [];
@@ -37,6 +59,7 @@ BG_BFT_iconTypes = [_keys,_values];
 
 [] call BG_fnc_iconUpdateLoop;
 
+
 [] spawn {
     waitUntil {!isNull ((findDisplay 12) displayCtrl 51)};
     [] call BG_fnc_bftdialog;
@@ -48,6 +71,11 @@ BG_BFT_iconTypes = [_keys,_values];
         [] call BG_fnc_iconUpdateLoop;
     }];
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onUnload",{
+        private "_ctrl";
+        _ctrl = uiNameSpace getVariable "BG_UI_BFT_ctrlGroup";
+        if (!isNil "_ctrl" && {ctrlShown _ctrl}) then {
+            call BG_fnc_bftdialog_editButton;
+        };
         if (!isNil "BG_BFT_PFHID") then {
             [BG_BFT_PFHID] call CBA_fnc_removePerFrameHandler;
             BG_BFT_PFHID = nil;

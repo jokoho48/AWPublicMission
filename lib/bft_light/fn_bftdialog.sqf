@@ -42,74 +42,75 @@ with uiNamespace do {
 
 BG_fnc_bftdialog_editButton = {
     disableSerialization;
-    if (player == leader player) then {
         with uiNamespace do {
-            _defaultIcon = switch (side player) do {
-              case (west): {
-                "b_unknown"
-              };
-              case (east): {
-                "o_unknown"
-              };
-              case (independent) :{
-                "n_unknown"
-              };
-            };
-            if (ctrlShown BG_UI_BFT_ctrlGroup) then {
-                BG_UI_BFT_ctrlGroup ctrlShow false;
-                BG_UI_BFT_editButton ctrlSetText "ID";
-                group player setGroupIdGlobal [ctrlText BG_UI_BFT_tbName];
-                group player setVariable ["BG_BFT_groupId", ctrlText BG_UI_BFT_tbName,true];
-                group player setVariable ["BG_BFT_icon", (BG_UI_BFT_lbIcon lbData lbCurSel BG_UI_BFT_lbIcon),true];
+        _defaultIcon = switch (playerSide) do {
+          case (west): {
+            "b_unknown"
+          };
+          case (east): {
+            "o_unknown"
+          };
+          case (independent) :{
+            "n_unknown"
+          };
+          default {
+              "hd_unknown"
+          };
+        };
+        if (ctrlShown BG_UI_BFT_ctrlGroup) then {
+            BG_UI_BFT_ctrlGroup ctrlShow false;
+            BG_UI_BFT_editButton ctrlSetText "ID";
+            group player setGroupIdGlobal [ctrlText BG_UI_BFT_tbName];
+            group player setVariable ["BG_BFT_groupId", ctrlText BG_UI_BFT_tbName,true];
+            group player setVariable ["BG_BFT_icon", (BG_UI_BFT_lbIcon lbData lbCurSel BG_UI_BFT_lbIcon),true];
 
-                BG_UI_BFT_ctrlGroup ctrlCommit 0;
-                BG_UI_BFT_editButton ctrlCommit 0;
-            } else {
-                BG_UI_BFT_ctrlGroup ctrlShow true;
-                BG_UI_BFT_editButton ctrlSetText "EDIT";
-                lbClear BG_UI_BFT_lbIcon;
+            BG_UI_BFT_ctrlGroup ctrlCommit 0;
+            BG_UI_BFT_editButton ctrlCommit 0;
+        } else {
+            BG_UI_BFT_ctrlGroup ctrlShow true;
+            BG_UI_BFT_editButton ctrlSetText "EDIT";
+            lbClear BG_UI_BFT_lbIcon;
 
-                {
-                    private ["_name", "_color", "_icon", "_text", "_side", "_tmp"];
-                    _name = configName _x;
-                    _color = (_x >> "color") call BIS_fnc_colorConfigToRGBA;
-                    _icon = getText (_x >> "icon");
-                    _text = getText (_x >> "name");
-                    _side = switch (getText (_x >> "markerClass")) do {
-                      case ("NATO_BLUFOR"): {
-                          west
-                      };
-                      case ("NATO_OPFOR"): {
-                          east
-                      };
-                      case ("NATO_Independent"): {
-                          independent
-                      };
-                    };
+            {
+                private ["_name", "_color", "_icon", "_text", "_side", "_tmp"];
+                _name = configName _x;
+                _color = (_x >> "color") call BIS_fnc_colorConfigToRGBA;
+                _icon = getText (_x >> "icon");
+                _text = getText (_x >> "name");
+                _side = switch (getText (_x >> "markerClass")) do {
+                  case ("NATO_BLUFOR"): {
+                      west
+                  };
+                  case ("NATO_OPFOR"): {
+                      east
+                  };
+                  case ("NATO_Independent"): {
+                      independent
+                  };
+                };
 
                     if (_side == playerSide) then {
-                        _tmp = BG_UI_BFT_lbIcon lbAdd _text;
-                        BG_UI_BFT_lbIcon lbSetPicture [_tmp, _icon];
-                        BG_UI_BFT_lbIcon lbSetPictureColor [_tmp, _color];
-                        BG_UI_BFT_lbIcon lbSetData [_tmp, _name];
+                    _tmp = BG_UI_BFT_lbIcon lbAdd _text;
+                    BG_UI_BFT_lbIcon lbSetPicture [_tmp, _icon];
+                    BG_UI_BFT_lbIcon lbSetPictureColor [_tmp, _color];
+                    BG_UI_BFT_lbIcon lbSetData [_tmp, _name];
 
-                        if (_name == ((group player) getVariable ["BG_BFT_icon",_defaultIcon])) then {
-                            BG_UI_BFT_lbIcon lbSetCurSel _tmp;
-                        };
+                    if (_name == ((group player) getVariable ["BG_BFT_icon",_defaultIcon])) then {
+                        BG_UI_BFT_lbIcon lbSetCurSel _tmp;
                     };
+                };
 
-                } forEach BG_BFT_classes;
+            } forEach BG_BFT_classes;
 
-                BG_UI_BFT_lbIcon ctrlCommit 0;
+            BG_UI_BFT_lbIcon ctrlCommit 0;
 
-                BG_UI_BFT_tbName ctrlSetText ((group player) getVariable ["BG_BFT_groupId", (groupId (group player))]);
-                BG_UI_BFT_tbName ctrlCommit 0;
-                BG_UI_BFT_ctrlGroup ctrlCommit 0;
-                BG_UI_BFT_editButton ctrlCommit 0;
-            };
+            BG_UI_BFT_tbName ctrlSetText ((group player) getVariable ["BG_BFT_groupId", (groupId (group player))]);
+            BG_UI_BFT_tbName ctrlCommit 0;
+            BG_UI_BFT_ctrlGroup ctrlCommit 0;
+            BG_UI_BFT_editButton ctrlCommit 0;
         };
-        [] call BG_fnc_iconUpdateLoop;
     };
+    [] call BG_fnc_iconUpdateLoop;
 };
 with uiNamespace do {
     BG_UI_BFT_editButton ctrlAddEventHandler ["ButtonClick", missionNamespace getVariable "BG_fnc_bftdialog_editButton"];
