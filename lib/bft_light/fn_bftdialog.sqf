@@ -69,9 +69,8 @@ BG_fnc_bftdialog_editButton = {
                 BG_UI_BFT_editButton ctrlSetText "EDIT";
                 lbClear BG_UI_BFT_lbIcon;
 
-
-                private ["_color", "_icon", "_name", "_text", "_side"];
                 {
+                    private ["_name", "_color", "_icon", "_text", "_side", "_tmp"];
                     _name = configName _x;
                     _color = (_x >> "color") call BIS_fnc_colorConfigToRGBA;
                     _icon = getText (_x >> "icon");
@@ -100,6 +99,7 @@ BG_fnc_bftdialog_editButton = {
                     };
 
                 } forEach BG_BFT_classes;
+
                 BG_UI_BFT_lbIcon ctrlCommit 0;
 
                 BG_UI_BFT_tbName ctrlSetText ((group player) getVariable ["BG_BFT_groupId", (groupId (group player))]);
