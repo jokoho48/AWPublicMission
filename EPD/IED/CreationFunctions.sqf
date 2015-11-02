@@ -1,4 +1,5 @@
 CREATE_IED_SECTION = {
+    private ["_sectionName", "_parameters", "_locationAndSize", "_sectionDictionary"];
     _sectionName = "";
     _parameters = [];
     if(count _this == 1) then {
@@ -25,9 +26,8 @@ CREATE_IED_SECTION = {
 };
 
 CREATE_FAKE = {
-    _junkPosition = _this select 0;
-    _junkType = _this select 1;
-    _sectionDictionary = _this select 2;
+    private ["_fakesDictionary", "_junk", "_fakeName", "_markerName"];
+    params ["_junkPosition", "_junkType", "_sectionDictionary"];
     _fakesDictionary = [_sectionDictionary, "fake"] call Dictionary_fnc_get;
 
     _junk = _junkType createVehicle _junkPosition;
@@ -52,10 +52,8 @@ CREATE_FAKE = {
 };
 
 CREATE_SPECIFIC_IED = {
-    _dictionary = _this select 0;
-    _sectionName = _this select 1;
-    _origin = _this select 2;
-    _parameters = _this select 3;
+    private ["_side", "_sizeAndType", "_chance", "_chances"];
+    params ["_dictionary", "_sectionName", "_origin", "_parameters"];
     _side = _parameters select ((count _parameters)-1);
 
     _sizeAndType = "" call GET_SIZE_AND_TYPE;
@@ -78,11 +76,8 @@ CREATE_SPECIFIC_IED = {
 };
 
 CREATE_RANDOM_IEDS = {
-    _dictionary = _this select 0;
-    _sectionName = _this select 1;
-    _origin = _this select 2;
-    _distance = _this select 3;
-    _parameters = _this select 4;
+    private ["_side", "_iedsToPlace", "_junkToPlace", "_chances", "_roads", "_roadCount"];
+    params ["_dictionary", "_sectionName", "_origin", "_distance", "_parameters"];
 
     _side = [];
     _iedsToPlace = 0;
@@ -128,14 +123,15 @@ CREATE_RANDOM_IEDS = {
     _roads = (_origin nearRoads _distance) - iedSafeRoads;
     _roadCount = count _roads;
     if(_roadCount > 0) then {
-
         for "_i" from 0 to _iedsToPlace -1 do{
+            private ["_sizeAndType", "_iedPos"];
             _sizeAndType = _chances call GET_SIZE_AND_TYPE;
             _iedPos = [_roads, _roadCount] call FIND_LOCATION_BY_ROAD;
             [_iedPos, _sizeAndType select 0, _sizeAndType select 1, _side, _dictionary, _sectionName] call CREATE_IED;
         };
 
         for "_i" from 0 to _junkToPlace -1 do{
+            private ["_sizeAndType", "_junkPosition"];
             _sizeAndType = _chances call GET_SIZE_AND_TYPE;
             _junkPosition = [_roads, _roadCount] call FIND_LOCATION_BY_ROAD;
             [_junkPosition, _sizeAndType select 1, _dictionary] call CREATE_FAKE;
@@ -145,12 +141,8 @@ CREATE_RANDOM_IEDS = {
 };
 
 CREATE_IED = {
-    _iedPos = _this select 0;
-    _iedSize = _this select 1;
-    _iedObject = _this select 2;
-    _side = _this select 3;
-    _sectionDictionary = _this select 4;
-    _sectionName = _this select 5;
+    private ["_iedName", "_markerName", "_ied", "_scriptHandle", "_triggerStatusHandle"];
+    params ["_iedPos", "_iedSize", "_iedObject", "_side", "_sectionDictionary", "_sectionName"];
 
     _iedName = call CREATE_RANDOM_IED_NAME;
     _markerName = "ied"+_iedName+_iedSize;
@@ -199,9 +191,8 @@ CREATE_IED = {
 };
 
 CREATE_SECONDARY_IED = {
-    _location = _this select 0;
-    _side = _this select 1;
-    _sectionName = _this select 2;
+    private ["_sectionDictionary", "_theta", "_offset", "_iedPos", "_iedObject", "_iedName", "_markerName", "_ied", "_scriptHandle", "_triggerStatusHandle"];
+    params ["_location", "_side", "_sectionName"];
     _sectionDictionary = [iedDictionary, _sectionName] call Dictionary_fnc_get;
 
 

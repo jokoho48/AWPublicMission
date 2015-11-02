@@ -1,6 +1,6 @@
 /* Written by Brian Sweeney - [EPD] Brian*/
 
-if(isserver) then {
+if(isServer) then {
     iedsAdded = false;
     publicVariable "iedsAdded";
 

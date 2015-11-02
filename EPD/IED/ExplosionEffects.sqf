@@ -3,8 +3,9 @@
 
 /******************PLAYER EFFECTS*********************/
 IED_SCREEN_EFFECTS = {
-    //http://forums.bistudio.com/showthread.php?172864-Any-idea-how-this-was-done
-    _iedPos = _this select 0;
+    private ["_distance", "_volume", "_blur"];
+    params ["_iedPos"];
+
     sleep 0.25;
     if(alive player) then {
         _distance = (getpos player) distance _iedPOS;
@@ -39,12 +40,9 @@ IED_SCREEN_EFFECTS = {
 
 /******************ROCK EFFECTS*********************/
 IED_ROCKS = {
-    _loc = _this select 0;
+    private ["_aslLoc", "_rocks1", "_rocks2", "_rocks3", "_rocks"];
+    params ["_loc"];
     _aslLoc = [_loc select 0, _loc select 1, getTerrainHeightASL [_loc select 0, _loc select 1]];
-    _col = [0,0,0];
-    _c1 = _col select 0;
-    _c2 = _col select 1;
-    _c3 = _col select 2;
 
     _rocks1 = "#particlesource" createVehicleLocal _aslLoc;
     _rocks1 setposasl _aslLoc;
@@ -69,7 +67,7 @@ IED_ROCKS = {
 
 
     _rocks = [_rocks1,_rocks2, _rocks3];
-    sleep .125;
+    sleep 0.125;
     {
         deletevehicle _x;
     } foreach _rocks;
@@ -77,11 +75,8 @@ IED_ROCKS = {
 
 /******************SMOKE EFFECTS*********************/
 SAND_TRAIL_SMOKE = {
-    _loc = _this select 0;
-    _aslLoc = _this select 1;
-    _horizontal = _this select 2;
-    _upwards = _this select 3;
-
+    private ["_size", "_thingToFling", "_smoke", "_sleepTime", "_sleep", "_currentTime"];
+    params ["_loc", "_aslLoc", "_horizontal", "_upwards"]
     _size = 1 + random 3;
 
     _thingToFling = "Land_Bucket_F" createVehicleLocal [0,0,0];
@@ -115,11 +110,8 @@ SAND_TRAIL_SMOKE = {
 };
 
 GRAY_TRAIL_SMOKE = {
-    _loc = _this select 0;
-    _aslLoc = _this select 1;
-    _horizontal = _this select 2;
-    _upwards = _this select 3;
-
+    params ["_loc", "_aslLoc", "_horizontal", "_upwards"];
+    private ["_size", "_thingToFling", "_smoke", "_sleepTime", "_sleep", "_currentTime"];
     _size = 1 + random 3;
 
     _thingToFling = "Land_Bucket_F" createVehicleLocal [0,0,0];
