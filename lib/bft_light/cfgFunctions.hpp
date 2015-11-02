@@ -6,5 +6,6 @@ class BG {
         class initUnit;
         class drawEvent;
         class bftdialog;
+        class mouseMovingEvent;
     };
 };

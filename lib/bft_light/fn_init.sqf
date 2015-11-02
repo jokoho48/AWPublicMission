@@ -29,12 +29,12 @@ player setVariable ["BG_BFT_playerSide", playerSide, true];
     player setVariable ["BG_BFT_item", _var, true];
 }] call ace_common_fnc_addEventhandler;
 
-private ["_keys", "_values", "_side"];
+private ["_classes","_keys", "_values", "_side"];
 _keys = [];
 _values = [];
 
-BG_BFT_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO_Independent']" configClasses (configfile >> "CfgMarkers");
-//uiNamespace setVariable ["BG_BFT_classes", BG_BFT_classes];
+_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO_Independent']" configClasses (configfile >> "CfgMarkers");
+
 {
     _keys pushBack configName _x;
     _values pushBack [
@@ -54,7 +54,7 @@ BG_BFT_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR',
         };
     },
     configName _x];
-} forEach BG_BFT_classes;
+} forEach _classes;
 
 BG_BFT_iconTypes = [_keys,_values];
 
@@ -65,6 +65,7 @@ BG_BFT_iconTypes = [_keys,_values];
     waitUntil {!isNull ((findDisplay 12) displayCtrl 51)};
     [] call BG_fnc_bftdialog;
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",BG_fnc_drawEvent];
+    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["MouseMoving",BG_fnc_mouseMovingEvent];
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onLoad",{
         BG_BFT_PFHID = [{
             [] call BG_fnc_iconUpdateLoop;
