@@ -34,7 +34,7 @@ _keys = [];
 _values = [];
 
 BG_BFT_classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO_Independent']" configClasses (configfile >> "CfgMarkers");
-uiNamespace setVariable ["BG_BFT_classes", BG_BFT_classes];
+//uiNamespace setVariable ["BG_BFT_classes", BG_BFT_classes];
 {
     _keys pushBack configName _x;
     _values pushBack [
@@ -52,7 +52,8 @@ uiNamespace setVariable ["BG_BFT_classes", BG_BFT_classes];
         case ("NATO_Independent"): {
             independent
         };
-    }];
+    },
+    configName _x];
 } forEach BG_BFT_classes;
 
 BG_BFT_iconTypes = [_keys,_values];
