@@ -40,13 +40,9 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
-            [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
@@ -65,9 +61,6 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             [_townPos,ceil random 3,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
-            [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
@@ -80,7 +73,6 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
         };
         // NameVillage
         [_townPos,ceil random 2,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
-        [_townPos,_avgTownSize,1] call SEN_fnc_spawnTower;
         [_townPos,_avgTownSize,1] call SEN_fnc_spawnTower;
         [_townPos, _avgTownSize*0.45, 1] call SEN_fnc_spawnStatic;
         [_townPos, _avgTownSize*0.45, 1] call SEN_fnc_spawnStatic;

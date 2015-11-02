@@ -3,60 +3,63 @@ loadout script by joko
 Idea by Belbo
 */
 
-class JK_loadOut
-{
+class JK_loadOut {
     tag = "JK_loadOut";
-    class core
-    {
+    class core {
         file = "lib\gear";
-        class applyLoadout {};
-        class gear {};
-        class loadoutsInit {};
-        class chooseLoadout{};
-        class selectGear {};
+        class applyLoadout;
+        class gear;
+        class loadoutsInit;
+        class chooseLoadout;
+        class selectGear;
         class crate { postInit = 1; };
     };
-    class loadoutsWEST
-    {
-        file = "lib\gear\loadouts\Blufor";
+    class USMC {
+        file = "lib\gear\loadouts\USMC";
         // USMC
-        class FTLWEST {};
-        class armanWEST {};
-        class assmgWEST {};
-        class mgWEST {};
-        class stormtrooperWEST {};
-        class atWEST {};
-        class atmk153WEST {};
-        class atassWEST {};
-        class ATAssmk153WEST {};
-        class commandWEST {};
-        class grenadierWEST {};
-        class leaderWEST {};
-        class marksmanWEST {};
-        class medicWEST {};
-        class riflemanWEST {};
-        class specialistWEST {};
-        class radioOpWEST {};
+        class FTL;
+        class arman;
+        class assmg;
+        class mg;
+        class stormtrooper;
+        class at;
+        class atmk153;
+        class atass;
+        class ATAssmk153;
+        class command;
+        class grenadier;
+        class leader;
+        class marksman;
+        class medic;
+        class rifleman;
+        class specialist;
+        class radioOp;
+    };
 
+    class parachuteLoadouts {
+        file = "lib\gear\loadouts\parachute";
         // Paratrooper
-        class paratrooperWEST {};
-        class paraARmanWEST {};
-        class paraDropMedicWEST {};
-        class paraExExpertWEST {};
-        class paraGrenadierWEST {};
-        class paraLeaderWEST {};
-        class paraMarksmanWEST {};
-        class paraStormtrooperWEST {};
-        class paraAssARWEST {};
-        class paraSpecOpsWEST {};
+        class paratrooper;
+        class paraARman;
+        class paraDropMedic;
+        class paraExExpert;
+        class paraGrenadier;
+        class paraLeader;
+        class paraMarksman;
+        class paraStormtrooper;
+        class paraAssAR;
+        class paraSpecOps;
+    };
 
+    class specialLoadouts {
+        file = "lib\gear\loadouts\special";
         // Special
-        class CrewWEST {};
-        class jetPilotWEST {};
-        class pjMedicWEST {};
-        class pilotWEST {};
-        class SpecOpsWEST {};
-        class mortarTeamBipodWEST {};
-        class mortarTeamTubeWEST {};
+        class Crew;
+        class jetPilot;
+        class pjMedic;
+        class pilot;
+        class SpecOps;
+        class mortarTeamBipod;
+        class mortarTeamTube;
     };
 };

@@ -7,7 +7,7 @@ Description:
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private ["_town","_mrk","_pos","_townName","_townType","_radius","_approval","_enemyArray","_threshold","_t","_players","_hint","_mrkOfficer"];
+private ["_town","_mrk","_pos","_townName","_townType","_radius","_approval","_enemyArray","_threshold","_t","_players","_hint","_mrkOfficer", "_oldThreshold"];
 params ["_town", "_mrk"];
 
 _town = call compile (_town);
@@ -26,21 +26,29 @@ _enemyArray = [];
 [0,"OccupyTrgAct: %1",_radius] call SEN_fnc_log;
 
 call {
-    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45};
-    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 30};
-    _townType = "Town"; _approval = 15;
+    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45; _tickets = 1000;};
+    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 30; _tickets = 800;};
+    _townType = "Town"; _approval = 15; _tickets = 600;
 };
+
+_count = ({
+    _ret = false;
+    if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x; _ret = true;};
+    _ret
+} count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]));
+_oldThreshold = round ((_count)*0.30);
 
 waitUntil {
     private "_count";
-    sleep 10;
+    sleep 15;
+    _count = 9999;
     _enemyArray = [];
     _count = ({
         _ret = false;
         if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x; _ret = true;};
         _ret
     } count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]));
-    _threshold = round ((_count)*0.30);
+    _threshold = (round ((_count)*0.30) max _oldThreshold);
     {alive _x} count _enemyArray <= _threshold
 };
 
@@ -89,7 +97,11 @@ _mrk setMarkerType "b_unknown";
 SEN_ClearedCitys pushBack _townName;
 publicVariable "SEN_ClearedCitys";
 
-SEN_approvalCiv = SEN_approvalCiv + _approval; publicVariable "SEN_approvalCiv";
+SEN_approvalCiv = SEN_approvalCiv + _approval;
+publicVariable "SEN_approvalCiv";
+
+JK_TicketSystem = JK_TicketSystem + _tickets;
+publicVariable "JK_TicketSystem";
 if (SEN_debug) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
 
 uiSleep 10;
@@ -123,6 +135,7 @@ if !(isNull SEN_intelObj) then {
     _kill = (count _a) - _threshold;
     for "_i" from 0 to _kill do {
         (_a select _i) setDamage 1;
+        sleep 0.0001;
     };
 };
 */
