@@ -1,6 +1,8 @@
 JK_badClassnamesOld = [];
 [{
+    private "_fnc_PFH";
     _fnc_PFH = {
+        private "_entrys";
         _entrys = (entities "");
         if (_entrys isEqualTo JK_badClassnamesOld) exitWith {};
         {
