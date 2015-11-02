@@ -25,11 +25,9 @@ _index = [JK_VehicleTickets, _vehicleType] call BIS_fnc_findInPairs;
 if (_index == -1) then {_index = [JK_VehicleTickets, "Default"] call BIS_fnc_findInPairs;};
 
 _costs = (JK_VehicleTickets select _index) select 1;
-
-if ((JK_TicketSystem - _costs) <= 0) exitWith {
-    hintSilent "You not have enoth Tickets";
+if (isNil "_costs") then {
+    _costs = 200;
 };
-
 JK_TicketSystem = JK_TicketSystem - _costs;
 publicVariable "JK_TicketSystem";
 

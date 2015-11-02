@@ -28,6 +28,8 @@ publicVariable "SEN_approvalCiv";
 SEN_blacklistLocation = ["SEN_ClearedCitys", []] call jk_db_fnc_load;
 publicVariable "SEN_blacklistLocation";
 
+SEN_ClearedCitys = SEN_blacklistLocation;
+publicVariable "SEN_ClearedCitys";
 missionNameSpace setVariable ["SEN_transportReady", 1];
 if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
 [] spawn {

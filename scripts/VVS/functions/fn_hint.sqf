@@ -10,6 +10,9 @@ _cfgInfo = [_current] call VVS_fnc_cfgInfo;
 _index = [JK_VehicleTickets, _cfgInfo select 4] call BIS_fnc_findInPairs;
 if (_index == -1) then {_index = [JK_VehicleTickets, "Default"] call BIS_fnc_findInPairs;};
 _costs = (JK_VehicleTickets select _index) select 1;
+if (isNil "_costs") then {
+    _costs = 200;
+};
 _temp = JK_TicketSystem - _costs;
 if (_temp <= 0) then {
     _text = format["You missing %1 tickets to this vehicle to spawn", _temp];
