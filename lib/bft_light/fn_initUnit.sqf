@@ -12,12 +12,12 @@ _fnc_Action = {
     [{
         params ["_args", "_idPFH"];
         _args params ["_target", "_caller"];
-        if ((_target distance _caller) <= 5) then {
+        if ((_target distance _caller) <= 3) then {
             player setVariable ["BG_BFT_item", player getVariable ["BG_BTF_itemOld", 0]];
             [_idPFH] call CBA_fnc_removePerFrameHandler;
             player setVariable ["BG_BTF_itemOld", nil];
         };
-    }, 2, [_target, _caller]] call CBA_fnc_addPerFrameHandler;
+    }, 0.2, [_target, _caller]] call CBA_fnc_addPerFrameHandler;
 };
 
 _action = ["BG_BFT_getUse", "Use BFT", "", _fnc_Action, _fnc_Check] call ace_interact_menu_fnc_createAction;

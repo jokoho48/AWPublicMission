@@ -30,21 +30,21 @@ if (BG_BFT_onlyPlayer) then {
             if (_iconType >= 0) then {
                 _iconType = (BG_BFT_iconTypes select 1) select _iconType;
                 _icons pushBack [
-                  _iconType select 0,
-                  _iconType select 1,
-                  leader _x,
-                  _iconType select 2,
-                  _iconType select 2,
-                  0,
-                  _text,
-                  0,
-                  _textSize,
-                  _font,
-                  _align
+                    _iconType select 0,
+                    _iconType select 1,
+                    leader _x,
+                    _iconType select 2,
+                    _iconType select 2,
+                    0,
+                    _text,
+                    0,
+                    _textSize,
+                    _font,
+                    _align
                 ];
             };
         };
-        true;
+        true
     } count allPlayers;
 } else {
     {
@@ -55,22 +55,22 @@ if (BG_BFT_onlyPlayer) then {
             if (_iconType >= 0) then {
                 _iconType = (BG_BFT_iconTypes select 1) select _iconType;
                 _icons pushBack [
-                _iconType select 0,
-                _iconType select 1,
-                leader _x,
-                _iconType select 2,
-                _iconType select 2,
-                0,
-                _text,
-                0,
-                _textSize,
-                _font,
-                _align
+                    _iconType select 0,
+                    _iconType select 1,
+                    leader _x,
+                    _iconType select 2,
+                    _iconType select 2,
+                    0,
+                    _text,
+                    0,
+                    _textSize,
+                    _font,
+                    _align
                 ];
             };
         };
-        true;
+        true
     } count allGroups;
 };
 
-BG_BFT_Icons = _icons;
+BG_BFT_Icons = +_icons;

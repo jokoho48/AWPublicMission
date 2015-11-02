@@ -66,21 +66,7 @@ BG_BFT_iconTypes = [_keys,_values];
     [] call BG_fnc_bftdialog;
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",BG_fnc_drawEvent];
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["MouseMoving",BG_fnc_mouseMovingEvent];
-    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onLoad",{
-        BG_BFT_PFHID = [{
-            [] call BG_fnc_iconUpdateLoop;
-        }, 10, []] call CBA_fnc_addPerFrameHandler;
+    [{
         [] call BG_fnc_iconUpdateLoop;
-    }];
-    ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["onUnload",{
-        private "_ctrl";
-        _ctrl = uiNameSpace getVariable "BG_UI_BFT_ctrlGroup";
-        if (!isNil "_ctrl" && {ctrlShown _ctrl}) then {
-            call BG_fnc_bftdialog_editButton;
-        };
-        if (!isNil "BG_BFT_PFHID") then {
-            [BG_BFT_PFHID] call CBA_fnc_removePerFrameHandler;
-            BG_BFT_PFHID = nil;
-        };
-    }];
+    }, 10, []] call CBA_fnc_addPerFrameHandler;
 };
