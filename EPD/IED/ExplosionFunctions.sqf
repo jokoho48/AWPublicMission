@@ -10,36 +10,31 @@ JK_fnc_applyDamage = {
 };
 
 EXPLOSIVESEQUENCE_SMALL = {
-    _explosiveSequence = ["M_Titan_AP","M_Titan_AP"];
-    [_this, _explosiveSequence, true, true, "small"] spawn PRIMARY_EXPLOSION;
+    [_this, ["M_Titan_AP","M_Titan_AP"], true, true, "small"] spawn PRIMARY_EXPLOSION;
 };
 
 EXPLOSIVESEQUENCE_MEDIUM = {
-    _explosiveSequence = ["HelicopterExploBig","M_PG_AT","M_Titan_AT","M_Titan_AP"];
-    [_this, _explosiveSequence, true, true, "medium"] spawn PRIMARY_EXPLOSION;
+    [_this, ["HelicopterExploBig","M_PG_AT","M_Titan_AT","M_Titan_AP"], true, true, "medium"] spawn PRIMARY_EXPLOSION;
 };
 
 EXPLOSIVESEQUENCE_LARGE = {
-    _explosiveSequence = ["Bo_GBU12_LGB_MI10", "HelicopterExploSmall"];
-    [_this, _explosiveSequence, true, true, "large"] spawn PRIMARY_EXPLOSION;
+    [_this, ["Bo_GBU12_LGB_MI10", "HelicopterExploSmall"], true, true, "large"] spawn PRIMARY_EXPLOSION;
 };
 
 EXPLOSIVESEQUENCE_DISARM = {
-    _explosiveSequence = ["Bo_GBU12_LGB_MI10","Bo_GBU12_LGB_MI10"];
-    [_this, _explosiveSequence, false, true] spawn PRIMARY_EXPLOSION;
+    [_this, ["Bo_GBU12_LGB_MI10","Bo_GBU12_LGB_MI10"], false, true] spawn PRIMARY_EXPLOSION;
 };
 
 EXPLOSIVESEQUENCE_SECONDARY = {
-    _explosiveSequence = ["R_80mm_HE","R_80mm_HE"];
-    [_this, _explosiveSequence, false, false] spawn PRIMARY_EXPLOSION;
+    [_this, ["R_80mm_HE","R_80mm_HE"], false, false] spawn PRIMARY_EXPLOSION;
 };
 
 PRIMARY_EXPLOSION = {
-    private ["_iedArray"];
+    private ["_iedArray", "_iedPosition", "_explosiveSequence", "_createSecondary", "_createSmoke", "_size", "_numberOfFragments", "_sleepTime"];
     _iedArray = [];
-    try{
+    try {
         _iedArray = (_this select 0) call GET_IED_ARRAY;
-        if(typeName _iedArray != "ARRAY") exitWith {if(EPD_IED_debug) then { hint "attempt to blow up already disarmed ied caught";};};
+        if(typeName _iedArray != "ARRAY") exitWith {if(SEN_debug) then { hint "attempt to blow up already disarmed ied caught";};};
 
         _iedPosition = getpos (_iedArray select 0);
         if (!JK_isExploded) then {
@@ -65,6 +60,8 @@ PRIMARY_EXPLOSION = {
         publicVariable "lastIedExplosion";
 
         0 = [_iedPosition, _explosiveSequence] spawn {
+            private ["_explosive", "_xCoord", "_yCoord", "_ied"];
+            params ["_iedPosition", "_explosiveSequence"];
             _iedPosition = _this select 0;
             _explosiveSequence = _this select 1;
 
@@ -102,14 +99,14 @@ PRIMARY_EXPLOSION = {
 
         //fragmentation
         [_iedPosition, _numberOfFragments] spawn CREATE_FRAGMENTS;
-
+        _iedItem = (_iedArray select 0);
         sleep .5;
         (_this select 0) call REMOVE_IED_ARRAY;
 
         if(_createSecondary) then {
             if(random 100 < secondaryChance) then {
                 _sleepTime = 10;
-                if(EPD_IED_debug) then {
+                if(SEN_debug) then {
                     hint format["Creating Secondary Explosive"];
                 };
                 sleep _sleepTime;
@@ -117,20 +114,24 @@ PRIMARY_EXPLOSION = {
             };
         };
         {
-            if (isPlayer _x && player == vehicle player) then {
-                private ["_distance" ,"_distanceDamage", "_damageVar"];
-                _distance = (_iedPosition distance _x) min 25;
-                _distanceDamage = _distance - 25;
-                _distanceDamage = _distanceDamage / 6;
-                _distanceDamage = _distanceDamage - _distanceDamage - _distanceDamage;
-                [_x, "body", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                [_x, "head", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                [_x, "hand_l", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                [_x, "hand_r", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                [_x, "leg_l", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                [_x, "leg_r", _distanceDamage, (_explosiveSequence select 0)] call JK_fnc_applyDamage;
-                if (_distance > 10) then {
-                    [_x, true] call ace_medical_fnc_setUnconscious;
+            private "_interSect";
+            _interSect = lineIntersectsSurfaces [_iedPosition, getPos _x, _x, _iedItem, true, -1, "FIRE", "VIEW"];
+            if (SEN_debug) then {
+                [_iedPosition, getPos _x, [1,1,0,1]] call ace_common_fnc_addLineToDebugDraw;
+            };
+            if !(_interSect isEqualTo []) then {
+                if (isPlayer _x && _x == vehicle _x) then {
+                    private ["_distance" ,"_distanceDamage", "_damageVar"];
+                    _distance = (_iedPosition distance _x) min 25;
+                    _distanceDamage = _distance - 25;
+                    _distanceDamage = _distanceDamage / 6;
+                    _distanceDamage = _distanceDamage - _distanceDamage - _distanceDamage;
+                    [_x, "body", _distanceDamage, "shell"] call JK_fnc_applyDamage;
+                    [_x, "head", _distanceDamage, "shell"] call JK_fnc_applyDamage;
+                    [_x, "hand_l", _distanceDamage, "shell"] call JK_fnc_applyDamage;
+                    [_x, "hand_r", _distanceDamage, "shell"] call JK_fnc_applyDamage;
+                    [_x, "leg_l", _distanceDamage, "shell"] call JK_fnc_applyDamage;
+                    [_x, "leg_r", _distanceDamage, "shell"] call JK_fnc_applyDamage;
                 };
             };
             nil

@@ -53,15 +53,15 @@ EXPLOSIVE_WATCHER = {
         };
 
         _origin = getpos _ied;
-        if(EPD_IED_debug) then {player sidechat format["distance = %1", (_origin distance _position)]; };
+        if(SEN_debug) then {player sidechat format["distance = %1", (_origin distance _position)]; };
         if((_origin distancesqr _position < _radiusSqr) and !(isnull _ied)) then {
             _chance = 100; //since this handles mostly giant explosions. Bombs, planted satchels...
             if(_class iskindof "Grenade") then { _chance = 35; };
 
             _r = random 100;
-            if(EPD_IED_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_class];};
+            if(SEN_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_class];};
             if(_r < _chance) then {
-                if(EPD_IED_debug) then { player sidechat format ["%1 triggered IED",_class]; };
+                if(SEN_debug) then { player sidechat format ["%1 triggered IED",_class]; };
                 if(!(isnull _ied)) then {
                     _ied removeAllEventHandlers "HitPart";
                     call compile format['["%2", "%3" ] call EXPLOSIVESEQUENCE_%1', _iedSize, _sectionName,_iedName ];
@@ -117,10 +117,10 @@ EXPLOSION_EVENT_HANDLER = {
 
             if(_isExplosiveBullet) then {_chance = 40; };
             _r = 0;//random 100;
-            if(EPD_IED_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_projectile];};
+            if(SEN_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_projectile];};
             if(_r < _chance) then {
                 //if(!(isnull _ied) and !(isnull _trigger)) then {
-                    if(EPD_IED_debug) then { player sidechat format ["%1 triggered IED",_projectile]; };
+                    if(SEN_debug) then { player sidechat format ["%1 triggered IED",_projectile]; };
                     //call compile format["terminate pd_%2; [_iedPosition, _ied, _iedNumber] call EXPLOSIVESEQUENCE_%1", _iedSize, _iedNumber ];
                     _ied removeAllEventHandlers "HitPart";
                     call compile format['["%2", "%3" ] call EXPLOSIVESEQUENCE_%1', _iedSize, _sectionName,_iedName ];

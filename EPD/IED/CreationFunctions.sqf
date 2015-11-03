@@ -43,7 +43,7 @@ CREATE_FAKE = {
     _markerName = "fake"+_fakeName;
     [_fakesDictionary, _fakeName, [_junk, _markerName]] call Dictionary_fnc_set;
 
-    if(EPD_IED_debug) then {
+    if(SEN_debug) then {
         createmarker [_markerName, _junkPosition];
         _markerName setMarkerTypeLocal "hd_warning";
         _markerName setMarkerColorLocal "ColorBlue";
@@ -174,7 +174,7 @@ CREATE_IED = {
 
 
 
-    if(EPD_IED_debug) then {
+    if(SEN_debug) then {
         createmarker [_markerName, _iedPos];
         _markerName setMarkerTypeLocal "hd_warning";
         _markerName setMarkerColorLocal "ColorRed";
@@ -229,7 +229,7 @@ CREATE_SECONDARY_IED = {
     [_sectionDictionary, _iedName, [_ied, objNull, _side, "SECONDARY",_markerName, _scriptHandle, _triggerStatusHandle]] call ADD_IED_TO_SECTION;
 
 
-    if(EPD_IED_debug) then {
+    if(SEN_debug) then {
         createmarker [_markerName, _iedPos];
         _markerName setMarkerTypeLocal "hd_warning";
         _markerName setMarkerColorLocal "ColorGreen";

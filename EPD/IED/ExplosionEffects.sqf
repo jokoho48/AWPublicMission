@@ -76,7 +76,7 @@ IED_ROCKS = {
 /******************SMOKE EFFECTS*********************/
 SAND_TRAIL_SMOKE = {
     private ["_size", "_thingToFling", "_smoke", "_sleepTime", "_sleep", "_currentTime"];
-    params ["_loc", "_aslLoc", "_horizontal", "_upwards"]
+    params ["_loc", "_aslLoc", "_horizontal", "_upwards"];
     _size = 1 + random 3;
 
     _thingToFling = "Land_Bucket_F" createVehicleLocal [0,0,0];
@@ -145,10 +145,8 @@ GRAY_TRAIL_SMOKE = {
 };
 
 BROWN_TRAIL_SMOKE = {
-    _loc = _this select 0;
-    _aslLoc = _this select 1;
-    _horizontal = _this select 2;
-    _upwards = _this select 3;
+    private ["_size", "_thingToFling", "_smoke", "_sleepTime", "_currentTime", "_sleep"];
+    params ["_loc", "_aslLoc", "_horizontal", "_upwards"];
 
     _size = 1 + random 3;
 
@@ -183,29 +181,26 @@ BROWN_TRAIL_SMOKE = {
 };
 
 IED_SMOKE_LARGE = {
-    _loc = _this select 0;
+    private "_aslLoc";
+    params ["_loc"];
     _aslLoc = [_loc select 0, _loc select 1, getTerrainHeightASL [_loc select 0, _loc select 1]];
 
     0 = [_loc] spawn SHOCK_WAVE;
 
     0 = [_loc,_aslLoc] spawn {
-        _loc = _this select 0;
-        _aslLoc = _this select 1;
+        private ["_numPlumes", "_r"];
+        params ["_loc", "_aslLoc"];
         _numPlumes = 15+floor random 20;
         for "_i" from 0 to _numPlumes -1 do{
             _r = floor random 3;
-            switch(_r) do
-            {
-                case 0:
-                {
+            switch(_r) do {
+                case 0: {
                     [_loc, _aslLoc, 500, 200] spawn {call SAND_TRAIL_SMOKE;};
                 };
-                case 1:
-                {
+                case 1: {
                     [_loc, _aslLoc, 500, 200] spawn {call GRAY_TRAIL_SMOKE;};
                 };
-                case 2:
-                {
+                case 2: {
                     [_loc, _aslLoc, 500, 200] spawn {call BROWN_TRAIL_SMOKE;};
                 };
             };
@@ -213,7 +208,7 @@ IED_SMOKE_LARGE = {
     };
 
     0 = _aslLoc spawn {
-
+        private ["_aslLoc", "_smoke1", "_smoke2", "_smoke3", "_smoke4", "_smokes"];
         _aslLoc = _this;
 
         _smoke1 = "#particlesource" createVehicleLocal _aslLoc;
@@ -327,34 +322,33 @@ IED_SMOKE_LARGE = {
 };
 
 IED_SMOKE_MEDIUM = {
-    _loc = _this select 0;
+    private ["_aslLoc"];
+    params ["_loc"];
     _aslLoc = [_loc select 0, _loc select 1, getTerrainHeightASL [_loc select 0, _loc select 1]];
 
-    0 = [_loc,_aslLoc] spawn {
-        _loc = _this select 0;
-        _aslLoc = _this select 1;
+    [_loc,_aslLoc] spawn {
+        private ["_numPlumes", "_r"];
+        params ["_loc", "_aslLoc"];
+
         _numPlumes = 5 + floor random 15;
-        for "_i" from 0 to _numPlumes -1 do{
+        for "_i" from 0 to _numPlumes -1 do {
             _r = floor random 3;
-            switch(_r) do
-            {
-                case 0:
-                {
+            switch(_r) do {
+                case 0: {
                     [_loc, _aslLoc, 500, 200] spawn {call SAND_TRAIL_SMOKE;};
                 };
-                case 1:
-                {
+                case 1: {
                     [_loc, _aslLoc, 500, 200] spawn {call GRAY_TRAIL_SMOKE;};
                 };
-                case 2:
-                {
+                case 2: {
                     [_loc, _aslLoc, 500, 200] spawn {call BROWN_TRAIL_SMOKE;};
                 };
             };
         };
     };
 
-    0 = _aslLoc spawn {
+    _aslLoc spawn {
+        private ["_aslLoc", "_smoke1", "_smoke2", "_smoke3", "_smoke4", "_smokes"];
         _aslLoc = _this;
         _smoke1 = "#particlesource" createVehicleLocal _aslLoc;
         _smoke1 setposasl _aslLoc;
@@ -466,27 +460,24 @@ IED_SMOKE_MEDIUM = {
 };
 
 IED_SMOKE_SMALL = {
-    _loc = _this select 0;
+    params "_aslLoc";
+    params ["_loc"];
     _aslLoc = [_loc select 0, _loc select 1, getTerrainHeightASL [_loc select 0, _loc select 1]];
 
     0 = [_loc,_aslLoc] spawn {
-        _loc = _this select 0;
-        _aslLoc = _this select 1;
+        private ["_numPlumes", "_r"];
+        params ["_loc", "_aslLoc"];
         _numPlumes = floor random 8;
         for "_i" from 0 to _numPlumes -1 do{
             _r = floor random 3;
-            switch(_r) do
-            {
-                case 0:
-                {
+            switch(_r) do {
+                case 0: {
                     [_loc, _aslLoc, 500, 200] spawn {call SAND_TRAIL_SMOKE;};
                 };
-                case 1:
-                {
+                case 1: {
                     [_loc, _aslLoc, 500, 200] spawn {call GRAY_TRAIL_SMOKE;};
                 };
-                case 2:
-                {
+                case 2: {
                     [_loc, _aslLoc, 500, 200] spawn {call BROWN_TRAIL_SMOKE;};
                 };
             };
@@ -494,6 +485,7 @@ IED_SMOKE_SMALL = {
     };
 
     0 = _aslLoc spawn {
+        private ["_aslLoc", "_smoke1", "_smoke2", "_smoke2", "_smoke3", "_smoke4", "_smokes"];
         _aslLoc = _this;
         //vertical
         _smoke1 = "#particlesource" createVehicleLocal _aslLoc;
@@ -587,8 +579,8 @@ IED_SMOKE_SMALL = {
 };
 
 SHOCK_WAVE = {
-
-    _loc = _this select 0;
+    private ["_aslLoc", "_smoke1", "_smoke2", "_smoke3", "_smoke4", "_smokes"];
+    params ["_loc"];
     _aslLoc = [_loc select 0, _loc select 1, getTerrainHeightASL [_loc select 0, _loc select 1]];
 
     _smoke1 = "#particlesource" createVehicleLocal _aslLoc;

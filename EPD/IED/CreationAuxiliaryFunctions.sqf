@@ -81,8 +81,8 @@ FIND_LOCATION_BY_ROAD = {
 };
 
 GET_SIZE_AND_TYPE = {
-    private ["_size", "_type"]
-    params [["_smallChance", smallChance], ["_mediumChance", mediumChance], ["_largeChance", largeChance]];
+    private ["_size", "_type"];
+    params [["_smallChance", smallChance, [0]], ["_mediumChance", mediumChance, [0]], ["_largeChance", largeChance, [0]]];
 
     _size = "SMALL";
      r = floor random (_smallChance + _mediumChance + _largeChance);
