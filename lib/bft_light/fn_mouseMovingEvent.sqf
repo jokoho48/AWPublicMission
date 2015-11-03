@@ -6,8 +6,8 @@ if (player getVariable ["BG_BFT_item", 0] == 0) exitWith {
 };
 
 disableSerialization;
-params ['_ctrl', '_xPos', '_yPos'];
-private ['_r','_temp','_group','_pos'];
+params ["_ctrl", "_xPos", "_yPos"];
+private ["_r","_temp","_group","_pos"];
 if !(BG_BFT_icons isEqualTo []) then {
     _r = 1000;
     {
@@ -21,10 +21,13 @@ if !(BG_BFT_icons isEqualTo []) then {
 
     if (_r < 0.02) then {
         with uiNamespace do {
+            private "_temp";
             _temp = (group (_group select 2));
-            BG_UI_BFT_ttRadio ctrlSetText format ["SR: %1 | LR: %2",
+            BG_UI_BFT_ttRadio ctrlSetText format [
+                "SR: %1 | LR: %2",
                 _temp getVariable ["BG_BFT_radioSR","n/a"],
-                _temp getVariable ["BG_BFT_radioLR","n/a"]];
+                _temp getVariable ["BG_BFT_radioLR","n/a"]
+            ];
             BG_UI_BFT_ttRadio ctrlCommit 0;
             BG_UI_BFT_ttRemarks ctrlSetText ((group (_group select 2)) getVariable ["BG_BFT_remarks",""]);
             BG_UI_BFT_ttRemarks ctrlCommit 0;

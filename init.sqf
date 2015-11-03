@@ -38,22 +38,3 @@ if (isServer || (!isServer && !hasInterface)) then {
     waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
     [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 };
-[] spawn JK_Core_fnc_clientInit;
-/*
-if (hasInterface) then {
-    ["playerInventoryChanged", {
-        private "_hint";
-        _hint = false;
-        if (!isnull (findDisplay 602) && {(_this select 0 distance (getMarkerPos "Base")) <= 300}) then {
-            {
-                deleteVehicle _x;
-                _hint = true;
-            } count nearestObjects [_this select 0, ["WeaponHolder", "GroundWeaponHolder", "WeaponHolderSimulated"], 300];
-            if (_hint) then {
-                hintSilent parseText "<t size='1.5'><t color='#ff0000'>Bist du blöd man wirft seine Ausrüstung nicht auf den Boden!</br><t size='1.5'><t color='#ff0000'> Schäm dich!</br><t size='1.5'><t color='#ff0000'> So das hast du nun davon jetzt hast du eins davon weniger.";
-            };
-        };
-    }] call ace_common_fnc_addEventHandler;
-};
-*/
-//call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";

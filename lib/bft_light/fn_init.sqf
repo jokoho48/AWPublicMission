@@ -10,27 +10,17 @@ BG_BFT_PFEH = -1;
 player setVariable ["BG_BFT_playerSide", playerSide, true];
 
 ["playerInventoryChanged", {
-
-    with uiNamespace do {
-        if (!isNil "BG_UI_BFT_ctrlGroup" && {ctrlShown BG_UI_BFT_ctrlGroup}) then {
-            call missionNameSpace getVariable ["BG_fnc_bftdialog_editButton", {}];
-        };
-
-    };
-    with uiNamespace do {
-        BG_UI_BFT_editButton ctrlShow false;
-    };
+    BG_UI_BFT_showEditButton = false;
     _var = 0;
     if ("ACE_DAGR" in (Items player)) then {
         _var = 1;
     };
     if ("ACE_HuntIR_monitor" in (Items player)) then {
         _var = 2;
-        with uiNamespace do {
-            BG_UI_BFT_editButton ctrlShow true;
-        };
+        BG_UI_BFT_showEditButton = true;
     };
     with uiNamespace do {
+        BG_UI_BFT_editButton ctrlShow (missionNamespace getVariable ["BG_UI_BFT_showEditButton", false]);
         BG_UI_BFT_editButton ctrlCommit 0;
     };
     player setVariable ["BG_BFT_item", _var, true];
