@@ -5,6 +5,8 @@ BG_BFT_onlyPlayer = false;
 
 BG_BFT_iconTypes=[];
 
+BG_BFT_PFEH = -1;
+
 player setVariable ["BG_BFT_playerSide", playerSide, true];
 
 ["playerInventoryChanged", {
@@ -60,13 +62,26 @@ BG_BFT_iconTypes = [_keys,_values];
 
 [] call BG_fnc_iconUpdateLoop;
 
+["visibleMapChanged", {
+    params ["_player", "_mapOn"];
+    if (_mapOn) then {
+        [] call BG_fnc_iconUpdateLoop;
+        if (BG_BFT_PFEH == -1) then {
+            BG_BFT_PFEH = [{
+                [] call BG_fnc_iconUpdateLoop;
+            }, 10, []] call CBA_fnc_addPerFrameHandler;
+        };
+    } else {
+        if (BG_BFT_PFEH != -1) then {
+            [BG_BFT_PFEH] call CBA_fnc_removePerFrameHandler;
+            BG_BFT_PFEH = -1;
+        };
+    };
+}] call ace_common_fnc_addEventhandler;
 
 [] spawn {
     waitUntil {!isNull ((findDisplay 12) displayCtrl 51)};
     [] call BG_fnc_bftdialog;
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["Draw",BG_fnc_drawEvent];
     ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["MouseMoving",BG_fnc_mouseMovingEvent];
-    [{
-        [] call BG_fnc_iconUpdateLoop;
-    }, 10, []] call CBA_fnc_addPerFrameHandler;
 };
