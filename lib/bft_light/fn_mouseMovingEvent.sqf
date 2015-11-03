@@ -21,7 +21,10 @@ if !(BG_BFT_icons isEqualTo []) then {
 
     if (_r < 0.02) then {
         with uiNamespace do {
-            BG_UI_BFT_ttRadio ctrlSetText ((group (_group select 2)) getVariable ["BG_BFT_radioInfo","SR: n/a; LR: n/a"]);
+            _temp = (group (_group select 2));
+            BG_UI_BFT_ttRadio ctrlSetText format ["SR: %1 | LR: %2",
+                _temp getVariable ["BG_BFT_radioSR","n/a"],
+                _temp getVariable ["BG_BFT_radioLR","n/a"]];
             BG_UI_BFT_ttRadio ctrlCommit 0;
             BG_UI_BFT_ttRemarks ctrlSetText ((group (_group select 2)) getVariable ["BG_BFT_remarks",""]);
             BG_UI_BFT_ttRemarks ctrlCommit 0;

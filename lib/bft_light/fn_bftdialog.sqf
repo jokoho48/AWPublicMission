@@ -38,13 +38,22 @@ with uiNamespace do {
     BG_UI_BFT_lbIcon ctrlCommit 0;
 
     _ctrl = _map ctrlCreate ["RscText",-1,BG_UI_BFT_ctrlGroup];
-    _ctrl ctrlSetPosition [0.1*_gX,5.8*_gY,4.8*_gX,1*_gY];
-    _ctrl ctrlSetText "Radio Info:";
+    _ctrl ctrlSetPosition [0.1*_gX,5.8*_gY,2.4*_gX,1*_gY];
+    _ctrl ctrlSetText "SR:";
     _ctrl ctrlCommit 0;
 
-    BG_UI_BFT_tbRadioInfo = _map ctrlCreate ["RscEdit",-1,BG_UI_BFT_ctrlGroup];
-    BG_UI_BFT_tbRadioInfo ctrlSetPosition [5*_gX,5.8*_gY,7.9*_gX,1*_gY];
-    BG_UI_BFT_tbRadioInfo ctrlCommit 0;
+    BG_UI_BFT_tbRadioSR = _map ctrlCreate ["RscEdit",-1,BG_UI_BFT_ctrlGroup];
+    BG_UI_BFT_tbRadioSR ctrlSetPosition [2.5*_gX,5.8*_gY,4*_gX,1*_gY];
+    BG_UI_BFT_tbRadioSR ctrlCommit 0;
+
+    _ctrl = _map ctrlCreate ["RscText",-1,BG_UI_BFT_ctrlGroup];
+    _ctrl ctrlSetPosition [6.5*_gX,5.8*_gY,2.4*_gX,1*_gY];
+    _ctrl ctrlSetText "LR:";
+    _ctrl ctrlCommit 0;
+
+    BG_UI_BFT_tbRadioLR = _map ctrlCreate ["RscEdit",-1,BG_UI_BFT_ctrlGroup];
+    BG_UI_BFT_tbRadioLR ctrlSetPosition [8.9*_gX,5.8*_gY,4*_gX,1*_gY];
+    BG_UI_BFT_tbRadioLR ctrlCommit 0;
 
     _ctrl = _map ctrlCreate ["RscText",-1,BG_UI_BFT_ctrlGroup];
     _ctrl ctrlSetPosition [0.1*_gX,6.9*_gY,4.8*_gX,1*_gY];
@@ -65,7 +74,7 @@ with uiNamespace do {
     BG_UI_BFT_groupToolTip ctrlSetPosition [0,0,8*_gX,2.3*_gY];
 
     _ctrl = _map ctrlCreate ["RscBackground",-1,BG_UI_BFT_groupToolTip];
-    _ctrl ctrlSetPosition [0,0,8*_gX,2.3*_gY];
+    _ctrl ctrlSetPosition [0,0,8*_gX,2.2*_gY];
     _ctrl ctrlSetBackgroundColor [0,0,0,0.8];
     _ctrl ctrlCommit 0;
 
@@ -75,7 +84,7 @@ with uiNamespace do {
     BG_UI_BFT_ttRadio ctrlCommit 0;
 
     BG_UI_BFT_ttRemarks = _map ctrlCreate ["RscText",-1,BG_UI_BFT_groupToolTip];
-    BG_UI_BFT_ttRemarks ctrlSetPosition [0.1*_gX,1.2*_gY,7.8*_gX,1*_gY];
+    BG_UI_BFT_ttRemarks ctrlSetPosition [0.1*_gX,1*_gY,7.8*_gX,1*_gY];
     BG_UI_BFT_ttRemarks ctrlSetText "Remarks";
     BG_UI_BFT_ttRemarks ctrlCommit 0;
 
@@ -106,7 +115,8 @@ BG_fnc_bftdialog_editButton = {
             group player setGroupIdGlobal [ctrlText BG_UI_BFT_tbName];
             group player setVariable ["BG_BFT_groupId", ctrlText BG_UI_BFT_tbName,true];
             group player setVariable ["BG_BFT_icon", (BG_UI_BFT_lbIcon lbData lbCurSel BG_UI_BFT_lbIcon),true];
-            group player setVariable ["BG_BFT_radioInfo", ctrlText BG_UI_BFT_tbRadioInfo,true];
+            group player setVariable ["BG_BFT_radioSR", ctrlText BG_UI_BFT_tbRadioSR,true];
+            group player setVariable ["BG_BFT_radioLR", ctrlText BG_UI_BFT_tbRadioLR,true];
             group player setVariable ["BG_BFT_remarks", ctrlText BG_UI_BFT_tbRemarks,true];
 
             BG_UI_BFT_ctrlGroup ctrlCommit 0;
@@ -141,8 +151,11 @@ BG_fnc_bftdialog_editButton = {
             BG_UI_BFT_tbRemarks ctrlSetText ((group player) getVariable ["BG_BFT_remarks", ""]);
             BG_UI_BFT_tbRemarks ctrlCommit 0;
 
-            BG_UI_BFT_tbRadioInfo ctrlSetText ((group player) getVariable ["BG_BFT_radioInfo", "SR: ??; LR: ??"]);
-            BG_UI_BFT_tbRadioInfo ctrlCommit 0;
+            BG_UI_BFT_tbRadioSR ctrlSetText ((group player) getVariable ["BG_BFT_radioSR", "n/a"]);
+            BG_UI_BFT_tbRadioSR ctrlCommit 0;
+
+            BG_UI_BFT_tbRadioLR ctrlSetText ((group player) getVariable ["BG_BFT_radioLR", "n/a"]);
+            BG_UI_BFT_tbRadioLR ctrlCommit 0;
 
             BG_UI_BFT_ctrlGroup ctrlCommit 0;
             BG_UI_BFT_editButton ctrlCommit 0;
