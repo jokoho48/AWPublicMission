@@ -7,10 +7,10 @@ Description:  creates actions for ACE3 interaction menu
 __________________________________________________________________*/
 if !(hasInterface) exitWith {};
 private "_action";
-JK_Names = [];
-
 
 /*
+JK_Names = [];
+
 JK_fnc_isGroup = {
     private "_oldName";
     params ["_name"];
@@ -30,9 +30,6 @@ JK_fnc_setGroup = {
         hintC format ["Your Squad Name is now %1", _name];
     };
 };
-
-_action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
-[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _action = ['JK_Group','Set Group Name','',{},{player == leader player}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
@@ -156,6 +153,10 @@ if (true) then {
     [player, 1, ["ACE_SelfActions","SEN_DCG", "JK_Group", "JK_GroupZO"], _action] call ace_interact_menu_fnc_addActionToObject;
 };
 */
+
+_action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
+
 _action = ['SEN_Civ','Civilian','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
 
