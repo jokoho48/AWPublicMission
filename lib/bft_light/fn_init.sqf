@@ -8,13 +8,12 @@ BG_BFT_iconTypes=[];
 player setVariable ["BG_BFT_playerSide", playerSide, true];
 
 ["playerInventoryChanged", {
-    private "_ctrl";
-    _ctrl = uiNameSpace getVariable "BG_UI_BFT_ctrlGroup";
-    if (!isNil "_ctrl" && {ctrlShown _ctrl}) then {
-        call BG_fnc_bftdialog_editButton;
-    };
+
     with uiNamespace do {
-        BG_UI_BFT_editButton ctrlShow false;
+        if (!isNil "BG_UI_BFT_ctrlGroup" && {ctrlShown BG_UI_BFT_ctrlGroup}) then {
+            call missionNameSpace getVariable ["BG_fnc_bftdialog_editButton", {}];
+        };
+
     };
     _var = 0;
     if ("ACE_DAGR" in (Items player)) then {
@@ -38,22 +37,23 @@ _classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO
 {
     _keys pushBack configName _x;
     _values pushBack [
-    getText (_x >> "icon"),
-    (_x >> "color") call BIS_fnc_colorConfigToRGBA,
-    getNumber (_x >> "size"),
-    getText (_x >> "name"),
-    switch (getText (_x >> "markerClass")) do {
-        case ("NATO_BLUFOR"): {
-            west
-        };
-        case ("NATO_OPFOR"): {
-            east
-        };
-        case ("NATO_Independent"): {
-            independent
-        };
-    },
-    configName _x];
+        getText (_x >> "icon"),
+        (_x >> "color") call BIS_fnc_colorConfigToRGBA,
+        getNumber (_x >> "size"),
+        getText (_x >> "name"),
+        switch (getText (_x >> "markerClass")) do {
+            case ("NATO_BLUFOR"): {
+                west
+            };
+            case ("NATO_OPFOR"): {
+                east
+            };
+            case ("NATO_Independent"): {
+                independent
+            };
+        },
+        configName _x
+    ];
 } forEach _classes;
 
 BG_BFT_iconTypes = [_keys,_values];
