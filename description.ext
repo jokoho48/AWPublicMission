@@ -52,6 +52,7 @@ class CfgFunctions {
     #include "lib\core\cfgFunctions.hpp"
     #include "lib\caching\cfgFunctions.hpp"
     #include "EPD\EPDcfgFunctions.hpp"
+    #include "lib\bft_light\cfgFunctions.hpp"
 };
 //class RscTitles {
     //#include "scripts\VehicleHud\hud_titles.sqf"
