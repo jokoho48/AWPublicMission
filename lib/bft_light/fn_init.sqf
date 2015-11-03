@@ -1,7 +1,7 @@
 if (!hasInterface) exitWith {};
 
 BG_BFT_Icons = [];
-BG_BFT_onlyPlayer = false;
+BG_BFT_onlyPlayer = true;
 
 BG_BFT_iconTypes=[];
 
@@ -17,6 +17,9 @@ player setVariable ["BG_BFT_playerSide", playerSide, true];
         };
 
     };
+    with uiNamespace do {
+        BG_UI_BFT_editButton ctrlShow false;
+    };
     _var = 0;
     if ("ACE_DAGR" in (Items player)) then {
         _var = 1;
@@ -26,6 +29,9 @@ player setVariable ["BG_BFT_playerSide", playerSide, true];
         with uiNamespace do {
             BG_UI_BFT_editButton ctrlShow true;
         };
+    };
+    with uiNamespace do {
+        BG_UI_BFT_editButton ctrlCommit 0;
     };
     player setVariable ["BG_BFT_item", _var, true];
 }] call ace_common_fnc_addEventhandler;
@@ -72,6 +78,10 @@ BG_BFT_iconTypes = [_keys,_values];
             }, 10, []] call CBA_fnc_addPerFrameHandler;
         };
     } else {
+        with uiNamespace do {
+            BG_UI_BFT_ctrlGroup ctrlShow false;
+            BG_UI_BFT_ctrlGroup ctrlCommit 0;
+        };
         if (BG_BFT_PFEH != -1) then {
             [BG_BFT_PFEH] call CBA_fnc_removePerFrameHandler;
             BG_BFT_PFEH = -1;
