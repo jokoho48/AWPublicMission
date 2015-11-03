@@ -23,10 +23,8 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _targetPos = getPosATL SEN_flagFOB;
     _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
 
-    if !(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos)) then {
-        while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos))} do {
-            _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
-        };
+    while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos))} do {
+        _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
     };
 
     if ([_spawnPos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
