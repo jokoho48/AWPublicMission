@@ -28,7 +28,7 @@ for "_s" from 0 to _counter do {
     };
 
     if (_posFound) exitWith {};
-    if (_s isEqualTo _counter) exitWith {_pos = []};
+    if (_s isEqualTo _counter) exitWith {_pos = [0,0,0]};
 };
 
 _pos
