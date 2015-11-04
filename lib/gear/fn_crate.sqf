@@ -243,7 +243,7 @@ _fnc_static_at_ammo = {
 _fnc_at_smaw_ammo = {
     [
         "Box_NATO_Wps_F",
-        10,
+        15,
         [
             //AT
             ["tf47_smaw_HEAA", 5],
