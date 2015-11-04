@@ -25,7 +25,7 @@ JK_itemsPrimaryweapon = [["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 10;
+JK_primaryweaponAmmo = 4;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
