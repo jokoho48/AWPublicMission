@@ -11,7 +11,6 @@ call _fnc_tfarSettings;
 ["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
-private "_prefix";
 
 // setup debug
 if (SEN_debug) then {
@@ -34,7 +33,7 @@ publicVariableServer "JK_registerPlayer";
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];
 
-if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
+if ((paramsArray select 2) isEqualTo 1 && SEN_debug) then {
     [] spawn {
         while {true} do {
             uiSleep 10;
