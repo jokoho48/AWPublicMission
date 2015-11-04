@@ -1,5 +1,15 @@
 /* Written by Brian Sweeney - [EPD] Brian*/
 
+switch (paramsArray select 12) do {
+    case 0: {JK_maxIEDCount = 0; JK_minIEDCount = 0;};
+    case 2: {JK_maxIEDCount = 8; JK_minIEDCount = 4;};
+    case 3: {JK_maxIEDCount = 12; JK_minIEDCount = 6;};
+    case 4: {JK_maxIEDCount = 16; JK_minIEDCount = 8;};
+    default {JK_maxIEDCount = 5; JK_minIEDCount = 2;};
+};
+
+if (JK_maxIEDCount == 0 && JK_minIEDCount == 0) exitWith {};
+
 if(isServer) then {
     iedsAdded = false;
     publicVariable "iedsAdded";
