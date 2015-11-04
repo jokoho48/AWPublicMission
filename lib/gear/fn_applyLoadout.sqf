@@ -93,9 +93,9 @@ _mortarTeamBipod = [];
 //Mortar team (Tube)
 _mortarTeamTube = [];
 //M2 team (Tripod)
-_m2TeamTripod = [];
+_AR_m2TeamTripod = [];
 //M2 team (Gun)
-_m2TeamGun = [];
+_AR_m2TeamGun = [];
 
 // insert Classnames of the units
 _commandClass = ["B_Soldier_SL_F"];
@@ -130,8 +130,8 @@ _jetPilotClass = [];
 _pjMedicClass = [];
 _mortarTeamBipodClass = [];
 _mortarTeamTubeClass = [];
-_m2TeamTripodClass = [];
-_m2TeamGunClass = [];
+_AR_m2TeamTripodClass = [];
+_AR_m2TeamGunClass = [];
 _AR_commandClass = ["B_Soldier_SL_F"];
 _AR_SLClass = ["B_Soldier_TL_F"];
 _AR_FTLClass = [];
@@ -206,8 +206,8 @@ _class = switch true do {
     case (_object in _pjMedic): {"pjMedic"};
     case (_object in _mortarTeamBipod): {"mortarTeamBipod"};
     case (_object in _mortarTeamTube): {"mortarTeamTube"};
-    case (_object in _m2TeamTripod): {"m2TeamBipod"};
-    case (_object in _m2TeamGun): {"m2TeamTube"};
+    case (_object in _AR_m2TeamTripod): {"AR_m2TeamBipod"};
+    case (_object in _AR_m2TeamGun): {"AR_m2TeamTube"};
     default{""};
 };
 
@@ -262,8 +262,8 @@ if (_class == "") then {
         case (typeOf _target in _pjMedicClass): {"pjMedic"};
         case (typeOf _target in _mortarTeamBipodClass): {"mortarTeamBipod"};
         case (typeOf _target in _mortarTeamTubeClass): {"mortarTeamTube"};
-        case (typeOf _target in _m2TeamTripodClass): {"m2TeamTripod"};
-        case (typeOf _target in _m2TeamGunClass): {"m2TeamGun"};
+        case (typeOf _target in _AR_m2TeamTripodClass): {"AR_m2TeamTripod"};
+        case (typeOf _target in _AR_m2TeamGunClass): {"AR_m2TeamGun"};
         default {"Rifleman"};
     };
 };

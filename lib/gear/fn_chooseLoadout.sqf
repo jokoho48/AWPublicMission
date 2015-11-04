@@ -18,24 +18,24 @@ JK_Gear = "Main";
 JK_USMC = ["Command", "radioOp", "Leader", "FTL", "Medic", "ARMan", "MG", "AssMG", "At", "ATmk153", "AtAss", "ATAssmk153", "Grenadier", "Rifleman", "stormtrooper", "Marksman", "Specialist"];
 JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_ARMan", "AR_MG", "AR_AssMG", "AR_At", "AR_ATmk153", "AR_AtAss", "AR_ATAssmk153", "AR_Grenadier", "AR_Rifleman", "AR_stormtrooper", "AR_Marksman", "Specialist"];
 JK_Para = ["paratrooper", "paraARman", "paraDropMedic", "paraExExpert", "paraGrenadier", "paraLeader", "paraMarksman", "paraStormtrooper", "paraAssAR"];
-JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "mortarTeamBipod", "mortarTeamTube", "m2TeamTripod", "m2TeamGun"];
+JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "mortarTeamBipod", "mortarTeamTube", "AR_m2TeamTripod", "AR_m2TeamGun"];
 JK_classes = JK_USMC + JK_USARMY + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
     //[player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction;
-    [_this ,"<t color='#00FF00'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this ,"<t color='#52c652'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
     [_this ,"<t color='#c6c6c6'>USARMY Gear</t>", {JK_Gear = "USARMY"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#747acb'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#F3FF00'>Crew/Special Gear</t>", {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 96, 3] call JK_Core_fnc_addAction;
+    [_this, "<t color='#7f7fff'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
+    [_this, "<t color='#f9ea6b'>Crew/Special Gear</t>", {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 96, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Back</t>", {JK_Gear = "Main"}, {JK_Gear != "Main"}, nil, 95, 3] call JK_Core_fnc_addAction;
     {
         private ["_string", "_cond", "_color"];
-        _color = "00FF00";
+        _color = "52c652";
         _cond = call {
-            if (_x in JK_USMC) exitWith {_color = "00FF00";"JK_Gear == 'USMC'"};
+            if (_x in JK_USMC) exitWith {_color = "52c652";"JK_Gear == 'USMC'"};
             if (_x in JK_USARMY) exitWith {_color = "c6c6c6";"JK_Gear == 'USARMY'"};
-            if (_x in JK_Para) exitWith {_color = "747acb";"JK_Gear == 'Para'"};
-            if (_x in JK_SpeczialClasses) exitWith {_color = "F3FF00";"JK_Gear == 'Spec'"};
+            if (_x in JK_Para) exitWith {_color = "7f7fff";"JK_Gear == 'Para'"};
+            if (_x in JK_SpeczialClasses) exitWith {_color = "f9ea6b";"JK_Gear == 'Spec'"};
             "true"
         };
 

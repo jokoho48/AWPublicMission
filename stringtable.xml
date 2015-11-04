@@ -190,13 +190,13 @@
             <English>Mortar-Gunner(Tube)</English>
             <German>Mörser-Richtschütze(Tube)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_m2TeamTripod">
-            <English>M2-Team(Tripod)</English>
-            <German>M2-Team(Tripod)</German>
+        <Key ID="STR_JK_GEAR_AR_m2TeamTripod">
+            <English>M2-Carrier(Tripod)</English>
+            <German>M2-Träger(Tripod)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_m2TeamGun">
-            <English>M2-Team(Gun)</English>
-            <German>M2-Team(Geschütz)</German>
+        <Key ID="STR_JK_GEAR_AR_m2TeamGun">
+            <English>M2-Carrier(Gun)</English>
+            <German>M2-Träger(Geschütz)</German>
         </Key>
         <Key ID="STR_JK_GEAR_PILOT">
             <English>Pilot</English>

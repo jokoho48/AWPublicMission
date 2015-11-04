@@ -12,7 +12,7 @@ JK_vvsArray = [];
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_cu_ucp"];
 JK_vests = ["rhsusf_iotv_ucp_Rifleman"];
-JK_headgears = ["rhsusf_ach_helmet_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_mich_bare_norotos_tan"];
+JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
 JK_backpacks = ["rhsusf_assault_eagleaiii_ucp"];
 JK_insignium = "";
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
@@ -57,7 +57,7 @@ JK_handgunAmmo = 2;
 JK_launcher = "tf47_smaw_green";
 
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
-JK_launcherItems = [];
+JK_launcherItems = ["tf47_optic_smaw"];
 
 //launcher ammo (if a launcher is given) - (integer)
 JK_launcherAmmo = 1;

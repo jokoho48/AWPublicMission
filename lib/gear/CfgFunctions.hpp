@@ -38,7 +38,7 @@ class JK_loadOut {
 
     class USARMY {
         file = "lib\gear\loadouts\USARMY";
-        // USMC
+        // USARMY
         class AR_FTL;
         class AR_arman;
         class AR_assmg;
@@ -83,7 +83,7 @@ class JK_loadOut {
         class SpecOps;
         class mortarTeamBipod;
         class mortarTeamTube;
-        class m2TeamTripod;
-        class m2TeamGun;
+        class AR_m2TeamTripod;
+        class AR_m2TeamGun;
     };
 };
