@@ -16,7 +16,7 @@ class JK_loadOut {
     };
     class USMC {
         file = "lib\gear\loadouts\USMC";
-        // USMC
+        // US Army
         class FTL;
         class arman;
         class assmg;
