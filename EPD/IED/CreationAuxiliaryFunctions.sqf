@@ -81,20 +81,19 @@ FIND_LOCATION_BY_ROAD = {
 };
 
 GET_SIZE_AND_TYPE = {
-    private ["_size", "_type"];
+    private ["_size", "_type", "_r"];
     params [["_smallChance", smallChance, [0]], ["_mediumChance", mediumChance, [0]], ["_largeChance", largeChance, [0]]];
 
     _size = "SMALL";
-     r = floor random (_smallChance + _mediumChance + _largeChance);
-     if(r > _smallChance) then {
+    _r = floor random (_smallChance + _mediumChance + _largeChance);
+    if (_r > _smallChance) then {
         _size = "MEDIUM";
-     };
+    };
 
-     if(r > _smallChance + _mediumChance) then {
+    if (_r > _smallChance + _mediumChance) then {
         _size = "LARGE";
-     };
+    };
 
-    _type = "";
     _type = switch _size do {
         case "SMALL": {
             iedSmallItems select(floor random(iedSmallItemsCount))
@@ -107,19 +106,21 @@ GET_SIZE_AND_TYPE = {
         };
         default {(iedSmallItems + iedMediumItems + iedLargeItems) call BIS_fnc_selectRandom};
     };
-    [_size,_type];
+    [_size,_type]
 };
 
 CREATE_RANDOM_IED_NAME = {
     private ["_letters", "_name", "_numberOfLettersToUse"];
-    _letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-    _name = "";
+    _letters = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z","1","2","3","4","5","6","7","8","9","0"];
+    _name = "ied";
     _numberOfLettersToUse = 10;
-
+    _count = count _letters;
     for "_i" from 0 to _numberOfLettersToUse - 1 do {
-        _name = _name + (_letters select floor random 26);
+        _name = _name + (_letters select (floor (random _count)));
     };
-    _name;
+    if (_name in JK_iedNameSecure) exitWith {call CREATE_RANDOM_IED_NAME};
+    JK_iedNameSecure pushBack _name;
+    _name
 };
 
 CHECK_ARRAY = {
@@ -127,10 +128,10 @@ CHECK_ARRAY = {
     params ["_arr"];
     _good = true;
     for "_i" from 0 to (count _arr) -1 do{
-        if(!ScriptDone (_arr select _i)) then {_good = false;};
+        if (!ScriptDone (_arr select _i)) then {_good = false;};
     };
 
-    _good;
+    _good
 };
 
 GET_CENTER_LOCATION_AND_SIZE = {
@@ -138,8 +139,7 @@ GET_CENTER_LOCATION_AND_SIZE = {
     _origin = _this;
     _centerPos = [0,0,0];
     _size = 0;
-    if(typename _origin == "ARRAY") then
-    {
+    if(typename _origin == "ARRAY") then {
         _centerPos = _origin select 0;
         _size = _origin select 1;
     } else {
@@ -180,5 +180,5 @@ GET_CENTER_LOCATION_AND_SIZE = {
         };
     };
 
-    [_centerPos, _size];
+    [_centerPos, _size]
 };

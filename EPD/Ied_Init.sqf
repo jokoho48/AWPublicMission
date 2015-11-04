@@ -10,6 +10,7 @@ switch (paramsArray select 12) do {
 
 if (JK_maxIEDCount == 0 && JK_minIEDCount == 0) exitWith {};
 
+JK_iedNameSecure = [];
 if(isServer) then {
     iedsAdded = false;
     publicVariable "iedsAdded";
