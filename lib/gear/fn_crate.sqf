@@ -52,23 +52,10 @@ JK_fnc_createCrate = {
 
 _fnc_medical = {
     if (ace_medical_level == 1) then {
-        [
-            "ACE_medicalSupplyCrate",
-            5,
-            [
-                ["ACE_fieldDressing", 100],
-                ["ACE_epinephrine", 25],
-                ["ACE_morphine", 25],
-                ["ACE_bloodIV", 15],
-                ["ACE_bloodIV_500", 15],
-                ["ACE_bloodIV_250", 15],
-                ["ACE_bodyBag", 10]
-            ]
-        ] call JK_fnc_createCrate;
-    } else {
+        ["ACE_medicalSupplyCrate", 5] call JK_fnc_createCrate;
+        } else {
         ["ACE_medicalSupplyCrate_advanced", 5] call JK_fnc_createCrate;
     };
-
 };
 
 _fnc_ammo = {
@@ -104,7 +91,7 @@ _fnc_mg_ammo = {
 _fnc_para = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             ["B_Parachute", 10]
         ]
@@ -114,7 +101,7 @@ _fnc_para = {
 _fnc_nade = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             // Granaten
             ["HandGrenade", 30],
@@ -147,7 +134,7 @@ _fnc_nade = {
 _fnc_exp = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             //Sprengstoffe+Zünder
             ["ACE_M26_Clacker", 10],
@@ -161,7 +148,7 @@ _fnc_exp = {
 _fnc_at_ammo = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             //AT
             ["tf47_at4_HEDP", 5],
@@ -244,7 +231,7 @@ _fnc_static_at_ammo = {
 _fnc_at_smaw_ammo = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             //AT
             ["tf47_smaw_HEAA", 5],
@@ -257,7 +244,7 @@ _fnc_at_smaw_ammo = {
 _fnc_at_M3_ammo = {
     [
         "Box_NATO_Wps_F",
-        15,
+        10,
         [
             //AT
             ["tf47_m3maaws_HEAT", 7],
@@ -296,7 +283,6 @@ _fnc_misc = {
             ["ACE_microDAGR", 5],
             ["ACE_bodyBag", 5],
             ["ACE_MapTools", 5],
-            ["ACE_Sandbag_empty", 5],
             ["ACE_wirecutter", 2]
     ]] call JK_fnc_createCrate;
 };

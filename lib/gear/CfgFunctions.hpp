@@ -36,6 +36,28 @@ class JK_loadOut {
         class radioOp;
     };
 
+    class USARMY {
+        file = "lib\gear\loadouts\USARMY";
+        // USMC
+        class AR_FTL;
+        class AR_arman;
+        class AR_assmg;
+        class AR_mg;
+        class AR_stormtrooper;
+        class AR_at;
+        class AR_atmk153;
+        class AR_atass;
+        class AR_ATAssmk153;
+        class AR_command;
+        class AR_grenadier;
+        class AR_leader;
+        class AR_marksman;
+        class AR_medic;
+        class AR_rifleman;
+        class AR_specialist;
+        class AR_radioOp;
+    };
+
     class parachuteLoadouts {
         file = "lib\gear\loadouts\parachute";
         // Paratrooper
@@ -61,5 +83,7 @@ class JK_loadOut {
         class SpecOps;
         class mortarTeamBipod;
         class mortarTeamTube;
+        class m2TeamTripod;
+        class m2TeamGun;
     };
 };

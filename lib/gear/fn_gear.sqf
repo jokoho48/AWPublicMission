@@ -117,11 +117,11 @@ _ivBag = if (ace_medical_level == 1) then {
 };
 
 for "_i" from 1 to JK_IVBagSaline250 do {
-    _unit addItem (_ivBag + "_250");
+    _unit addItem format [_ivBag,"_250"];
 };
 
 for "_i" from 1 to JK_IVBagSaline500 do {
-    _unit addItem (_ivBag + "_500");
+    _unit addItem format [_ivBag,"_500"];
 };
 
 for "_i" from 1 to JK_IVBagSaline1000 do {

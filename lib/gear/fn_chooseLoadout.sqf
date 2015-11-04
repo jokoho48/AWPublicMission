@@ -16,14 +16,16 @@
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 JK_Gear = "Main";
 JK_USMC = ["Command", "radioOp", "Leader", "FTL", "Medic", "ARMan", "MG", "AssMG", "At", "ATmk153", "AtAss", "ATAssmk153", "Grenadier", "Rifleman", "stormtrooper", "Marksman", "Specialist"];
+JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_ARMan", "AR_MG", "AR_AssMG", "AR_At", "AR_ATmk153", "AR_AtAss", "AR_ATAssmk153", "AR_Grenadier", "AR_Rifleman", "AR_stormtrooper", "AR_Marksman", "Specialist"];
 JK_Para = ["paratrooper", "paraARman", "paraDropMedic", "paraExExpert", "paraGrenadier", "paraLeader", "paraMarksman", "paraStormtrooper", "paraAssAR"];
-JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "mortarTeamBipod", "mortarTeamTube"];
-JK_classes = JK_USMC + JK_Para + JK_SpeczialClasses;
+JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "mortarTeamBipod", "mortarTeamTube", "m2TeamTripod", "m2TeamGun"];
+JK_classes = JK_USMC + JK_USARMY + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
     //[player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction;
     [_this ,"<t color='#00FF00'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#0011FF'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
+    [_this ,"<t color='#c6c6c6'>USARMY Gear</t>", {JK_Gear = "USARMY"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this, "<t color='#747acb'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#F3FF00'>Crew/Special Gear</t>", {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 96, 3] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Back</t>", {JK_Gear = "Main"}, {JK_Gear != "Main"}, nil, 95, 3] call JK_Core_fnc_addAction;
     {
@@ -31,7 +33,8 @@ _fnc_gear_Call = {
         _color = "00FF00";
         _cond = call {
             if (_x in JK_USMC) exitWith {_color = "00FF00";"JK_Gear == 'USMC'"};
-            if (_x in JK_Para) exitWith {_color = "0011FF";"JK_Gear == 'Para'"};
+            if (_x in JK_USARMY) exitWith {_color = "c6c6c6";"JK_Gear == 'USARMY'"};
+            if (_x in JK_Para) exitWith {_color = "747acb";"JK_Gear == 'Para'"};
             if (_x in JK_SpeczialClasses) exitWith {_color = "F3FF00";"JK_Gear == 'Spec'"};
             "true"
         };
