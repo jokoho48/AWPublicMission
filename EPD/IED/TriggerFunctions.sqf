@@ -1,4 +1,5 @@
 TRIGGER_STATUS_LOOP = {
+    private ["_triggerActive", "_nearEntitiesCount", "_trigger"];
     params ["_iedPosition", "_sectionDictionary", "_sectionName", "_iedName", "_iedSize"];
 
     _triggerActive = false;

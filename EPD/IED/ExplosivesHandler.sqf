@@ -10,7 +10,7 @@ PROJECTILE_DETECTION = {
 
         _fired = [];
         while {alive _ied} do {
-            private "_ammo";
+            private ["_ammo", "_nearProjectiles"];
             _nearProjectiles = (position _ied) nearObjects ["Default",_range]; //Default = superclass of ammo
             if (count _nearProjectiles >=1) then {
                 _ammo = _nearProjectiles select 0;
@@ -28,22 +28,25 @@ PROJECTILE_DETECTION = {
 
 //Since explosions don't trigger any hit events for planted explosives and a few others for these items, we have to detect them a funky way
 EXPLOSIVE_WATCHER = {
-    private "_isExplosive";
+    private ["_isExplosive", "_updateInterval", "_radiusSqr", "_origin", "_chance", "_r"];
     params ["_ammoToWatch", "_ied", "_iedSize", "_class", "_position", "_sectionName", "_iedName", "_trigger"];
     _isExplosive = false;
     {
         if(_class iskindof _x) then {
             _isExplosive = true;
         };
-    } foreach explosiveSuperClasses;
+        nil
+    } count explosiveSuperClasses;
 
-    {//smoke grenades.. chem lights.. ir strobes.. rocks..
+    {
+        //smoke grenades.. chem lights.. ir strobes.. rocks..
         if(_class iskindof _x) then{
             _isExplosive = false;
-        }
-    } foreach projectilesToIgnore;
+        };
+        nil
+    } count projectilesToIgnore;
 
-    if(_isExplosive) then {
+    if (_isExplosive) then {
         _updateInterval = .1;
         _radiusSqr = 49;
 
@@ -75,8 +78,9 @@ EXPLOSIVE_WATCHER = {
 EXPLOSION_EVENT_HANDLER = {
 
     if(allowExplosiveToTriggerIEDs) then {
-        _hitEvent = _this select 0;
-        _ied = _hitEvent select 0;
+        private ["_hitEvent", "_sectionName", "_iedName", "_iedSize", "_projectile", "_isExplosive", "_isExplosiveBullet", "_explosiveValue", "_chance", "_r"];
+        params ["_hitEvent"];
+        _hitEvent params ["_ied"];
         _sectionName = _ied getVariable ["_sectionName", ""];
         _iedName = _ied getVariable ["_iedName", ""];
         _iedSize= _ied getVariable ["_iedSize", ""];
@@ -88,37 +92,39 @@ EXPLOSION_EVENT_HANDLER = {
         _isExplosiveBullet = false;
 
         {
-            if(_projectile iskindof _x) then {
+            if (_projectile iskindof _x) then {
                 _isExplosive = true;
             };
-        } foreach ehExplosiveSuperClasses;
+            nil
+        } count ehExplosiveSuperClasses;
 
-        if(! _isExplosive) then
-        {
+        if (! _isExplosive) then {
             _explosiveValue = getNumber(configfile >> "CfgAmmo" >> format["%1", _projectile] >> "explosive");
-            if(_explosiveValue > 0) then {
+            if (_explosiveValue > 0) then {
                 _isExplosiveBullet = true;
             };
         };
 
-        {//smoke grenades.. chem lights.. ir strobes.. rocks..
-            if(_projectile iskindof _x) then{
+        {
+            //smoke grenades.. chem lights.. ir strobes.. rocks..
+            if(_projectile iskindof _x) then {
                 _isExplosive = false;
                 _isExplosiveBullet = false;
-            }
-        } foreach projectilesToIgnore;
+            };
+            nil
+        } count projectilesToIgnore;
 
 
         //hint format["projectile = %3\nexplosive = %1\nexbullet = %2", _isExplosive, _isExplosiveBullet,_projectile];
-        if(_isExplosive || _isExplosiveBullet) then {
+        if (_isExplosive || _isExplosiveBullet) then {
             _chance = 100;
 
-            if(_projectile iskindof "GrenadeCore") then { _chance = 50; }; //grenade launcher
+            if (_projectile iskindof "GrenadeCore") then { _chance = 50; }; //grenade launcher
 
-            if(_isExplosiveBullet) then {_chance = 40; };
+            if (_isExplosiveBullet) then {_chance = 40; };
             _r = 0;//random 100;
-            if(SEN_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_projectile];};
-            if(_r < _chance) then {
+            if (SEN_debug) then {hint format["random = %1\nmax to explode = %2\n%3",_r,_chance,_projectile];};
+            if (_r < _chance) then {
                 //if(!(isnull _ied) and !(isnull _trigger)) then {
                     if(SEN_debug) then { player sidechat format ["%1 triggered IED",_projectile]; };
                     //call compile format["terminate pd_%2; [_iedPosition, _ied, _iedNumber] call EXPLOSIVESEQUENCE_%1", _iedSize, _iedNumber ];
@@ -133,8 +139,8 @@ EXPLOSION_EVENT_HANDLER = {
 };
 
 EXPLOSION_EVENT_HANDLER_ADDER = {
-    _sectionName = _this select 0;
-    _iedName = _this select 1;
+    private ["_arr", "_ied", "_iedSize"];
+    params ["_sectionName", "_iedName"];
 
     _arr = [_sectionName, _iedName] call GET_IED_ARRAY;
     _ied = _arr select 0;
@@ -149,6 +155,6 @@ EXPLOSION_EVENT_HANDLER_ADDER = {
 };
 
 SECONDARY_EVENT_ADDER = {
-    _code = _this select 0;
+    params ["_code"];
     call compile _code;
 };

@@ -30,7 +30,7 @@ EXPLOSIVESEQUENCE_SECONDARY = {
 };
 
 PRIMARY_EXPLOSION = {
-    private ["_iedArray", "_iedPosition", "_explosiveSequence", "_createSecondary", "_createSmoke", "_size", "_numberOfFragments", "_sleepTime"];
+    private ["_iedArray", "_iedPosition", "_explosiveSequence", "_createSecondary", "_createSmoke", "_size", "_numberOfFragments", "_sleepTime", "_iedItem"];
     _iedArray = [];
     try {
         _iedArray = (_this select 0) call GET_IED_ARRAY;
@@ -62,8 +62,6 @@ PRIMARY_EXPLOSION = {
         0 = [_iedPosition, _explosiveSequence] spawn {
             private ["_explosive", "_xCoord", "_yCoord", "_ied"];
             params ["_iedPosition", "_explosiveSequence"];
-            _iedPosition = _this select 0;
-            _explosiveSequence = _this select 1;
 
             for "_i" from 0 to (count _explosiveSequence) -1 do {
                 [[_iedPosition] , "IED_ROCKS", true, false] spawn BIS_fnc_MP;
@@ -144,14 +142,16 @@ PRIMARY_EXPLOSION = {
 };
 
 CREATE_FRAGMENTS = {
-    _pos = _this select 0;
+    private ["_numberOfFragments"];
+    params ["_pos", "_numberOfFragments"];
     _numberOfFragments = _this select 1;
     for "_i" from 0 to _numberOfFragments - 1 do{
-        _pos set[2,.1 + random 2];
+        private ["_bullet", "_angle", "_speed"];
+        _pos set[2, 0.1 + random 2];
         _bullet = "B_408_Ball" createVehicle _pos;
         _angle = random 360;
         _speed = 450 + random 100;
-        _bullet setVelocity [_speed*cos(_angle), _speed*sin(_angle), -1*(random 4)];
+        _bullet setVelocity [_speed * cos(_angle), _speed * sin(_angle), -1 * (random 4)];
     };
 };
 
