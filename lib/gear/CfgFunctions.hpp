@@ -38,7 +38,11 @@ class JK_loadOut {
 
     class USARMY {
         file = "lib\gear\loadouts\USARMY";
+<<<<<<< HEAD
         // USARMY
+=======
+        // US Army
+>>>>>>> aecd6f961c7b8077267286b9fe596c3cddebc916
         class AR_FTL;
         class AR_arman;
         class AR_assmg;
