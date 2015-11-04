@@ -34,7 +34,6 @@ if (isServer) then {
     iedInitialArray = [];
     private ["_tempwlLocations" ,"_tempCitiyArray", "_count"];
     _tempwlLocations = +SEN_whitelistLocation;
-    _tempCitiyArray = +SEN_occupiedLocation;
     _count = floor (random (count _tempwlLocations - 1));
     _count = (_count min JK_maxIEDCount) min JK_minIEDCount;
     for "_i" from _count to 0 step -1 do {
@@ -45,6 +44,7 @@ if (isServer) then {
     };
     JK_iedTown = +_tempCitiyArray;
     publicVariable "JK_iedTown";
+    _tempCitiyArray append SEN_occupiedLocation;
     {
         private ["_id", "_townSize", "_avgTownSize", "_pos"];
         _id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];

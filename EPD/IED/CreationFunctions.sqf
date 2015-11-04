@@ -39,6 +39,7 @@ CREATE_FAKE = {
         JK_IED = [];
     };
     JK_IED pushBack _junk;
+    JK_fakeIED pushBack _junk;
     _fakeName = call CREATE_RANDOM_IED_NAME;
     _markerName = "fake"+_fakeName;
     [_fakesDictionary, _fakeName, [_junk, _markerName]] call Dictionary_fnc_set;
