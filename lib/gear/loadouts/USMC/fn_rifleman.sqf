@@ -26,8 +26,8 @@ JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsus
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
-JK_primaryweaponTracers = 6;
+JK_primaryweaponAmmo = 5;
+JK_primaryweaponTracers = 3;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
@@ -104,7 +104,7 @@ JK_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be add
 JK_itemsUniform = [];
 
 //items added specifically to vest: - (array)
-JK_itemsVest = [];
+JK_itemsVest = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 //items added specifically to Backpack: - (array)
 JK_itemsBackpack = [];
@@ -120,7 +120,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+JK_items = [];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

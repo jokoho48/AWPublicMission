@@ -7,6 +7,8 @@ Description:  creates actions for ACE3 interaction menu
 __________________________________________________________________*/
 if !(hasInterface) exitWith {};
 private "_action";
+
+/*
 JK_Names = [];
 
 JK_fnc_isGroup = {
@@ -28,9 +30,6 @@ JK_fnc_setGroup = {
         hintC format ["Your Squad Name is now %1", _name];
     };
 };
-
-_action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
-[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _action = ['JK_Group','Set Group Name','',{},{player == leader player}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
@@ -153,6 +152,10 @@ if (true) then {
     _action = ['JK_GroupOPZ','OPZ','',{["OPZ"] call JK_fnc_setGroup;},{["OPZ"] call JK_fnc_isGroup;}] call ace_interact_menu_fnc_createAction;
     [player, 1, ["ACE_SelfActions","SEN_DCG", "JK_Group", "JK_GroupZO"], _action] call ace_interact_menu_fnc_addActionToObject;
 };
+*/
+
+_action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
+[player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _action = ['SEN_Civ','Civilian','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
@@ -174,10 +177,10 @@ _action = ['SEN_Question','Question Nearby Civilians','',{call SEN_fnc_onCivQues
 
 _action = ['SEN_Disarm','Disarm Detonator','',{createDialog 'KeypadDefuse';},{!isNull SEN_defuseObj && {player distance SEN_defuseObj < 3}}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
-
+/*
 _action = ['SEN_Manual','Open Field Manual','',{[] spawn {(findDisplay 46) createDisplay "RscDisplayFieldManual"}},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions","SEN_DCG"], _action] call ace_interact_menu_fnc_addActionToObject;
-
+*/
 [] spawn {
     waitUntil {!isNil "SEN_airPoolWest"};
     {

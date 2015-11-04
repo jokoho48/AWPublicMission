@@ -1,6 +1,5 @@
 /***************SETTINGS***********************/
 JK_isExploded = false;
-EPD_IED_debug = SEN_debug;
 hideIedSectionMarkers = true;  //sets the alpha to 0 after spawning IEDs at a section
 hideSafeZoneMarkers = true;  //sets the alpha to 0 of a safezone
 iedSafeZones = ["SEN_safezone_mrk"];
@@ -33,16 +32,19 @@ waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
 if (isServer) then {
     predefinedLocations = [];
     iedInitialArray = [];
-    private ["_tempwlLocations" ,"_tempCitiyArray"];
+    private ["_tempwlLocations" ,"_tempCitiyArray", "_count"];
     _tempwlLocations = +SEN_whitelistLocation;
     _tempCitiyArray = +SEN_occupiedLocation;
-    for "_i" from floor (random (count _tempwlLocations - 1)) to 0 step -1 do {
+    _count = floor (random (count _tempwlLocations - 1));
+    _count = (_count min JK_maxIEDCount) min JK_minIEDCount;
+    for "_i" from _count to 0 step -1 do {
         private "_var";
         _var = (_tempwlLocations call BIS_fnc_selectRandom);
         _tempCitiyArray pushBack _var;
         _tempwlLocations deleteAt (_tempwlLocations find _var);
     };
-
+    JK_iedTown = +_tempCitiyArray;
+    publicVariable "JK_iedTown";
     {
         private ["_id", "_townSize", "_avgTownSize", "_pos"];
         _id = format ["%1%2%3%4%5%6%7%8%9%10", random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100,random 100];

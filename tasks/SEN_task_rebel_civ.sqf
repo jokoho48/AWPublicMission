@@ -23,10 +23,8 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _targetPos = getPosATL SEN_flagFOB;
     _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
 
-    if !(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos)) then {
-        while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos))} do {
-            _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
-        };
+    while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos))} do {
+        _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
     };
 
     if ([_spawnPos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
@@ -96,11 +94,11 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         [] spawn SEN_fnc_rebelTastCiv;
     };
     _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;
-    if !(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _spawnPos)) then {
-        while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [])&& !(surfaceIsWater _spawnPos)} do {
-            _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;
-        };
+
+    while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [])&& !(surfaceIsWater _spawnPos)} do {
+        _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;
     };
+
     if ([_spawnPos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker || {[getposATL _tar,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker}) exitWith {
         [1,"Rebel spawn or target position in safezone."] call SEN_fnc_log;
         sleep _sleep;

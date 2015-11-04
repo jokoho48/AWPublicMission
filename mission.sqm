@@ -3987,7 +3987,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=23;
+		items=24;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4180,6 +4180,13 @@ class Mission
 			text="Teleport";
 			type="b_hq";
 			colorName="ColorWEST";
+		};
+		class Item23
+		{
+			position[]={15155.61,17.864964,17330.781};
+			name="respawn_west_2";
+			type="Empty";
+			angle=451.04926;
 		};
 	};
 	class Sensors

@@ -26,7 +26,7 @@ for "_s" from 0 to _counter do {
         };
     };
     if (count _return isEqualTo 2) exitWith {};
-    if (_s isEqualTo _counter) exitWith {[2,"fn_findRuralHousePos: Cannot find a suitable house position."] call SEN_fnc_log; _return = [objNull,[]]; _return};
+    if (_s isEqualTo _counter) exitWith {[2,"fn_findRuralHousePos: Cannot find a suitable house position."] call SEN_fnc_log; _return = [objNull,[0,0,0]]; _return};
 };
 
 _return

@@ -28,6 +28,8 @@ publicVariable "SEN_approvalCiv";
 SEN_blacklistLocation = ["SEN_ClearedCitys", []] call jk_db_fnc_load;
 publicVariable "SEN_blacklistLocation";
 
+SEN_ClearedCitys = SEN_blacklistLocation;
+publicVariable "SEN_ClearedCitys";
 missionNameSpace setVariable ["SEN_transportReady", 1];
 if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
 [] spawn {
@@ -55,14 +57,15 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
 }] call JK_Core_fnc_addVariableEventHandler;
 
 [] spawn {
-    waitUntil {sleep 5; !isNil "bis_fnc_init"};
+    waitUntil {!isNil "bis_fnc_init" && {bis_fnc_init}};
+    sleep 5;
     "JK_registerPlayer" addPublicVariableEventHandler {
+        private "_owner";
         params ["" ,"_player"];
-        (owner _player) publicVariableClient "JK_TicketSystem";
-        (owner _player) publicVariableClient "SEN_ClearedCitys";
-        (owner _player) publicVariableClient "SEN_approvalCiv";
-        (owner _player) publicVariableClient "predefinedLocations";
-        (owner _player) publicVariableClient "iedInitialArray";
+        _owner = owner _player;
+        {
+            _owner publicVariableClient _x;
+        } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown"];
     };
 };
 };

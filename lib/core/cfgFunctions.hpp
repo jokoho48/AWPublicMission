@@ -6,6 +6,6 @@ class JK_Core {
         class initVaraibleEventHandler { preInit = 1; };
         class triggerMissionEventhandler;
         class addAction;
-        class clientInit;
+        class clientInit {postInit = 1; };
     };
 };

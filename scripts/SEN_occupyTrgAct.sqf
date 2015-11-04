@@ -26,9 +26,9 @@ _enemyArray = [];
 [0,"OccupyTrgAct: %1",_radius] call SEN_fnc_log;
 
 call {
-    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45};
-    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 30};
-    _townType = "Town"; _approval = 15;
+    if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45; _tickets = 1000;};
+    if (_townType isEqualTo "NameCity") exitWith {_townType = "City"; _approval = 30; _tickets = 800;};
+    _townType = "Town"; _approval = 15; _tickets = 600;
 };
 
 _count = ({
@@ -97,7 +97,11 @@ _mrk setMarkerType "b_unknown";
 SEN_ClearedCitys pushBack _townName;
 publicVariable "SEN_ClearedCitys";
 
-SEN_approvalCiv = SEN_approvalCiv + _approval; publicVariable "SEN_approvalCiv";
+SEN_approvalCiv = SEN_approvalCiv + _approval;
+publicVariable "SEN_approvalCiv";
+
+JK_TicketSystem = JK_TicketSystem + _tickets;
+publicVariable "JK_TicketSystem";
 if (SEN_debug) then {(format["SEN_occupy_AO_%1",_townName]) setMarkerColor "ColorWEST"};
 
 uiSleep 10;
@@ -131,6 +135,7 @@ if !(isNull SEN_intelObj) then {
     _kill = (count _a) - _threshold;
     for "_i" from 0 to _kill do {
         (_a select _i) setDamage 1;
+        sleep 0.0001;
     };
 };
 */

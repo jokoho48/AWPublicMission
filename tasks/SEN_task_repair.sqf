@@ -21,8 +21,12 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
     _taskDescription = format ["Intel from an enemy officer shows that enemy forces plan to attack %1 in the coming days. In response, Command has increased the frequency of patrols in the area. A friendly unit scouting around %1 is in need of repair supplies. Make sure our soldiers are in top shape and airlift the supplies to the patrol.",_name];
 } else {
     _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
-    _name = text _town;
     _pos = getpos _town;
+    while {(([_pos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+        _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+        _pos = getpos _town;
+    };
+    _name = text _town;
     _size = size _town;
     _pos = [_pos, (_size select 0) + 200, (_size select 0) + 400, 1, 0, 0.5, 0] call BIS_fnc_findSafePos;
     _taskDescription = format ["Intel from an enemy officer shows that another local settlement will be occupied in the coming days. Command has increased the frequency of patrols in several key areas. A friendly unit scouting near %1 is in need of repair supplies. Make sure our soldiers are in top shape and airlift the supplies to the patrol.",_name];
