@@ -38,6 +38,7 @@ if (typeOf _obj isKindOf "LandVehicle" || {typeOf _obj isKindOf "Ship"}) exitWit
     true
 };
 
+[_obj] joinSilent grpNull;
 _obj setVariable ["SEN_patrol_exit",true];
 _obj setBehaviour "CARELESS";
 doStop _obj;

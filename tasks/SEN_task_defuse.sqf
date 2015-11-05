@@ -16,7 +16,7 @@ SEN_codeDefuse = [(round(random 9)), (round(random 9)), (round(random 9)), (roun
 SEN_wireDefuse = ["BLUE", "WHITE", "YELLOW", "GREEN"] select (random ((count ["BLUE", "WHITE", "YELLOW", "GREEN"]) - 1)); publicVariable "SEN_wireDefuse";
 _bombTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
 _townPos = getpos _bombTown;
-while {(([_townPos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
     _bombTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
     _townPos = getpos _bombTown;
 };

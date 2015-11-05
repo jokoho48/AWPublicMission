@@ -22,7 +22,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
 } else {
     _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
     _pos = getpos _town;
-    while {(([_pos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+    while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
         _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
         _pos = getpos _town;
     };

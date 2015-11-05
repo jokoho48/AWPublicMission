@@ -31,7 +31,6 @@ publicVariable "SEN_blacklistLocation";
 SEN_ClearedCitys = SEN_blacklistLocation;
 publicVariable "SEN_ClearedCitys";
 missionNameSpace setVariable ["SEN_transportReady", 1];
-if (isClass (configfile >> "CfgPatches" >> "task_force_radio")) then {call compile preprocessFileLineNumbers "scripts\SEN_tfrSettings.sqf"};
 [] spawn {
     waitUntil {!isNil "SEN_debug"};
     [1500,0,SEN_debug,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";

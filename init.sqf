@@ -22,8 +22,8 @@ SEN_debug = (paramsArray select 1) isEqualTo 1;
 waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
 if (SEN_debug) then {
     ["JK_MapClickEvent1","onMapSingleClick",{
-        if (_ctrl) then {
-            _this setPos _pos;
+        if (_alt && local player) then {
+            player setPos _pos;
         };
     },player] call BIS_fnc_addStackedEventHandler;
 };
@@ -36,5 +36,5 @@ if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
     waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
-    [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+    [] call compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 };

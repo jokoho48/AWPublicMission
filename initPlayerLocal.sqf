@@ -11,7 +11,6 @@ call _fnc_tfarSettings;
 ["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
-private "_prefix";
 
 // setup debug
 if (SEN_debug) then {
@@ -21,7 +20,7 @@ if (SEN_debug) then {
 
 // setup eventhandlers
 player addEventHandler["Fired", {
-    if (((_this select 0) distance (getmarkerpos "SEN_safezone_mrk")) < (getMarkerSize "SEN_safezone_mrk") select 0) then {
+    if (((_this select 0) distance (getmarkerpos "SEN_NoFireZone_mrk")) < (getMarkerSize "SEN_NoFireZone_mrk") select 0) then {
         deleteVehicle (_this select 6);
         ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;
     };
@@ -34,7 +33,7 @@ publicVariableServer "JK_registerPlayer";
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];
 
-if ((paramsArray select 2) isEqualTo 1 && {SEN_debug isEqualTo 0}) then {
+if ((paramsArray select 2) isEqualTo 1 && SEN_debug) then {
     [] spawn {
         while {true} do {
             uiSleep 10;

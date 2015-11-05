@@ -9,7 +9,7 @@ class Extended_Hit_Eventhandlers {
 class Extended_Init_Eventhandlers {
     class CAManBase {
         class BG_BFT_init {
-            init = "_this call BG_fnc_initUnit";
+            init = "_this call BG_fnc_addActions";
         };
     };
 };

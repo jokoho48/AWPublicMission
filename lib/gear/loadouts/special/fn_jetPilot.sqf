@@ -14,15 +14,15 @@ JK_uniforms = ["U_I_pilotCoveralls"];
 JK_vests = ["rhs_vest_commander"];
 JK_headgears = ["RHS_jetpilot_usaf"];
 JK_backpacks = ["tf_rt1523g_big_rhs"];
-JK_insignium = "";
+JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
 JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Aviator";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
+JK_primaryweapon = ["hgun_PDW2000_F"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
+JK_itemsPrimaryweapon = ["optic_Aco_smg"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.

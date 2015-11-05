@@ -16,12 +16,9 @@ _vehArray = [];
 
 _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
 
-while {(([_pos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
     _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
 };
-
-SEN_taskList pushBack _taskID;
-SEN_taskCounter = SEN_taskCounter - 1;
 
 if (_pos isEqualTo []) exitWith {
     [] call SEN_fnc_setTaskCiv;

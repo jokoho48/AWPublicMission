@@ -176,10 +176,14 @@ if (_backpack != "") then {
     {_unit addItemToBackpack _x; false} count JK_itemsBackpack;
 };
 {_unit addItem _x; false} count JK_items;
-if (name _unit == "joko // Jonas") then {
+if (name _unit in ["joko // Jonas"]) then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {
-    [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
+    if (typeName JK_insignium == "ARRAY") then {
+        [_unit, JK_insignium call BIS_fnc_selectRandom] call BIS_fnc_setUnitInsignia;
+    } else {
+        [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
+    };
 };
 JK_buildNotDone = true;
 [] call VVS_fnc_buildCfg;

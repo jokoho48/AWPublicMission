@@ -17,6 +17,7 @@ _townName = text _town;
 _townType = type _town;
 _radius = ((((size _town) select 0) + ((size _town) select 1))/2) + 100;
 _approval = 0;
+_tickets = 0;
 _enemyArray = [];
 
 [0,"OccupyTrgAct: %1",_town] call SEN_fnc_log;
@@ -76,6 +77,7 @@ if (count _enemyArray > 0) then {
                     SEN_objectCleanup pushBack _x;
                 };
                 if !(local _x) then {
+                    
                     [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
                     if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
                 } else {
