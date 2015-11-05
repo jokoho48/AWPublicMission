@@ -9,6 +9,7 @@ Description: postInit settings
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
+"SEN_NoFireZone_mrk" setMarkerAlpha 0;
 [] spawn {
 waitUntil {!isNil "JK_DBSetup"};
 call {

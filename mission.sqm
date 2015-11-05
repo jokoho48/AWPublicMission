@@ -3987,7 +3987,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=24;
+		items=25;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -4187,6 +4187,18 @@ class Mission
 			name="respawn_west_2";
 			type="Empty";
 			angle=451.04926;
+		};
+		class Item24
+		{
+			position[]={15284.404,17.81263,17217.223};
+			name="SEN_NoFireZone_mrk";
+			markerType="ELLIPSE";
+			type="Empty";
+			colorName="ColorWEST";
+			fillName="Border";
+			a=300;
+			b=300;
+			drawBorder=1;
 		};
 	};
 	class Sensors
