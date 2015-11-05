@@ -20,7 +20,7 @@ if (SEN_debug) then {
 
 // setup eventhandlers
 player addEventHandler["Fired", {
-    if (((_this select 0) distance (getmarkerpos "SEN_safezone_mrk")) < (getMarkerSize "SEN_safezone_mrk") select 0) then {
+    if (((_this select 0) distance (getmarkerpos "SEN_NoFireZone_mrk")) < (getMarkerSize "SEN_NoFireZone_mrk") select 0) then {
         deleteVehicle (_this select 6);
         ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;
     };
