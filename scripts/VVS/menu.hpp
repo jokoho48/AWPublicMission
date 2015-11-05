@@ -1,4 +1,4 @@
-#include "resource.h"
+#include "resource.hpp"
 
 class VVS_Menu
 {
