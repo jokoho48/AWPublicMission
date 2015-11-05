@@ -36,5 +36,5 @@ if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
     waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
-    [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+    [] call compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 };
