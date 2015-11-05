@@ -10,6 +10,7 @@
  * 4: Arguments <Any>
  * 5: Index <Integer>
  * 6: Distance <Float>
+ * 7: is Persistent <Bool>
  *
  * Return Value:
  * Index <Integer>
@@ -27,8 +28,15 @@ params [
     ["_condition", "true", ["STRING", {true}]],
     ["_args", []],
     ["_index", 0],
-    ["_distance", 5, [5]]
+    ["_distance", 5, [5]],
+    ["_persistent", false, [false]]
 ];
 _condition = [_condition] call ace_common_fnc_codeToString;
 _condition = format ["%1 && player distance _target < %2", _condition, _distance];
 _target addAction [_text, _code, _args, _index, false, false, "", _condition];
+
+if (_persistent) then {
+    private "_fnc";
+    _fnc = compile format ["%1 addAction %2",_target , [_text, _code, _args, _index, false, false, "", _condition]];
+    _target addEventhandler ["Respawn", _fnc];
+};
