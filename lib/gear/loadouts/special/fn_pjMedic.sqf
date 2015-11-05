@@ -14,7 +14,7 @@ JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
 JK_vests = ["rhsusf_spc_corpsman"];
 JK_headgears = ["rhsusf_opscore_02_tan"];
 JK_backpacks = ["tf_rt1523g_rhs"];
-JK_insignium = "";
+JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
