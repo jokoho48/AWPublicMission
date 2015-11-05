@@ -68,13 +68,12 @@ _fnc_medical = {
     } else {
         ["ACE_medicalSupplyCrate_advanced", 5] call JK_fnc_createCrate;
     };
-
 };
 
 _fnc_ammo = {
     [
         "Box_NATO_Wps_F",
-        10,
+        15,
         [
             // Normal
             ["30Rnd_556x45_Stanag", 55],
@@ -92,7 +91,7 @@ _fnc_ammo = {
 _fnc_mg_ammo = {
     [
         "Box_NATO_Wps_F",
-        10,
+        15,
         [
             //MG Munition
             ["rhs_200rnd_556x45_M_SAW", 11],
@@ -296,7 +295,6 @@ _fnc_misc = {
             ["ACE_microDAGR", 5],
             ["ACE_bodyBag", 5],
             ["ACE_MapTools", 5],
-            ["ACE_Sandbag_empty", 5],
             ["ACE_wirecutter", 2]
     ]] call JK_fnc_createCrate;
 };

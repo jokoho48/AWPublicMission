@@ -57,7 +57,7 @@ JK_handgunAmmo = 2;
 JK_launcher = "tf47_smaw_green";
 
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
-JK_launcherItems = [];
+JK_launcherItems = ["tf47_optic_smaw"];
 
 //launcher ammo (if a launcher is given) - (integer)
 JK_launcherAmmo = 1;

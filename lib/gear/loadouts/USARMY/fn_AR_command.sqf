@@ -10,10 +10,10 @@ magazines one for one in JK_items.
 JK_vvsArray = ["rhs_vehclass_car", "rhs_vehclass_car_wd", "rhs_vehclass_mrap", "rhs_vehclass_mrap_wd", "rhs_vehclass_truck", "rhs_vehclass_truck_wd", "rhsusf_rg33_m2_usmc_wd", "rhsusf_rg33_usmc_wd"];
 
 //clothing - (string)
-JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_squadleader"];
-JK_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
-JK_backpacks = ["tf_rt1523g_big_rhs"];
+JK_uniforms = ["rhs_uniform_cu_ucp"];
+JK_vests = ["rhsusf_iotv_ucp_Squadleader"];
+JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_arc_tan", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
+JK_backpacks = ["tf_rt1523g_big_bwmod_tropen"];
 JK_insignium = "";
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
@@ -108,7 +108,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["rhsusf_patrolcap_ocp"];
+JK_itemsBackpack = ["rhsusf_patrolcap_ucp"];
 
 
 //linked items - (array)
