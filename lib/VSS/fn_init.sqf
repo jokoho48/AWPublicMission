@@ -1,6 +1,6 @@
-VVS_Checkbox = true;
+JK_VSS_Checkbox = true;
 
-JK_ListTickets = [
+JK_VSS_ListTickets = [
     [
         "HMMVYs",
         [
