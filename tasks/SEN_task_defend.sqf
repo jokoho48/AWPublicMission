@@ -21,12 +21,17 @@ if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
     _taskDescription = format ["A few hours ago, Command dispatched a convoy to %1. Upon arrival, the convoy was attacked by enemy forces. We have intel that our soldiers are holding out, but we're sending your team in to assist. Protect the supply cache and minimize friendly casualties.",_townName];
 } else {
     _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
-    _townName = text _defendTown;
     _townPos = getpos _defendTown;
+    while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+        _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+        _townPos = getpos _defendTown;
+    };
+    _townName = text _defendTown;
     _townSize = size _defendTown;
     _avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);
     _taskDescription = format ["Yesterday, FOB Falken sent in a request for supplies. A few hours ago, Command dispatched a convoy enroute to Falken. Somewhere in %1, the convoy was attacked by enemy forces. We have intel that our soldiers are holding out, but we're sending your team in to assist. Protect the supply cache and minimize friendly casualties.",_townName];
 };
+
 
 _townPos set [2,0];
 _cachePool = ["Box_FIA_Wps_F","Box_NATO_AmmoVeh_F"];

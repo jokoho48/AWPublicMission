@@ -17,6 +17,7 @@ if (!isServer) exitWith {};
 
 [] spawn {
 waitUntil {!isNil "JK_DBSetup"};
+call {
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;
 if ((paramsArray select 3) isEqualTo -1) then {
     setDate [2015, random ceil 11, random ceil 27, random round 23, 00];
@@ -113,5 +114,6 @@ if (SEN_enemySide isEqualTo EAST) exitWith {
     if (count SEN_officerPool isEqualTo 0) then {SEN_officerPool = ["O_officer_F"]};
     if (count SEN_sniperPool isEqualTo 0) then {SEN_sniperPool = ["O_sniper_F"]};
     [0,"fn_settingsPre complete."] call SEN_fnc_log;
+};
 };
 };

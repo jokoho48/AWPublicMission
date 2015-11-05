@@ -15,8 +15,13 @@ SEN_codeInput = []; publicVariable "SEN_codeInput";
 SEN_codeDefuse = [(round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9))]; publicVariable "SEN_codeDefuse";
 SEN_wireDefuse = ["BLUE", "WHITE", "YELLOW", "GREEN"] select (random ((count ["BLUE", "WHITE", "YELLOW", "GREEN"]) - 1)); publicVariable "SEN_wireDefuse";
 _bombTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
-_townName = text _bombTown;
 _townPos = getpos _bombTown;
+while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+    _bombTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _townPos = getpos _bombTown;
+};
+
+_townName = text _bombTown;
 _townPos set [2,0];
 _townSize = size _bombTown;
 _avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);

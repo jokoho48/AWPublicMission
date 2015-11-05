@@ -13,9 +13,13 @@ _taskDescription = "Another local politician was executed live on television a f
 
 _pos = [];
 _vehArray = [];
-_radius = 1000;
 
 _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
+
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+    _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
+};
+
 if (_pos isEqualTo []) exitWith {
     [] call SEN_fnc_setTaskCiv;
 };

@@ -10,6 +10,11 @@ if (!isServer) exitWith {};
 private "_grp";
 
 _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+_pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
+while {(([_pos1, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+    _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
+};
 
 _taskID = format["%1_deliver_civ",SEN_taskCounterCiv];
 _taskText = "Deliver Supplies";
@@ -18,7 +23,7 @@ _taskDescription = format["The enemy occupation has left the locals in distress.
 _spawnMrk = "SEN_depotSpawn_mrk";
 _aidArray = [];
 _grp = grpNull;
-_pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
+
 
 _aid = "rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy" createVehicle (getMarkerPos _spawnMrk);
 _aid setDir (markerDir _spawnMrk);

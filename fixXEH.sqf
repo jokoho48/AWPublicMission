@@ -1,6 +1,10 @@
 JK_badClassnamesOld = [];
 [{
+    private "_fnc_PFH";
     _fnc_PFH = {
+        private "_entrys";
+        _entrys = (entities "");
+        if (_entrys isEqualTo JK_badClassnamesOld) exitWith {};
         {
             if ((isNil (format ["ace_interact_menu_Act_%1", typeOf _x])) || {isNil (format ["ace_interact_menu_SelfAct_%1", typeOf _x])}) then {
                 if !(_x in JK_badClassnamesOld) then {
@@ -44,7 +48,7 @@ JK_badClassnamesOld = [];
                 };
             };
             nil
-        } count (entities "");
+        } count (_entrys - JK_badClassnamesOld);
     };
     call _fnc_PFH;
     [_fnc_PFH, 0, []] call CBA_fnc_addPerFrameHandler;

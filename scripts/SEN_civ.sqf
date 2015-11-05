@@ -14,9 +14,9 @@ params ["_dist", "_air"];
     _townPos = getpos _x;
     _townPos set [2,0];
     call {
-        if ((type _x) isEqualTo "NameCity") exitWith {_unitCount = 8; _vehCount = 2};
-        if ((type _x) isEqualTo "NameCityCapital") exitWith {_unitCount = 12; _vehCount = 2};
-        _unitCount = 5;
+        if ((type _x) isEqualTo "NameCity") exitWith {_unitCount = 6; _vehCount = 3};
+        if ((type _x) isEqualTo "NameCityCapital") exitWith {_unitCount = 10; _vehCount = 2};
+        _unitCount = 4;
         _vehCount = 1;
     };
     _trg = createTrigger ["EmptyDetector",_townPos];
@@ -24,9 +24,9 @@ params ["_dist", "_air"];
     _trg setTriggerActivation ["WEST","PRESENT",true];
     _trg setTriggerTimeout [10, 10, 10, true];
     if (_air) then {
-        _cond = format["{(isplayer _x && {getposATL (vehicle _x) distance %1 < %2})} count playableunits > 0",(getposATL _trg),_dist];
+        _cond = format["{(getposATL (vehicle _x) distance %1 < %2)} count allPlayers > 0",(getposATL _trg),_dist];
     } else {
-        _cond = format["{(isplayer _x && {getposATL (vehicle _x) distance %1 < %2} && {((getposATL _x) select 2) < 30})} count playableunits > 0",(getposATL _trg),_dist];
+        _cond = format["{(getposATL (vehicle _x) distance %1 < %2 && {((getposATL _x) select 2) < 30})} count allPlayers > 0",(getposATL _trg),_dist];
     };
     _trgVar = format ["SEN_%1_civ_trg", text _x];
     _trgAct = format ["[%1,%2,%3,%4] spawn SEN_fnc_spawnCiv;",_townPos,_unitCount,_vehCount,str _trgVar];

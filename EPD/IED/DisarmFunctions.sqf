@@ -3,7 +3,7 @@
 /* Rewritten by Brian Sweeney - [EPD] Brian*/
 
 DISARM_ADD_ACTION = {
-    private ["_iedArray"];
+    private ["_iedArray", "_itemRequirement"];
     params ["_sectionName", "_iedName"];
 
     _iedArray = [_sectionName, _iedName] call GET_IED_ARRAY;
@@ -21,6 +21,7 @@ DISARM_ADD_ACTION = {
 };
 
 DISARM_ACTION = {
+    private "_chance";
     params ["", "", "", "_params"];
     _params params ["_iedArray", "_args"];
     _args params ["_sectionName", "_sectionName"];

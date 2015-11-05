@@ -8,6 +8,9 @@ _current = lnbData[38101,[(lnbCurSelRow 38101),0]];
 _cfgInfo = [_current] call VVS_fnc_cfgInfo;
 
 _costs = (JK_VehicleTickets select _index) select 1;
+if (isNil "_costs") then {
+    _costs = 200;
+};
 _temp = JK_TicketSystem - _costs;
 if (_temp <= 0) then {
     _text = format["You missing %1 tickets to this vehicle to spawn", _temp];

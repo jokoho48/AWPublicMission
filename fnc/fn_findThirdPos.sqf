@@ -7,14 +7,25 @@ Description: finds third pos based on two given positions. positions create an e
 
              returns position
 __________________________________________________________________*/
-private ["_offset", "_dX", "_dY", "_pos3", "_mrk"];
-params [["_pos1",[], [[]]], ["_pos2",[],[[]]]];
+private ["_dX","_dY","_pos3","_mrk"];
 
-_pos1 params ["_pos1X", "_pos1Y"];
-_pos2 params ["_pos2X", "_pos2Y"];
+params [["_pos1", [],[[]]], ["_pos2", [],[[]]]];
 
-_dX = (_pos2X - _pos1X);
-_dY = (_pos2Y - _pos1Y);
-_pos3 = [((cos(60) * _dX - sin(60) * _dY) + _pos1X), (sin(60) * _dX + cos(60) * _dY) + _pos1Y];
+
+_dX = ((_pos2 select 0) - (_pos1 select 0));
+_dY = ((_pos2 select 1) - (_pos1 select 1));
+_pos3 = [((cos(60) * _dX - sin(60) * _dY) + (_pos1 select 0)), (sin(60) * _dX + cos(60) * _dY) + (_pos1 select 1)];
+
+/*if (SEN_debug isEqualTo 1) then {
+    _mrk = createMarker [format["%1",_pos1],_pos1];
+    _mrk setMarkerType "mil_dot";
+    _mrk setMarkerText "POS1";
+    _mrk = createMarker [format["%1",_pos2],_pos2];
+    _mrk setMarkerType "mil_dot";
+    _mrk setMarkerText "POS2";
+    _mrk = createMarker [format["%1",_pos3],_pos3];
+    _mrk setMarkerType "mil_dot";
+    _mrk setMarkerText "POS3";
+};*/
 
 _pos3
