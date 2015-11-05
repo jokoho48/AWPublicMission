@@ -23,7 +23,7 @@ _pos = [];
 _radius = 1200;
 
 _pos = [SEN_centerPos,SEN_range,140] call SEN_fnc_findRuralFlatPos;
-while {(([_pos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
     _pos = [SEN_centerPos,SEN_range,140] call SEN_fnc_findRuralFlatPos;
 };
 

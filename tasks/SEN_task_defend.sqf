@@ -22,7 +22,7 @@ if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
 } else {
     _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
     _townPos = getpos _defendTown;
-    while {(([_townPos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+    while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
         _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
         _townPos = getpos _defendTown;
     };

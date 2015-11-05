@@ -13,7 +13,7 @@ _ambush = false;
 _wreckArray = ["Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_UAZ_F","Land_Wreck_Ural_F","Land_Wreck_Van_F","Land_Wreck_Skodovka_F","Land_Wreck_CarDismantled_F","Land_Wreck_Car3_F","Land_Wreck_Car_F"];
 _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
 _pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
-while {(([_pos, 2000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
     _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
     _pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
 };

@@ -11,7 +11,7 @@ private "_grp";
 
 _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
 _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
-while {(([_pos1, 2000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
+while {(([_pos1, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
     _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
     _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 };
