@@ -13,7 +13,7 @@ zbe_cachedUnits = 0;
 zbe_allVehicles = 0;
 zbe_cachedVehicles = 0;
 zbe_objectView = 0;
-zbe_players = [];
+zbe_players = allPlayers;
 
 call compileFinal preprocessFileLineNumbers "scripts\zbe_cache\zbe_functions.sqf";
 
@@ -27,109 +27,76 @@ zbe_cached_cars = [];
 zbe_cached_air = [];
 zbe_cached_boat = [];
 
-[] spawn {
-while {true} do {
+[{
     zbe_players = allPlayers;
     {
         private "_disable";
         _disable = _x getVariable "JK_noCache";
         if (isNil "_disable") then {_disable = false};
         if (!_disable && {!(_x in zbe_cachedGroups)}) then {
-            // zbe_cachedGroups = zbe_cachedGroups + [_x];
             zbe_cachedGroups pushBack _x;
             [zbe_aiCacheDist, _x, zbe_minFrameRate, zbe_debug] execFSM "scripts\zbe_cache\zbe_aiCaching.fsm";
         };
         nil
     } count allGroups;
 
-    private ["_assetscar", "_assetsair", "_assetsboat", "_delete"];
+    private ["_assets", "_delete"];
+    _assets = entities "";
 
-    _assetscar = zbe_centerPOS nearEntities ["LandVehicle", zbe_mapside];
-    {
-        if !(_x in zbe_cached_cars) then {
-            // zbe_cached_cars = zbe_cached_cars + [_x];
-            zbe_cached_cars pushBack _x;
-                [_x, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-        };
-        nil
-    } count _assetscar;
+    if !(JK_allreadyKnownCaching isEqualTo _assets) then {
+        zbe_cached_cars = [];
+        zbe_cached_air = [];
+        zbe_cached_boat = [];
+        JK_allreadyKnownCaching = +_assets;
 
-    _assetsair = zbe_centerPOS nearEntities ["Air", zbe_mapside];
-    {
-        if !(_x in zbe_cached_air) then {
-            // zbe_cached_air = zbe_cached_air + [_x];
-            zbe_cached_air pushBack _x;
-                [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-        };
-        nil
-    } count _assetsair;
+        {
+            call {
+                if (_x isKindOf "LandVehicle") exitWith {
+                    zbe_cached_cars pushBack _x;
+                    [_x, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                };
+                if (_x isKindOf "Air") exitWith {
+                    zbe_cached_air pushBack _x;
+                    [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                };
+                if (_x isKindOf "Ship") exitWith {
+                    zbe_cached_boat pushBack _x;
+                        [_x, zbe_vehicleCacheDistBoat] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                };
+            };
+            nil
+        } count _assets;
+    };
+    zbe_cached_boat = zbe_cached_boat - [nil, objNull];
+    zbe_cached_air = zbe_cached_air - [nil, objNull];
+    zbe_cached_cars = zbe_cached_cars - [nil, objNull];
 
-    _assetsboat = zbe_centerPOS nearEntities ["Ship", zbe_mapside];
-    {
-        if !(_x in zbe_cached_boat) then {
-            // zbe_cached_boat = zbe_cached_boat + [_x];
-            zbe_cached_boat pushBack _x;
-                [_x, zbe_vehicleCacheDistBoat] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-        };
-        nil
-    } count _assetsboat;
+    zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
+}, 30, []] call CBA_fnc_addPerFrameHandler;
 
-    _delete = 0;
-    {
-        if (!(_x in _assetscar)) then {
-            zbe_cached_cars deleteAt _forEachIndex - _delete;
-            _delete = _delete + 1;
-        };
-    } forEach zbe_cached_cars;
 
-    _delete = 0;
-    {
-        if (!(_x in _assetsair)) then {
-            // zbe_cached_air = zbe_cached_air - [_x];
-            zbe_cached_air deleteAt _forEachIndex - _delete;
-            _delete = _delete + 1;
-        };
-    } forEach zbe_cached_air;
-
-    _delete = 0;
-    {
-        if (!(_x in _assetsboat)) then {
-            // zbe_cached_boat = zbe_cached_boat - [_x];
-            zbe_cached_boat deleteAt _forEachIndex - _delete;
-            _delete = _delete + 1;
-        };
-    } forEach zbe_cached_boat;
-
-    zbe_allVehicles = (_assetscar + _assetsair + _assetsboat);
-    uiSleep 30;
-};
-};
 // Vehicle Caching Beta (for client FPS)
 
-
-
 if (zbe_debug) then {
-    [] spawn {
-        [{
-            zbe_cachedUnits = (count allUnits - ({simulationEnabled _x} count allUnits));
-            zbe_cachedVehicles = (count zbe_allVehicles - ({simulationEnabled _x} count zbe_allVehicles));
-            zbe_allVehiclesCount = (count zbe_allVehicles);
-            hintSilent parseText format ["
-            <t color='#FFFFFF' size='1.5'>ZBE Caching</t><br/>
-            <t color='#FFFFFF'>Debug data</t><br/><br/>
-            <t color='#A1A4AD' align='left'>Game time in seconds:</t><t color='#FFFFFF' align='right'>%1</t><br/><br/>
-            <t color='#A1A4AD' align='left'>Number of groups:</t><t color='#FFFFFF' align='right'>%2</t><br/>
-            <t color='#A1A4AD' align='left'>All units:</t><t color='#FFFFFF' align='right'>%3</t><br/>
-            <t color='#A1A4AD' align='left'>Cached units:</t><t color='#39a0ff' align='right'>%4</t><br/><br/>
-            <t color='#A1A4AD' align='left'>All vehicles:</t><t color='#FFFFFF' align='right'>%5</t><br/>
-            <t color='#A1A4AD' align='left'>Cached vehicles:</t><t color='#39a0ff' align='right'>%6</t><br/><br/>
-            <t color='#A1A4AD' align='left'>FPS:</t><t color='#FFFFFF' align='right'>%7</t><br/><br/>
-            <t color='#A1A4AD' align='left'>Obj draw distance:</t><t color='#FFFFFF' align='right'>%8</t><br/>
-            ", (round time), count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
-            zbe_log_stats = format ["Groups: %1 # All/Cached Units: %2/%3 # All/Cached Vehicles: %4/%5 # FPS: %6 # ObjectDrawDistance: %7", count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
-            [0,format ["%1 ZBE_Cache (%2) ---  %3", (round time), name player, zbe_log_stats]] call SEN_fnc_log;
-        }, 15, []] call CBA_fnc_addPerFrameHandler;
-    };
+    [{
+        zbe_cachedUnits = (count allUnits - ({simulationEnabled _x} count allUnits));
+        zbe_cachedVehicles = (count zbe_allVehicles - ({simulationEnabled _x} count zbe_allVehicles));
+        zbe_allVehiclesCount = (count zbe_allVehicles);
+        hintSilent parseText format ["
+        <t color='#FFFFFF' size='1.5'>ZBE Caching</t><br/>
+        <t color='#FFFFFF'>Debug data</t><br/><br/>
+        <t color='#A1A4AD' align='left'>Game time in seconds:</t><t color='#FFFFFF' align='right'>%1</t><br/><br/>
+        <t color='#A1A4AD' align='left'>Number of groups:</t><t color='#FFFFFF' align='right'>%2</t><br/>
+        <t color='#A1A4AD' align='left'>All units:</t><t color='#FFFFFF' align='right'>%3</t><br/>
+        <t color='#A1A4AD' align='left'>Cached units:</t><t color='#39a0ff' align='right'>%4</t><br/><br/>
+        <t color='#A1A4AD' align='left'>All vehicles:</t><t color='#FFFFFF' align='right'>%5</t><br/>
+        <t color='#A1A4AD' align='left'>Cached vehicles:</t><t color='#39a0ff' align='right'>%6</t><br/><br/>
+        <t color='#A1A4AD' align='left'>FPS:</t><t color='#FFFFFF' align='right'>%7</t><br/><br/>
+        <t color='#A1A4AD' align='left'>Obj draw distance:</t><t color='#FFFFFF' align='right'>%8</t><br/>
+        ", (round time), count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
+        zbe_log_stats = format ["Groups: %1 # All/Cached Units: %2/%3 # All/Cached Vehicles: %4/%5 # FPS: %6 # ObjectDrawDistance: %7", count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
+        [0,format ["%1 ZBE_Cache (%2) ---  %3", (round time), name player, zbe_log_stats]] call SEN_fnc_log;
+    }, 15, []] call CBA_fnc_addPerFrameHandler;
 };
 // Experimental, disabled for now
 // if (!isDedicated) then {execFSM "scripts\zbe_cache\zbe_clientObjectDrawAuto.fsm";};
