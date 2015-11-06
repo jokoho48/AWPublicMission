@@ -86,7 +86,19 @@ waitUntil {
         } count allPlayers;
         nil
     } count _vehCrew;
-    !alive _veh || ([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
+    !alive _veh || !([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
+};
+
+waitUntil {
+    sleep 30;
+    {
+        _unit = _x;
+        {
+            _unit reveal _x;
+        } count allPlayers;
+        nil
+    } count _vehCrew;
+    !alive _veh || !([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
 };
 
 if (!alive _veh) then {
