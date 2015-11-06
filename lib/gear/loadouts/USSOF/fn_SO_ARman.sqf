@@ -8,15 +8,15 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_mg"];
-JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset_ess", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
+JK_vests = ["rhsusf_iotv_ocp_SAW"];
+JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
 JK_backpacks = ["rhsusf_falconii"];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m249_pip_S", "rhs_weap_m249_pip_S_para", "rhs_weap_m249_pip_S_vfg"];
+JK_primaryweapon = ["rhs_weap_m249_pip_L", "rhs_weap_m249_pip_L_para", "rhs_weap_m249_pip_L_vfg"];
 
 //primary weapon items - (array)
 JK_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15side"];
@@ -42,13 +42,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "rhsusf_weap_m1911a1";
+JK_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
-JK_itemsHandgun = [];
+JK_itemsHandgun = ["muzzle_snds_acp"];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 2;
+JK_handgunAmmo = 3;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -62,13 +62,13 @@ JK_launcherAmmo = 0;
 JK_binocular = "Binocular";
 
 //throwables - (integer)
-JK_grenadeHE = 2;
+JK_grenadeHE = 1;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
 JK_grenadeSmokePurple = 0;
-JK_grenadeSmokeBlue = 1;
+JK_grenadeSmokeBlue = 0;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
 JK_chemlightRed = 0;
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_M84","ACE_DAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

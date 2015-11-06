@@ -8,10 +8,10 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_iar"];
-JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset_ess", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
+JK_vests = ["rhsusf_iotv_ocp_Repair"];
+JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
 JK_backpacks = ["B_Carryall_cbr"];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Lowprofile";
 
@@ -19,7 +19,7 @@ JK_goggles = "G_Lowprofile";
 JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
+JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","ACE_optic_Hamr_2D"],"rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod",["rhsusf_acc_nt4_black","rhsusf_acc_rotex5_grey"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
@@ -42,13 +42,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "rhsusf_weap_m1911a1";
+JK_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
-JK_itemsHandgun = [];
+JK_itemsHandgun = ["muzzle_snds_acp"];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 1;
+JK_handgunAmmo = 4;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -101,10 +101,10 @@ JK_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be add
 JK_itemsUniform = [];
 
 //items added specifically to vest: - (array)
-JK_itemsVest = [];
+JK_itemsVest = ["ACE_M84", "DemoCharge_Remote_Mag", "DemoCharge_Remote_Mag"];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","SatchelCharge_Remote_Mag"];
+JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","SatchelCharge_Remote_Mag","SatchelCharge_Remote_Mag"];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_M26_Clacker","ACE_Clacker"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_M26_Clacker","ACE_Clacker","ACE_DAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

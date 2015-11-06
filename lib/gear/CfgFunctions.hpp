@@ -71,7 +71,21 @@ class JK_loadOut {
         class SO_leader;
         class SO_marksman;
         class SO_SpecOps;
+        class SO_AA;
         class SO_specialist;
+    };
+
+    class USSOFlight {
+        file = "lib\gear\loadouts\USSOFlight";
+        // US SOF
+        class SOL_arman;
+        class SOL_at;
+        class SOL_grenadier;
+        class SOL_leader;
+        class SOL_marksman;
+        class SOL_SpecOps;
+        class SOL_AA;
+        class SOL_specialist;
     };
 
     class parachuteLoadouts {

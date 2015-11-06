@@ -82,6 +82,10 @@
             <English>AT-Gunner(M3MAAWs)</English>
             <German>AT-Schütze(M3MAAWs)</German>
         </Key>
+        <Key ID="STR_JK_GEAR_SO_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
         <Key ID="STR_JK_GEAR_SO_GRENADIER">
             <English>Grenadier</English>
             <German>Grenadier</German>
@@ -95,6 +99,38 @@
             <German>Spezialist</German>
         </Key>
         <Key ID="STR_JK_GEAR_SO_SPECOPS">
+            <English>Commando</English>
+            <German>Kommando</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_LEADER">
+            <English>Team Leader</English>
+            <German>Gruppen Führer</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_ARMAN">
+            <English>Automatic-Rifleman</English>
+            <German>Automatik-Schütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_AT">
+            <English>AT-Gunner(M3MAAWs)</English>
+            <German>AT-Schütze(M3MAAWs)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_GRENADIER">
+            <English>Grenadier</English>
+            <German>Grenadier</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_MARKSMAN">
+            <English>Marksman</English>
+            <German>Gruppenscharfschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_SPECIALIST">
+            <English>Specialist</English>
+            <German>Spezialist</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_SPECOPS">
             <English>Commando</English>
             <German>Kommando</German>
         </Key>
@@ -135,12 +171,12 @@
             <German>Luftabwehrschütze</German>
         </Key>
         <Key ID="STR_JK_GEAR_AR_AAAss">
-            <English>Assistent AA Gunner(M3MAAWs)</English>
-            <German>AA-Assistent(M3MAAWs)</German>
+            <English>Assistent AA GunnerEnglish>
+            <German>AA-Assistent</German>
         </Key>
         <Key ID="STR_JK_GEAR_MC_AAAss">
-            <English>Assistent AA Gunner(M3MAAWs)</English>
-            <German>AA-Assistent(M3MAAWs)</German>
+            <English>Assistent AA Gunner</English>
+            <German>AA-Assistent</German>
         </Key>
         <Key ID="STR_JK_GEAR_AR_AT">
             <English>AT-Gunner(M3MAAWs)</English>

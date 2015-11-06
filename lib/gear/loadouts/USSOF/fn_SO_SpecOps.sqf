@@ -8,10 +8,10 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_light"];
-JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset_ess", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
+JK_vests = ["rhsusf_iotv_ocp_Rifleman"];
+JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
 JK_backpacks = ["rhsusf_falconii"];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
 
@@ -42,13 +42,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "rhsusf_weap_m1911a1";
+JK_handgun = "hgun_ACPC2_F";
 
 //handgun items - (array)
-JK_itemsHandgun = [];
+JK_itemsHandgun = ["muzzle_snds_acp"];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 2;
+JK_handgunAmmo = 4;
 
 //weapons - launcher - (string)
 JK_launcher = "tf47_at4_HEDP";
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_DAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;
