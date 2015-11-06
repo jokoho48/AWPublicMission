@@ -14,28 +14,32 @@ if (isNil "db_fnc_save") then {
 };
 
 jk_db_fnc_load = if (isNil "db_fnc_load") then {
-    { profileNameSpace getVariable _this }
+    { _this resize 2; profileNameSpace getVariable _this }
 } else {
-    { [(_this select 0)] call db_fnc_load }
+    { [(_this select 0), _this select 2] call db_fnc_load; }
 };
 
-JK_TicketSystem = ["JK_TicketSystem", 4000] call jk_db_fnc_load;
+JK_TicketSystem = ["JK_TicketSystem", 4000, 0] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
-JK_VSS_ListTickets = ["JK_VSS_ListTickets", 2] call db_fnc_load;
+
+JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["rhsusf_m1025_w_s"],200,"Leader"]], 2] call jk_db_fnc_load;
 publicVariable "JK_VSS_ListTickets";
-SEN_approvalCiv = ["SEN_approvalCiv", -1500] call jk_db_fnc_load;
+
+SEN_approvalCiv = ["SEN_approvalCiv", -1500, 0] call jk_db_fnc_load;
 publicVariable "SEN_approvalCiv";
 
-SEN_blacklistLocation = ["SEN_ClearedCitys", []] call jk_db_fnc_load;
+SEN_blacklistLocation = ["SEN_ClearedCitys", [], 0] call jk_db_fnc_load;
 publicVariable "SEN_blacklistLocation";
 
 SEN_ClearedCitys = SEN_blacklistLocation;
 publicVariable "SEN_ClearedCitys";
+
 missionNameSpace setVariable ["SEN_transportReady", 1];
 [] spawn {
     waitUntil {!isNil "SEN_debug"};
     [1500,0,SEN_debug,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
 };
+
 if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     _med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
     {

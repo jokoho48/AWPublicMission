@@ -185,8 +185,6 @@ if (name _unit in ["joko // Jonas"]) then {
         [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
     };
 };
-JK_buildNotDone = true;
-[] call VVS_fnc_buildCfg;
 
 _unit setVariable ["ace_medical_medicClass", JK_medicClass];
 _unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];

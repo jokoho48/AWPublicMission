@@ -51,7 +51,6 @@ class CfgFunctions {
     #include "lib\gear\cfgFunctions.hpp"
     #include "lib\repair\cfgFunctions.hpp"
     #include "lib\VSS\cfgFunctions.hpp"
-    #include "scripts\VVS\Functions.hpp"
 };
 
 class CfgSounds {

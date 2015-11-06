@@ -9,7 +9,7 @@ Description: spawns vehicle for VVS
 __________________________________________________________________*/
 if !(isServer) exitWith {};
 
-private ["_cfgInfo","_vehicle"];
+private "_vehicle";
 
 params [["_className", "", [""]], ["_costs", 0,[0]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
 
@@ -30,15 +30,9 @@ _vehicle setDir _direction;
 if !(surfaceIsWater _position) then {_vehicle setPosATL _position} else {_vehicle setPosASL _position};
 _vehicle setVectorUp [0,0,1];
 _vehicle setVariable ["JK_VSS_Cost", _costs];
-if(_vehicleType isEqualTo "Autonomous") then {
-    createVehicleCrew _vehicle;
-};
-
-if(VVS_Checkbox) then {
-    clearWeaponCargoGlobal _vehicle;
-    clearMagazineCargoGlobal _vehicle;
-    clearItemCargoGlobal _vehicle;
-};
+clearWeaponCargoGlobal _vehicle;
+clearMagazineCargoGlobal _vehicle;
+clearItemCargoGlobal _vehicle;
 
 uiSleep 5;
 
