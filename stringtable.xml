@@ -126,6 +126,22 @@
             <English>MG-Assistent</English>
             <German>MG-Assistent</German>
         </Key>
+        <Key ID="STR_JK_GEAR_AR_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_AAAss">
+            <English>Assistent AA Gunner(M3MAAWs)</English>
+            <German>AA-Assistent(M3MAAWs)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_AAAss">
+            <English>Assistent AA Gunner(M3MAAWs)</English>
+            <German>AA-Assistent(M3MAAWs)</German>
+        </Key>
         <Key ID="STR_JK_GEAR_AR_AT">
             <English>AT-Gunner(M3MAAWs)</English>
             <German>AT-Schütze(M3MAAWs)</German>

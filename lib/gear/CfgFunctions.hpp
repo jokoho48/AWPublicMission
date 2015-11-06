@@ -22,6 +22,8 @@ class JK_loadOut {
         class MC_assmg;
         class MC_mg;
         class MC_stormtrooper;
+        class MC_aa;
+        class MC_aaass;
         class MC_at;
         class MC_atmk153;
         class MC_atass;
@@ -44,6 +46,8 @@ class JK_loadOut {
         class AR_assmg;
         class AR_mg;
         class AR_stormtrooper;
+        class AR_aa;
+        class AR_aaass;
         class AR_at;
         class AR_atmk153;
         class AR_atass;

@@ -15,8 +15,8 @@
 
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 JK_Gear = "Main";
-JK_USMC = ["MC_Command", "MC_radioOp", "MC_Leader", "MC_FTL", "MC_Medic", "MC_ARMan", "MC_MG", "MC_AssMG", "MC_At", "MC_ATmk153", "MC_AtAss", "MC_ATAssmk153", "MC_Grenadier", "MC_Rifleman", "MC_stormtrooper", "MC_Marksman", "MC_Specialist"];
-JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_ARMan", "AR_MG", "AR_AssMG", "AR_At", "AR_ATmk153", "AR_AtAss", "AR_ATAssmk153", "AR_Grenadier", "AR_Rifleman", "AR_stormtrooper", "AR_Marksman", "Specialist"];
+JK_USMC = ["MC_Command", "MC_radioOp", "MC_Leader", "MC_FTL", "MC_Medic", "MC_ARMan", "MC_MG", "MC_AssMG", "MC_AA", "MC_AAAss", "MC_At", "MC_ATmk153", "MC_AtAss", "MC_ATAssmk153", "MC_Grenadier", "MC_Rifleman", "MC_stormtrooper", "MC_Marksman", "MC_Specialist"];
+JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_ARMan", "AR_MG", "AR_AssMG", "AR_AA", "AR_AAAss", "AR_At", "AR_ATmk153", "AR_AtAss", "AR_ATAssmk153", "AR_Grenadier", "AR_Rifleman", "AR_stormtrooper", "AR_Marksman", "Specialist"];
 JK_USSOF = ["SO_AT", "SO_ARman", "SO_grenadier", "SO_leader", "SO_marksman", "SO_specialist", "SO_SpecOps"];
 JK_Para = ["PARA_trooper", "PARA_ARman", "PARA_DropMedic", "PARA_ExExpert", "PARA_Grenadier", "PARA_Leader", "PARA_Marksman", "PARA_Stormtrooper", "PARA_AssAR"];
 JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "MC_mortarTeamBipod", "MC_mortarTeamTube", "AR_m2TeamTripod", "AR_m2TeamGun"];
