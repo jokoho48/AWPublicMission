@@ -17,7 +17,7 @@ if (isNil "JK_VariableEventhandler") then {
 
 JK_fnc_addEHLoop = {
     JK_varEHPFHID = [{
-        if (JK_VariableEventhandler isEqualTo []) then exitWith {
+        if (JK_VariableEventhandler isEqualTo []) exitWith {
             [JK_varEHPFHID] call CBA_fnc_removePerFrameHandler;
             JK_varEHPFHID = nil;
         };
