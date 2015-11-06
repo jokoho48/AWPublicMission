@@ -1,3 +1,13 @@
+/*
+ * Author: joko // Jonas
+ * Add Action for Selling Vehicles
+ *
+ * Arguments:
+ * Vehicle Array list <Array>
+ *
+ * Return Value:
+ * None
+ */
 JK_fnc_isSellable = {
     vehicle player != player &&
     {(player distance JK_sellingPoint) < 10} &&

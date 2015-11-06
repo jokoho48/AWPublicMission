@@ -1,12 +1,19 @@
 /*
-Author: SENSEI, Tonic
-
-Last modified: 8/13/2015
-
-Description: spawns vehicle for VVS
-
-        returns nothing
-__________________________________________________________________*/
+ * Author: joko // Jonas, SENSEI, Tonic
+ * Add Action for Selling Vehicles
+ *
+ * Arguments:
+ * 0: Classname <String>
+ * 1: Vehicle Costs <Number>
+ * 2: Spawn Postion <Array>
+ *    0: Postion X
+ *    1: Postion Y
+ *    2: Postion Z
+ * 3: Direction <Number>
+ *
+ * Return Value:
+ * None
+ */
 if !(isServer) exitWith {};
 
 private "_vehicle";

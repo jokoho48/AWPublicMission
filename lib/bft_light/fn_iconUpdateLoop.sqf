@@ -1,3 +1,13 @@
+/*
+ * Author: Badguy, joko // Jonas
+ * Update the BFT Icons
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
 private ["_players","_icons","_groups","_defaultIcon","_icon","_text","_textSize","_font","_align","_iconType"];
 
 _icons = [];

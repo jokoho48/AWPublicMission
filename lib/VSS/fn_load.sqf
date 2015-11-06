@@ -1,4 +1,14 @@
-//VehicleSpawnSytem "JK_VSS_fnc_load"
+/*
+ * Author: CreedCoder, joko // Jonas
+ * set Variable and add Entry to VSS List
+ *
+ * Arguments:
+ * Vehicle Array list <Array>
+ *
+ * Return Value:
+ * None
+ */
+#include "script_component.hpp"
 disableSerialization;
 private ["_display", "_filter", "_array"];
 waitUntil{!isNull (findDisplay 18000)};

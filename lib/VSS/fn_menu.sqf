@@ -1,3 +1,14 @@
+/*
+ * Author: CreedCoder, joko // Jonas
+ * Create all for VSS Menu
+ *
+ * Arguments:
+ * 0: Condition <Integer>
+ *
+ * Return Value:
+ * None
+ */
+
 private ["_display", "_vehiclelist", "_filter", "_filterSelect", "_vehilceSelect", "_condition", "_prize", "_vehicleListIndex", "_vehicleList", "_vehdata", "_className"];
 disableSerialization;
 params [
