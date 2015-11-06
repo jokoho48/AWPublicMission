@@ -4,6 +4,8 @@ Author: joko // Jonas
 Description: Plane or Heli attack Player
 __________________________________________________________________*/
 
+
+JK_airAttackDone = false;
 _target = allPlayers call BIS_fnc_selectRandom;
 _pos = getPos _target;
 if ([_pos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
@@ -74,7 +76,9 @@ waitUntil {
 [_grp, time] spawn {
     params ["_grp", "_time"];
     Sleep (1200 + (random 300));
-    _grp setCurrentWaypoint [_grp, 3];
+    if !(isNull _grp || !JK_airAttackDone) then {
+        _grp setCurrentWaypoint [_grp, 3];
+    };
 };
 
 waitUntil {
@@ -105,8 +109,11 @@ if (!alive _veh) then {
     [_taskID, "SUCCEEDED"] call BIS_fnc_taskSetState;
 } else {
     [_taskID, "CANCELED"] call BIS_fnc_taskSetState;
+    if !(isNull _grp) then {
+        _grp setCurrentWaypoint [_grp, 3];
+    };
 };
-
+JK_airAttackDone = true;
 JK_TicketSystem = JK_TicketSystem + 200;
 publicVariable "JK_TicketSystem";
 
