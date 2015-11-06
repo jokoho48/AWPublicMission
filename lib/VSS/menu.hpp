@@ -1,12 +1,12 @@
-#include "resource.h"
+#include "resource.hpp"
 
-class VVS_Menu
+class VSS_Menu
 {
-    idd = VVS_Menu_IDD;
-    name = "VVS_Menu";
+    idd = 18000;
+    name = "VSS_Menu";
     movingEnabled = false;
     enableSimulation = true;
-    onLoad = "[] spawn VVS_fnc_mainDisplay;";
+    onLoad = "[0] spawn JK_VSS_fnc_menu;";
 
     class controlsBackground
     {
@@ -40,28 +40,16 @@ class VVS_Menu
             h = (1 / 25);
         };
 
-        class ClearCargoText : VVS_RscText
+        class priceTag : VVS_RscText
         {
-            idc = -1;
+            idc = 18004;
             colorBackground[] = {0,0,0,0};
-            text = "Clear Vehicle Cargo:";
+            text = "Select Vehicle!";
             sizeEx = 0.04;
             x = 0.105;
             y = 0.805;
             w = 0.8;
             h = (1 / 25);
-        };
-
-        class CargoCheck : VVS_RscActiveText
-        {
-            idc = VVS_CargoCheck;
-            text = "No";
-            action = "[] call VVS_fnc_checkBox";
-            sizeEx = 0.04;
-            colorDisabled[] = {1, 1, 1, 0.3};
-
-            x = 0.32; y = 0.805;
-            w = 0.275; h = 0.04;
         };
 
         class Title : VVS_RscTitle
@@ -80,24 +68,23 @@ class VVS_Menu
     {
         class vehicleListNew : VVS_RscListNBox
         {
-            idc = VVS_VehicleList;
+            idc = 18001;
             text = "";
             sizeEx = 0.04;
-            columns[] = {0,0.105,0.5,0.8};
             drawSideArrows = false;
             idcLeft = -1;
             idcRight = -1;
             rowHeight = 0.050;
             x = 0.1; y = 0.26;
             w = 0.8; h = 0.49 (22 / 250);
-            onLBSelChanged = "call VVS_fnc_hint;";
+            onLBSelChanged = "[1] call JK_VSS_fnc_menu;";
         };
 
         class FilterList : VVS_RscCombo
         {
-            idc = VVS_FilterList;
+            idc = 18002;
             colorBackground[] = {0,0,0,0.7};
-            onLBSelChanged  = "_this call VVS_fnc_filterList";
+            onLBSelChanged  = "[2] call JK_VSS_fnc_menu;";
             x = 0.244 + (6.25 / 19.8) + (1 / 250 / (safezoneW / safezoneH));
             y = 0.8 - (1 / 25);
             w = 0.34; h = (1 / 25);
@@ -116,9 +103,9 @@ class VVS_Menu
 
         class ButtonSettings : VVS_RscButtonMenu
         {
-            idc = -1;
+            idc = 18003;
             text = "Spawn";
-            onButtonClick = "[] spawn VVS_fnc_spawnVehicle";
+            onButtonClick = "[3] call JK_VSS_fnc_menu;";
             x = 0.1 + (6.25 / 40) + (1 / 250 / (safezoneW / safezoneH));
             y = 0.8 - (1 / 25);
             w = (6.25 / 40);

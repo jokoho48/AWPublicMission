@@ -124,5 +124,8 @@ JK_spawnAllowed = true;
 JK_isEngineer = 0;
 JK_isPilot = true;
 
+//Vehicle Spawn System
+JK_VehClass = "Pilot";
+
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;

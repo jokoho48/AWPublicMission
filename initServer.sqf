@@ -16,12 +16,13 @@ if (isNil "db_fnc_save") then {
 jk_db_fnc_load = if (isNil "db_fnc_load") then {
     { profileNameSpace getVariable _this }
 } else {
-    { (_this select 0) call db_fnc_load }
+    { [(_this select 0)] call db_fnc_load }
 };
 
 JK_TicketSystem = ["JK_TicketSystem", 4000] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
-
+JK_VSS_ListTickets = ["JK_VSS_ListTickets", 2] call db_fnc_load;
+publicVariable "JK_VSS_ListTickets";
 SEN_approvalCiv = ["SEN_approvalCiv", -1500] call jk_db_fnc_load;
 publicVariable "SEN_approvalCiv";
 
@@ -64,7 +65,7 @@ waitUntil {sleep 1; SEN_complete isEqualTo 2};
         _owner = owner _player;
         {
             _owner publicVariableClient _x;
-        } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown"];
+        } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown", "JK_VSS_ListTickets"];
     };
 };
 };

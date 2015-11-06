@@ -9,7 +9,6 @@ class VVS
         class cfgInfo {};
         class mainDisplay {};
         class filterList {};
-        class filterType {};
         class spawnVehicle {};
         class checkBox {};
         class hint {};
