@@ -11,40 +11,40 @@ Call from initPlayerLocal.sqf via:
 JK_var_gearByClasses = false;
 // insert names of new units here in their correspondent Objects:
 //commanders
-_command = ["a_sl", "b_sl", "plt_sgt"];
+_MC_command = ["a_sl", "b_sl", "plt_sgt"];
 _AR_command = ["a_sl", "b_sl", "plt_sgt"];
 //group leaders
-_SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
+_MC_SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
 _AR_SL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
 //FireTeam Leader
-_FTL = [];
+_MC_FTL = [];
 _AR_FTL = [];
 //medics
-_medics = ["plt_med", "a_med", "b_med"];
+_MC_medics = ["plt_med", "a_med", "b_med"];
 _AR_medics = ["plt_med", "a_med", "b_med"];
 //MG-Schützen
-_MG = ["b1_ar" ,"b2_ar", "a1_ar", "a2_ar"];
+_MC_MG = ["b1_ar" ,"b2_ar", "a1_ar", "a2_ar"];
 _AR_MG = ["b1_ar" ,"b2_ar", "a1_ar", "a2_ar"];
 //assistant MG
-_assMG = ["b1_aar", "b2_aar", "a1_aar", "a2_aar"];
+_MC_assMG = ["b1_aar", "b2_aar", "a1_aar", "a2_aar"];
 _AR_assMG = ["b1_aar", "b2_aar", "a1_aar", "a2_aar"];
 //AT-Soldiers/AT-Specialists
-_AT = ["a1_at", "a2_at", "b1_at", "b2_at"];
+_MC_AT = ["a1_at", "a2_at", "b1_at", "b2_at"];
 _AR_AT = ["a1_at", "a2_at", "b1_at", "b2_at"];
 //AT-Assistent
-_ATass = ["a1_ab", "a2_ab", "b1_ab", "b2_ab"];
+_MC_ATass = ["a1_ab", "a2_ab", "b1_ab", "b2_ab"];
 _AR_ATass = ["a1_ab", "a2_ab", "b1_ab", "b2_ab"];
 //Grenadiers
-_grenadier = ["b2_rm", "a2_rm"];
+_MC_grenadier = ["b2_rm", "a2_rm"];
 _AR_grenadier = ["b2_rm", "a2_rm"];
 //Riflemen
-_soldier = ["a1_rm", "b1_rm"];
+_MC_soldier = ["a1_rm", "b1_rm"];
 _AR_soldier = ["a1_rm", "b1_rm"];
 //designated Marksmen
-_marksmen = [""];
+_MC_marksmen = [""];
 _AR_marksmen = [""];
 //engineers/repair-/explosive-specialists
-_spec = ["plt_eng"];
+_MC_spec = ["plt_eng"];
 _AR_spec = ["plt_eng"];
 //pilots
 _pilots = ["r_1", "r_2", "r_3"];
@@ -55,81 +55,96 @@ _jetPilot = ["pj_1", "pj_2"];
 //PJ
 _pjMedic = ["r_4"];
 //AT-SMAW
-_ATmk153 = [];
+_MC_ATmk153 = [];
 _AR_ATmk153 = [];
 //AT-SMAW-Assistant
-_ATAssmk153 = [];
+_MC_ATAssmk153 = [];
 _AR_ATAssmk153 = [];
 //CQC Shotgun Stormtrooper
-_stormtrooper = [];
+_MC_stormtrooper = [];
 _AR_stormtrooper = [];
 //Spec Ops
-_SpecOps = [];
+_SO_SpecOps = [];
+_SO_ARman = [];
+_SO_at = [];
+_SO_grenadier = [];
+_SO_leader = [];
+_SO_marksman = [];
+_SO_SpecOps = [];
+_SO_specialist = [];
 //radioOp
-_radioOp = [];
+_MC_radioOp = [];
 _AR_radioOp = [];
 //Paratrooper
-_paratrooper = [];
+_PARA_trooper = [];
 //Para-Drop-
-_paraARman = [];
+_PARA_ARman = [];
 //Para-Drop-
-_paraDropMedic = [];
+_PARA_DropMedic = [];
 //Para-Drop-
-_paraExExpert = [];
+_PARA_ExExpert = [];
 //Para-Drop-
-_paraGrenadier = [];
+_PARA_Grenadier = [];
 //Para-Drop-
-_paraLeader = [];
+_PARA_Leader = [];
 //Para-Drop-
-_paraMarksman = [];
+_PARA_Marksman = [];
 //CQC Shotgun Para-Variant
-_paraStormtrooper = [];
+_PARA_Stormtrooper = [];
 //Para-Drop-AssAR
-_paraAssAR = [];
+_PARA_AssAR = [];
 //SpecOps Para-Variant
-_paraSpecOps = [];
+_PARA_SpecOps = [];
 //Mortar team (Bipod)
-_mortarTeamBipod = [];
+_MC_mortarTeamBipod = [];
 //Mortar team (Tube)
-_mortarTeamTube = [];
+_MC_mortarTeamTube = [];
 //M2 team (Tripod)
 _AR_m2TeamTripod = [];
 //M2 team (Gun)
 _AR_m2TeamGun = [];
 
 // insert Classnames of the units
-_commandClass = ["B_Soldier_SL_F"];
-_SLClass = ["B_Soldier_TL_F"];
-_FTLClass = [];
-_medicsClass = ["B_medic_F"];
-_MGClass = ["B_soldier_AR_F"];
-_assMGClass = ["B_soldier_AAR_F"];
-_ATClass = ["B_soldier_LAT_F"];
-_ATmk153Class = ["B_Soldier_HAT_F"];
-_ATassClass = ["B_Soldier_A_F"];
-_ATAssmk153Class = [];
-_grenadierClass = [];
-_soldierClass = ["B_Soldier_F"];
-_stormtrooperClass = [];
-_marksmenClass = [];
-_specClass = [];
-_specOpsClass = [];
-_radioOpClass = [];
-_paratrooperClass = ["B_Soldier_P_F"];
-_paraARmanClass = [];
-_paraDropMedicClass = [];
-_paraExExpertClass = [];
-_paraGrenadierClass = [];
-_paraLeaderClass = [];
-_paraMarksmanClass = [];
-_paraStormtrooperClass = [];
-_paraAssARClass = [];
+_MC_commandClass = ["B_Soldier_SL_F"];
+_MC_SLClass = ["B_Soldier_TL_F"];
+_MC_FTLClass = [];
+_MC_medicsClass = ["B_medic_F"];
+_MC_MGClass = ["B_soldier_AR_F"];
+_MC_assMGClass = ["B_soldier_AAR_F"];
+_MC_ATClass = ["B_soldier_LAT_F"];
+_MC_ATmk153Class = ["B_Soldier_HAT_F"];
+_MC_ATassClass = ["B_Soldier_A_F"];
+_MC_ATAssmk153Class = [];
+_MC_grenadierClass = [];
+_MC_soldierClass = ["B_Soldier_F"];
+_MC_stormtrooperClass = [];
+_MC_marksmenClass = [];
+_MC_specClass = [];
+_MC_radioOpClass = [];
+_SO_specOpsClass = [];
+_SO_SpecOps = [];
+_SO_ARman = [];
+_SO_at = [];
+_SO_grenadier = [];
+_SO_leader = [];
+_SO_marksman = [];
+_SO_SpecOps = [];
+_SO_specialist = [];
+_PARA_trooperClass = ["B_Soldier_P_F"];
+_PARA_ARmanClass = [];
+_PARA_DropMedicClass = [];
+_PARA_ExExpertClass = [];
+_PARA_GrenadierClass = [];
+_PARA_LeaderClass = [];
+_PARA_MarksmanClass = [];
+_PARA_StormtrooperClass = [];
+_PARA_AssARClass = [];
 _pilotsClass = ["B_Pilot_F"];
 _crewClass = ["B_crew_F"];
 _jetPilotClass = [];
 _pjMedicClass = [];
-_mortarTeamBipodClass = [];
-_mortarTeamTubeClass = [];
+_MC_mortarTeamBipodClass = [];
+_MC_mortarTeamTubeClass = [];
 _AR_m2TeamTripodClass = [];
 _AR_m2TeamGunClass = [];
 _AR_commandClass = ["B_Soldier_SL_F"];
@@ -158,23 +173,29 @@ _class = "";
 
 //switch to select the applicable loadout function
 _class = switch true do {
-    case (_object in _command): {"command"};
-    case (_object in _SL): {"leader"};
-    case (_object in _FTL): {"FTL"};
-    case (_object in _medics): {"medic"};
-    case (_object in _MG): {"MG"};
-    case (_object in _stormtrooper): {"stormtrooper"};
-    case (_object in _assMG): {"assMG"};
-    case (_object in _AT): {"AT"};
-    case (_object in _ATmk153): {"ATmk153"};
-    case (_object in _ATass): {"ATAss"};
-    case (_object in _ATassmk153): {"ATAssmk153"};
-    case (_object in _grenadier): {"grenadier"};
-    case (_object in _soldier): {"Rifleman"};
-    case (_object in _marksmen): {"marksman"};
-    case (_object in _radioOp): {"radioOp"};
-    case (_object in _SpecOps): {"SpecOps"};
-    case (_object in _spec): {"specialist"};
+    case (_object in _MC_command): {"command"};
+    case (_object in _MC_SL): {"leader"};
+    case (_object in _MC_FTL): {"FTL"};
+    case (_object in _MC_medics): {"medic"};
+    case (_object in _MC_MG): {"MG"};
+    case (_object in _MC_stormtrooper): {"stormtrooper"};
+    case (_object in _MC_assMG): {"assMG"};
+    case (_object in _MC_AT): {"AT"};
+    case (_object in _MC_ATmk153): {"ATmk153"};
+    case (_object in _MC_ATass): {"ATAss"};
+    case (_object in _MC_ATassmk153): {"ATAssmk153"};
+    case (_object in _MC_grenadier): {"grenadier"};
+    case (_object in _MC_soldier): {"Rifleman"};
+    case (_object in _MC_marksmen): {"marksman"};
+    case (_object in _MC_radioOp): {"radioOp"};
+    case (_object in _MC_spec): {"specialist"};
+    case (_object in _SO_SpecOps): {"SpecOps"};
+    case (_object in _SO_SL): {"leader"};
+    case (_object in _SO_ARman): {"ARman"};
+    case (_object in _SO_AT): {"AT"};
+    case (_object in _SO_grenadier): {"grenadier"};
+    case (_object in _SO_marksmen): {"marksman"};
+    case (_object in _SO_spec): {"specialist"};
     case (_object in _AR_command): {"command"};
     case (_object in _AR_SL): {"leader"};
     case (_object in _AR_FTL): {"FTL"};
@@ -191,21 +212,21 @@ _class = switch true do {
     case (_object in _AR_marksmen): {"marksman"};
     case (_object in _AR_radioOp): {"radioOp"};
     case (_object in _AR_spec): {"specialist"};
-    case (_object in _paratrooper): {"paratrooper"};
-    case (_object in _paraARman): {"paraARman"};
-    case (_object in _paraDropMedic): {"paraDropMedic"};
-    case (_object in _paraExExpert): {"paraExExpert"};
-    case (_object in _paraGrenadier): {"paraGrenadier"};
-    case (_object in _paraLeader): {"paraLeader"};
-    case (_object in _paraMarksman): {"paraMarksman"};
-    case (_object in _paraStormtrooper): {"paraStormtrooper"};
-    case (_object in _paraAssAR): {"paraAssAR"};
+    case (_object in _PARA_trooper): {"paratrooper"};
+    case (_object in _PARA_ARman): {"paraARman"};
+    case (_object in _PARA_DropMedic): {"paraDropMedic"};
+    case (_object in _PARA_ExExpert): {"paraExExpert"};
+    case (_object in _PARA_Grenadier): {"paraGrenadier"};
+    case (_object in _PARA_Leader): {"paraLeader"};
+    case (_object in _PARA_Marksman): {"paraMarksman"};
+    case (_object in _PARA_Stormtrooper): {"paraStormtrooper"};
+    case (_object in _PARA_AssAR): {"paraAssAR"};
     case (_object in _pilots): {"pilot"};
     case (_object in _crew): {"crew"};
     case (_object in _jetPilot): {"jetPilot"};
     case (_object in _pjMedic): {"pjMedic"};
-    case (_object in _mortarTeamBipod): {"mortarTeamBipod"};
-    case (_object in _mortarTeamTube): {"mortarTeamTube"};
+    case (_object in _MC_mortarTeamBipod): {"mortarTeamBipod"};
+    case (_object in _MC_mortarTeamTube): {"mortarTeamTube"};
     case (_object in _AR_m2TeamTripod): {"AR_m2TeamBipod"};
     case (_object in _AR_m2TeamGun): {"AR_m2TeamTube"};
     default{""};
@@ -213,22 +234,22 @@ _class = switch true do {
 
 if (_class == "") then {
     _class = switch true do {
-        case (typeOf _target in _commandClass): {"command"};
-        case (typeOf _target in _FTLClass): {"FTL"};
-        case (typeOf _target in _SLClass): {"leader"};
-        case (typeOf _target in _medicsClass): {"medic"};
-        case (typeOf _target in _MGClass): {"MG"};
-        case (typeOf _target in _assMGClass): {"assMG"};
-        case (typeOf _target in _ATClass): {"AT"};
-        case (typeOf _target in _ATmk153Class): {"ATmk153"};
-        case (typeOf _target in _ATassClass): {"ATAss"};
-        case (typeOf _target in _ATAssmk153Class): {"ATAssmk153"};
-        case (typeOf _target in _grenadierClass): {"grenadier"};
-        case (typeOf _target in _soldierClass): {"Rifleman"};
-        case (typeOf _target in _stormtrooperClass): {"stormtrooper"};
-        case (typeOf _target in _marksmenClass): {"marksman"};
-        case (typeOf _target in _specClass): {"specialist"};
-        case (typeOf _target in _RadioOpClass): {"RadioOp"};
+        case (typeOf _target in _MC_commandClass): {"command"};
+        case (typeOf _target in _MC_FTLClass): {"FTL"};
+        case (typeOf _target in _MC_SLClass): {"leader"};
+        case (typeOf _target in _MC_medicsClass): {"medic"};
+        case (typeOf _target in _MC_MGClass): {"MG"};
+        case (typeOf _target in _MC_assMGClass): {"assMG"};
+        case (typeOf _target in _MC_ATClass): {"AT"};
+        case (typeOf _target in _MC_ATmk153Class): {"ATmk153"};
+        case (typeOf _target in _MC_ATassClass): {"ATAss"};
+        case (typeOf _target in _MC_ATAssmk153Class): {"ATAssmk153"};
+        case (typeOf _target in _MC_grenadierClass): {"grenadier"};
+        case (typeOf _target in _MC_soldierClass): {"Rifleman"};
+        case (typeOf _target in _MC_stormtrooperClass): {"stormtrooper"};
+        case (typeOf _target in _MC_marksmenClass): {"marksman"};
+        case (typeOf _target in _MC_specClass): {"specialist"};
+        case (typeOf _target in _MC_RadioOpClass): {"RadioOp"};
         case (typeOf _target in _AR_commandClass): {"command"};
         case (typeOf _target in _AR_FTLClass): {"FTL"};
         case (typeOf _target in _AR_SLClass): {"leader"};
@@ -245,23 +266,30 @@ if (_class == "") then {
         case (typeOf _target in _AR_marksmenClass): {"marksman"};
         case (typeOf _target in _AR_specClass): {"specialist"};
         case (typeOf _target in _AR_RadioOpClass): {"RadioOp"};
-        case (typeOf _target in _specOpsClass): {"SpecOps"};
-        case (typeOf _target in _paratrooperClass): {"paratrooper"};
-        case (typeOf _target in _paraARmanClass): {"paraARman"};
-        case (typeOf _target in _paraDropMedicClass): {"paraDropMedic"};
-        case (typeOf _target in _paraExExpertClass): {"paraExExpert"};
-        case (typeOf _target in _paraGrenadierClass): {"paraGrenadier"};
-        case (typeOf _target in _paraLeadeClassr): {"paraLeader"};
-        case (typeOf _target in _paraMarksmanClass): {"paraMarksman"};
-        case (typeOf _target in _paraStormtrooperClass): {"paraStormtrooper"};
-        case (typeOf _target in _paraAssARClass): {"paraAssARClass"};
-        case (typeOf _target in _paraSpecOpsClass): {"paraSpecOpsClass"};
+        case (typeOf _target in _SO_specOpsClass): {"SpecOps"};
+        case (typeOf _target in _SO_SpecOps): {"SpecOps"};
+        case (typeOf _target in _SO_SL): {"leader"};
+        case (typeOf _target in _SO_ARman): {"ARman"};
+        case (typeOf _target in _SO_AT): {"AT"};
+        case (typeOf _target in _SO_grenadier): {"grenadier"};
+        case (typeOf _target in _SO_marksmen): {"marksman"};
+        case (typeOf _target in _SO_spec): {"specialist"};
+        case (typeOf _target in _PARA_trooperClass): {"paratrooper"};
+        case (typeOf _target in _PARA_ARmanClass): {"paraARman"};
+        case (typeOf _target in _PARA_DropMedicClass): {"paraDropMedic"};
+        case (typeOf _target in _PARA_ExExpertClass): {"paraExExpert"};
+        case (typeOf _target in _PARA_GrenadierClass): {"paraGrenadier"};
+        case (typeOf _target in _PARA_LeadeClassr): {"paraLeader"};
+        case (typeOf _target in _PARA_MarksmanClass): {"paraMarksman"};
+        case (typeOf _target in _PARA_StormtrooperClass): {"paraStormtrooper"};
+        case (typeOf _target in _PARA_AssARClass): {"paraAssARClass"};
+        case (typeOf _target in _PARA_SpecOpsClass): {"paraSpecOpsClass"};
         case (typeOf _target in _pilotsClass): {"pilot"};
         case (typeOf _target in _crewClass): {"crew"};
         case (typeOf _target in _jetPilotClass): {"jetPilot"};
         case (typeOf _target in _pjMedicClass): {"pjMedic"};
-        case (typeOf _target in _mortarTeamBipodClass): {"mortarTeamBipod"};
-        case (typeOf _target in _mortarTeamTubeClass): {"mortarTeamTube"};
+        case (typeOf _target in _MC_mortarTeamBipodClass): {"mortarTeamBipod"};
+        case (typeOf _target in _MC_mortarTeamTubeClass): {"mortarTeamTube"};
         case (typeOf _target in _AR_m2TeamTripodClass): {"AR_m2TeamTripod"};
         case (typeOf _target in _AR_m2TeamGunClass): {"AR_m2TeamGun"};
         default {"Rifleman"};
