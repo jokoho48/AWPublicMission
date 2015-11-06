@@ -47,7 +47,7 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     } forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
 
-waitUntil {sleep 1; SEN_complete isEqualTo 2};
+waitUntil {SEN_complete isEqualTo 2};
 
 [] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
 [] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";

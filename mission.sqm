@@ -3636,7 +3636,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=25;
+		items=34;
 		class Item0
 		{
 			position[]={15266.13,19.334841,17087.141};
@@ -3848,6 +3848,60 @@ class Mission
 			a=300;
 			b=300;
 			drawBorder=1;
+		};
+		class Item25
+		{
+			position[]={-2971.1497,-0.031058509,33251.473};
+			name="JK_AirSpawn_1";
+			type="Empty";
+		};
+		class Item26
+		{
+			position[]={32617.84,-0.090149738,32758.418};
+			name="JK_AirSpawn_2";
+			type="Empty";
+		};
+		class Item27
+		{
+			position[]={33989.105,-0.082335204,-4670.5137};
+			name="JK_AirSpawn_3";
+			type="Empty";
+		};
+		class Item28
+		{
+			position[]={14917.396,0.097665749,-4251.2197};
+			name="JK_AirSpawn_4";
+			type="Empty";
+		};
+		class Item29
+		{
+			position[]={-5317.231,-0.09156239,9818.2686};
+			name="JK_AirSpawn_5";
+			type="Empty";
+		};
+		class Item30
+		{
+			position[]={-6480.1411,-0.03673429,20253.924};
+			name="JK_AirSpawn_6";
+			type="Empty";
+		};
+		class Item31
+		{
+			position[]={35152.02,0.087681264,23002.59};
+			name="JK_AirSpawn_7";
+			type="Empty";
+		};
+		class Item32
+		{
+			position[]={33616.98,-0.0084130596,6883.2422};
+			name="JK_AirSpawn_8";
+			type="Empty";
+		};
+		class Item33
+		{
+			position[]={-4293.8545,0.087959349,-7931.6523};
+			name="JK_AirSpawn_9";
+			type="Empty";
 		};
 	};
 	class Sensors

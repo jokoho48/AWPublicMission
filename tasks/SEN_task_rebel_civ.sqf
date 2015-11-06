@@ -12,7 +12,6 @@ _taskText = "Defend FOB Against Rebel Attack";
 _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards FOB Pirelli. Defend the FOB against the rebel attack!";
 
 _sleep = 2700;
-
 if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
     [0,"Rebel task skipped."] call SEN_fnc_log;
     sleep _sleep;

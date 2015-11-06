@@ -8,7 +8,6 @@
  * Return Value:
  * None
  */
-#include "script_component.hpp"
 disableSerialization;
 private ["_display", "_filter", "_array"];
 waitUntil{!isNull (findDisplay 18000)};

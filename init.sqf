@@ -35,6 +35,6 @@ call compile preprocessFileLineNumbers "fixXEH.sqf";
 if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
-    waitUntil {sleep 0.1; SEN_complete isEqualTo 1};
+    waitUntil {SEN_complete isEqualTo 1};
     [] call compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 };
