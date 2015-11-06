@@ -33,3 +33,4 @@ if (_strTarget in _crew) exitWith {
 if (_strTarget in _pilots) exitWith {
     [_target, "Pilot"] call JK_loadOut_fnc_selectGear;
 };
+[_target, "AR_rifleman"] call JK_loadOut_fnc_selectGear;
