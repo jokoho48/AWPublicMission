@@ -12,15 +12,12 @@
 private["_scope","_picture","_displayName","_vehicleClass","_side","_faction","_superClass"];
 params [["_class", "", [""]]];
 if(_class isEqualTo "") exitWith {[]}; //Bad class passed.
-if(!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {[]}; //Class doesn't exist in CfgVehicles
-
-//Predefine some stuff.
-_picture = "";
-_displayName = "";
+_cfgPath = (configFile >> "CfgVehicles" >> _class);
+if(!isClass _cfgPath) exitWith {["", ""]}; //Class doesn't exist in CfgVehicles
 
 //Fetch
-_picture = getText(configFile >> "CfgVehicles" >> _class >> "picture");
-_displayName = getText(configFile >> "CfgVehicles" >> _class >> "displayName");
+_displayName = getText(_cfgPath >> "displayName");
+_picture = getText(_cfgPath >> "picture");
 
 //Return
 [_displayName, _picture];

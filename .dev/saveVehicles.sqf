@@ -1,8 +1,6 @@
-JK_VSS_Checkbox = true;
-
 JK_VSS_ListTickets = [
     [
-        "HMMVYs",
+        "Unarmed HMMWVs",
         [
             "rhsusf_m1025_w_s",
             "rhsusf_m998_w_s_2dr_halftop",
@@ -17,7 +15,25 @@ JK_VSS_ListTickets = [
             "rhsusf_m998_w_2dr",
             "rhsusf_m998_w_4dr_fulltop",
             "rhsusf_m998_w_4dr_halftop",
-            "rhsusf_m998_w_4dr",
+            "rhsusf_m998_w_4dr"
+        ],
+        200,
+        "Leader"
+    ],
+    [
+        "Armed HMMWVs",
+        [
+            "rhsusf_m1025_w_s_m2",
+            "rhsusf_m1025_w_s_Mk19",
+            "rhsusf_m1025_w_m2",
+            "rhsusf_m1025_w_mk19"
+        ],
+        250,
+        "Leader"
+    ],
+    [
+        "Unarmed LKW",
+        [
             "rhsusf_M1078A1P2_wd_fmtv_usarmy",
             "rhsusf_M1078A1P2_wd_flatbed_fmtv_usarmy",
             "rhsusf_M1078A1P2_wd_open_fmtv_usarmy",
@@ -31,17 +47,12 @@ JK_VSS_ListTickets = [
             "rhsusf_M1083A1P2_B_wd_flatbed_fmtv_usarmy",
             "rhsusf_M1083A1P2_B_wd_open_fmtv_usarmy"
         ],
-        200,
-        "Leader",
-        "CAR1"
+        250,
+        "Leader"
     ],
     [
-        "Armed HMMVYs",
+        "Armed LKW",
         [
-            "rhsusf_m1025_w_s_m2",
-            "rhsusf_m1025_w_s_Mk19",
-            "rhsusf_m1025_w_m2",
-            "rhsusf_m1025_w_mk19",
             "rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy",
             "rhsusf_M1078A1P2_B_M2_wd_flatbed_fmtv_usarmy",
             "rhsusf_M1078A1P2_B_M2_wd_open_fmtv_usarmy",
@@ -49,9 +60,8 @@ JK_VSS_ListTickets = [
             "rhsusf_M1083A1P2_B_M2_wd_flatbed_fmtv_usarmy",
             "rhsusf_M1083A1P2_B_M2_wd_open_fmtv_usarmy"
         ],
-        250,
-        "Leader",
-        "CAR2"
+        300,
+        "Leader"
     ],
     [
         "MRAPs",
@@ -60,8 +70,7 @@ JK_VSS_ListTickets = [
             "rhsusf_rg33_m2_usmc_wd"
         ],
         300,
-        "Leader",
-        "CAR3"
+        "Leader"
     ],
     [
         "Panzer",
@@ -75,8 +84,7 @@ JK_VSS_ListTickets = [
             "rhsusf_m1a1fep_od"
         ],
         600,
-        "Crew",
-        "TANK"
+        "Crew"
     ],
     [
         "Schützenpanzerwagen",
@@ -89,8 +97,7 @@ JK_VSS_ListTickets = [
             "rhsusf_m113_usarmy_unarmed"
         ],
         400,
-        "Crew",
-        "SPW"
+        "Crew"
     ],
     [
         "Schützenpanzer",
@@ -103,8 +110,7 @@ JK_VSS_ListTickets = [
             "RHS_M6_wd"
         ],
         500,
-        "Crew",
-        "SPZ"
+        "Crew"
     ],
     [
         "Leichte Helikopter",
@@ -113,8 +119,7 @@ JK_VSS_ListTickets = [
             "B_Heli_Light_01_F"
         ],
         350,
-        "Pilot",
-        "LightHeli"
+        "Pilot"
     ],
     [
         "Transport Helikopter",
@@ -128,8 +133,7 @@ JK_VSS_ListTickets = [
             "RHS_UH60M_MEV"
         ],
         400,
-        "Pilot",
-        "THeli"
+        "Pilot"
     ],
     [
         "Kampf Helikopter",
@@ -143,8 +147,7 @@ JK_VSS_ListTickets = [
             "RHS_AH64D_wd"
         ],
         700,
-        "Pilot",
-        "KHeli"
+        "Pilot"
     ],
     [
         "Flugzeuge",
@@ -153,8 +156,7 @@ JK_VSS_ListTickets = [
             "RHS_A10"
         ],
         1000,
-        "Pilot",
-        "Plane"
+        "Pilot"
     ],
     [
         "Other",
@@ -162,10 +164,13 @@ JK_VSS_ListTickets = [
             "B_Quadbike_01_F"
         ],
         50,
-        "All",
         "All"
     ]
 ];
+
+["JK_VSS_ListTickets", str JK_VSS_ListTickets, 2] spawn db_fnc_save;
+
+
 
 /*
 // Leader

@@ -1,6 +1,6 @@
 JK_fnc_isSellable = {
     vehicle player != player &&
-    {((vehicle player) getVariable ["JK_Price", 0] =! 0)} &&
+    {(((vehicle player) getVariable ["JK_Price", 0]) =! 0)} &&
     {(player distance JK_sellingPoint) < 10}
 };
 
