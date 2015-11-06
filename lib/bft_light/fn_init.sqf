@@ -1,3 +1,14 @@
+/*
+ * Author: Badguy, joko // Jonas
+ * initilize BFT System
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
+
 if (!hasInterface) exitWith {};
 
 BG_BFT_Icons = [];

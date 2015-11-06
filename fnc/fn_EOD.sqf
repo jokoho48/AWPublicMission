@@ -7,8 +7,6 @@
  *
  * Return Value:
  * None
- *
- * Public: No
  */
 if (isNil "JK_IED") then {
     JK_IED = [];

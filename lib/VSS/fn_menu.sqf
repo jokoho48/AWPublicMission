@@ -1,3 +1,14 @@
+/*
+ * Author: CreedCoder, joko // Jonas
+ * Create all for VSS Menu
+ *
+ * Arguments:
+ * 0: Condition <Integer>
+ *
+ * Return Value:
+ * None
+ */
+
 private ["_display", "_vehiclelist", "_filter", "_filterSelect", "_vehilceSelect", "_condition", "_prize", "_vehicleListIndex", "_vehicleList", "_vehdata", "_className"];
 disableSerialization;
 params [
@@ -54,8 +65,11 @@ switch (_condition) do {
         player setVariable ["SEN_inProgress",true];
         if(_vehilceSelect != "") then {
             _vehdata = call compile format["%1",_vehilceSelect];
-            [(_vehdata select 0), (_vehdata select 0), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"] spawn JK_VSS_fnc_spawnVSS;
-            [[2,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2", name player, str _className]], "SEN_fnc_log", false] call BIS_fnc_MP;
+            if ((_vehdata select 1) <= JK_TicketSystem) then {
+                [(_vehdata select 0), (_vehdata select 1), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"] spawn JK_VSS_fnc_spawnVSS;
+                [[2,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2", name player, str _className]], "SEN_fnc_log", false] call BIS_fnc_MP;
+            }
+
         };
         player setVariable ["SEN_inProgress",false];
     };

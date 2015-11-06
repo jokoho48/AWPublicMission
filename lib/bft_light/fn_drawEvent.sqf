@@ -1,3 +1,13 @@
+/*
+ * Author: Badguy
+ * Render BFT Icons
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
 private ["_map"];
 
 // check if

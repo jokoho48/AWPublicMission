@@ -8,8 +8,6 @@
  *
  * Example:
  * [] call JK_Core_fnc_initVariableEventHandler;
- *
- * Public: No
  */
 if (isNil "JK_VariableEventhandler") then {
     JK_VariableEventhandler = [];

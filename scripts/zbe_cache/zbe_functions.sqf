@@ -57,18 +57,6 @@ zbe_closestUnit = {
     _dist
 };
 
-/* = {
-    private ["_zbe_leader","_trigUnits"];
-    _zbe_leader = _this select 0;
-    _trigUnits = [];
-        {if ((((side _x) getFriend (side _zbe_leader)) <= 0.6)) then {
-        _trigUnits set [count _trigUnits, leader _x];
-                };
-        } forEach allGroups;
-        _trigUnits = _trigUnits + ([] call BIS_fnc_listPlayers);
-        _trigUnits;
-};Old function that is no longer used, left here for reference*/
-
 zbe_setPosLight = {
     {
         _testpos = (formationPosition _x);

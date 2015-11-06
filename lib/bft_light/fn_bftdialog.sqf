@@ -1,3 +1,13 @@
+/*
+ * Author: Badguy, joko // Jonas
+ * Create and Update BFT Dialog
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
 disableSerialization;
 private ["_map","_ctrl","_gY","_gX","_gY0","_gX0"];
 
