@@ -6,9 +6,6 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 magazines one for one in JK_items.
 */
 
-//Vehicle Array
-JK_vvsArray = [];
-
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_cu_ucp"];
 JK_vests = ["rhsusf_iotv_ucp_SAW"];
