@@ -38,7 +38,7 @@ taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default
 #include "data\explosivePad.hpp"
 #include "data\intro.hpp"
 #include "data\SEN_XEH.hpp"
-#include "scripts\VVS\menu.h"
+#include "lib\VSS\menu.hpp"
 
 class Params {
     #include "data\SEN_params.hpp"
@@ -50,7 +50,8 @@ class CfgFunctions {
     #include "lib\core\cfgFunctions.hpp"
     #include "lib\gear\cfgFunctions.hpp"
     #include "lib\repair\cfgFunctions.hpp"
-    #include "scripts\VVS\Functions.h"
+    #include "lib\VSS\cfgFunctions.hpp"
+    #include "scripts\VVS\Functions.hpp"
 };
 
 class CfgSounds {

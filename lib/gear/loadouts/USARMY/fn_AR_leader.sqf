@@ -6,9 +6,6 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 magazines one for one in JK_items.
 */
 
-//Vehicle Array
-JK_vvsArray = ["rhs_vehclass_car", "rhs_vehclass_car_wd", "rhs_vehclass_mrap", "rhs_vehclass_mrap_wd", "rhs_vehclass_truck", "rhs_vehclass_truck_wd", "rhsusf_rg33_m2_usmc_wd", "rhsusf_rg33_usmc_wd"];
-
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_cu_ucp"];
 JK_vests = ["rhsusf_iotv_ucp_Teamleader"];
@@ -126,6 +123,9 @@ JK_medicClass = 0;
 JK_spawnAllowed = true;
 JK_isEngineer = 0;
 JK_isPilot = false;
+
+//Vehicle Spawn System
+JK_VehClass = "Leader";
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;
