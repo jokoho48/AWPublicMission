@@ -1,7 +1,38 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="JK">
     <Package name="JKGear">
-        // LoadOuts
+
+        // Main Action Names
+        <Key ID="STR_JK_GEAR_MC">
+            <English>USMC Gear</English>
+            <German>USMC Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR">
+            <English>US Army Gear</English>
+            <German>US Army Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO">
+            <English>Special Operation Forces(Heavy) Gear</English>
+            <German>Spezial Operations Kräfte(Schwer) Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOF">
+            <English>Special Operation Forces(Light) Gear</English>
+            <German>Spezial Operations Kräfte(Leicht) Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA">
+            <English>Paratrooper Gear</English>
+            <German>Fallschirmjäger Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SPEC">
+            <English>Pilots/Crew/Logistic Gear</English>
+            <German>Piloten/Fahrzeugbesatzung/Logistik Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_Back">
+            <English>Back</English>
+            <German>Zurück</German>
+        </Key>
+
+        // USMC Action Names
         <Key ID="STR_JK_GEAR_MC_COMMAND">
             <English>Command</English>
             <German>Kommander</German>
@@ -70,6 +101,32 @@
             <English>Specialist</English>
             <German>Spezialist</German>
         </Key>
+        <Key ID="STR_JK_GEAR_MC_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_AAAss">
+            <English>Assistent AA Gunner</English>
+            <German>AA-Assistent</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_mortarTeamBipod">
+            <English>Mortar-Observer(Bipod)</English>
+            <German>Mörser-Beobachter(Bipod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_mortarTeamTube">
+            <English>Mortar-Gunner(Tube)</English>
+            <German>Mörser-Richtschütze(Tube)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_m2TeamTripod">
+            <English>M2-Carrier(Tripod)</English>
+            <German>M2-Träger(Tripod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_m2TeamGun">
+            <English>M2-Carrier(Gun)</English>
+            <German>M2-Träger(Geschütz)</German>
+        </Key>
+
+        // SpecOps(Heavy) Action Names
         <Key ID="STR_JK_GEAR_SO_LEADER">
             <English>Team Leader</English>
             <German>Gruppen Führer</German>
@@ -102,6 +159,8 @@
             <English>Commando</English>
             <German>Kommando</German>
         </Key>
+
+        // SpecOps(Light) Action Names
         <Key ID="STR_JK_GEAR_SOL_LEADER">
             <English>Team Leader</English>
             <German>Gruppen Führer</German>
@@ -134,6 +193,8 @@
             <English>Commando</English>
             <German>Kommando</German>
         </Key>
+
+        // US Army Action Names
         <Key ID="STR_JK_GEAR_AR_COMMAND">
             <English>Command</English>
             <German>Kommander</German>
@@ -166,16 +227,8 @@
             <English>AA Gunner</English>
             <German>Luftabwehrschütze</German>
         </Key>
-        <Key ID="STR_JK_GEAR_MC_AA">
-            <English>AA Gunner</English>
-            <German>Luftabwehrschütze</German>
-        </Key>
         <Key ID="STR_JK_GEAR_AR_AAAss">
             <English>Assistent AA GunnerEnglish>
-            <German>AA-Assistent</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_MC_AAAss">
-            <English>Assistent AA Gunner</English>
             <German>AA-Assistent</German>
         </Key>
         <Key ID="STR_JK_GEAR_AR_AT">
@@ -218,6 +271,25 @@
             <English>Specialist</English>
             <German>Spezialist</German>
         </Key>
+        <Key ID="STR_JK_GEAR_AR_mortarTeamBipod">
+            <English>Mortar-Observer(Bipod)</English>
+            <German>Mörser-Beobachter(Bipod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_mortarTeamTube">
+            <English>Mortar-Gunner(Tube)</English>
+            <German>Mörser-Richtschütze(Tube)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_m2TeamTripod">
+            <English>M2-Carrier(Tripod)</English>
+            <German>M2-Träger(Tripod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_m2TeamGun">
+            <English>M2-Carrier(Gun)</English>
+            <German>M2-Träger(Geschütz)</German>
+        </Key>
+
+
+        // Paratrooper Action Names
         <Key ID="STR_JK_GEAR_PARA_trooper">
             <English>Paratrooper(AT-4)</English>
             <German>Fallschirmjäger(AT-4)</German>
@@ -258,22 +330,8 @@
             <English>Paratrooper(Commando)</English>
             <German>Fallschirmjäger(Kommando)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_MC_mortarTeamBipod">
-            <English>Mortar-Observer(Bipod)</English>
-            <German>Mörser-Beobachter(Bipod)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_MC_mortarTeamTube">
-            <English>Mortar-Gunner(Tube)</English>
-            <German>Mörser-Richtschütze(Tube)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_AR_m2TeamTripod">
-            <English>M2-Carrier(Tripod)</English>
-            <German>M2-Träger(Tripod)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_AR_m2TeamGun">
-            <English>M2-Carrier(Gun)</English>
-            <German>M2-Träger(Geschütz)</German>
-        </Key>
+
+        // Spectial Classes Action Names
         <Key ID="STR_JK_GEAR_PILOT">
             <English>Pilot</English>
             <German>Pilot</German>
@@ -290,6 +348,8 @@
             <English>Para Jumper Medic</English>
             <German>Medevac Crew</German>
         </Key>
+
+
         // Repair
        <Key ID="STR_JK_REPAIR_DAMAGE">
            <English>Current damage:</English>

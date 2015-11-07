@@ -181,7 +181,7 @@ if (name _unit in ["joko // Jonas"]) then {
 } else {
     if (typeName JK_insignium == "ARRAY") then {
         private "_temp";
-        _temp = JK_insignium call BIS_fnc_selectRandom;
+        _temp = (JK_insignium call BIS_fnc_selectRandom);
         if !(_temp isEqualTo "") then {
             [_unit, _temp] call BIS_fnc_setUnitInsignia;
         };

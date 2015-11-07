@@ -9,7 +9,7 @@ Call from initPlayerLocal.sqf via:
 ///// No editing necessary below this line /////
 
 params [["_target", player, [objNull]]];
-_command = ["plt_sgt"];
+_command = ["plt_sgt", "plt_co"];
 _TL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
 _SL = ["a_sl", "b_sl"];
 _crew = ["rh1_driver", "rh1_co", "rh1_gunner"];

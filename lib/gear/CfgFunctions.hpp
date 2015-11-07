@@ -36,6 +36,10 @@ class JK_loadOut {
         class MC_rifleman;
         class MC_specialist;
         class MC_radioOp;
+        class MC_mortarTeamBipod;
+        class MC_mortarTeamTube;
+        class MC_m2TeamTripod;
+        class MC_m2TeamGun;
     };
 
     class USARMY {
@@ -60,6 +64,10 @@ class JK_loadOut {
         class AR_rifleman;
         class AR_specialist;
         class AR_radioOp;
+        class AR_mortarTeamBipod;
+        class AR_mortarTeamTube;
+        class AR_m2TeamTripod;
+        class AR_m2TeamGun;
     };
 
     class USSOF {
@@ -110,9 +118,5 @@ class JK_loadOut {
         class jetPilot;
         class pjMedic;
         class pilot;
-        class MC_mortarTeamBipod;
-        class MC_mortarTeamTube;
-        class AR_m2TeamTripod;
-        class AR_m2TeamGun;
     };
 };

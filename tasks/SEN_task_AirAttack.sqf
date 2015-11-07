@@ -18,7 +18,7 @@ _taskID = format["%1_rebel_civ",time];
 _taskText = "Air Priority Target";
 _taskDescription = "A Air Priority Target is Entering our Air Area";
 
-_class = (["RHS_Su25SM_vvs", "RHS_Su25SM_KH29_vvs", "RHS_Ka52_vvs", "RHS_Ka52_UPK23_vvs", "RHS_Mi24P_AT_vvs", "RHS_Mi24P_CAS_vvs", "RHS_Mi24P_CAS_vvs", "RHS_Mi8MTV3_UPK23_vvs", "RHS_Mi8MTV3_FAB_vvs", "RHS_Mi8AMTSh_UPK23_vvs", "RHS_Mi8AMTSh_FAB_vvs"] call BIS_fnc_selectRandom);
+_class = (["O_Plane_CAS_02_F", "RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"] call BIS_fnc_selectRandom);
 _spawnPos = getmarkerPos (["JK_AirSpawn_1", "JK_AirSpawn_2", "JK_AirSpawn_3", "JK_AirSpawn_4", "JK_AirSpawn_5", "JK_AirSpawn_6", "JK_AirSpawn_7", "JK_AirSpawn_8", "JK_AirSpawn_9"] call BIS_fnc_selectRandom);
 _spawnPos set [2, 4000];
 _veh = createVehicle [_class, _spawnPos, [], 0, "FLY"];
@@ -33,6 +33,9 @@ _grp = group (_vehCrew select 0);
     nil
 } count _vehCrew;
 
+if (_class isEqualTo "O_Plane_CAS_02_F") then {
+
+};
 
 private ["_wp1", "_wp2"];
 
