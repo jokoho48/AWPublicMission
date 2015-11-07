@@ -9,9 +9,9 @@ magazines one for one in JK_items.
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_chdkz_uniform_5", "rhs_chdkz_uniform_4", "rhs_chdkz_uniform_3", "rhs_chdkz_uniform_2"];
 JK_vests = ["V_PlateCarrier1_rgr"];
-JK_headgears = ["H_MilCap_ocamo", "H_Bandanna_mcamo", "rhs_Booniehat_ocp", "rhsusf_bowman_cap", "rhsusf_Bowman", "rhs_Booniehat_marpatwd", "H_Bandanna_sand", "H_Bandanna_camo", "H_Watchcap_camo", "H_Booniehat_mcamo", "H_Bandanna_cbr"];
+JK_headgears = ["H_Bandanna_mcamo", "rhs_Booniehat_ocp", "rhsusf_bowman_cap", "H_Shemag_olive", "H_ShemagOpen_tan", "rhsusf_Bowman", "rhs_Booniehat_marpatwd", "H_Bandanna_sand", "H_Bandanna_camo", "H_Watchcap_camo", "H_Booniehat_mcamo", "H_Bandanna_cbr"];
 JK_backpacks = ["tf_rt1523g_rhs"];
-JK_insignium = [];
+JK_insignium = [""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
@@ -51,12 +51,12 @@ JK_itemsHandgun = ["muzzle_snds_acp"];
 JK_handgunAmmo = 5;
 
 //weapons - launcher - (string)
-JK_launcher = "tf47_at4_HEDP";
+JK_launcher = "";
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
 JK_launcherItems = [];
 
 //launcher ammo (if a launcher is given) - (integer)
-JK_launcherAmmo = 1;
+JK_launcherAmmo = 0;
 
 //binocular - (string)
 JK_binocular = "ACE_Vector";

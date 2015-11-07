@@ -12,12 +12,12 @@
             <German>US Army Ausrüstung</German>
         </Key>
         <Key ID="STR_JK_GEAR_SO">
-            <English>Special Operation Forces(Heavy) Gear</English>
-            <German>Spezial Operations Kräfte(Schwer) Ausrüstung</German>
+            <English>USSOF(Heavy) Gear</English>
+            <German>USSOF(Schwer) Ausrüstung</German>
         </Key>
         <Key ID="STR_JK_GEAR_SOF">
-            <English>Special Operation Forces(Light) Gear</English>
-            <German>Spezial Operations Kräfte(Leicht) Ausrüstung</German>
+            <English>USSOF(Light) Gear</English>
+            <German>USSOF(Leicht) Ausrüstung</German>
         </Key>
         <Key ID="STR_JK_GEAR_PARA">
             <English>Paratrooper Gear</English>

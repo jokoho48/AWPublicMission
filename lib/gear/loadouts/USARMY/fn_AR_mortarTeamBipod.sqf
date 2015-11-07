@@ -7,24 +7,24 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_iotv_ocp_SAW"];
-JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
-JK_backpacks = ["rhsusf_falconii"];
+JK_uniforms = ["rhs_uniform_cu_ucp"];
+JK_vests = ["rhsusf_iotv_ucp_Rifleman"];
+JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_arc_tan", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
+JK_backpacks = ["O_Mortar_01_support_F"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m249_pip_L", "rhs_weap_m249_pip_L_para", "rhs_weap_m249_pip_L_vfg"];
+JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15side"];
+JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-JK_ARhandle = 0;        //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 3;
-JK_primaryweaponTracers = 4;
+JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
+JK_primaryweaponAmmo = 5;
+JK_primaryweaponTracers = 3;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
@@ -42,13 +42,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "hgun_ACPC2_F";
+JK_handgun = "rhsusf_weap_m1911a1";
 
 //handgun items - (array)
-JK_itemsHandgun = ["muzzle_snds_acp"];
+JK_itemsHandgun = [];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 3;
+JK_handgunAmmo = 2;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -62,13 +62,13 @@ JK_launcherAmmo = 0;
 JK_binocular = "Binocular";
 
 //throwables - (integer)
-JK_grenadeHE = 0;
-JK_grenadeSmokeWhite = 0;
+JK_grenadeHE = 2;
+JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
 JK_grenadeSmokePurple = 0;
-JK_grenadeSmokeBlue = 0;
+JK_grenadeSmokeBlue = 1;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
 JK_chemlightRed = 0;
@@ -106,7 +106,7 @@ JK_itemsVest = [];
 //items added specifically to Backpack: - (array)
 JK_itemsBackpack = [];
 
-//linked items - (array)
+//linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
         "ItemRadio",
         "ItemWatch",
@@ -117,12 +117,15 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_M84","ACE_DAGR"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;
 JK_isEngineer = 0;
 JK_isPilot = false;
+
+//Vehicle Spawn System
+JK_VehClass = "All";
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;

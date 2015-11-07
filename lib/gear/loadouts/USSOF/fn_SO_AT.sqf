@@ -23,7 +23,7 @@ JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","ACE_o
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
+JK_primaryweaponAmmo = 5;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -63,7 +63,7 @@ JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
 JK_grenadeHE = 0;
-JK_grenadeSmokeWhite = 2;
+JK_grenadeSmokeWhite = 1;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;

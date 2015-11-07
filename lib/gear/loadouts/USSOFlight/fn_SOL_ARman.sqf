@@ -9,9 +9,9 @@ magazines one for one in JK_items.
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_chdkz_uniform_5", "rhs_chdkz_uniform_4", "rhs_chdkz_uniform_3", "rhs_chdkz_uniform_2"];
 JK_vests = ["V_PlateCarrier1_rgr"];
-JK_headgears = ["H_MilCap_ocamo", "H_Bandanna_mcamo", "rhs_Booniehat_ocp", "rhsusf_bowman_cap", "rhsusf_Bowman", "rhs_Booniehat_marpatwd", "H_Bandanna_sand", "H_Bandanna_camo", "H_Watchcap_camo", "H_Booniehat_mcamo", "H_Bandanna_cbr"];
+JK_headgears = ["H_Bandanna_mcamo", "rhs_Booniehat_ocp", "rhsusf_bowman_cap", "H_Shemag_olive", "H_ShemagOpen_tan", "rhsusf_Bowman", "rhs_Booniehat_marpatwd", "H_Bandanna_sand", "H_Bandanna_camo", "H_Watchcap_camo", "H_Booniehat_mcamo", "H_Bandanna_cbr"];
 JK_backpacks = ["rhsusf_falconii"];
-JK_insignium = [];
+JK_insignium = [""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
 
