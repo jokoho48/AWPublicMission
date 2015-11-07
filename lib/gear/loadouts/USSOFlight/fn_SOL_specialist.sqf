@@ -62,7 +62,7 @@ JK_launcherAmmo = 0;
 JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
-JK_grenadeHE = 2;
+JK_grenadeHE = 1;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
@@ -104,7 +104,7 @@ JK_itemsUniform = [];
 JK_itemsVest = ["ACE_M84", "DemoCharge_Remote_Mag", "DemoCharge_Remote_Mag"];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","SatchelCharge_Remote_Mag","SatchelCharge_Remote_Mag"];
+JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit"];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
