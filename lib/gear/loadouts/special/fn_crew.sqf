@@ -11,7 +11,7 @@ JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
 JK_vests = ["rhsusf_spc_crewman"];
 JK_headgears = ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_ess"];
 JK_backpacks = [""];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
@@ -115,7 +115,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991"];
+JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_monitor"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

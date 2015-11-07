@@ -7,36 +7,36 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["rhs_uniform_cu_ucp"];
-JK_vests = ["rhsusf_iotv_ucp_Rifleman"];
-JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_arc_tan", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
-JK_backpacks = ["tf_rt1523g_big_bwmod_tropen"];
+JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
+JK_vests = ["rhsusf_spc_rifleman"];
+JK_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
+JK_backpacks = ["rhsusf_assault_eagleaiii_coy"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
-JK_goggles = "G_Combat";
+JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m16a4_carryhandle_M203", "rhs_weap_m4_m203", "rhs_weap_m4_m203S", "rhs_weap_m4_m320"];
+JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 
 //primary weapon items - (array)
 JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 5;
-JK_primaryweaponTracers = 3;
+JK_primaryweaponAmmo = 8;
+JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
-JK_40mmSmokeGrenadesWhite = 2;
+JK_40mmSmokeGrenadesWhite = 0;
 JK_40mmSmokeGrenadesYellow = 0;
-JK_40mmSmokeGrenadesOrange = 2;
-JK_40mmSmokeGrenadesRed = 3;
-JK_40mmSmokeGrenadesPurple = 2;
+JK_40mmSmokeGrenadesOrange = 0;
+JK_40mmSmokeGrenadesRed = 0;
+JK_40mmSmokeGrenadesPurple = 0;
 JK_40mmSmokeGrenadesBlue = 0;
-JK_40mmSmokeGrenadesGreen = 1;
+JK_40mmSmokeGrenadesGreen = 0;
 JK_40mmFlareWhite = 0;
-JK_40mmFlareYellow = 1;
+JK_40mmFlareYellow = 0;
 JK_40mmFlareRed = 0;
 JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
@@ -51,18 +51,18 @@ JK_itemsHandgun = [];
 JK_handgunAmmo = 2;
 
 //weapons - launcher - (string)
-JK_launcher = "tf47_at4_HEDP";
+JK_launcher = "";
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
 JK_launcherItems = [];
 
 //launcher ammo (if a launcher is given) - (integer)
-JK_launcherAmmo = 1;
+JK_launcherAmmo = 0;
 
 //binocular - (string)
-JK_binocular = "Binocular";
+JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
-JK_grenadeHE = 1;
+JK_grenadeHE = 2;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
@@ -101,12 +101,12 @@ JK_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be add
 JK_itemsUniform = [];
 
 //items added specifically to vest: - (array)
-JK_itemsVest = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [];
+JK_itemsBackpack = ["rhs_fim92_mag"];
 
-//linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
+//linked items - (array)
 JK_itemsLink = [
         "ItemRadio",
         "ItemWatch",
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = [];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

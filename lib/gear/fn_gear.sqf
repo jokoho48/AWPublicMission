@@ -180,7 +180,11 @@ if (name _unit in ["joko // Jonas"]) then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {
     if (typeName JK_insignium == "ARRAY") then {
-        [_unit, JK_insignium call BIS_fnc_selectRandom] call BIS_fnc_setUnitInsignia;
+        private "_temp";
+        _temp = JK_insignium call BIS_fnc_selectRandom;
+        if !(_temp isEqualTo "") then {
+            [_unit, _temp] call BIS_fnc_setUnitInsignia;
+        };
     } else {
         [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
     };

@@ -6,15 +6,12 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 magazines one for one in JK_items.
 */
 
-//Vehicle Array
-JK_vvsArray = [];
-
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_cu_ucp"];
 JK_vests = ["rhsusf_iotv_ucp_Rifleman"];
 JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_arc_tan", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
 JK_backpacks = [""];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
 

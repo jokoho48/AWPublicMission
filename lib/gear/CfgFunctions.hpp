@@ -17,23 +17,25 @@ class JK_loadOut {
     class USMC {
         file = "lib\gear\loadouts\USMC";
         // USMC
-        class FTL;
-        class arman;
-        class assmg;
-        class mg;
-        class stormtrooper;
-        class at;
-        class atmk153;
-        class atass;
-        class ATAssmk153;
-        class command;
-        class grenadier;
-        class leader;
-        class marksman;
-        class medic;
-        class rifleman;
-        class specialist;
-        class radioOp;
+        class MC_FTL;
+        class MC_arman;
+        class MC_assmg;
+        class MC_mg;
+        class MC_stormtrooper;
+        class MC_aa;
+        class MC_aaass;
+        class MC_at;
+        class MC_atmk153;
+        class MC_atass;
+        class MC_ATAssmk153;
+        class MC_command;
+        class MC_grenadier;
+        class MC_leader;
+        class MC_marksman;
+        class MC_medic;
+        class MC_rifleman;
+        class MC_specialist;
+        class MC_radioOp;
     };
 
     class USARMY {
@@ -44,6 +46,8 @@ class JK_loadOut {
         class AR_assmg;
         class AR_mg;
         class AR_stormtrooper;
+        class AR_aa;
+        class AR_aaass;
         class AR_at;
         class AR_atmk153;
         class AR_atass;
@@ -58,19 +62,45 @@ class JK_loadOut {
         class AR_radioOp;
     };
 
+    class USSOF {
+        file = "lib\gear\loadouts\USSOF";
+        // US SOF
+        class SO_arman;
+        class SO_at;
+        class SO_grenadier;
+        class SO_leader;
+        class SO_marksman;
+        class SO_SpecOps;
+        class SO_AA;
+        class SO_specialist;
+    };
+
+    class USSOFlight {
+        file = "lib\gear\loadouts\USSOFlight";
+        // US SOF
+        class SOL_arman;
+        class SOL_at;
+        class SOL_grenadier;
+        class SOL_leader;
+        class SOL_marksman;
+        class SOL_SpecOps;
+        class SOL_AA;
+        class SOL_specialist;
+    };
+
     class parachuteLoadouts {
         file = "lib\gear\loadouts\parachute";
         // Paratrooper
-        class paratrooper;
-        class paraARman;
-        class paraDropMedic;
-        class paraExExpert;
-        class paraGrenadier;
-        class paraLeader;
-        class paraMarksman;
-        class paraStormtrooper;
-        class paraAssAR;
-        class paraSpecOps;
+        class PARA_trooper;
+        class PARA_ARman;
+        class PARA_DropMedic;
+        class PARA_ExExpert;
+        class PARA_Grenadier;
+        class PARA_Leader;
+        class PARA_Marksman;
+        class PARA_Stormtrooper;
+        class PARA_AssAR;
+        class PARA_SpecOps;
     };
 
     class specialLoadouts {
@@ -80,9 +110,8 @@ class JK_loadOut {
         class jetPilot;
         class pjMedic;
         class pilot;
-        class SpecOps;
-        class mortarTeamBipod;
-        class mortarTeamTube;
+        class MC_mortarTeamBipod;
+        class MC_mortarTeamTube;
         class AR_m2TeamTripod;
         class AR_m2TeamGun;
     };

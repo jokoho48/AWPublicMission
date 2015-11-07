@@ -15,33 +15,40 @@ JK_fnc_createCrate = {
     if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
     _crateObject = _crateType createVehicle _position;
     if (!isNil "_content") then {
-        [[[_crateObject, _content],{
+        [[[_crateObject, _content], {
             params ["_crateObject", "_content"];
+            if (isServer) then {
+                _crateObject hideObjectGlobal true;
+            };
             _crateObject addAction ["<t color='#FF0000'>Delete Crate</t>", { deleteVehicle (_this select 0); JK_ammoSuppAvail = true; publicVariable "JK_ammoSuppAvail";}];
             if !(isServer) exitWith {};
-            _crateObject hideObjectGlobal true;
             _crateObject setVariable ["SEN_noClean", true, true];
             clearWeaponCargoGlobal _crateObject;
             clearMagazineCargoGlobal _crateObject;
             clearItemCargoGlobal _crateObject;
             clearBackpackCargoGlobal _crateObject;
             {
-                if (isClass(configFile >> "CfgMagazines" >> (_x select 0))) then {
-                    _crateObject addMagazineCargoGlobal _x;
-                };
-                if (isClass(configFile >> "CfgWeapons" >> (_x select 0))) then {
-                    _crateObject addWeaponCargoGlobal _x;
-                };
-                if ((_x select 0) isKindOf "ItemCore") then {
-                    _crateObject addItemCargoGlobal _x;
-                };
-                if ((_x select 0) isKindOf "Bag_Base") then {
-                    _crateObject addBackpackCargoGlobal _x;
+                call {
+                    if ((_x select 0) isKindOf ["ItemCore", configFile >> "CfgWeapons"]) exitWith {
+                        _crateObject addItemCargoGlobal _x;
+                    };
+
+                    if (isClass(configFile >> "CfgMagazines" >> (_x select 0))) exitWith {
+                        _crateObject addMagazineCargoGlobal _x;
+                    };
+
+                    if ((_x select 0) isKindOf "Bag_Base") exitWith {
+                        _crateObject addBackpackCargoGlobal _x;
+                    };
+
+                    if (isClass(configFile >> "CfgWeapons" >> (_x select 0))) exitWith {
+                        _crateObject addWeaponCargoGlobal _x;
+                    };
                 };
                 nil
             } count _content;
             _crateObject hideObjectGlobal false;
-        }], "BIS_fnc_call", true] call BIS_fnc_MP;
+        }], "BIS_fnc_call", true, false, true] call BIS_fnc_MP;
     };
     [{
         JK_ammoSuppAvail = true;
@@ -312,7 +319,7 @@ _fnc_Empty = {
 };
 
 _fnc_attachCrateAction = {
-    [_this, "<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio, {player getVariable ['JK_CrateSpawnAllowed', false]}] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Ammo Crate</t>", _fnc_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Mg-Ammo Crate</t>", _fnc_mg_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Grenade Crate</t>", _fnc_nade] call JK_Core_fnc_addAction;

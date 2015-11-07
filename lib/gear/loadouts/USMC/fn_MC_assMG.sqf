@@ -6,15 +6,12 @@ The kind of ammo a player gets with this loadout does not necessarily have to be
 magazines one for one in JK_items.
 */
 
-//Vehicle Array
-JK_vvsArray = [];
-
 //clothing - (string)
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_rifleman"];
+JK_vests = ["rhsusf_spc_iar"];
 JK_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
 JK_backpacks = ["rhsusf_assault_eagleaiii_coy"];
-JK_insignium = ["111thID","TFAegis","GryffinRegiment"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
@@ -22,12 +19,12 @@ JK_goggles = "";
 JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
+JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
-JK_primaryweaponTracers = 0;
+JK_primaryweaponAmmo = 7;
+JK_primaryweaponTracers = 1;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
@@ -54,26 +51,25 @@ JK_itemsHandgun = [];
 JK_handgunAmmo = 2;
 
 //weapons - launcher - (string)
-JK_launcher = "tf47_smaw_green";
-
+JK_launcher = "";
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
-JK_launcherItems = ["tf47_optic_smaw"];
+JK_launcherItems = [];
 
 //launcher ammo (if a launcher is given) - (integer)
-JK_launcherAmmo = 1;
+JK_launcherAmmo = 0;
 
 //binocular - (string)
-JK_binocular = "Binocular";
+JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
-JK_grenadeHE = 0;
+JK_grenadeHE = 2;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
 JK_grenadeSmokePurple = 0;
-JK_grenadeSmokeBlue = 0;
-JK_grenadeSmokeGreen = 0;
+JK_grenadeSmokeBlue = 1;
+JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
 JK_chemlightRed = 0;
 JK_chemlightGreen = 0;
@@ -108,7 +104,13 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["tf47_smaw_HEAA","tf47_smaw_SR"];
+JK_itemsBackpack = [
+        "rhsusf_100Rnd_762x51",
+        "rhsusf_100Rnd_762x51",
+        "rhsusf_100Rnd_762x51",
+        "rhsusf_100Rnd_762x51",
+        "rhsusf_100Rnd_762x51"
+    ];
 
 //linked items - (array)
 JK_itemsLink = [

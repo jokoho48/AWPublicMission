@@ -66,7 +66,7 @@ switch (_condition) do {
         if(_vehilceSelect != "") then {
             _vehdata = call compile format["%1",_vehilceSelect];
             if ((_vehdata select 1) <= JK_TicketSystem) then {
-                [(_vehdata select 0), (_vehdata select 1), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"] spawn JK_VSS_fnc_spawnVSS;
+                [[(_vehdata select 0), (_vehdata select 1), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"],"JK_VSS_fnc_spawnVSS", false, false, false] call BIS_fnc_MP;
                 [[2,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2", name player, str _className]], "SEN_fnc_log", false] call BIS_fnc_MP;
             }
 
