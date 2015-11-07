@@ -59,7 +59,7 @@ JK_launcherItems = ["tf47_optic_m3maaws"];
 JK_launcherAmmo = 1;
 
 //binocular - (string)
-JK_binocular = "Binocular";
+JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
 JK_grenadeHE = 0;
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_M84","ACE_DAGR"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_DAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

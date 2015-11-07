@@ -27,9 +27,9 @@ JK_primaryweaponAmmo = 5;
 JK_primaryweaponTracers = 2;
 
 //40mm Grenades - (integer)
-JK_40mmHeGrenadesAmmo = 5 ;
+JK_40mmHeGrenadesAmmo = 3 ;
 JK_40mmSmokeGrenadesWhite = 1;
-JK_40mmSmokeGrenadesYellow = 1;
+JK_40mmSmokeGrenadesYellow = 0;
 JK_40mmSmokeGrenadesOrange = 0;
 JK_40mmSmokeGrenadesRed = 1;
 JK_40mmSmokeGrenadesPurple = 1;
@@ -62,14 +62,14 @@ JK_launcherAmmo = 1;
 JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
-JK_grenadeHE = 2;
+JK_grenadeHE = 1;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
 JK_grenadeSmokePurple = 1;
-JK_grenadeSmokeBlue = 1;
-JK_grenadeSmokeGreen = 1;
+JK_grenadeSmokeBlue = 0;
+JK_grenadeSmokeGreen = 0;
 JK_chemlightYellow = 0;
 JK_chemlightRed = 0;
 JK_chemlightGreen = 0;
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","rhs_weap_tr8"];
+JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","rhs_weap_tr8"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;
