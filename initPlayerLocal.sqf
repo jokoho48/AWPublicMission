@@ -3,6 +3,7 @@ Author: SENSEI
 
 Last modified: 8/14/2015
 __________________________________________________________________*/
+SEN_debug = (paramsArray select 1) isEqualTo 1;
 if (!hasInterface) exitWith {}; // headless client exit
 private "_fnc_tfarSettings";
 [] spawn compile preprocessFileLineNumbers "scripts\intro.sqf";
