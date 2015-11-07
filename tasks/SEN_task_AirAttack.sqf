@@ -93,7 +93,7 @@ waitUntil {
         } count allPlayers;
         nil
     } count _vehCrew;
-    !alive _veh || !([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
+    !alive _veh || !(([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo [])
 };
 
 waitUntil {
@@ -105,7 +105,7 @@ waitUntil {
         } count allPlayers;
         nil
     } count _vehCrew;
-    !alive _veh || !([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
+    !alive _veh || ([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo []
 };
 
 if (!alive _veh) then {
@@ -126,4 +126,4 @@ publicVariable "SEN_approvalCiv";
 sleep 2700;
 [] spawn SEN_fnc_rebelTastCiv;
 SEN_objectCleanup pushBack _veh;
-SEN_objectCleanup pushBack _vehCrew;
+SEN_objectCleanup append _vehCrew;
