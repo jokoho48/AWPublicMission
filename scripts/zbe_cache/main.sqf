@@ -72,7 +72,7 @@ zbe_cached_boat = [];
     zbe_cached_cars = zbe_cached_cars - [nil, objNull];
 
     zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
-}, 30, []] call CBA_fnc_addPerFrameHandler;
+}, 200, []] call CBA_fnc_addPerFrameHandler;
 
 
 // Vehicle Caching Beta (for client FPS)
@@ -96,7 +96,7 @@ if (zbe_debug) then {
         ", (round time), count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
         zbe_log_stats = format ["Groups: %1 # All/Cached Units: %2/%3 # All/Cached Vehicles: %4/%5 # FPS: %6 # ObjectDrawDistance: %7", count allGroups, count allUnits, zbe_cachedUnits, zbe_allVehiclesCount, zbe_cachedVehicles, (round diag_fps), zbe_objectView];
         [0,format ["%1 ZBE_Cache (%2) ---  %3", (round time), name player, zbe_log_stats]] call SEN_fnc_log;
-    }, 15, []] call CBA_fnc_addPerFrameHandler;
+    }, 20, []] call CBA_fnc_addPerFrameHandler;
 };
 // Experimental, disabled for now
 // if (!isDedicated) then {execFSM "scripts\zbe_cache\zbe_clientObjectDrawAuto.fsm";};
