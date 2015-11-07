@@ -64,3 +64,14 @@ class CfgHints {
 class CfgNotifications {
     #include "data\SEN_cfgNotifications.hpp"
 };
+
+class ACE_Settings {
+    class JK_Optics {
+        displayName = "Optic Type";
+        description = "Welchen Optic Type Möchtest du bei RCO benutzten";
+        value = 0;
+        typeName = "SCALAR";
+        values[] = {"Vanilla", "2D Optic", "PiP Optic"};
+        isClientSettable = 1;
+    };
+};

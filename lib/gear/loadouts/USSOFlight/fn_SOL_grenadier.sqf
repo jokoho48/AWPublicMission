@@ -19,7 +19,7 @@ JK_goggles = "";
 JK_primaryweapon = ["rhs_weap_m16a4_carryhandle_M203", "rhs_weap_m4_m203", "rhs_weap_m4_m203S", "rhs_weap_m4_m320"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","ACE_optic_Hamr_2D"],"rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod",["rhsusf_acc_nt4_black","rhsusf_acc_rotex5_grey"]];
+JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","optic_Hamr"],"rhsusf_acc_anpeq15side","rhsusf_acc_harris_bipod",["rhsusf_acc_nt4_black","rhsusf_acc_rotex5_grey"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
