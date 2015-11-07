@@ -62,7 +62,7 @@ JK_launcherAmmo = 0;
 JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
-JK_grenadeHE = 2;
+JK_grenadeHE = 0;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
