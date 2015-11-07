@@ -88,10 +88,18 @@ if (JK_primaryweaponTracers >= 1) then {
         private "_primAttachmentTemp";
         _primAttachmentTemp = (_x call BIS_fnc_selectRandom);
         if (_primAttachmentTemp != "") then {
-            _unit addPrimaryWeaponItem _primAttachmentTemp;
+            if (_primAttachmentTemp in ["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"]) then {
+                _unit addPrimaryWeaponItem (["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"] select JK_Optics);
+            } else {
+                _unit addPrimaryWeaponItem _primAttachmentTemp;
+            };
         };
     } else {
-        _unit addPrimaryWeaponItem _x;
+        if (_x in ["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"]) then {
+            _unit addPrimaryWeaponItem (["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"] select JK_Optics);
+        } else {
+            _unit addPrimaryWeaponItem _x;
+        };
     };
     nil
 } count JK_itemsPrimaryweapon;

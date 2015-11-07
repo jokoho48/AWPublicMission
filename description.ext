@@ -64,7 +64,7 @@ class CfgHints {
 class CfgNotifications {
     #include "data\SEN_cfgNotifications.hpp"
 };
-/*
+
 class ACE_Settings {
     class JK_Optics {
         displayName = "Optic Type";
@@ -75,4 +75,3 @@ class ACE_Settings {
         isClientSettable = 1;
     };
 };
-*/
