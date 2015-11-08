@@ -59,9 +59,9 @@ waitUntil {SEN_complete isEqualTo 2};
     params ["_key", "_value", "", "_preValue"];
     if ("JK_TicketSystem" == _key) then {
         if (_value > _preValue) then {
-            [["SEN_liberate",[_townName]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            [["SEN_ticketAdd",[_value - _preValue]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
         } else {
-            [["SEN_liberate",[_townName]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            [["SEN_ticketSubstact",[_preValue - _value]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
         };
     };
     [_key, str _value] spawn db_fnc_save;

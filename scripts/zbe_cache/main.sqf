@@ -52,14 +52,16 @@ JK_allreadyKnownCaching = [];
                         };
                     };
                     if (_x isKindOf "Air") exitWith {
-                        if !(_x in zbe_cached_cars) then {
+                        if !(_x in zbe_cached_air) then {
                             zbe_cached_air pushBack _x;
                             [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
                         };
                     };
                     if (_x isKindOf "Ship") exitWith {
-                        zbe_cached_boat pushBack _x;
+                        if !(_x in zbe_cached_boat) then {
+                            zbe_cached_boat pushBack _x;
                             [_x, zbe_vehicleCacheDistBoat] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                        };
                     };
                 };
                 nil
@@ -75,6 +77,7 @@ JK_allreadyKnownCaching = [];
         zbe_cached_air = zbe_cached_air - [objNull];
         zbe_cached_cars = zbe_cached_cars - [objNull];
         JK_allreadyKnownCaching = JK_allreadyKnownCaching - [objNull];
+        
         zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
         sleep 200;
     };
