@@ -31,7 +31,7 @@ wreckRemovalMaxTime = 900;
 
 taskManagement_markers3D = 1;
 taskManagement_markers2D = 1; //0: do not use new 2D markers (default), 1: replace task markers with new 2D markers
-taskManagement_propagate = 0; //0: do not propagate (default), 1: propagate shared tasks to subordinates
+taskManagement_propagate = 1; //0: do not propagate (default), 1: propagate shared tasks to subordinates
 taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default: 2000)
 
 #include "data\defuse_common.hpp"

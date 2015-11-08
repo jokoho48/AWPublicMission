@@ -37,7 +37,7 @@ publicVariable "SEN_ClearedCitys";
 
 [] spawn {
     waitUntil {!isNil "SEN_debug"};
-    [1500,0,SEN_debug,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
+    [1500,0,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
 };
 
 if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
