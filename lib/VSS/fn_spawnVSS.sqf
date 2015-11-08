@@ -36,7 +36,7 @@ _vehicle allowDamage false;
 _vehicle setDir _direction;
 if !(surfaceIsWater _position) then {_vehicle setPosATL _position} else {_vehicle setPosASL _position};
 _vehicle setVectorUp [0,0,1];
-_vehicle setVariable ["JK_VSS_Cost", _costs];
+_vehicle setVariable ["JK_VSS_Cost", _costs, true];
 clearWeaponCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;
 clearItemCargoGlobal _vehicle;

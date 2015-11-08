@@ -27,7 +27,8 @@ zbe_cached_cars = [];
 zbe_cached_air = [];
 zbe_cached_boat = [];
 
-[{
+[] spawn {
+while {true} do {
     zbe_players = allPlayers;
     {
         private "_disable";
@@ -44,20 +45,21 @@ zbe_cached_boat = [];
     _assets = entities "";
 
     if !(JK_allreadyKnownCaching isEqualTo _assets) then {
-        zbe_cached_cars = [];
-        zbe_cached_air = [];
-        zbe_cached_boat = [];
         JK_allreadyKnownCaching = +_assets;
 
         {
             call {
                 if (_x isKindOf "LandVehicle") exitWith {
-                    zbe_cached_cars pushBack _x;
-                    [_x, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                    if !(_x in zbe_cached_cars) then {
+                        zbe_cached_cars pushBack _x;
+                        [_x, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                    };
                 };
                 if (_x isKindOf "Air") exitWith {
-                    zbe_cached_air pushBack _x;
-                    [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                    if !(_x in zbe_cached_cars) then {
+                        zbe_cached_air pushBack _x;
+                        [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                    };
                 };
                 if (_x isKindOf "Ship") exitWith {
                     zbe_cached_boat pushBack _x;
@@ -72,8 +74,9 @@ zbe_cached_boat = [];
     zbe_cached_cars = zbe_cached_cars - [nil, objNull];
 
     zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
-}, 200, []] call CBA_fnc_addPerFrameHandler;
-
+    sleep 200;
+};
+};
 
 // Vehicle Caching Beta (for client FPS)
 
