@@ -347,7 +347,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={8.3533173,-0.010288753,2.4118652};
+					position[]={7.050858,0.067591563,2.3184814};
 					id=12;
 					side="LOGIC";
 					vehicle="Logic";
@@ -766,7 +766,7 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={6.9313855,0.012240045,2.3375244};
+					position[]={5.4428596,0.10886481,2.1489258};
 					id=38;
 					side="LOGIC";
 					vehicle="HeadlessClient_F";
@@ -1118,13 +1118,13 @@ class Mission
 						};
 						class Item2
 						{
-							value="0.9";
+							value="1";
 							parentCls="ACE_moduleRepairSettings";
 							typeName="repairDamageThreshold";
 						};
 						class Item3
 						{
-							value="0.99";
+							value="1";
 							parentCls="ACE_moduleRepairSettings";
 							typeName="repairDamageThreshold_Engineer";
 						};
@@ -1142,7 +1142,7 @@ class Mission
 						};
 						class Item6
 						{
-							value="0";
+							value="1";
 							parentCls="ACE_moduleRepairSettings";
 							typeName="engineerSetting_fullRepair";
 						};
@@ -1865,7 +1865,7 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={10.962538,-0.018338725,1.0594482};
+					position[]={8.450655,0.038792804,2.3137207};
 					id=65;
 					side="LOGIC";
 					vehicle="ModuleMPTypeGameMaster_F";

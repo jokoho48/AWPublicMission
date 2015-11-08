@@ -16,14 +16,14 @@
  */
 if !(isServer) exitWith {};
 
-private ["_vehicle", "_nearstObj"];
+private ["_vehicle", "_nearstObj", "_cost", "_allHitPoints", "_damages", "_count", "_earnBack"];
 
 params [["_className", "", [""]], ["_costs", 0,[0]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
 _nearstObj = nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))];
 if !(_nearstObj isEqualTo []) then {
     {
-        _costs = _x getVariable "JK_VSS_Cost", 0;
-        if (isNil "_costs") then {
+        _cost = _x getVariable "JK_VSS_Cost", 0;
+        if (isNil "_cost") then {
             _allHitPoints = getAllHitPointsDamage _x;
             _damages = _allHitPoints select 2;
             _damage = 0;
@@ -32,7 +32,7 @@ if !(_nearstObj isEqualTo []) then {
                 true
             } count _damages;
 
-            _earnBack = round ((1 - _damage/_count) * _costs);
+            _earnBack = round ((1 - _damage/_count) * _cost);
             JK_TicketSystem = JK_TicketSystem + _earnBack;
         };
         deleteVehicle _x;
@@ -55,6 +55,19 @@ _vehicle setVariable ["JK_VSS_Cost", _costs, true];
 clearWeaponCargoGlobal _vehicle;
 clearMagazineCargoGlobal _vehicle;
 clearItemCargoGlobal _vehicle;
+
+call {
+    if (_className in ["B_APC_Tracked_01_CRV_F", "C_Offroad_01_repair_F", "B_Truck_01_Repair_F"]) exitWith {
+        _vehicle setVariable ["ACE_isRepairVehicle", true, true];
+    };
+    if (_className in ["B_Truck_01_ammo_F","rhsusf_m113_usarmy_supply"]) exitWith {
+        _vehicle setVariable ["JK_isRearmVehicle", true, true];
+    };
+    if (_className in "B_Truck_01_fuel_F", "rhsusf_M978A2_usarmy_wd", "C_Van_01_fuel_F", "B_Truck_01_fuel_F"[]) exitWith {
+        _vehicle setVariable ["JK_isRefuelVehicle", true, true];
+    };
+}
+
 
 uiSleep 5;
 
