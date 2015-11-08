@@ -276,7 +276,7 @@ _fnc_at_M3_ammo = {
 };
 
 _fnc_Radio = {
-    ["ACE_Box_Misc", 5, [["tf_rt1523g_rhs", 3],["rhsusf_falconii", 10],["rhsusf_assault_eagleaiii_coy", 10],["tf_rt1523g_big_rhs", 1]]] call JK_fnc_createCrate;
+    ["ACE_Box_Misc", 5, [["tf_rt1523g_rhs", 3],["tf_rt1523g_black", 2],["rhsusf_falconii", 10],["rhsusf_assault_eagleaiii_coy", 10],["tf_rt1523g_big_rhs", 1]]] call JK_fnc_createCrate;
 };
 
 _fnc_misc = {

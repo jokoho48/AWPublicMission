@@ -119,7 +119,7 @@ JK_itemsLink = [
 //items added to any container - (array)
 JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","rhs_weap_tr8"];
 
-JK_medicClass = 0;
+JK_medicClass = 1;
 JK_spawnAllowed = true;
 JK_isEngineer = 0;
 JK_isPilot = false;
