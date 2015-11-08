@@ -4,6 +4,7 @@ Author: SENSEI
 Last modified: 8/5/2015
 __________________________________________________________________*/
 JK_DBSetup = true;
+SEN_debug = (paramsArray select 1) isEqualTo 1;
 [] spawn {
 waitUntil {!isNil "JK_DBSetup"};
 if (isNil "db_fnc_save") then {
