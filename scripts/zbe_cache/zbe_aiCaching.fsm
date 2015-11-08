@@ -114,7 +114,7 @@ class FSM
                 {
                         name = "begin";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache starting for group %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -187,7 +187,7 @@ class FSM
                                         condition=/*%FSM<CONDITION""">*/"!(alive _leader) && {!(simulationEnabled (leader _group))}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"call zbe_unCache;" \n
                                          "_leader = (leader _group);" \n
-                                         "if (zbe_debug) then {" \n
+                                         "if (SEN_debug) then {" \n
                                          "    [0, format [""ZBE_Cache leader synced for %1, uncached %2"",_group,_leader]] call SEN_fnc_log;" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -270,7 +270,7 @@ class FSM
                         itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""JK_noCache"",true];" \n
-                         "if (zbe_debug) then {" \n
+                         "if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache ending for group %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -335,7 +335,7 @@ class FSM
                         itemno = 19;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""JK_noCache"",true];" \n
-                         "if (zbe_debug) then {" \n
+                         "if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache ending for group as leader player %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

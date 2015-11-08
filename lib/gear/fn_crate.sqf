@@ -338,4 +338,4 @@ _fnc_attachCrateAction = {
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;
 
-[VVS, "<t color='#AE2020'>Open Vehicle Menu</t>", {createDialog "VSS_Menu"}, {player getVariable ['JK_CrateSpawnAllowed', false]}] call JK_Core_fnc_addAction;
+[VVS, "<t color='#AE2020'>Open Vehicle Menu</t>", {createDialog "VSS_Menu"}] call JK_Core_fnc_addAction;

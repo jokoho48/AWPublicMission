@@ -20,11 +20,7 @@ _approval = 0;
 _tickets = 0;
 _enemyArray = [];
 
-[0,"OccupyTrgAct: %1",_town] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_pos] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_townName] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_townType] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_radius] call SEN_fnc_log;
+[0,"OccupyTrgAct: %1 %2 %3 %4 %5",_town, _pos, _townName, _townType, _radius] call SEN_fnc_log;
 
 call {
     if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45; _tickets = 1000;};
@@ -41,7 +37,7 @@ _oldThreshold = round ((_count)*0.30);
 
 waitUntil {
     private "_count";
-    sleep 15;
+    sleep 30;
     _count = 9999;
     _enemyArray = [];
     _count = ({
@@ -61,7 +57,7 @@ if (count _players > 0) then {
     [_hint,"hintSilent",_players] call BIS_fnc_MP;
 };
 
-uiSleep 60;
+uiSleep 60 + random 100;
 
 { // check for new units in area
     if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x};
@@ -77,7 +73,7 @@ if (count _enemyArray > 0) then {
                     SEN_objectCleanup pushBack _x;
                 };
                 if !(local _x) then {
-                    
+
                     [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
                     if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
                 } else {

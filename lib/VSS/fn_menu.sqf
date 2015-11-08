@@ -46,7 +46,7 @@ switch (_condition) do {
         {
             if(_filterSelect in [(_x select 0), "Alle"]) then {
                 _prize = (_x select 2);
-                if (JK_VehClass == (_x select 3)) then {
+                if (JK_VehClass in (_x select 3)) then {
                     {
                         _info = [_x] call JK_VSS_fnc_cfgInfo;
                         _vehicleListIndex = _vehicleList lbAdd (_info select 0);
@@ -68,8 +68,7 @@ switch (_condition) do {
             if ((_vehdata select 1) <= JK_TicketSystem) then {
                 [[(_vehdata select 0), (_vehdata select 1), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"],"JK_VSS_fnc_spawnVSS", false, false, false] call BIS_fnc_MP;
                 [[2,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2", name player, str _className]], "SEN_fnc_log", false] call BIS_fnc_MP;
-            }
-
+            };
         };
         player setVariable ["SEN_inProgress",false];
     };
@@ -79,7 +78,7 @@ switch (_condition) do {
         _filter lbAdd "Alle";
         _filter lbSetData[(lbSize _filter)-1,"Alle"];
         {
-            if (JK_VehClass == (_x select 3)) then {
+            if (JK_VehClass in (_x select 3)) then {
                 _filter lbAdd (_x select 0);
                 _filter lbSetData[(lbSize _filter)-1,(_x select 0)];
             };

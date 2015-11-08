@@ -54,9 +54,6 @@ _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
 _trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x} forEach crew _x; deleteVehicle _x; }; } forEach thisList;", ""];
 if (SEN_enemySide isEqualTo EAST) then {_trgSafeZone setTriggerActivation ["EAST", "PRESENT", true]} else {_trgSafeZone setTriggerActivation ["GUER", "PRESENT", true]};
 
-// transport setup
-"SEN_transportRequest" addPublicVariableEventHandler {[_this select 1] spawn SEN_fnc_transportHandler};
-
 // debug setup
 if (SEN_debug) then {
     [] spawn {

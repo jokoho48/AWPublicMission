@@ -23,7 +23,7 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
 JK_TicketSystem = ["JK_TicketSystem", 4000, 0] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
-JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["rhsusf_m1025_w_s"],200,"Leader"]], 2] call jk_db_fnc_load;
+JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["rhsusf_m1025_w_s"],200,["All"]]], 2] call jk_db_fnc_load;
 publicVariable "JK_VSS_ListTickets";
 
 SEN_approvalCiv = ["SEN_approvalCiv", -1500, 0] call jk_db_fnc_load;
@@ -35,7 +35,6 @@ publicVariable "SEN_blacklistLocation";
 SEN_ClearedCitys = SEN_blacklistLocation;
 publicVariable "SEN_ClearedCitys";
 
-missionNameSpace setVariable ["SEN_transportReady", 1];
 [] spawn {
     waitUntil {!isNil "SEN_debug"};
     [1500,0,SEN_debug,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
@@ -57,7 +56,14 @@ waitUntil {SEN_complete isEqualTo 2};
 
 
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitys"], {
-    params ["_key", "_value"];
+    params ["_key", "_value", "", "_preValue"];
+    if ("JK_TicketSystem" == _key) then {
+        if (_value > _preValue) then {
+            [["SEN_liberate",[_townName]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+        } else {
+            [["SEN_liberate",[_townName]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+        };
+    };
     [_key, str _value] spawn db_fnc_save;
 }] call JK_Core_fnc_addVariableEventHandler;
 

@@ -94,7 +94,7 @@ zbe_removeDead = {
         if !(alive _x) then {
             _x enablesimulation true;
             _x hideobject false;
-            if (zbe_debug) then {
+            if (SEN_debug) then {
                 [0,format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group]] call SEN_fnc_log;
             };
             _toCache deleteAt _forEachIndex - _delete;
@@ -104,7 +104,7 @@ zbe_removeDead = {
 };
 
 zbe_cacheEvent = {
-    ({_x distance _leader < _distance} count zbe_players > 0) || !isNull (_leader findNearestEnemy _leader)
+    ({_x distance _leader < _distance} count allPlayers > 0) || !isNull (_leader findNearestEnemy _leader)
 };
 
 zbe_vehicleCache = {

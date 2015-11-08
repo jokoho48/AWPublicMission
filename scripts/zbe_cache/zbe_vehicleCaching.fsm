@@ -73,7 +73,7 @@ class FSM
                 {
                         name = "begin";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache starting for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -86,7 +86,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Cache";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(count (crew _vehicle) isEqualTo 0) && ({_x distance _vehicle < _zbe_dist} count zbe_players isEqualTo 0)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count (crew _vehicle) isEqualTo 0) && ({_x distance _vehicle < _zbe_dist} count allPlayers isEqualTo 0)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"call zbe_vehicleCache;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -120,7 +120,7 @@ class FSM
                                         priority = 1.000000;
                                         to="UnCache";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"!(count (crew _vehicle) isEqualTo 0) || ({_x distance _vehicle < _zbe_dist} count zbe_players > 0)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"!(count (crew _vehicle) isEqualTo 0) || ({_x distance _vehicle < _zbe_dist} count allPlayers > 0)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"call zbe_vehicleUncache;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -165,7 +165,7 @@ class FSM
                                         priority = 1.000000;
                                         to="Cache";
                                         precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-                                        condition=/*%FSM<CONDITION""">*/"(count (crew _vehicle) isEqualTo 0) && ({_x distance _vehicle < _zbe_dist} count zbe_players isEqualTo 0)"/*%FSM</CONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"(count (crew _vehicle) isEqualTo 0) && ({_x distance _vehicle < _zbe_dist} count allPlayers isEqualTo 0)"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"call zbe_vehicleCache;"/*%FSM</ACTION""">*/;
                                 };
                                 /*%FSM</LINK>*/
@@ -188,7 +188,7 @@ class FSM
                 {
                         name = "End";
                         itemno = 8;
-                        init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache ending for vehicle %1"",_vehicle]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

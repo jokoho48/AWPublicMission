@@ -55,9 +55,5 @@ class SEN {
         class getPlayers;
         class getApproval;
         class getApprovalNumber;
-        class transportRequest;
-        class transportResponse;
-        class transportHandler;
-        class transportDisabled;
     };
 };

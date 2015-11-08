@@ -16,12 +16,27 @@
  */
 if !(isServer) exitWith {};
 
-private "_vehicle";
+private ["_vehicle", "_nearstObj"];
 
 params [["_className", "", [""]], ["_costs", 0,[0]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
+_nearstObj = nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))];
+if !(_nearstObj isEqualTo []) then {
+    {
+        _costs = _x getVariable "JK_VSS_Cost", 0;
+        if (isNil "_costs") then {
+            _allHitPoints = getAllHitPointsDamage _x;
+            _damages = _allHitPoints select 2;
+            _damage = 0;
+            _count = {
+                _damage = _damage + _x;
+                true
+            } count _damages;
 
-if (0 != count (nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))])) exitWith {
-    hint format ["Fail to spawn %1, not Enoth space.", _className];
+            _earnBack = round ((1 - _damage/_count) * _costs);
+            JK_TicketSystem = JK_TicketSystem + _earnBack;
+        };
+        deleteVehicle _x;
+    } count _nearstObj;
 };
 
 JK_TicketSystem = JK_TicketSystem - _costs;
