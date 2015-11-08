@@ -31,10 +31,11 @@ params [
 ];
 _condition = [_condition] call ace_common_fnc_codeToString;
 _condition = format ["%1 && player distance _target < %2", _condition, _distance];
-_target addAction [_text, _code, _args, _index, false, false, "", _condition];
 
 if (_persistent) then {
     private "_fnc";
     _fnc = compile format ["%1 addAction %2",_target , [_text, _code, _args, _index, false, false, "", _condition]];
     _target addEventhandler ["Respawn", _fnc];
 };
+
+_target addAction [_text, _code, _args, _index, false, false, "", _condition];
