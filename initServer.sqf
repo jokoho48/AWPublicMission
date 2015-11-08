@@ -47,10 +47,6 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     } forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
 
-waitUntil {SEN_complete isEqualTo 2};
-
-[] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
-[] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 
@@ -59,9 +55,14 @@ waitUntil {SEN_complete isEqualTo 2};
     params ["_key", "_value", "", "_preValue"];
     if ("JK_TicketSystem" == _key) then {
         if (_value > _preValue) then {
-            [["SEN_ticketAdd",[_value - _preValue]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            [["SEN_ticketAdd",[floor(_value - _preValue)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
         } else {
-            [["SEN_ticketSubstact",[_preValue - _value]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            [["SEN_ticketSubstact",[floor(_preValue - _value)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+        };
+    };
+    if ("SEN_approvalCiv" == _key) then {
+        if (_value > _preValue) then {
+            [["SEN_approvalBonus",[floor(_value - _preValue)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
         };
     };
     [_key, str _value] spawn db_fnc_save;
@@ -79,20 +80,9 @@ waitUntil {SEN_complete isEqualTo 2};
         } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown", "JK_VSS_ListTickets"];
     };
 };
-};
-/*
-addMissionEventHandler ["HandleDisconnect", {
-    private ["_count", "_allPlayer"];
-    params ["_unit", "_id", "_uid", "_name"];
 
-    _allPlayer = if (isNil "SEN_HC") then {
-        allPlayers
-    } else {
-        allPlayers - [SEN_HC]
-    };
-    _count = count (_allPlayer - [_unit]);
-    if (_count == 0) then {
-        [["Won"], "BIS_fnc_endMissionServer", false] call BIS_fnc_MP;
-    };
-}];
-*/
+waitUntil {SEN_complete isEqualTo 2};
+
+[] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
+[] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
+};
