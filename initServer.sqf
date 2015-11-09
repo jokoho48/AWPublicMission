@@ -77,7 +77,7 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
         _owner = owner _player;
         {
             _owner publicVariableClient _x;
-        } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown", "JK_VSS_ListTickets"];
+        } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown", "JK_VSS_ListTickets", "JK_allBuildingPositions"];
     };
 };
 
