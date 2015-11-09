@@ -30,6 +30,7 @@ JK_fnc_Sell = {
 
     _earnBack = round ((1 - _damage/_count) * _costs);
     JK_TicketSystem = JK_TicketSystem + _earnBack;
+    publicVariable "JK_TicketSystem";
 
     hint format ["The Vehicle Costs %1 Tickets", _earnBack];
 

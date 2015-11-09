@@ -16,30 +16,32 @@
  */
 if !(isServer) exitWith {};
 
-private ["_vehicle", "_nearstObj", "_cost", "_allHitPoints", "_damages", "_count", "_earnBack"];
+private ["_vehicle", "_nearstObj", "_cost", "_allHitPoints", "_damages", "_count", "_earnBack", "_earnBacks"];
 
 params [["_className", "", [""]], ["_costs", 0,[0]], ["_position", [0, 0, 0], [[]]], ["_direction", 0, [0]]];
 _nearstObj = nearestObjects [_position,["landVehicle","Air","Ship","ReammoBox_F"],(7 max (ceil(sizeOf _className)))];
+
+_earnBacks = 0;
 if !(_nearstObj isEqualTo []) then {
     {
-        _cost = _x getVariable "JK_VSS_Cost", 0;
-        if (isNil "_cost") then {
+        _cost = _x getVariable "JK_VSS_Cost";
+        if !(isNil "_cost") then {
             _allHitPoints = getAllHitPointsDamage _x;
             _damages = _allHitPoints select 2;
             _damage = 0;
-            _count = {
+            _count = ({
                 _damage = _damage + _x;
                 true
-            } count _damages;
+            } count _damages);
 
             _earnBack = round ((1 - _damage/_count) * _cost);
-            JK_TicketSystem = JK_TicketSystem + _earnBack;
+            _earnBacks = _earnBacks + _earnBack;
         };
         deleteVehicle _x;
     } count _nearstObj;
 };
 
-JK_TicketSystem = JK_TicketSystem - _costs;
+JK_TicketSystem = JK_TicketSystem - _costs + _earnBacks;
 publicVariable "JK_TicketSystem";
 
 uiSleep 0.1;
@@ -63,10 +65,10 @@ call {
     if (_className in ["B_Truck_01_ammo_F","rhsusf_m113_usarmy_supply"]) exitWith {
         _vehicle setVariable ["JK_isRearmVehicle", true, true];
     };
-    if (_className in "B_Truck_01_fuel_F", "rhsusf_M978A2_usarmy_wd", "C_Van_01_fuel_F", "B_Truck_01_fuel_F"[]) exitWith {
+    if (_className in ["B_Truck_01_fuel_F", "rhsusf_M978A2_usarmy_wd", "C_Van_01_fuel_F", "B_Truck_01_fuel_F"]) exitWith {
         _vehicle setVariable ["JK_isRefuelVehicle", true, true];
     };
-}
+};
 
 
 uiSleep 5;
