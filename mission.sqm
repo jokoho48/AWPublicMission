@@ -68,7 +68,8 @@ class Mission
 		"A3_Structures_F_EPB_Civ_Camping",
 		"A3_Structures_F_Items_Cans",
 		"rhsusf_c_troops",
-		"A3_Structures_F_Ind_Tank"
+		"A3_Structures_F_Ind_Tank",
+		"MELB"
 	};
 	addOnsAuto[]=
 	{
@@ -104,7 +105,7 @@ class Mission
 		"A3_Structures_F_Walls",
 		"A3_Structures_F_Ind_AirPort",
 		"A3_Structures_F_Mil_Shelters",
-		"A3_Air_F_Heli_Light_01",
+		"MELB",
 		"A3_Structures_F_Civ_Lamps",
 		"RHS_US_A2_AirImport",
 		"rhsusf_c_hmmwv",
@@ -2103,7 +2104,7 @@ class Mission
 			offsetY=0.0062484699;
 			id=87;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_armed_F";
+			vehicle="MELB_AH6M_L";
 			skill=0.60000002;
 		};
 		class Item22
@@ -2162,7 +2163,7 @@ class Mission
 			offsetY=0.0062198602;
 			id=93;
 			side="EMPTY";
-			vehicle="B_Heli_Light_01_F";
+			vehicle="MELB_MH6M";
 			skill=0.60000002;
 		};
 		class Item28
