@@ -342,8 +342,8 @@ _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Non-Moving-Ammo Crate</t>", _fnc_static_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Non-Moving-AT-Ammo Crate</t>", _fnc_static_at_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Empty Crate</t>", _fnc_Empty] call JK_Core_fnc_addAction;
-    [_this, "<t color='#AE2020'>Request Universal Wheel</t>", _fnc_Empty] call JK_Core_fnc_addAction;
-    [_this, "<t color='#AE2020'>Request Tank Track-Part</t>", _fnc_Empty] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Universal Wheel</t>", _fnc_Wheel] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Tank Track-Part</t>", _fnc_Track] call JK_Core_fnc_addAction;
 };
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;
