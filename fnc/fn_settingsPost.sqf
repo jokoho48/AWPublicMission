@@ -10,9 +10,6 @@ __________________________________________________________________*/
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
 "SEN_NoFireZone_mrk" setMarkerAlpha 0;
-[] spawn {
-waitUntil {!isNil "JK_DBSetup"};
-call {
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
 SEN_range = worldSize/2;
 publicVariable "SEN_range";
@@ -156,5 +153,3 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
 [0,"fn_settingsPost complete."] call SEN_fnc_log;
-};
-};
