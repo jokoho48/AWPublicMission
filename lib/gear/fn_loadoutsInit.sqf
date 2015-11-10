@@ -1,4 +1,4 @@
-﻿/*
+/*
 loadout script by joko
 Idea by Belbo
 adds the loadouts to the specific playable units for the side West
@@ -7,7 +7,7 @@ Call from initPlayerLocal.sqf via:
 */
 
 ///// No editing necessary below this line /////
-
+if (isNil "db_fnc_codeload") exitWith {};
 params [["_target", player, [objNull]]];
 _command = ["plt_sgt", "plt_co"];
 _TL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
@@ -17,20 +17,22 @@ _pilots = ["r_1", "r_2", "r_3", "r_4"];
 
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 
+
+_db = 1;
 _strTarget = str _target;
 if (_strTarget in _command) exitWith {
-    [_target, "AR_Command"] call JK_loadOut_fnc_selectGear;
+    ["AR_COMMAND", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _TL) exitWith {
-    [_target, "AR_FTL"] call JK_loadOut_fnc_selectGear;
+    ["AR_FTL", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _SL) exitWith {
-    [_target, "AR_Leader"] call JK_loadOut_fnc_selectGear;
+    ["AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _crew) exitWith {
-    [_target, "Crew"] call JK_loadOut_fnc_selectGear;
+    ["CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _pilots) exitWith {
-    [_target, "Pilot"] call JK_loadOut_fnc_selectGear;
+    ["PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
-[_target, "AR_rifleman"] call JK_loadOut_fnc_selectGear;
+["AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
