@@ -17,8 +17,6 @@ SEN_centerPos = [SEN_range,SEN_range,0];
 SEN_occupiedLocation = [];
 SEN_whitelistLocation = [];
 
-waitUntil {!isNil "SEN_blacklistLocation"};
-
 _SEN_blacklistLocationReal = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
 _SEN_blacklistLocation = SEN_blacklistLocation + _SEN_blacklistLocationReal;
 _SEN_safeZoneSize = ((getMarkerSize "SEN_safezone_mrk") select 0);

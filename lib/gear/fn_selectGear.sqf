@@ -13,8 +13,8 @@
     Example:
     [player,"GearName"] call JK_loadOut_fnc_selectGear;
 */
-params[
-    ["_code",{},[{}]
+params [
+    ["_code",{},[{}]]
 ];
 
 if !(isNil 'JK_respawn_EVH') then {

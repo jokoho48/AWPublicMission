@@ -32,7 +32,7 @@ _fnc_gear_Call = {
             if (_x in JK_USSOF) exitWith {_color = "fa6bff";"JK_Gear == 'USSOF'"};
             if (_x in JK_USSOFlight) exitWith {_color = "e1b10a";"JK_Gear == 'USSOFlight'"};
             if (_x in JK_Para) exitWith {_color = "7f7fff";"JK_Gear == 'Para'"};
-            if (_x in JK_SpeczialClasses) exitWith {_color = "f9ea6b";"JK_Gear == 'Spec'"};
+            if (_x in JK_SpecialClasses) exitWith {_color = "f9ea6b";"JK_Gear == 'Spec'"};
             "true"
         };
 
