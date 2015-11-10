@@ -19,7 +19,7 @@ JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_
 JK_USSOF = ["SO_leader", "SO_grenadier", "SO_AT", "SO_ARman", "SO_marksman", "SO_SpecOps","SO_AA", "SO_specialist"];
 JK_USSOFlight = ["SOL_leader", "SOL_AT", "SOL_ARman", "SOL_grenadier", "SOL_marksman", "SOL_specialist", "SOL_SpecOps", "SOL_AA"];
 JK_Para = ["PARA_Leader", "PARA_trooper", "PARA_ARman", "PARA_DropMedic", "PARA_ExExpert", "PARA_Grenadier", "PARA_Marksman", "PARA_Stormtrooper", "PARA_AssAR"];
-JK_SpeczialClasses = ["pjMedic", "Pilot", "jetPilot", "Crew"];
+JK_SpeczialClasses = ["pjMedic", "Pilot", "jetPilot", "Crew", "driver"];
 JK_classes = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFlight + JK_Para + JK_SpeczialClasses;
 reverse JK_classes;
 _fnc_gear_Call = {
