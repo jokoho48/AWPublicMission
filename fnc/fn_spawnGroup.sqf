@@ -31,7 +31,7 @@ for "_j" from 0 to (_count - 1) do {
         };
 
         if (_type isEqualTo 2) then {
-            _veh = createVehicle [(_airPoolcall BIS_fnc_selectRandom),_pos,[],0,"FLY"];
+            _veh = createVehicle [(_airPool call BIS_fnc_selectRandom),_pos,[],0,"FLY"];
         } else {
             _veh = (_vehPool call BIS_fnc_selectRandom) createVehicle _pos;
         };

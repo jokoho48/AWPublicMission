@@ -18,13 +18,14 @@ if !(isNil "JK_allBuildingPositions") exitWith {};
 _tempAllPos = [];
 _tempAllBuildings = [];
 {
-    private ["_allPos", "_type"];
+    private ["_building", "_allPos", "_type"];
+    _building = _x;
     _type = typeOf _x;
     if !(_type in _tempAllBuildings) then {
         _allPostemp = [_x, 99999999999999] call BIS_fnc_buildingPositions;
         _allPos = [];
         {
-            _allPos pushBack (_allPos modelToWorld _x);
+            _allPos pushBack (_building modelToWorld _x);
             nil
         } count _allPostemp;
         _tempAllPos pushBack _allPos;
