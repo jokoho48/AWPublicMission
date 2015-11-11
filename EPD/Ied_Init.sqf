@@ -46,7 +46,7 @@ iedSecondaryItemsCount = count iedSecondaryItems;
 iedSmallItemsCount = count iedSmallItems;
 iedMediumItemsCount = count iedMediumItems;
 iedLargeItemsCount = count iedLargeItems;
-
+waitUntil {!isNil "allowExplosiveToTriggerIEDs"};
 if(isServer) then {
     call GET_PLACES_OF_INTEREST;
     iedSafeRoads = [];

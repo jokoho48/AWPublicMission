@@ -37,7 +37,12 @@ if !(_nearstObj isEqualTo []) then {
             _earnBack = round ((1 - _damage/_count) * _cost);
             _earnBacks = _earnBacks + _earnBack;
         };
+        {
+            deleteVehicle _x;
+            nil
+        } count (_x getVariable ["ace_cargo_loaded", []]);
         deleteVehicle _x;
+        nil
     } count _nearstObj;
 };
 
