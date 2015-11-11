@@ -16,7 +16,7 @@ _return = [];
 _houseArray = _center nearObjects ["House",_range];
 if !(count _houseArray isEqualTo 0) then {
     _house = _houseArray call BIS_fnc_selectRandom;
-    _housePosArray = [_house] call bis_fnc_buildingPositions;
+    _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
 
     if !(count _housePosArray isEqualTo 0) then {
         {
@@ -26,7 +26,7 @@ if !(count _houseArray isEqualTo 0) then {
                 deleteVehicle _dummypad;
             };
             deleteVehicle _dummypad;
-        } foreach _housePosArray;
+        } forEach _housePosArray;
     };
 };
 
