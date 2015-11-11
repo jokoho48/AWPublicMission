@@ -5,6 +5,8 @@ Last modified: 8/8/2015
 
 Description: occupied location and surrounding patrol setup
 __________________________________________________________________*/
+
+JK_fnc_occupyTrgAct = compile preprocessFileLineNumbers "scripts\SEN_occupyTrgAct.sqf";
 _exit = "";
 
 if (SEN_HCPresent) then {
@@ -31,7 +33,7 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
     _townSize = size _x;
     _avgTownSize = (((_townSize select 0) + (_townSize select 1))/2);
     _check = 0;
-    _radius = (SEN_range*0.2 max 2000);
+    _radius = (SEN_range*0.2 max 2500);
     _grp = grpNull;
 
     // town type specifics
@@ -74,12 +76,11 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
 
     if !(_count isEqualTo 0) then {
         waitUntil {
-            uiSleep 0.05;
             _pos = [_townPos,(SEN_range*0.07 max 1000),_radius] call SEN_fnc_findRandomPos;
             if (_pos distance SEN_centerPos <= SEN_range && {!(surfaceIsWater _pos)} && {!([_pos, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker)}) then {
                 if (random 1 > ((paramsArray select 6)*.01)) then {
                     _grp = [_pos,0,(4 + round(random 4))] call SEN_fnc_spawnGroup; // infantry
-                    [_grp,_pos,(SEN_range*0.08 max 1000)] call BIS_fnc_taskPatrol;
+                    [_grp,_pos,(SEN_range*0.08 max 1000)] call CBA_fnc_taskPatrol;
                 } else {
                     _grp = [_pos,1,1] call SEN_fnc_spawnGroup; // technical
                     _driver = (_grp select 0);
@@ -104,8 +105,59 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             };
         };
     };
+
+    call {
+        if (_townType isEqualTo "NameCityCapital") exitWith {
+            _mrkOccupy = createMarker [format["SEN_occupy_mrk_%1", _townName], [((_townPos) select 0), ((_townPos) select 1) - 70]];
+            _mrkOccupy setMarkerType "o_unknown";
+            _mrkOccupy setMarkerText "Occupied Capital";
+            _mrkOccupy setMarkerColor "ColorEAST";
+
+            _trgOccupy = createTrigger ["EmptyDetector", _townPos];
+            _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
+            _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
+            _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
+            _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
+            _trgOccupy setTriggerStatements ["this", _trgAct, ""];
+
+        };
+        if (_townType isEqualTo "NameCity") exitWith {
+            _mrkOccupy = createMarker [format["SEN_occupy_mrk_%1", _townName], [((_townPos) select 0), ((_townPos) select 1) - 70]];
+            _mrkOccupy setMarkerType "o_unknown";
+            _mrkOccupy setMarkerText "Occupied City";
+            _mrkOccupy setMarkerColor "ColorEAST";
+
+            _trgOccupy = createTrigger ["EmptyDetector", _townPos];
+            _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
+            _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
+            _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
+            _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
+            _trgOccupy setTriggerStatements ["this", _trgAct, ""];
+        };
+
+        _mrkOccupy = createMarker [format["SEN_occupy_mrk_%1", _townName], [((_townPos) select 0), ((_townPos) select 1) - 70]];
+        _mrkOccupy setMarkerType "o_unknown";
+        _mrkOccupy setMarkerText "Occupied Town";
+        _mrkOccupy setMarkerColor "ColorEAST";
+
+        _trgOccupy = createTrigger ["EmptyDetector", _townPos];
+        _trgOccupy setTriggerArea [((_townSize select 0) + 100),((_townSize select 1) + 100), 0, false];
+        _trgOccupy setTriggerActivation ["WEST", "PRESENT", false];
+        _var = format ["SEN_occupiedLocation select %1",_forEachIndex];
+        _trgAct = format ["[%1,%2] spawn JK_fnc_occupyTrgAct",str _var,str _mrkOccupy];
+        _trgOccupy setTriggerStatements ["this", _trgAct, ""];
+    };
+
+    if (SEN_debug) then {
+        _radius = (((_townSize select 0) + (_townSize select 1))/2) + 100;
+        _mrk = createMarker [format["SEN_occupy_AO_%1",_townName],_townPos];
+        _mrk setMarkerShape "ELLIPSE";
+        _mrk setMarkerSize [_radius,_radius];
+        _mrk setMarkerColor "ColorEAST";
+    };
 } forEach SEN_occupiedLocation;
 
-SEN_complete = 2;
+[] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
+
 if (SEN_HCPresent) then {publicVariableServer "SEN_complete"};
 [0,"SEN_occupy.sqf complete."] call SEN_fnc_log;

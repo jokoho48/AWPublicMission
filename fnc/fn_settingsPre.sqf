@@ -10,6 +10,9 @@ __________________________________________________________________*/
 if (isNil "db_fnc_log" && {!(db_fnc_log isEqualTo {})}) then {
     db_fnc_log = {};
 };
+
+[1500,0,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
+
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 publicVariable "SEN_debug";
 if (!isServer) exitWith {};

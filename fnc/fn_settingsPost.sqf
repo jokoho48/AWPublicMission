@@ -83,7 +83,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             // destroy buildings
             _buildings = _townPos nearObjects ["House",_avgTownSize];
             if (count _buildings > 0) then {
-                for "_i" from 1 to ceil(((count _buildings)*0.25) min 15) do {
+                for "_i" from 1 to ceil(((count _buildings)*0.1) min 15) do {
                     _destroyed = _buildings call BIS_fnc_selectRandom;
                     _destroyedPos pushBack (getposatl _destroyed);
                     _destroyed setDamage 1;
@@ -97,7 +97,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             if (count _roads > 0) then {
                 private ["_veh","_vehPos"];
 
-                for "_i" from 0 to (ceil random 6) do {
+                for "_i" from 0 to (ceil random 3) do {
                     _vehType = _wreckArray call BIS_fnc_selectRandom;
                     _road = _roads call BIS_fnc_selectRandom;
                     _roadConnectedTo = (roadsConnectedTo _road);
@@ -110,7 +110,7 @@ for "_s" from 1 to (paramsArray select 7) do {
                             _veh setPosATL _vehPos;
                             _veh setDir random 360;
                             _veh setVectorUp surfaceNormal position _veh;
-                            if (random 1 < 0.5) then {
+                            if (random 1 < 0.2) then {
                                 _fx = "test_EmptyObjectForFireBig" createVehicle getposATL _veh;
                                 _fx attachTo [_veh,[0,0,0]];
                             };
@@ -121,7 +121,7 @@ for "_s" from 1 to (paramsArray select 7) do {
 
             // add smoke
             if (count _destroyedPos > 0) then {
-                for "_i" from 1 to ceil(((count _destroyedPos)*0.35) min 7) do {
+                for "_i" from 1 to ceil(((count _destroyedPos)*0.15) min 7) do {
                     _smokingPos = _destroyedPos call BIS_fnc_selectRandom;
                     _fx = "test_EmptyObjectForSmoke" createVehicle _smokingPos;
                 };
@@ -129,7 +129,7 @@ for "_s" from 1 to (paramsArray select 7) do {
         };
     };
 };
-
+[] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";

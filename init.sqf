@@ -34,8 +34,4 @@ call compile preprocessFileLineNumbers "fixXEH.sqf";
 if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
-    [] spawn {
-        waitUntil {SEN_complete isEqualTo 1};
-        [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
-    };
 };

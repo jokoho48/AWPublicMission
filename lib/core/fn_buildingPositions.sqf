@@ -18,7 +18,7 @@ if (_index == -1) exitWith {
     _allPostemp = [_building, 99999999999999] call BIS_fnc_buildingPositions;
     _allPos = [];
     {
-        _allPos pushBack (_allPos modelToWorld _x);
+        _allPos pushBack (_building modelToWorld _x);
         nil
     } count _allPostemp;
     (JK_allBuildingPositions select 0) pushBack (typeOf _building);

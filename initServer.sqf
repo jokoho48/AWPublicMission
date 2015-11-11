@@ -32,12 +32,7 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     };
     [_key, str _value] spawn db_fnc_save;
 }] call JK_Core_fnc_addVariableEventHandler;
-[] spawn {
-    waitUntil {SEN_complete isEqualTo 2};
-    [] call compile preprocessFileLineNumbers "scripts\SEN_occupyTrg.sqf";
-    [] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
-    [1500,0,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
-};
+
 [] spawn {
     waitUntil {!isNil "bis_fnc_init" && {bis_fnc_init}};
     sleep 10;

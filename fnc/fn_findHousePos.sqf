@@ -26,7 +26,7 @@ if !(count _houseArray isEqualTo 0) then {
                 deleteVehicle _dummypad;
             };
             deleteVehicle _dummypad;
-        } foreach _housePosArray;
+        } forEach _housePosArray;
     };
 };
 
