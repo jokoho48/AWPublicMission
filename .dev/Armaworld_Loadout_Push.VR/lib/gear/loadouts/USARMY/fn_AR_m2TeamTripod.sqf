@@ -7,10 +7,10 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
-JK_vests = ["rhsusf_spc_rifleman"];
-JK_headgears = ["rhsusf_ach_bare", "rhsusf_ach_bare_des", "rhsusf_ach_bare_des_ess", "rhsusf_ach_bare_des_headset", "rhsusf_ach_bare_des_headset_ess", "rhsusf_ach_bare_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_semi", "rhsusf_ach_bare_semi_ess", "rhsusf_ach_bare_semi_headset", "rhsusf_ach_bare_semi_headset_ess", "rhsusf_ach_bare_tan", "rhsusf_ach_bare_tan_ess", "rhsusf_ach_bare_tan_headset", "rhsusf_ach_bare_tan_headset_ess", "rhsusf_ach_bare_wood", "rhsusf_ach_bare_wood_ess", "rhsusf_ach_bare_wood_headset", "rhsusf_ach_bare_wood_headset_ess","rhsusf_ach_helmet_M81", "rhsusf_lwh_helmet_marpatwd", "rhsusf_lwh_helmet_marpatwd_ess", "rhsusf_lwh_helmet_marpatwd_headset", "rhsusf_mich_bare_norotos", "rhsusf_mich_bare_norotos_arc", "rhsusf_mich_helmet_marpatwd", "rhsusf_mich_helmet_marpatwd_alt", "rhsusf_mich_helmet_marpatwd_norotos", "rhsusf_mich_helmet_marpatwd_norotos_arc"];
-JK_backpacks = ["I_Mortar_01_support_F"];
+JK_uniforms = ["rhs_uniform_cu_ucp"];
+JK_vests = ["rhsusf_iotv_ucp_Rifleman"];
+JK_headgears = ["rhsusf_ach_helmet_headset_ucp", "rhsusf_ach_helmet_ESS_ucp", "rhsusf_mich_bare_norotos_arc_tan", "rhsusf_mich_bare_norotos_tan", "rhsusf_ach_helmet_headset_ess_ucp", "rhsusf_ach_helmet_ucp_norotos", "rhsusf_ach_helmet_ucp"];
+JK_backpacks = ["RHS_M2_MiniTripod_Bag"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Combat";
@@ -59,10 +59,10 @@ JK_launcherItems = [];
 JK_launcherAmmo = 0;
 
 //binocular - (string)
-JK_binocular = "ACE_Vector";
+JK_binocular = "Binocular";
 
 //throwables - (integer)
-JK_grenadeHE = 0;
+JK_grenadeHE = 2;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
@@ -101,7 +101,7 @@ JK_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be add
 JK_itemsUniform = [];
 
 //items added specifically to vest: - (array)
-JK_itemsVest = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_RangeTable_82mm","ACE_Kestrel4500","ACE_HuntIR_monitor"];
+JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
 JK_itemsBackpack = [];
@@ -117,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = [];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;
