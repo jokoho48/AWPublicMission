@@ -24,7 +24,7 @@ _tempAllBuildings = [];
         _allPostemp = [_x, 99999999999999] call BIS_fnc_buildingPositions;
         _allPos = [];
         {
-            _tempAllPos pushBack (_allPos modelToWorld _x);
+            _allPos pushBack (_allPos modelToWorld _x);
             nil
         } count _allPostemp;
         _tempAllPos pushBack _allPos;

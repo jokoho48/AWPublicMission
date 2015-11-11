@@ -8,5 +8,6 @@ class JK_Core {
         class addAction;
         class clientInit {postInit = 1; };
         class createNearBuildingPos { preInit = 1; };
+        class buildingPositions;
     };
 };

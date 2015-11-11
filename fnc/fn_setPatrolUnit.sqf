@@ -18,7 +18,7 @@ for "_i" from 1 to 50 do {
     if ((count _this > 2) && {random 1 < 0.6}) then {
         _houses = _this select 2;
         _house = _houses select (random ((count _houses) - 1));
-        _housePosArray = [_house] call bis_fnc_buildingPositions;
+        _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
         _houses = _houses - [_house];
         if (count _housePosArray > 1) then {
             _pos2 = _housePosArray select (random ((count _housePosArray) - 1));
