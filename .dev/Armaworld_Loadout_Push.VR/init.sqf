@@ -21,16 +21,39 @@ JK_USARMY = ["AR_COMMAND", "AR_RADIOOP", "AR_LEADER", "AR_FTL", "AR_MEDIC", "AR_
 JK_USSOF = ["SO_LEADER", "SO_GRENADIER", "SO_AT", "SO_ARMAN", "SO_MARKSMAN", "SO_SPECOPS","SO_AA", "SO_SPECIALIST"];
 JK_USSOFLIGHT = ["SOL_LEADER", "SOL_AT", "SOL_ARMAN", "SOL_GRENADIER", "SOL_MARKSMAN", "SOL_SPECIALIST", "SOL_SPECOPS", "SOL_AA"];
 JK_PARA = ["PARA_LEADER", "PARA_TROOPER", "PARA_ARMAN", "PARA_DROPMEDIC", "PARA_EXEXPERT", "PARA_GRENADIER", "PARA_MARKSMAN", "PARA_STORMTROOPER", "PARA_ASSAR"];
-JK_SPECZIALCLASSES = ["PJMEDIC", "PILOT", "JETPILOT", "CREW", "DIVER"];
-JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECZIALCLASSES;
+JK_SPECIALCLASSES = ["PJMEDIC", "PILOT", "JETPILOT", "CREW", "DIVER"];
+JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECIALCLASSES;
+
+/*
 {
 	[_x,(call compile format["JK_loadOut_fnc_%1",_x]),1] spawn db_fnc_codesave;
 	nil;
 } count JK_CLASSES;
+*/
 
-/*
 {
-	[_x,(compile preprocessFile format["fn_%1.sqf",_x])] spawn db_fnc_codesave;
+	private "_path";
+	_path = "";
+	call {
+		if (_x in USMC) exitWith {
+			_path = "lib\gear\loadouts\USMC\";
+		};
+		if (_x in JK_USARMY) exitWith {
+			_path = "lib\gear\loadouts\USARMY\";
+		};
+		if (_x in JK_USSOF) exitWith {
+			_path = "lib\gear\loadouts\USSOF\";
+		};
+		if (_x in JK_USSOFLIGHT) exitWith {
+			_path = "lib\gear\loadouts\USSOFlight\";
+		};
+		if (_x in JK_SPECZIALCLASSES) exitWith {
+			_path = "lib\gear\loadouts\special\";
+		};
+		if (_x in JK_PARA) exitWith {
+			_path = "lib\gear\loadouts\parachute\";
+		};
+	};
+	[_x,(compile preprocessFileLineNumbers format["%1fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
 	nil;
 } count JK_CLASSES;
-*/
