@@ -69,7 +69,8 @@ if (({_x distance _aid < 20} count (units _grp)) > 0) exitWith {
             sleep SEN_taskSleepCiv;
             [] call SEN_fnc_setTaskCiv;
         };
-    } forEach (units _grp);
+        nil
+    } count (units _grp);
 };
 
 if (damage _aid > 0.95) exitWith {

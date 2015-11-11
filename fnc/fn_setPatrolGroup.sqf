@@ -21,10 +21,12 @@ if (count _houseArray > 0) then {
     {
     //_x setVariable ["SEN_patrol_exit",false];
         [_x, _range, _houseArray] spawn SEN_fnc_setPatrolUnit;
-    } forEach _unitArray;
+        nil
+    } count _unitArray;
 } else {
     {
     //_x setVariable ["SEN_patrol_exit",false];
         [_x, _range] spawn SEN_fnc_setPatrolUnit;
-    } forEach _unitArray;
+        nil
+    } count _unitArray;
 };

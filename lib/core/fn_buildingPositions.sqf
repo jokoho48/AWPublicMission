@@ -1,30 +1,34 @@
 /*
  * Author: joko // Jonas
- * Description
+ * Retrun a Array with all Building Postions (original Idea by BI)
  *
  * Arguments:
- * 0: Argument Description <TYPE>
+ * 0: Building Object
  *
  * Return Value:
- * Return description <TYPE>
+ * Array with AllBuilding Postions
  *
  */
 
-params ["_building"];
-_index = (JK_allBuildingPositions select 0) find _building;
+private ["_availablePositions", "_index"];
+//Parameters
+params [["_building", objNull, [objNull]]];
 
-// Fail Save if Building Classnames Changed
-if (_index == -1) exitWith {
-    _allPostemp = [_building, 99999999999999] call BIS_fnc_buildingPositions;
-    _allPos = [];
-    {
-        _allPos pushBack (_building modelToWorld _x);
-        nil
-    } count _allPostemp;
-    (JK_allBuildingPositions select 0) pushBack (typeOf _building);
-    (JK_allBuildingPositions select 1) pushBack _allPos;
+//The number of available positions
 
-    [_building] call JK_Core_fnc_buildingPositions;
+_availablePositions = [];
+
+//The index
+_index = 0;
+
+//Loop limit and find available positions
+while { (_building buildingPos _index) distance [0,0,0] > 0 } do {
+    //Add position to the pool
+    _availablePositions pushBack (_building buildingPos _index);
+
+    //Increment index
+    _index = _index + 1;
 };
 
-(JK_allBuildingPositions select 1) select _index;
+//Return
+_availablePositions

@@ -61,7 +61,8 @@ uiSleep 60 + random 100;
 
 { // check for new units in area
     if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x};
-} forEach (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]);
+    nil
+} count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]);
 
 if (count _enemyArray > 0) then {
     {
@@ -82,7 +83,8 @@ if (count _enemyArray > 0) then {
                 };
             };
         };
-    } forEach _enemyArray;
+        nil
+    } count _enemyArray;
 };
 
 _players = (call SEN_fnc_getPlayers);
@@ -128,7 +130,8 @@ if !(isNull SEN_intelObj) then {
     sleep 10;
     {
         if (side _x isEqualTo SEN_enemySide) then {_a pushBack _x};
-    } forEach (_townPos nearEntities [["Man","Car","Tank","Air","Ship"], _radius]);
+        nil
+    } count (_townPos nearEntities [["Man","Car","Tank","Air","Ship"], _radius]);
     _threshold = (round ((count _a)*0.30));
     _kill = (count _a) - _threshold;
     for "_i" from 0 to _kill do {

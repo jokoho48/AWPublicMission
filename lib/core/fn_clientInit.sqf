@@ -3,7 +3,8 @@ fn_STMG_AssignClientIDOnServer =
     _unitName = _this select 0;
     {
         if (name _x == _unitName) then {_x setVariable ["stmg_owner_id",owner _x,true];};
-    } forEach playableUnits;
+        nil
+    } count playableUnits;
 };
 
 if (isDedicated) exitWith {}; // Just in case
@@ -75,7 +76,8 @@ fn_STMG_MapGestures_MapDraw = {
                     (_this select 0) drawIcon ["#(argb,8,8,3)color(0,0,0,0)", [.2,.2,.2,.3], _pos, 20, 20, 0, _nameSane, 0, 0.030,"PuristaBold","left"];
                 };
             };
-        } forEach _nearDudes;
+            nil
+        } count _nearDudes;
     };
 };
 
@@ -90,7 +92,8 @@ fn_STMG_MapGestures_Init_Receiver = {
                         _nameSane = [name _x] call fn_STMG_MapGesture_SanitizeNameToAlphabet;
                         call compile format["STMG_%1_DrawPos = [1,1,1];",_nameSane];
                     };
-                } forEach allUnits;
+                    nil
+                } count allUnits;
             };
             waitUntil {!STMG_MapGestures_Active || visibleMap};
 
@@ -205,7 +208,8 @@ fn_STMG_MapGestures_Init_Sender = {
                     _nameSane = [name player] call fn_STMG_MapGesture_SanitizeNameToAlphabet;
                     _ownerID publicVariableClient format["STMG_%1_DrawPos",_nameSane];
                 };
-            } forEach _nearDudes;
+                nil
+            } count _nearDudes;
             sleep STMG_MapGestures_SleepTimeUpdate;
             !STMG_MapGestures_EnableTransmit
         };

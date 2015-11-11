@@ -117,7 +117,8 @@ REMOVE_IED_SECTION = {
 
     {
         [_this, _x] call REMOVE_IED_ARRAY;
-    } foreach _iedKeys;
+        nil
+    } count _iedKeys;
 
     _fakesDictionary = [_sectionDictionary, "fake"] call Dictionary_fnc_get;
     _fakeKeys = _fakesDictionary call Dictionary_fnc_keys;
@@ -127,13 +128,15 @@ REMOVE_IED_SECTION = {
         deleteVehicle (_fakeArr select 0);
         deleteMarker (_fakeArr select 1);
         [_fakesDictionary, _x] call Dictionary_fnc_remove;
-    } foreach _fakeKeys;
+        nil
+    } count _fakeKeys;
 
     _cleanUp = [_sectionDictionary, "cleanUp"] call Dictionary_fnc_get;
 
     {
         deleteVehicle _x;
-    } foreach _cleanUp;
+        nil
+    } count _cleanUp;
 
     [iedDictionary, _this] call Dictionary_fnc_remove;
 

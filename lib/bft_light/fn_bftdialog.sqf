@@ -150,8 +150,8 @@ BG_fnc_bftdialog_editButton = {
                         BG_UI_BFT_lbIcon lbSetCurSel _tmp;
                     };
                 };
-
-            } forEach ((missionNamespace getVariable ["BG_BFT_iconTypes",[[],[]]]) select 1);
+                nil
+            } count ((missionNamespace getVariable ["BG_BFT_iconTypes",[[],[]]]) select 1);
 
             BG_UI_BFT_lbIcon ctrlCommit 0;
 

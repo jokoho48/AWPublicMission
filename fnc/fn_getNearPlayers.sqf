@@ -13,6 +13,7 @@ _players = [];
 
 {
     if (_x distance _pos <= _range && {alive _x}) then {_players pushBack _x};
-} forEach (call SEN_fnc_getPlayers);
+    nil
+} count (call SEN_fnc_getPlayers);
 
 _players

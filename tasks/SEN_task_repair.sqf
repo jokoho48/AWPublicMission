@@ -56,7 +56,12 @@ if ((getposASL _supplies select 2) < -3 || damage _supplies > 0.9 || isNull _sup
     SEN_objectCleanup append (units _grp);
     SEN_objectCleanup append _array;
     SEN_objectCleanup pushBack _supplies;
-    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_pos nearObjects 300);
+    {
+        if (typeOf _x isEqualTo "#particlesource") then {
+            deleteVehicle _x;
+        };
+        nil
+    } count (_pos nearObjects 300);
     missionNameSpace setVariable ["SEN_fobLock", false];
     [] call SEN_fnc_setTask;
 };
@@ -69,6 +74,11 @@ publicVariable "JK_TicketSystem";
 SEN_objectCleanup append (units _grp);
 SEN_objectCleanup append _array;
 SEN_objectCleanup pushBack _supplies;
-{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_pos nearObjects 300);
+{
+    if (typeOf _x isEqualTo "#particlesource") then {
+        deleteVehicle _x;
+    };
+    nil
+} count (_pos nearObjects 300);
 missionNameSpace setVariable ["SEN_fobLock", false];
 [] call SEN_fnc_setTask;

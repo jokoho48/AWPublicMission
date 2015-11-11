@@ -55,7 +55,7 @@ JK_objectStorage = [];
             };
             nil
         } count allMissionObjects ("WeaponHolder") + allMissionObjects ("GroundWeaponHolder") + allMissionObjects ("WeaponHolderSimulated") + allDead;
-        
+
         private "_delete1";
         // Cycle through the storage and check the time. Removal is done with an animation.
         _delete1 = 0;
@@ -110,7 +110,8 @@ JK_objectStorage = [];
                 deleteMarker _x;
                 uiSleep 0.05;
                 if (getMarkerColor _x isEqualTo "") then {SEN_markerCleanup = SEN_markerCleanup - [_x]};
-            } forEach SEN_markerCleanup;
+                nil
+            } count SEN_markerCleanup;
         };
         // objects
         if (SEN_objectCleanup isEqualTo []) then {

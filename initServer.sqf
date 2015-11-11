@@ -9,12 +9,9 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     _med = ["Land_Hospital_main_F", "Land_Hospital_side2_F", "Land_Hospital_side1_F", "Land_Medevac_house_V1_F", "Land_Medevac_HQ_V1_F"];
     {
         if ((typeOf _x) in _med) then {_x setvariable["ace_medical_isMedicalFacility", true, true]};
-    } forEach ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
+        nil
+    } count ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
-
-[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
-[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
-
 
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitys"], {
     params ["_key", "_value", "", "_preValue"];

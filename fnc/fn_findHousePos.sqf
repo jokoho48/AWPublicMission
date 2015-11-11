@@ -14,19 +14,20 @@ _pos = [];
 _return = [];
 
 _houseArray = _center nearObjects ["House",_range];
-if !(count _houseArray isEqualTo 0) then {
+if !(_houseArray isEqualTo []) then {
     _house = _houseArray call BIS_fnc_selectRandom;
     _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
 
-    if !(count _housePosArray isEqualTo 0) then {
+    if !(_housePosArray isEqualTo []) then {
         {
             _dummypad = createVehicle ["Land_HelipadEmpty_F", _x, [], 0, "CAN_COLLIDE"];
-            if !(count(lineIntersectsObjs [(getposASL _dummypad), [(getposASL _dummypad select 0),(getposASL _dummypad select 1),((getposASL _dummypad select 2) + 20)]]) isEqualTo 0) exitWith {
+            if !((lineIntersectsObjs [(getposASL _dummypad), [(getposASL _dummypad select 0),(getposASL _dummypad select 1),((getposASL _dummypad select 2) + 20)]]) isEqualTo []) exitWith {
                 _pos = _x;
                 deleteVehicle _dummypad;
             };
             deleteVehicle _dummypad;
-        } forEach _housePosArray;
+            nil
+        } count _housePosArray;
     };
 };
 

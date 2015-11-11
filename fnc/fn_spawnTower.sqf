@@ -38,7 +38,8 @@ if !(count _posArray isEqualTo 0) then {
         _unit setskill ["spotDistance",0.90];
         _unit disableAI "MOVE";
         _unitArray pushBack _unit;
-     } forEach _posArray;
+        nil
+    } count _posArray;
 
     _grp
 } else {

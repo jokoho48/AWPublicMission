@@ -44,4 +44,5 @@
     };
 
     missionNameSpace setVariable [_name, _eventVariable];
-} forEach _this;
+    nil
+} count _this;

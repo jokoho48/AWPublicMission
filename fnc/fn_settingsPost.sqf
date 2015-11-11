@@ -31,7 +31,8 @@ _SEN_safeZoneY = [((getMarkerPos "SEN_safezone_mrk") select 0) + _SEN_safeZoneSi
     if (_locPos distance (getmarkerpos "sen_safezone_mrk") > _SEN_safeZoneSize + 900) then {
         if (!(_locName in _SEN_blacklistLocation) && {!(_locName isEqualTo "")}) then {SEN_whitelistLocation pushBack _x};
     };
-} forEach (nearestLocations [SEN_centerPos, ["NameCityCapital","NameCity","NameVillage"], SEN_range]);
+    nil
+} count (nearestLocations [SEN_centerPos, ["NameCityCapital","NameCity","NameVillage"], SEN_range]);
 
 [0,"SEN_range: %1, SEN_centerPos: %2, SEN_whitelistLocation count: %3",SEN_range, SEN_centerPos, (count SEN_whitelistLocation)] call SEN_fnc_log;
 
@@ -47,8 +48,8 @@ if !(isNil "SEN_HC") then {
 // safezone setup
 _trgSafeZone = createTrigger ["EmptyDetector", getMarkerPos "SEN_safezone_mrk"];
 _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
-_trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x} forEach crew _x; deleteVehicle _x; }; } forEach thisList;", ""];
-if (SEN_enemySide isEqualTo EAST) then {_trgSafeZone setTriggerActivation ["EAST", "PRESENT", true]} else {_trgSafeZone setTriggerActivation ["GUER", "PRESENT", true]};
+_trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x; nil} count crew _x; deleteVehicle _x; }; nil} count thisList;", ""];
+_trgSafeZone setTriggerActivation [str SEN_enemySide, "PRESENT", true];
 
 // debug setup
 if (SEN_debug) then {
@@ -130,6 +131,9 @@ for "_s" from 1 to (paramsArray select 7) do {
     };
 };
 [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+
+[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";
