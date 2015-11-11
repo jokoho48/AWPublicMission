@@ -38,7 +38,12 @@ for "_s" from 0 to _counter do {
             _staticPos = [getposATL _road, getposATL _roadConnectedTo] call SEN_fnc_findThirdPos;
             _check = _staticPos isFlatEmpty [2, 0, 0.4, 2, 0, false, objNull];
 
-            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}} forEach _posArray};
+            if (count _posArray > 0) then {
+                {
+                    if (_x distance _staticPos < 20) exitWith {_check = []};
+                    nil
+                } count _posArray;
+            };
             if (count _check isEqualTo 0 || {isOnRoad _staticPos}) exitWith {};
 
             _posArray pushBack _staticPos;
@@ -66,7 +71,7 @@ for "_s" from 0 to _counter do {
             _staticPos = [getposATL _road, getposATL _roadConnectedTo] call SEN_fnc_findThirdPos;
             _check = _staticPos isFlatEmpty [2, 0, 0.4, 3, 0, false, objNull];
 
-            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}} forEach _posArray};
+            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}; nil} count _posArray};
             if (count _check isEqualTo 0 || isOnRoad _staticPos) exitWith {};
 
             _staticPos set [2,-0.02];
@@ -136,7 +141,8 @@ if(SEN_debug && {!(count _gunnerArray isEqualTo 0)}) then {
         _mrk setMarkerType "mil_dot";
         _mrk setMarkerColor "ColorEAST";
         _mrk setMarkerText "STATIC";
-    } forEach _gunnerArray;
+        nil
+    } count _gunnerArray;
 };
 
 _gunnerArray

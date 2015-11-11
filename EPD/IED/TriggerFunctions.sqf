@@ -63,8 +63,8 @@ TRIGGER_CHECK = {
                 };
             };
         };
-
-    } foreach (_thisList);
+        nil
+    } count (_thisList);
 
     if(SEN_debug && _validItemsInTrigger > 0) then {
         hintSilent format["Trigger\nPeople/Vehicles in trigger = %1\nMax Speed = %2\nMin Height = %3\nDistance = %4", _validItemsInTrigger,_maxSpeed, _minHeight,_minDistance];

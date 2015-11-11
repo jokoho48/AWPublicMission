@@ -74,7 +74,12 @@ if (alive _hostage) then {
 
 if (!alive _hostage) exitWith {
     [_taskID, "FAILED"] call BIS_fnc_taskSetState;
-    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+    {
+        if (typeOf _x isEqualTo "#particlesource") then {
+            deleteVehicle _x;
+        };
+        nil
+    } count (_vehPos nearObjects 100);
     SEN_objectCleanup pushBack _hostage;
     SEN_objectCleanup pushBack _veh;
     sleep SEN_taskSleepCiv;
@@ -89,7 +94,12 @@ publicVariable "JK_TicketSystem";
 SEN_approvalCiv = SEN_approvalCiv + (10 + random 5);
 publicVariable "SEN_approvalCiv";
 
-{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+{
+    if (typeOf _x isEqualTo "#particlesource") then {
+        deleteVehicle _x;
+    };
+    nil
+} count (_vehPos nearObjects 100);
 SEN_objectCleanup pushBack _hostage;
 SEN_objectCleanup pushBack _veh;
 sleep SEN_taskSleepCiv;

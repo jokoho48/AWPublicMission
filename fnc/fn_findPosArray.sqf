@@ -28,7 +28,12 @@ for "_s" from 0 to _counter do {
         _pos = getposATL (_roads call BIS_fnc_selectRandom);
 
         if (count _posArray >= 1) then {
-            { if (_x distance _pos < _minDist) exitWith { _check = false; } } forEach _posArray;
+            {
+                if (_x distance _pos < _minDist) exitWith {
+                    _check = false;
+                };
+                nil
+            } count _posArray;
         };
     } else {
         _pos = [_center,0,_range] call SEN_fnc_findRandomPos;
@@ -36,7 +41,10 @@ for "_s" from 0 to _counter do {
         if !(count _isEmpty isEqualTo 0) then {
             if !(count (_pos nearRoads 12) isEqualTo 0) exitWith { _check = false };
             if (count _posArray >= 1) then {
-                { if (_x distance _pos < _minDist) exitWith { _check = false; } } forEach _posArray;
+                {
+                     if (_x distance _pos < _minDist) exitWith { _check = false; };
+                     nil
+                } count _posArray;
             };
         } else {
             _check = false;

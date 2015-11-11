@@ -15,7 +15,8 @@ _intel = 0;
 {
     if (_x isEqualTo SEN_intelObj && {!(_x isEqualTo objNull)}) exitWith {_intel = 1};
     if (_x isEqualTo SEN_intelObjCiv && {!(_x isEqualTo objNull)}) exitWith {_intel = 2};
-} forEach (getposATL player nearObjects 4);
+    nil
+} count (getposATL player nearObjects 4);
 
 call {
     _pos = getposATL player;

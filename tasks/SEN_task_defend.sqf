@@ -102,11 +102,15 @@ if (({_x distance _posCache < 20} count (units _grp)) > 0) exitWith {
             sleep 0.5;
             createVehicle ["R_TBG32V_F", _posCache,[],0,"CAN_COLLIDE"];
         };
-    } forEach (units _grp);
+        nil
+    } count (units _grp);
 
     missionNameSpace setVariable ["SEN_fobLock", false];
     [_taskID, "FAILED"] call BIS_fnc_taskSetState;
-    {deleteVehicle _x} forEach _cacheArray;
+    {
+        deleteVehicle _x;
+        nil
+    } count _cacheArray;
     SEN_objectCleanup append _vehArray;
     SEN_objectCleanup append (units _grp);
     SEN_objectCleanup append (units _grpWest);

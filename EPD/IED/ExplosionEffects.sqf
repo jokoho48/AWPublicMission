@@ -70,7 +70,8 @@ IED_ROCKS = {
     sleep 0.125;
     {
         deletevehicle _x;
-    } foreach _rocks;
+        nil
+    } count _rocks;
 };
 
 /******************SMOKE EFFECTS*********************/
@@ -316,7 +317,8 @@ IED_SMOKE_LARGE = {
         sleep 2;
         {
             deletevehicle _x;
-        } foreach _smokes;
+            nil
+        } count _smokes;
 
     };
 };
@@ -455,7 +457,8 @@ IED_SMOKE_MEDIUM = {
         sleep 1;
         {
             deletevehicle _x;
-        } foreach _smokes;
+            nil
+        } count _smokes;
     };
 };
 
@@ -574,7 +577,8 @@ IED_SMOKE_SMALL = {
         sleep 2;
         {
             deletevehicle _x;
-        } foreach _smokes;
+            nil
+        } count _smokes;
     };
 };
 
@@ -617,5 +621,6 @@ SHOCK_WAVE = {
     sleep .07;
     {
         deletevehicle _x;
-    } foreach _smokes;
+        nil
+    } count _smokes;
 };

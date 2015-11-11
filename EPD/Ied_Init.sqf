@@ -55,7 +55,8 @@ if(isServer) then {
         _locationAndSize = (_x) call GET_CENTER_LOCATION_AND_SIZE;
         _roads = ((_locationAndSize select 0) nearRoads (_locationAndSize select 1));
         iedSafeRoads = (iedSafeRoads - _roads) + _roads; //removes duplicates first
-    } foreach iedSafeZones;
+        nil
+    } count iedSafeZones;
 
     _handles = [];
     _nextHandleSpot = 0;
@@ -66,40 +67,40 @@ if(isServer) then {
                     _keys = iedAllMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles set [_nextHandleSpot, [[_x,_side]] spawn CREATE_IED_SECTION];
-                        _nextHandleSpot = _nextHandleSpot + 1;
-                    } foreach _keys;
+                        _handles set pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        nil
+                    } count _keys;
                 };
             case "ALLCITIES": {
                     _keys = iedCityMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles set [_nextHandleSpot, [[_x,_side]] spawn CREATE_IED_SECTION];
-                        _nextHandleSpot = _nextHandleSpot + 1;
-                    } foreach _keys;
+                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        nil
+                    } count _keys;
                 };
             case "ALLVILLAGES": {
                     _keys = iedVillageMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles set [_nextHandleSpot, [[_x,_side]] spawn CREATE_IED_SECTION];
-                        _nextHandleSpot = _nextHandleSpot + 1;
-                    } foreach _keys;
+                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        nil
+                    } count _keys;
                 };
             case "ALLLOCALS": {
                     _keys = iedLocalMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles set [_nextHandleSpot, [[_x,_side]] spawn CREATE_IED_SECTION];
-                        _nextHandleSpot = _nextHandleSpot + 1;
-                    } foreach _keys;
+                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        nil
+                    } count _keys;
                 };
             default    {
-                _handles set [_nextHandleSpot, [_x] spawn CREATE_IED_SECTION];
-                _nextHandleSpot = _nextHandleSpot + 1;
+                _handles pushBack [_x] spawn CREATE_IED_SECTION;
             };
         };
-    } foreach iedInitialArray;
+        nil
+    } count iedInitialArray;
 
     waituntil{sleep 0.5; [_handles] call CHECK_ARRAY;};
 
@@ -112,7 +113,7 @@ if(isServer) then {
 
 };
 [] spawn {
-    waituntil{sleep .5; (!isNull player && iedsAdded)};
+    waituntil{sleep 0.5; (!isNull player && iedsAdded)};
     //player sidechat "Synching IEDs... You may experience lag for a few seconds";
 
     [] call ADD_DISARM_AND_PROJECTILE_DETECTION;

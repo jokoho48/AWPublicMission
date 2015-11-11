@@ -63,7 +63,10 @@ waitUntil {sleep 10; {(damage _x) > 0.95} forEach _cacheArray};
 JK_TicketSystem = JK_TicketSystem + 500;
 publicVariable "JK_TicketSystem";
 
-{deleteVehicle _x} forEach _cacheArray;
+{
+    deleteVehicle _x;
+     nil
+} count _cacheArray;
 SEN_objectCleanup append _baseArray;
 SEN_markerCleanup pushBack _mrk;
 [] call SEN_fnc_setTask;
