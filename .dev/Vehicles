@@ -86,3 +86,12 @@
 
 "RHS_C130J",
 "RHS_A10"
+
+// Support
+"B_Truck_01_Repair_F",
+"B_Truck_01_ammo_F",
+"B_Truck_01_fuel_F",
+"C_Van_01_fuel_F",
+"C_Offroad_01_repair_F",
+"rhsusf_m113_usarmy_supply",
+"B_APC_Tracked_01_CRV_F"

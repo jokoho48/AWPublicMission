@@ -7,6 +7,7 @@ Description: postInit settings
 
         returns nothing
 __________________________________________________________________*/
+[] spawn compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
 "SEN_NoFireZone_mrk" setMarkerAlpha 0;
@@ -16,8 +17,6 @@ publicVariable "SEN_range";
 SEN_centerPos = [SEN_range,SEN_range,0];
 SEN_occupiedLocation = [];
 SEN_whitelistLocation = [];
-
-waitUntil {!isNil "SEN_blacklistLocation"};
 
 _SEN_blacklistLocationReal = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
 _SEN_blacklistLocation = SEN_blacklistLocation + _SEN_blacklistLocationReal;
@@ -130,8 +129,6 @@ for "_s" from 1 to (paramsArray select 7) do {
         };
     };
 };
-
-call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
 
 SEN_complete = 1;
 if (SEN_HCPresent) then {
