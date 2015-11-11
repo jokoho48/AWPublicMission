@@ -348,6 +348,10 @@
             <English>Para Jumper Medic</English>
             <German>Medevac Crew</German>
         </Key>
+        <Key ID="STR_JK_GEAR_DIVER">
+            <English>Frogman</English>
+            <German>Kampftaucher</German>
+        </Key>
 
 
         // Repair

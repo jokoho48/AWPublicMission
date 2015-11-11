@@ -60,7 +60,7 @@ clearItemCargoGlobal _vehicle;
 
 call {
     if (_className in ["B_APC_Tracked_01_CRV_F", "C_Offroad_01_repair_F", "B_Truck_01_Repair_F"]) exitWith {
-        _vehicle setVariable ["ACE_isRepairVehicle", true, true];
+        _vehicle setVariable ["ACE_isRepairVehicle", 1, true];
     };
     if (_className in ["B_Truck_01_ammo_F","rhsusf_m113_usarmy_supply"]) exitWith {
         _vehicle setVariable ["JK_isRearmVehicle", true, true];

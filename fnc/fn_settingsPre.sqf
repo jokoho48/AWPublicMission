@@ -15,9 +15,6 @@ SEN_debug = (paramsArray select 1) isEqualTo 1;
 publicVariable "SEN_debug";
 if (!isServer) exitWith {};
 
-[] spawn {
-waitUntil {!isNil "JK_DBSetup"};
-call {
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;
 if ((paramsArray select 3) isEqualTo -1) then {
     setDate [2015, random ceil 11, random ceil 27, random round 23, 00];
@@ -77,7 +74,7 @@ if (SEN_rhsAFRFEnabled) then { // RHS: AFRF
     if (SEN_enemySide isEqualTo EAST) exitWith {
         SEN_unitPool = ["rhs_msv_at", "rhs_msv_grenadier", "rhs_msv_LAT", "rhs_msv_RShG2", "rhs_msv_sergeant", "rhs_msv_junior_sergeant", "rhs_msv_efreitor", "rhs_msv_grenadier_rpg", "rhs_msv_engineer", "rhs_msv_strelok_rpg_assist", "rhs_msv_aa", "rhs_msv_machinegunner", "rhs_msv_machinegunner_assistant", "rhs_msv_medic", "rhs_msv_rifleman"];
         SEN_vehPool = ["rhs_bmp2k_msv", "rhs_bmp2d_msv", "rhs_bmp2e_msv", "rhs_bmp2_msv", "rhs_bmp1p_msv", "rhs_bmp1k_msv", "rhs_bmp1d_msv", "rhs_bmp1_msv", "rhs_btr80a_msv", "rhs_btr70_msv", "rhs_btr80_msv", "rhs_btr60_msv", "rhs_bmp3_msv", "rhs_bmp3_late_msv", "rhs_bmp3m_msv", "rhs_bmp3mera_msv", "rhs_brm1k_msv", "rhs_t72ba_tv", "rhs_t72bb_tv", "rhs_t72bc_tv", "rhs_t72bd_tv", "rhs_t80", "rhs_t80a", "rhs_t80b", "rhs_t80bk", "rhs_t80bv", "rhs_t80bvk", "rhs_t80u", "rhs_t80u45m", "rhs_t80ue1", "rhs_t80uk", "rhs_t80um", "rhs_t90_tv", "rhs_t90a_tv"];
-        SEN_airPool = ["RHS_Mi24P_CAS_vdv","RHS_Mi8mt_vdv","RHS_Mi8mt_vv"];
+        SEN_airPool = ["RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"];
         SEN_sniperPool = ["rhs_msv_marksman"];
         SEN_officerPool = ["rhs_msv_officer_armored"];
     };
@@ -114,6 +111,4 @@ if (SEN_enemySide isEqualTo EAST) exitWith {
     if (count SEN_officerPool isEqualTo 0) then {SEN_officerPool = ["O_officer_F"]};
     if (count SEN_sniperPool isEqualTo 0) then {SEN_sniperPool = ["O_sniper_F"]};
     [0,"fn_settingsPre complete."] call SEN_fnc_log;
-};
-};
 };

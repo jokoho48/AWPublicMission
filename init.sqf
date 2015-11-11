@@ -19,13 +19,12 @@ License:
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-sa/4.0/.
 __________________________________________________________________*/
 SEN_debug = (paramsArray select 1) isEqualTo 1;
-waitUntil {!isServer ||{!isNil "JK_DBSetup"}};
 if (SEN_debug) then {
     ["JK_MapClickEvent1","onMapSingleClick",{
         if (_alt && local player) then {
             player setPos _pos;
         };
-    },player] call BIS_fnc_addStackedEventHandler;
+    }, player] call BIS_fnc_addStackedEventHandler;
 };
 enableSaving [false, false];
 enableSentences false;

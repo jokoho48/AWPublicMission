@@ -18,9 +18,11 @@ JK_fnc_startLoop = {
         private ["_distance", "_delete"];
         if (!("MineDetector"in items player)) exitWith {
             [_this select 1] call CBA_fnc_removePerFrameHandler;
+            JK_idPFH = nil;
         };
         if (vehicle player != player) exitWith {
             [_this select 1] call CBA_fnc_removePerFrameHandler;
+            JK_idPFH = nil;
             hintSilent "You are not allowed to use Mine Detector in Vehicles.";
         };
         if !(isNil "JK_EOD_IEDPos") exitWith {};

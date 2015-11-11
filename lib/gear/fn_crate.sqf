@@ -318,6 +318,14 @@ _fnc_Empty = {
     ["ACE_Box_Misc", 0, []] call JK_fnc_createCrate;
 };
 
+_fnc_Wheel = {
+    ["ACE_Wheel", 0] call JK_fnc_createCrate;
+};
+
+_fnc_Track = {
+    ["ACE_Track", 0] call JK_fnc_createCrate;
+};
+
 _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_Radio] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Ammo Crate</t>", _fnc_ammo] call JK_Core_fnc_addAction;
@@ -334,6 +342,8 @@ _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Non-Moving-Ammo Crate</t>", _fnc_static_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Non-Moving-AT-Ammo Crate</t>", _fnc_static_at_ammo] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Empty Crate</t>", _fnc_Empty] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Universal Wheel</t>", _fnc_Wheel] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Tank Track-Part</t>", _fnc_Track] call JK_Core_fnc_addAction;
 };
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;

@@ -12,14 +12,14 @@ params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max
 _return = [];
 
 call {
-    if (_side isEqualTo EAST) exitWith {_sniper = (SEN_sniperPool select (random ((count SEN_sniperPool) - 1)));/* _spotter = "O_spotter_F";*/};
-    if (_side isEqualTo WEST) exitWith {_sniper = (SEN_sniperPoolWest select (random ((count SEN_sniperPoolWest) - 1)));;/* _spotter = "B_spotter_F";*/};
+    if (_side isEqualTo EAST) exitWith {_sniper = (SEN_sniperPool call BIS_fnc_selectRandom);/* _spotter = "O_spotter_F";*/};
+    if (_side isEqualTo WEST) exitWith {_sniper = (SEN_sniperPoolWest call BIS_fnc_selectRandom);;/* _spotter = "B_spotter_F";*/};
 
-    _sniper = (SEN_sniperPool select (random ((count SEN_sniperPool) - 1))); /*_spotter = "I_spotter_F";*/
+    _sniper = (SEN_sniperPool call BIS_fnc_selectRandom); /*_spotter = "I_spotter_F";*/
 };
 
 for "_i" from 1 to _count do {
-    _overwatch = [_pos,_max,_min,-1000] call bis_fnc_findoverwatch;
+    _overwatch = [_pos,_max,_min,-1000] call BIS_fnc_findoverwatch;
     _ref1 = createVehicle ["Land_HelipadEmpty_F", _pos, [], 0, "CAN_COLLIDE"];
     _ref2 = createVehicle ["Land_HelipadEmpty_F", _overwatch, [], 0, "CAN_COLLIDE"];
     _overwatchHeight = (_ref1 worldtomodel _overwatch) select 2;

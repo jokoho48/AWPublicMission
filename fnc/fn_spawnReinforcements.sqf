@@ -35,7 +35,7 @@ _grp = createGroup _side;
 _grp setBehaviour "CARELESS";
 _veh = createVehicle [_veh,_pos,[],0,"FLY"];
 _veh addEventHandler ["engine", {if (!(_this select 1) && {damage (_this select 0) > 0.94}) then {SEN_objectCleanup pushBack (driver (_this select 0)); SEN_objectCleanup pushBack (_this select 0);}}];
-_pilot = _grp createUnit [(_unitPool select (random ((count _unitPool) - 1))),_pos, [], 0, "NONE"];
+_pilot = _grp createUnit [(_unitPool call BIS_fnc_selectRandom),_pos, [], 0, "NONE"];
 _pilot moveInDriver _veh;
 _pilot disableAI "TARGET";
 _pilot disableAI "AUTOTARGET";

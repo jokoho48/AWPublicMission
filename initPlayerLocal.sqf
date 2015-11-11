@@ -16,7 +16,7 @@ call _fnc_tfarSettings;
 // setup debug
 if (SEN_debug) then {
     player allowDamage false;
-    player addEventHandler ["respawn",{(_this select 0) allowDamage false}];
+    player addEventHandler ["respawn", { (_this select 0) allowDamage false; }];
 };
 
 // setup eventhandlers
@@ -27,8 +27,20 @@ player addEventHandler["Fired", {
     };
 }];
 
-JK_registerPlayer = player;
-publicVariableServer "JK_registerPlayer";
+["ace_explosives_place", {
+    params["_obj"];
+    if ((_obj distance (getmarkerpos "SEN_NoFireZone_mrk")) < (getMarkerSize "SEN_NoFireZone_mrk") select 0) then {
+        if (local (nearestObject [getPos _obj, "Man"])) then {
+            ["<t size='0.6'>WEAPON DISCHARGE IS NOT PERMITTED AT THE MAIN OPERATING BASE!</t>"] spawn bis_fnc_dynamicText;
+        };
+        deleteVehicle _obj;
+    };
+}] call ace_common_fnc_addEventHandler;
+
+if (didJIP) then {
+    JK_registerPlayer = player;
+    publicVariableServer "JK_registerPlayer";
+};
 
 // misc settings
 SEN_civQuestioned = [];
@@ -46,17 +58,7 @@ if ((paramsArray select 2) isEqualTo 1 && SEN_debug) then {
     };
 };
 
-
-JK_var_PilotsOnly_EVH = addMissionEventHandler ["Draw3D", {
-    if (alive player && !(player getVariable ["JK_isPilot", false])) then {
-        if ((vehicle player isKindOf "Air" || vehicle player isKindOf "ParachuteBase") && (player == assignedDriver vehicle player || player == (vehicle player) turretUnit [0])) then {
-            doGetOut player;
-            hintSilent "Only Pilots are allowed to fly.";
-        };
-    };
-}];
-
-waitUntil {sleep 0.1; !isNull (findDisplay 46)};
+waitUntil {!isNull (findDisplay 46)};
 
 // setup briefing
 player createDiarySubject ["rules", "Regeln"];

@@ -118,5 +118,6 @@ class JK_loadOut {
         class jetPilot;
         class pjMedic;
         class pilot;
+        class diver;
     };
 };

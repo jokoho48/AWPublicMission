@@ -10,9 +10,6 @@ __________________________________________________________________*/
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
 "SEN_NoFireZone_mrk" setMarkerAlpha 0;
-[] spawn {
-waitUntil {!isNil "JK_DBSetup"};
-call {
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
 SEN_range = worldSize/2;
 publicVariable "SEN_range";
@@ -69,7 +66,7 @@ if (SEN_debug) then {
 
 // occupied location setu
 for "_s" from 1 to (paramsArray select 7) do {
-    _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
     SEN_occupiedLocation pushBack _targetTown;
     SEN_whitelistLocation = SEN_whitelistLocation - [_targetTown];
     [0,"Occupied location: Name: %1, Position: %2, Type: %3",text _targetTown,getpos _targetTown,type _targetTown] call SEN_fnc_log;
@@ -88,7 +85,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             _buildings = _townPos nearObjects ["House",_avgTownSize];
             if (count _buildings > 0) then {
                 for "_i" from 1 to ceil(((count _buildings)*0.25) min 15) do {
-                    _destroyed = _buildings select (random ((count _buildings) - 1));
+                    _destroyed = _buildings call BIS_fnc_selectRandom;
                     _destroyedPos pushBack (getposatl _destroyed);
                     _destroyed setDamage 1;
                     _buildings = _buildings - [_destroyed];
@@ -102,8 +99,8 @@ for "_s" from 1 to (paramsArray select 7) do {
                 private ["_veh","_vehPos"];
 
                 for "_i" from 0 to (ceil random 6) do {
-                    _vehType = _wreckArray select (random ((count _wreckArray) - 1));
-                    _road = _roads select (random ((count _roads) - 1));
+                    _vehType = _wreckArray call BIS_fnc_selectRandom;
+                    _road = _roads call BIS_fnc_selectRandom;
                     _roadConnectedTo = (roadsConnectedTo _road);
                     if (count _roadConnectedTo > 0) then {
                         _vehPos = [getposATL _road, getposATL (_roadConnectedTo select 0)] call SEN_fnc_findThirdPos;
@@ -126,7 +123,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             // add smoke
             if (count _destroyedPos > 0) then {
                 for "_i" from 1 to ceil(((count _destroyedPos)*0.35) min 7) do {
-                    _smokingPos = _destroyedPos select (random ((count _destroyedPos) - 1));
+                    _smokingPos = _destroyedPos call BIS_fnc_selectRandom;
                     _fx = "test_EmptyObjectForSmoke" createVehicle _smokingPos;
                 };
             };
@@ -156,5 +153,3 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
 [0,"fn_settingsPost complete."] call SEN_fnc_log;
-};
-};

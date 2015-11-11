@@ -12,7 +12,7 @@ _posArray = [];
 _expArray = [["(1 - forest) * (1 + meadow) * (1 - sea) * (1 - houses) * (1 - hills)","meadow"],["(1 + forest + trees) * (1 - sea) * (1 - houses)","forest"],["(1 - forest) * (1 + hills) * (1 - sea)","hills"]];
 
 while {_counter < _count} do {
-    _selected = _expArray select (random ((count _expArray) - 1));
+    _selected = _expArray call BIS_fnc_selectRandom;
     _selected params ["_expression", "_str"];
     _pos = [SEN_centerPos,0,SEN_range] call SEN_fnc_findRandomPos;
     _ret = selectBestPlaces [_pos,1000,_expression,80,1];

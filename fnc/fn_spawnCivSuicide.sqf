@@ -16,7 +16,7 @@ _unit forceSpeed (_unit getSpeed "FAST");
 _unit allowfleeing 0;
 _targets = [(getPosATL _unit),_range] call SEN_fnc_getNearPlayers;
 if (count _targets isEqualTo 0) exitWith {[1,"No players near bomber."] call SEN_fnc_log};
-_targetPlayer = _targets select (random ((count _targets) - 1));
+_targetPlayer = _targets call BIS_fnc_selectRandom;
 [0,"Bomber target is %1.",name _targetPlayer] call SEN_fnc_log;
 _unit addVest "V_TacVestIR_blk";
 _unit addEventHandler ["Hit", {"HelicopterExploSmall" createVehicle ((_this select 0) modeltoworld [0,0,0]); (_this select 0) removeAllEventHandlers "Hit"}];

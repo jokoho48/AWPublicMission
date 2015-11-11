@@ -27,21 +27,21 @@ _driverArray = [];
 for "_j" from 0 to (_count - 1) do {
     call {
         if (_type isEqualTo 0) exitWith {
-            (_unitPool select (random ((count _unitPool) - 1))) createUnit [_pos, _grp];
+            (_unitPool call BIS_fnc_selectRandom) createUnit [_pos, _grp];
         };
 
         if (_type isEqualTo 2) then {
-            _veh = createVehicle [(_airPool select (random ((count _airPool) - 1))),_pos,[],0,"FLY"];
+            _veh = createVehicle [(_airPoolcall BIS_fnc_selectRandom),_pos,[],0,"FLY"];
         } else {
-            _veh = (_vehPool select (random ((count _vehPool) - 1))) createVehicle _pos;
+            _veh = (_vehPool call BIS_fnc_selectRandom) createVehicle _pos;
         };
 
-        _unit = _grp createUnit [(_unitPool select (random ((count _unitPool) - 1))),_pos, [], 0, "NONE"];
+        _unit = _grp createUnit [(_unitPool call BIS_fnc_selectRandom),_pos, [], 0, "NONE"];
         _unit moveInDriver _veh;
         _driverArray pushBack _unit;
 
         if !((_veh emptyPositions "gunner") isEqualTo 0) then {
-            _unit = _grp createUnit [(_unitPool select (random ((count _unitPool) - 1))),_pos, [], 0, "NONE"];
+            _unit = _grp createUnit [(_unitPool call BIS_fnc_selectRandom),_pos, [], 0, "NONE"];
             _unit moveInGunner _veh;
         };
     };
