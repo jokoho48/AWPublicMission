@@ -116,7 +116,7 @@ CREATE_RANDOM_IED_NAME = {
     _numberOfLettersToUse = 10;
     _count = count _letters;
     for "_i" from 0 to _numberOfLettersToUse - 1 do {
-        _name = _name + (_letters select (floor (random _count)));
+        _name = _name + (_letters select (random _count)));
     };
     if (_name in JK_iedNameSecure) exitWith {call CREATE_RANDOM_IED_NAME};
     JK_iedNameSecure pushBack _name;
