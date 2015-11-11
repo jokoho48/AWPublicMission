@@ -13,7 +13,7 @@ _wreckArray = ["Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_UA
 _vehPos = [];
 _pos = [];
 _houseArray = [];
-_returnTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+_returnTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
 _returnPos = getpos _returnTown;
 _returnPos set [2,0];
 if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"}) then {
@@ -36,7 +36,7 @@ _taskID = format["%1_rescue_civ",SEN_taskCounterCiv];
 _taskText = "Rescue Hostage";
 _taskDescription = format["We have intel that a civilian was taken hostage by enemy sympathizers at grid (%1). Local officials request that we rescue the civilian and escort him to %2. This is an important task that will get the local population on our side.",mapGridPosition _pos, text _returnTown];
 
-_vehType = _wreckArray select (random ((count _wreckArray) - 1));
+_vehType = _wreckArray call BIS_fnc_selectRandom;
 _roads = _pos nearRoads 50;
 
 if !(count _roads isEqualTo 0) then {_vehPos = getposATL (_roads select 0);} else {_vehPos = [_pos,20,50,5,0,0.5,0] call BIS_fnc_findSafePos;};
@@ -46,7 +46,7 @@ _veh setDir random 360;
 _veh setVectorUp surfaceNormal position _veh;
 _fx = "test_EmptyObjectForFireBig" createVehicle (getposATL _veh);
 _fx attachTo [_veh,[0,0,0]];
-_hostage = (createGroup CIVILIAN) createUnit [SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1)),_pos, [], 0, "NONE"];
+_hostage = (createGroup CIVILIAN) createUnit [SEN_unitPoolCiv call BIS_fnc_selectRandom,_pos, [], 0, "NONE"];
 _hostage allowdamage false;
 _hostage setDir random 360;
 _pos set [2,0];

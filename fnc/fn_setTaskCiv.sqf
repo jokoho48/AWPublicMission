@@ -18,5 +18,5 @@ publicVariable "SEN_intelObjCiv";
 SEN_taskSuccess = 0;
 SEN_taskCounterCiv = SEN_taskCounterCiv + 1;
 if !(_override isEqualTo "") exitWith { [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _override]; };
-_task = SEN_taskListCiv select (random ((count SEN_taskListCiv) - 1));
+_task = SEN_taskListCiv call BIS_fnc_selectRandom;
 [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _task];

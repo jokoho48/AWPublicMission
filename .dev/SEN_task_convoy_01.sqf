@@ -30,16 +30,16 @@ if (SEN_enemySide isEqualTo EAST) then {
 
 for "_i" from 0 to 9 do {
     _townArray = SEN_whitelistLocation;
-    _townStart = _townArray select (random ((count _townArray) - 1));
+    _townStart = _townArray call BIS_fnc_selectRandom;
     _townArray = _townArray - [_townStart];
-    _townEnd = _townArray select (random ((count _townArray) - 1));
+    _townEnd = _townArray call BIS_fnc_selectRandom;
 
     if ((({_x distance getpos _townStart < 1000} count (call SEN_fnc_getPlayers)) isEqualTo 0) && {getpos _townStart distance getpos _townEnd > _minDist}) exitWith {};
 
     if (_i isEqualTo 9) exitWith {
-        _townStart = _townArray select (random ((count _townArray) - 1));
+        _townStart = _townArray call BIS_fnc_selectRandom;
         _townArray = _townArray - [_townStart];
-        _townEnd = _townArray select (random ((count _townArray) - 1));
+        _townEnd = _townArray call BIS_fnc_selectRandom;
     };
     sleep 0.1;
 };
@@ -51,13 +51,13 @@ _device = "Land_Device_assembled_F" createVehicle _pos1;
 _device enableSimulationGlobal false;
 _vehArray pushBack _device;
 
-_rand = [_type2,_type3] select (random ((count [_type2,_type3]) - 1));
+_rand = [_type2,_type3] call BIS_fnc_selectRandom;
 _veh = [[_pos1, 5, 15, 5, 0, 1, 0] call BIS_fnc_findSafePos, 0, _rand, _grp] call BIS_fnc_spawnVehicle;
 _veh = _veh select 0;
 _veh limitSpeed _speed;
 _vehArray pushBack _veh;
 
-_rand = [_type2,_type3] select (random ((count [_type2,_type3]) - 1));
+_rand = [_type2,_type3] call BIS_fnc_selectRandom;
 _veh = [[_pos1, 5, 15, 5, 0, 1, 0] call BIS_fnc_findSafePos, 0, _rand, _grp] call BIS_fnc_spawnVehicle;
 _veh = _veh select 0;
 _veh limitSpeed _speed;

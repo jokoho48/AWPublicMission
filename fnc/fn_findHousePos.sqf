@@ -15,7 +15,7 @@ _return = [];
 
 _houseArray = _center nearObjects ["House",_range];
 if !(count _houseArray isEqualTo 0) then {
-    _house = _houseArray select (random ((count _houseArray) - 1));
+    _house = _houseArray call BIS_fnc_selectRandom;
     _housePosArray = [_house] call bis_fnc_buildingPositions;
 
     if !(count _housePosArray isEqualTo 0) then {
