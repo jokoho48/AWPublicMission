@@ -58,8 +58,6 @@ if ((paramsArray select 2) isEqualTo 1 && SEN_debug) then {
     };
 };
 
-waitUntil {sleep 0.1; !isNull (findDisplay 46)};
-
 // setup briefing
 player createDiarySubject ["rules", "Regeln"];
 player createDiarySubject ["teamspeak", "Teamspeak"];

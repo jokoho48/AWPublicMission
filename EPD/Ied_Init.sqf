@@ -31,7 +31,7 @@ publicVariable "explosiveSuperClasses";
 projectilesToIgnore = ["SmokeShell", "FlareCore", "IRStrobeBase", "GrenadeHand_stone", "Smoke_120mm_AMOS_White", "TMR_R_DG32V_F"];
 publicVariable "projectilesToIgnore";
 waitUntil {!isNil "SEN_occupiedLocation" && !isNil "SEN_whitelistLocation"};
-call compile preprocessFileLineNumbers "EPD\Ied_Settings.sqf";
+[] spawn compile preprocessFileLineNumbers "EPD\Ied_Settings.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\ExplosionFunctions.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\CreationFunctions.sqf";
 call compile preprocessFileLineNumbers "EPD\IED\ExplosionEffects.sqf";
