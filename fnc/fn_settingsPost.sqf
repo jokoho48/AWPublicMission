@@ -49,7 +49,7 @@ if !(isNil "SEN_HC") then {
 _trgSafeZone = createTrigger ["EmptyDetector", getMarkerPos "SEN_safezone_mrk"];
 _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
 _trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x; nil} count crew _x; deleteVehicle _x; }; nil} count thisList;", ""];
-_trgSafeZone setTriggerActivation [str SEN_enemySide, "PRESENT", true]
+_trgSafeZone setTriggerActivation [str SEN_enemySide, "PRESENT", true];
 
 // debug setup
 if (SEN_debug) then {
@@ -131,6 +131,9 @@ for "_s" from 1 to (paramsArray select 7) do {
     };
 };
 [] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+
+[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";

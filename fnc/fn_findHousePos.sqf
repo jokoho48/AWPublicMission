@@ -18,7 +18,7 @@ if !(_houseArray isEqualTo []) then {
     _house = _houseArray call BIS_fnc_selectRandom;
     _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
 
-    if !(_housePosArray isEqualTo ][]) then {
+    if !(_housePosArray isEqualTo []) then {
         {
             _dummypad = createVehicle ["Land_HelipadEmpty_F", _x, [], 0, "CAN_COLLIDE"];
             if !((lineIntersectsObjs [(getposASL _dummypad), [(getposASL _dummypad select 0),(getposASL _dummypad select 1),((getposASL _dummypad select 2) + 20)]]) isEqualTo []) exitWith {

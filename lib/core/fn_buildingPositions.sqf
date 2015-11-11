@@ -22,7 +22,7 @@ _availablePositions = [];
 _index = 0;
 
 //Loop limit and find available positions
-while { (_building buildingPos _index) distance [0,0,0] > 0 && _index < _max } do {
+while { (_building buildingPos _index) distance [0,0,0] > 0 } do {
     //Add position to the pool
     _availablePositions pushBack (_building buildingPos _index);
 

@@ -35,7 +35,7 @@ _cString = {
     };
     if(count (_dat select 6) > 0) then {
         {
-            call _x
+            call _x;
             nil
         } count (_dat select 6);
     };

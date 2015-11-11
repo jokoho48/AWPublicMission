@@ -13,10 +13,6 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
     } count ((getMarkerPos "SEN_med_mrk") nearObjects ["House", 100]);
 };
 
-[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
-[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
-
-
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitys"], {
     params ["_key", "_value", "", "_preValue"];
     if ("JK_TicketSystem" == _key) then {

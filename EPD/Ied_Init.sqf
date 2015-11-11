@@ -67,7 +67,7 @@ if(isServer) then {
                     _keys = iedAllMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles set pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        _handles pushBack ([_x,_side] spawn CREATE_IED_SECTION);
                         nil
                     } count _keys;
                 };
@@ -75,7 +75,7 @@ if(isServer) then {
                     _keys = iedCityMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        _handles pushBack ([_x,_side] spawn CREATE_IED_SECTION);
                         nil
                     } count _keys;
                 };
@@ -83,7 +83,7 @@ if(isServer) then {
                     _keys = iedVillageMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        _handles pushBack ([_x,_side] spawn CREATE_IED_SECTION);
                         nil
                     } count _keys;
                 };
@@ -91,12 +91,12 @@ if(isServer) then {
                     _keys = iedLocalMapLocations call Dictionary_fnc_keys;
                     _side = _x select 1;
                     {
-                        _handles pushBack [[_x,_side]] spawn CREATE_IED_SECTION;
+                        _handles pushBack ([[_x,_side]] spawn CREATE_IED_SECTION);
                         nil
                     } count _keys;
                 };
             default    {
-                _handles pushBack [_x] spawn CREATE_IED_SECTION;
+                _handles pushBack ([_x] spawn CREATE_IED_SECTION);
             };
         };
         nil
