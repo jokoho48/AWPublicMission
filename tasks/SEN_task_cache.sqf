@@ -16,7 +16,7 @@ _cacheArray = [];
 _radius = 1000;
 
 _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
-while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && (surfaceIsWater _pos))} do {
     _pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
 };
 if (_pos isEqualTo []) exitWith {
@@ -27,7 +27,7 @@ if (_pos isEqualTo []) exitWith {
 _grpArray = [_pos,SEN_enemySide,8,.25,1] call SEN_fnc_spawnSquad;
 _grpArray params ["_baseArray", "_vehArray", "_grp"];
 _hq = nearestObjects [_pos, ["Land_Cargo_HQ_V3_F"], 100];
-_hq = (_hq call BIS_fnc_selectRandom;
+_hq = (_hq call BIS_fnc_selectRandom);
 
 for "_i" from 0 to 2 step 2 do {
     _ammo = "O_supplyCrate_F" createVehicle [0,0,0];

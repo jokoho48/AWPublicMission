@@ -15,7 +15,6 @@
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 JK_Gear = "Main";
 _fnc_gear_Call = {
-    //[player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction;
     [_this, format ["<t color='#52c652'>%1</t>", localize "STR_JK_GEAR_MC"], {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
     [_this, format ["<t color='#c6c6c6'>%1</t>", localize "STR_JK_GEAR_AR"], {JK_Gear = "USARMY"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
     [_this, format ["<t color='#fa6bff'>%1</t>", localize "STR_JK_GEAR_SO"], {JK_Gear = "USSOF"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
@@ -40,7 +39,7 @@ _fnc_gear_Call = {
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
         _string = (format["<t color='#%2'>%1</t>",_string, _color]);
         [_this, _string, {
-            [(_this select 3), player, "JK_loadOut_fnc_selectGear", true, 1] remoteExec ["db_fnc_codeload", 2, false];
+            ["Loadouts:%1" + (_this select 3), player, "JK_loadOut_fnc_selectGear", true, 1] remoteExec ["db_fnc_codeload", 2, false];
             JK_Gear = "Main";
         }, _cond, _x, _foreachindex + 99, 3] call JK_Core_fnc_addAction;
     } forEach JK_classes;

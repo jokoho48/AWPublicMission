@@ -1,6 +1,5 @@
 /*
 loadout script by joko
-Idea by Belbo
 adds the loadouts to the specific playable units for the side West
 Call from initPlayerLocal.sqf via:
 [Object] call JK_loadOut_fnc_loadoutsInit;
@@ -21,18 +20,18 @@ _pilots = ["r_1", "r_2", "r_3", "r_4"];
 _db = 1;
 _strTarget = str _target;
 if (_strTarget in _command) exitWith {
-    ["AR_COMMAND", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:AR_COMMAND", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _TL) exitWith {
-    ["AR_FTL", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:AR_FTL", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _SL) exitWith {
-    ["AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _crew) exitWith {
-    ["CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _pilots) exitWith {
-    ["PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
-["AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+["Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];

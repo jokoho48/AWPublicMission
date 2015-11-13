@@ -29,8 +29,9 @@ SEN_intelObj addEventHandler ["hit", {
     };
 }];
 [group SEN_intelObj,90] spawn SEN_fnc_setPatrolGroup;
-
-[WEST, [_taskID], [_taskDescription, _taskText, ""], getPos _townMarker, false, -1, true, "Search", false] call BIS_fnc_taskCreate;
+_markerPos = getPos _townMarker;
+_markerPos set [2, 0];
+[WEST, [_taskID], [_taskDescription, _taskText, ""], _markerPos, false, -1, true, "Search", false] call BIS_fnc_taskCreate;
 
 if(SEN_debug) then {
     [_taskID] call BIS_fnc_taskSetCurrent;

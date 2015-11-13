@@ -35,7 +35,7 @@ JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECI
 	private "_path";
 	_path = "";
 	call {
-		if (_x in USMC) exitWith {
+		if (_x in JK_USMC) exitWith {
 			_path = "lib\gear\loadouts\USMC\";
 		};
 		if (_x in JK_USARMY) exitWith {
@@ -47,13 +47,13 @@ JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECI
 		if (_x in JK_USSOFLIGHT) exitWith {
 			_path = "lib\gear\loadouts\USSOFlight\";
 		};
-		if (_x in JK_SPECZIALCLASSES) exitWith {
+		if (_x in JK_SPECIALCLASSES) exitWith {
 			_path = "lib\gear\loadouts\special\";
 		};
 		if (_x in JK_PARA) exitWith {
 			_path = "lib\gear\loadouts\parachute\";
 		};
 	};
-	[_x,(compile preprocessFileLineNumbers format["%1fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
+	["Loadouts:"+ _x,(compile preprocessFileLineNumbers format["%1fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
 	nil;
 } count JK_CLASSES;

@@ -11,10 +11,10 @@ private ["_roads","_part","_size","_count","_civ","_ambush","_rebelWeapon","_reb
 
 _ambush = false;
 _wreckArray = ["Land_Wreck_Truck_dropside_F","Land_Wreck_Truck_F","Land_Wreck_UAZ_F","Land_Wreck_Ural_F","Land_Wreck_Van_F","Land_Wreck_Skodovka_F","Land_Wreck_CarDismantled_F","Land_Wreck_Car3_F","Land_Wreck_Car_F"];
-_town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+_town = SEN_whitelistLocation call BIS_fnc_selectRandom;
 _pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
-while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
-    _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && (surfaceIsWater _pos))} do {
+    _town = SEN_whitelistLocation call BIS_fnc_selectRandom;
     _pos = [getpos _town,300,1000] call SEN_fnc_findRandomPos;
 };
 
@@ -22,7 +22,7 @@ _taskID = format["%1_stabilize_civ",SEN_taskCounterCiv];
 _taskText = "Stabilize Civilian";
 _taskDescription = format["Aerial reconnaissance shows a civilian was attacked by enemy sympathizers at grid (%1) near %2. Local officials request that we provide immediate medical attention and transport the civilian to Dodge Medical Center. This is an important task that will get the local population on our side.",mapGridPosition _pos, text _town];
 
-_vehType = _wreckArray select (random ((count _wreckArray) - 1));
+_vehType = _wreckArray call BIS_fnc_selectRandom;
 _roads = _pos nearRoads 50;
 if !(count _roads isEqualTo 0) then {_vehPos = getposATL (_roads select 0);} else {_vehPos = [_pos,8,35] call SEN_fnc_findRandomPos;};
 _veh = _vehType createVehicle _vehPos;
@@ -30,7 +30,7 @@ _veh setDir random 360;
 _veh setVectorUp surfaceNormal position _veh;
 _fx = "test_EmptyObjectForFireBig" createVehicle (getposATL _veh);
 _fx attachTo [_veh,[0,0,0]];
-_civ = (createGroup CIVILIAN) createUnit [SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1)),_pos, [], 0, "NONE"];
+_civ = (createGroup CIVILIAN) createUnit [SEN_unitPoolCiv call BIS_fnc_selectRandom,_pos, [], 0, "NONE"];
 _civ setBehaviour "CARELESS";
 _civ setDir random 360;
 _civ switchMove "AinjPpneMstpSnonWrflDnon";
@@ -57,7 +57,7 @@ if (ace_medical_level isEqualTo 1) then {
     ];
     for "_i" from 0 to ceil random 2 do {
         _damage = 0.3 + (random 0.65);
-        [_civ, (_part select (random ((count _part) - 1))), _damage] call ace_medical_fnc_setHitPointDamage;
+        [_civ, (_part call BIS_fnc_selectRandom), _damage] call ace_medical_fnc_setHitPointDamage;
     };
     [_civ,true,10,true] call ace_medical_fnc_setUnconscious;
 } else {

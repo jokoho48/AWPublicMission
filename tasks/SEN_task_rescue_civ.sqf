@@ -21,7 +21,7 @@ if (worldName isEqualTo "Chernarus" || {worldName isEqualTo "Chernarus_Summer"})
 } else {
     _houseArray = [SEN_centerPos,SEN_range] call SEN_fnc_findRuralHousePos;
     _pos = (_houseArray select 1);
-    while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
+    while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && (surfaceIsWater _pos))} do {
         _houseArray = [SEN_centerPos,SEN_range] call SEN_fnc_findRuralHousePos;
         _pos = (_houseArray select 1);
     };
