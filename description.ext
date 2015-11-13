@@ -7,7 +7,7 @@ class Header {
 overviewPicture = "media\SEN_imgLogo.paa";
 Author = "SENSEI edit for Armaworld";
 onLoadName = "Dynamic Combat Gen. Edit for Armaworld";
-onLoadMission = "DCG 3.0.9 edit V22";
+onLoadMission = "DCG 3.0.9 edit V27";
 loadScreen = "media\SEN_imgLogo.paa";
 briefing = 0;
 respawn = 3;
@@ -31,14 +31,18 @@ wreckRemovalMaxTime = 900;
 
 taskManagement_markers3D = 1;
 taskManagement_markers2D = 1; //0: do not use new 2D markers (default), 1: replace task markers with new 2D markers
-taskManagement_propagate = 0; //0: do not propagate (default), 1: propagate shared tasks to subordinates
+taskManagement_propagate = 1; //0: do not propagate (default), 1: propagate shared tasks to subordinates
 taskManagement_drawDist = 2000; //3D marker draw distance as UNASSIGNED (default: 2000)
+
+disableChannels[] = {0,1,2,3,4,5,6};
+
+joinUnassigned = 1;
 
 #include "data\defuse_common.hpp"
 #include "data\explosivePad.hpp"
 #include "data\intro.hpp"
 #include "data\SEN_XEH.hpp"
-#include "scripts\VVS\menu.h"
+#include "lib\VSS\menu.hpp"
 
 class Params {
     #include "data\SEN_params.hpp"
@@ -50,17 +54,24 @@ class CfgFunctions {
     #include "lib\core\cfgFunctions.hpp"
     #include "lib\gear\cfgFunctions.hpp"
     #include "lib\repair\cfgFunctions.hpp"
-    #include "scripts\VVS\Functions.h"
+    #include "lib\VSS\cfgFunctions.hpp"
 };
 
 class CfgSounds {
     #include "data\SEN_cfgSounds.hpp"
 };
 
-class CfgHints {
-    #include "data\SEN_cfgHints.hpp"
-};
-
 class CfgNotifications {
     #include "data\SEN_cfgNotifications.hpp"
+};
+
+class ACE_Settings {
+    class JK_Optics {
+        displayName = "Optic Type";
+        description = "Welchen Optic Type Möchtest du bei RCO benutzten";
+        value = 0;
+        typeName = "SCALAR";
+        values[] = {"Vanilla", "2D Optic", "PiP Optic"};
+        isClientSettable = 1;
+    };
 };

@@ -7,5 +7,6 @@ class JK_Core {
         class triggerMissionEventhandler;
         class addAction;
         class clientInit {postInit = 1; };
+        class buildingPositions;
     };
 };

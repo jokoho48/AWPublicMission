@@ -96,13 +96,13 @@ GET_SIZE_AND_TYPE = {
 
     _type = switch _size do {
         case "SMALL": {
-            iedSmallItems select(floor random(iedSmallItemsCount))
+            iedSmallItems call BIS_fnc_selectRandom
         };
         case "MEDIUM": {
-            iedMediumItems select(floor random(iedMediumItemsCount))
+            iedMediumItems call BIS_fnc_selectRandom
         };
         case "LARGE": {
-            iedLargeItems select(floor random(iedLargeItemsCount))
+            iedLargeItems call BIS_fnc_selectRandom
         };
         default {(iedSmallItems + iedMediumItems + iedLargeItems) call BIS_fnc_selectRandom};
     };
@@ -116,7 +116,7 @@ CREATE_RANDOM_IED_NAME = {
     _numberOfLettersToUse = 10;
     _count = count _letters;
     for "_i" from 0 to _numberOfLettersToUse - 1 do {
-        _name = _name + (_letters select (floor (random _count)));
+        _name = _name + (_letters select (floor(random _count)));
     };
     if (_name in JK_iedNameSecure) exitWith {call CREATE_RANDOM_IED_NAME};
     JK_iedNameSecure pushBack _name;

@@ -13,7 +13,7 @@ item8[] = {"allDead_",4,218,-396.858551,304.806641,-306.858551,354.806641,3.0000
 item9[] = {"end",1,250,-519.399902,383.839478,-429.399597,433.839447,0.000000,"end"};
 item10[] = {"delay",8,218,-453.643311,137.457932,-363.643311,187.457932,0.000000,"delay"};
 item11[] = {"delayed",2,250,-496.324066,202.799103,-406.323944,252.799118,0.000000,"delayed"};
-item12[] = {"done_delay__and",4,4314,-484.096313,272.248962,-394.096191,322.248962,0.000000,"done delay?" \n "and setPos"};
+item12[] = {"done_delay__and",4,218,-484.096313,272.248962,-394.096191,322.248962,0.000000,"done delay?" \n "and setPos"};
 item13[] = {"delay",8,218,-60.272964,138.074768,29.727036,188.074768,0.000000,"delay"};
 item14[] = {"delayed_1",2,250,-34.876671,226.961761,55.123352,276.961761,0.000000,"delayed"};
 item15[] = {"done_delay_",4,218,-71.912933,312.674255,18.087072,362.674255,0.000000,"done delay?"};
@@ -50,8 +50,8 @@ link24[] = {16,4};
 link25[] = {17,9};
 link26[] = {18,19};
 link27[] = {20,9};
-globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-652.273315,64.810089,597.442261,-17.795135,690,592,1};
-window[] = {0,-1,-1,-1,-1,782,132,1246,18,1,708};
+globals[] = {0.000000,0,0,0,0,640,480,1,39,6316128,1,-553.130615,60.613983,352.758118,-107.924507,1231,924,1};
+window[] = {2,-1,-1,-1,-1,790,26,1140,26,3,1249};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -68,8 +68,8 @@ class FSM
                          "params [""_distance"", ""_group"", ""_fps"", ""_debug""];" \n
                          "_leader = leader _group;" \n
                          "_groupCount = ({alive _x} count units _group);" \n
-                         "_trandomc = (1 + (random 2));" \n
-                         "_trandomu = (3 + (random 2));"/*%FSM</STATEINIT""">*/;
+                         "_trandomc = 5;" \n
+                         "_trandomu = 6;"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
                         class Links
                         {
@@ -114,7 +114,7 @@ class FSM
                 {
                         name = "begin";
                         itemno = 2;
-                        init = /*%FSM<STATEINIT""">*/"if (zbe_debug) then {" \n
+                        init = /*%FSM<STATEINIT""">*/"if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache starting for group %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -187,7 +187,7 @@ class FSM
                                         condition=/*%FSM<CONDITION""">*/"!(alive _leader) && {!(simulationEnabled (leader _group))}"/*%FSM</CONDITION""">*/;
                                         action=/*%FSM<ACTION""">*/"call zbe_unCache;" \n
                                          "_leader = (leader _group);" \n
-                                         "if (zbe_debug) then {" \n
+                                         "if (SEN_debug) then {" \n
                                          "    [0, format [""ZBE_Cache leader synced for %1, uncached %2"",_group,_leader]] call SEN_fnc_log;" \n
                                          "};"/*%FSM</ACTION""">*/;
                                 };
@@ -270,7 +270,7 @@ class FSM
                         itemno = 9;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""JK_noCache"",true];" \n
-                         "if (zbe_debug) then {" \n
+                         "if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache ending for group %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -335,7 +335,7 @@ class FSM
                         itemno = 19;
                         init = /*%FSM<STATEINIT""">*/"zbe_cachedGroups = zbe_cachedGroups - [_group];" \n
                          "_group setVariable [""JK_noCache"",true];" \n
-                         "if (zbe_debug) then {" \n
+                         "if (SEN_debug) then {" \n
                          "    [0, format [""ZBE_Cache ending for group as leader player %1"",_group]] call SEN_fnc_log;" \n
                          "};"/*%FSM</STATEINIT""">*/;
                         precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;

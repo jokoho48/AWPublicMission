@@ -15,11 +15,11 @@ _posArray = [];
 _counter = 50;
 
 call {
-    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "RHS_NSV_TriPod_MSV"; _static2 = (["O_GMG_01_high_F", "O_HMG_01_high_F"] call BIS_fnc_selectRandom); _static3 = "O_Mortar_01_F"};
-    if (_side isEqualTo WEST) exitWith {_unit = SEN_unitPoolWest select (random ((count SEN_unitPoolWest) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
-    if (_side isEqualTo CIVILIAN) exitWith {_unit = SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1)); _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
+    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool call BIS_fnc_selectRandom; _static1 = "RHS_NSV_TriPod_MSV"; _static2 = (["O_GMG_01_high_F", "O_HMG_01_high_F"] call BIS_fnc_selectRandom); _static3 = "O_Mortar_01_F"};
+    if (_side isEqualTo WEST) exitWith {_unit = SEN_unitPoolWest call BIS_fnc_selectRandom; _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
+    if (_side isEqualTo CIVILIAN) exitWith {_unit = SEN_unitPoolCiv call BIS_fnc_selectRandom; _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
 
-    _unit = SEN_unitPool select (random ((count SEN_unitPool) - 1)); _static1 = "I_GMG_01_high_F"; _static2 = "I_HMG_01_high_F"; _static3 = "I_Mortar_01_F";
+    _unit = SEN_unitPool call BIS_fnc_selectRandom; _static1 = "I_GMG_01_high_F"; _static2 = "I_HMG_01_high_F"; _static3 = "I_Mortar_01_F";
 };
 
 _random = if (_type isEqualTo -1) then {true} else {false};
@@ -31,14 +31,19 @@ for "_s" from 0 to _counter do {
 
         if (_type isEqualTo 1) exitWith { // open static
             if (count _roads < 1) exitWith {};
-            _road = _roads select (random ((count _roads) - 1));
+            _road = _roads call BIS_fnc_selectRandom;
             _roadConnectedTo = (roadsConnectedTo _road) select 0;
             if (isNil "_roadConnectedTo") exitWith {};
             _dir = [_road, _roadConnectedTo] call BIS_fnc_DirTo;
             _staticPos = [getposATL _road, getposATL _roadConnectedTo] call SEN_fnc_findThirdPos;
             _check = _staticPos isFlatEmpty [2, 0, 0.4, 2, 0, false, objNull];
 
-            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}} forEach _posArray};
+            if (count _posArray > 0) then {
+                {
+                    if (_x distance _staticPos < 20) exitWith {_check = []};
+                    nil
+                } count _posArray;
+            };
             if (count _check isEqualTo 0 || {isOnRoad _staticPos}) exitWith {};
 
             _posArray pushBack _staticPos;
@@ -59,14 +64,14 @@ for "_s" from 0 to _counter do {
         };
         if (_type isEqualTo 2) exitWith { // bunkered static
             if (count _roads < 1) exitWith {};
-            _road = _roads select (random ((count _roads) - 1));
+            _road = _roads call BIS_fnc_selectRandom;
             _roadConnectedTo = (roadsConnectedTo _road) select 0;
             if (isNil "_roadConnectedTo") exitWith {};
             _dir = [_road, _roadConnectedTo] call BIS_fnc_DirTo;
             _staticPos = [getposATL _road, getposATL _roadConnectedTo] call SEN_fnc_findThirdPos;
             _check = _staticPos isFlatEmpty [2, 0, 0.4, 3, 0, false, objNull];
 
-            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}} forEach _posArray};
+            if (count _posArray > 0) then { { if (_x distance _staticPos < 20) exitWith {_check = []}; nil} count _posArray};
             if (count _check isEqualTo 0 || isOnRoad _staticPos) exitWith {};
 
             _staticPos set [2,-0.02];
@@ -136,7 +141,8 @@ if(SEN_debug && {!(count _gunnerArray isEqualTo 0)}) then {
         _mrk setMarkerType "mil_dot";
         _mrk setMarkerColor "ColorEAST";
         _mrk setMarkerText "STATIC";
-    } forEach _gunnerArray;
+        nil
+    } count _gunnerArray;
 };
 
 _gunnerArray

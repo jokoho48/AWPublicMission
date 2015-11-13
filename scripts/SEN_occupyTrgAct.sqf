@@ -20,11 +20,7 @@ _approval = 0;
 _tickets = 0;
 _enemyArray = [];
 
-[0,"OccupyTrgAct: %1",_town] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_pos] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_townName] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_townType] call SEN_fnc_log;
-[0,"OccupyTrgAct: %1",_radius] call SEN_fnc_log;
+[0,"OccupyTrgAct: %1 %2 %3 %4 %5",_town, _pos, _townName, _townType, _radius] call SEN_fnc_log;
 
 call {
     if (_townType isEqualTo "NameCityCapital") exitWith {_townType = "Capital"; _approval = 45; _tickets = 1000;};
@@ -41,7 +37,7 @@ _oldThreshold = round ((_count)*0.30);
 
 waitUntil {
     private "_count";
-    sleep 15;
+    sleep 30;
     _count = 9999;
     _enemyArray = [];
     _count = ({
@@ -61,11 +57,12 @@ if (count _players > 0) then {
     [_hint,"hintSilent",_players] call BIS_fnc_MP;
 };
 
-uiSleep 60;
+uiSleep 60 + random 100;
 
 { // check for new units in area
     if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x};
-} forEach (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]);
+    nil
+} count (_pos nearEntities [["Man","LandVehicle","Air","Ship"], _radius]);
 
 if (count _enemyArray > 0) then {
     {
@@ -77,7 +74,7 @@ if (count _enemyArray > 0) then {
                     SEN_objectCleanup pushBack _x;
                 };
                 if !(local _x) then {
-                    
+
                     [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
                     if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
                 } else {
@@ -86,7 +83,8 @@ if (count _enemyArray > 0) then {
                 };
             };
         };
-    } forEach _enemyArray;
+        nil
+    } count _enemyArray;
 };
 
 _players = (call SEN_fnc_getPlayers);
@@ -132,7 +130,8 @@ if !(isNull SEN_intelObj) then {
     sleep 10;
     {
         if (side _x isEqualTo SEN_enemySide) then {_a pushBack _x};
-    } forEach (_townPos nearEntities [["Man","Car","Tank","Air","Ship"], _radius]);
+        nil
+    } count (_townPos nearEntities [["Man","Car","Tank","Air","Ship"], _radius]);
     _threshold = (round ((count _a)*0.30));
     _kill = (count _a) - _threshold;
     for "_i" from 0 to _kill do {

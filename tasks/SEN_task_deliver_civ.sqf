@@ -9,10 +9,10 @@ if (!isServer) exitWith {};
 
 private "_grp";
 
-_targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+_targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
 _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 while {(([_pos1, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
-    _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
     _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 };
 
@@ -69,7 +69,8 @@ if (({_x distance _aid < 20} count (units _grp)) > 0) exitWith {
             sleep SEN_taskSleepCiv;
             [] call SEN_fnc_setTaskCiv;
         };
-    } forEach (units _grp);
+        nil
+    } count (units _grp);
 };
 
 if (damage _aid > 0.95) exitWith {

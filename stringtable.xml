@@ -1,75 +1,200 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project name="JK">
     <Package name="JKGear">
-        // LoadOuts
-        <Key ID="STR_JK_GEAR_COMMAND">
+
+        // Main Action Names
+        <Key ID="STR_JK_GEAR_MC">
+            <English>USMC Gear</English>
+            <German>USMC Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR">
+            <English>US Army Gear</English>
+            <German>US Army Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO">
+            <English>USSOF(Heavy) Gear</English>
+            <German>USSOF(Schwer) Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOF">
+            <English>USSOF(Light) Gear</English>
+            <German>USSOF(Leicht) Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA">
+            <English>Paratrooper Gear</English>
+            <German>Fallschirmjäger Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SPEC">
+            <English>Pilots/Crew/Logistic Gear</English>
+            <German>Piloten/Fahrzeugbesatzung/Logistik Ausrüstung</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_Back">
+            <English>Back</English>
+            <German>Zurück</German>
+        </Key>
+
+        // USMC Action Names
+        <Key ID="STR_JK_GEAR_MC_COMMAND">
             <English>Command</English>
             <German>Kommander</German>
         </Key>
-        <Key ID="STR_JK_GEAR_LEADER">
+        <Key ID="STR_JK_GEAR_MC_LEADER">
             <English>Squad Leader</English>
             <German>Gruppen Führer</German>
         </Key>
-        <Key ID="STR_JK_GEAR_FTL">
+        <Key ID="STR_JK_GEAR_MC_FTL">
             <English>Team Leader</English>
             <German>Truppführer</German>
         </Key>
-        <Key ID="STR_JK_GEAR_MEDIC">
+        <Key ID="STR_JK_GEAR_MC_MEDIC">
             <English>Medic</English>
             <German>Sanitäter</German>
         </Key>
-        <Key ID="STR_JK_GEAR_ARMAN">
+        <Key ID="STR_JK_GEAR_MC_ARMAN">
             <English>Automatic-Rifleman</English>
             <German>Automatik-Schütze</German>
         </Key>
-        <Key ID="STR_JK_GEAR_MG">
+        <Key ID="STR_JK_GEAR_MC_MG">
             <English>MG-Gunner</English>
             <German>MG-Schütze</German>
         </Key>
-        <Key ID="STR_JK_GEAR_ASSMG">
+        <Key ID="STR_JK_GEAR_MC_ASSMG">
             <English>MG-Assistent</English>
             <German>MG-Assistent</German>
         </Key>
-        <Key ID="STR_JK_GEAR_AT">
+        <Key ID="STR_JK_GEAR_MC_AT">
             <English>AT-Gunner(M3MAAWs)</English>
             <German>AT-Schütze(M3MAAWs)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_ATmk153">
+        <Key ID="STR_JK_GEAR_MC_ATmk153">
             <English>AT-Gunner(SMAW)</English>
             <German>AT-Schütze(SMAW)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_AtAss">
+        <Key ID="STR_JK_GEAR_MC_AtAss">
             <English>Assistent AT Gunner(M3MAAWs)</English>
             <German>AT-Assistent(M3MAAWs)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_AtAssmk153">
+        <Key ID="STR_JK_GEAR_MC_AtAssmk153">
             <English>Assistent AT Gunner(SMAW)</English>
             <German>AT-Assistent(SMAW)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_GRENADIER">
+        <Key ID="STR_JK_GEAR_MC_GRENADIER">
             <English>Grenadier</English>
             <German>Grenadier</German>
         </Key>
-        <Key ID="STR_JK_GEAR_RIFLEMAN">
+        <Key ID="STR_JK_GEAR_MC_RIFLEMAN">
             <English>Rifleman</English>
             <German>Schütze</German>
         </Key>
-        <Key ID="STR_JK_GEAR_stormtrooper">
+        <Key ID="STR_JK_GEAR_MC_stormtrooper">
             <English>Rifleman(Breacher)</English>
             <German>Zugangstechniker</German>
         </Key>
-        <Key ID="STR_JK_GEAR_radioOp">
+        <Key ID="STR_JK_GEAR_MC_radioOp">
             <English>Radio-Operator</English>
             <German>Funker</German>
         </Key>
-        <Key ID="STR_JK_GEAR_MARKSMAN">
+        <Key ID="STR_JK_GEAR_MC_MARKSMAN">
             <English>Marksman</English>
             <German>Gruppenscharfschütze</German>
         </Key>
-        <Key ID="STR_JK_GEAR_SPECIALIST">
+        <Key ID="STR_JK_GEAR_MC_SPECIALIST">
             <English>Specialist</English>
             <German>Spezialist</German>
         </Key>
+        <Key ID="STR_JK_GEAR_MC_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_AAAss">
+            <English>Assistent AA Gunner</English>
+            <German>AA-Assistent</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_mortarTeamBipod">
+            <English>Mortar-Observer(Bipod)</English>
+            <German>Mörser-Beobachter(Bipod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_mortarTeamTube">
+            <English>Mortar-Gunner(Tube)</English>
+            <German>Mörser-Richtschütze(Tube)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_m2TeamTripod">
+            <English>M2-Carrier(Tripod)</English>
+            <German>M2-Träger(Tripod)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_MC_m2TeamGun">
+            <English>M2-Carrier(Gun)</English>
+            <German>M2-Träger(Geschütz)</German>
+        </Key>
+
+        // SpecOps(Heavy) Action Names
+        <Key ID="STR_JK_GEAR_SO_LEADER">
+            <English>Team Leader</English>
+            <German>Gruppen Führer</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_ARMAN">
+            <English>Automatic-Rifleman</English>
+            <German>Automatik-Schütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_AT">
+            <English>AT-Gunner(M3MAAWs)</English>
+            <German>AT-Schütze(M3MAAWs)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_GRENADIER">
+            <English>Grenadier</English>
+            <German>Grenadier</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_MARKSMAN">
+            <English>Marksman</English>
+            <German>Gruppenscharfschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_SPECIALIST">
+            <English>Specialist</English>
+            <German>Spezialist</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SO_SPECOPS">
+            <English>Commando</English>
+            <German>Kommando</German>
+        </Key>
+
+        // SpecOps(Light) Action Names
+        <Key ID="STR_JK_GEAR_SOL_LEADER">
+            <English>Team Leader</English>
+            <German>Gruppen Führer</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_ARMAN">
+            <English>Automatic-Rifleman</English>
+            <German>Automatik-Schütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_AT">
+            <English>AT-Gunner(M3MAAWs)</English>
+            <German>AT-Schütze(M3MAAWs)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_GRENADIER">
+            <English>Grenadier</English>
+            <German>Grenadier</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_MARKSMAN">
+            <English>Marksman</English>
+            <German>Gruppenscharfschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_SPECIALIST">
+            <English>Specialist</English>
+            <German>Spezialist</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SOL_SPECOPS">
+            <English>Commando</English>
+            <German>Kommando</German>
+        </Key>
+
+        // US Army Action Names
         <Key ID="STR_JK_GEAR_AR_COMMAND">
             <English>Command</English>
             <German>Kommander</German>
@@ -97,6 +222,14 @@
         <Key ID="STR_JK_GEAR_AR_ASSMG">
             <English>MG-Assistent</English>
             <German>MG-Assistent</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_AA">
+            <English>AA Gunner</English>
+            <German>Luftabwehrschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_AR_AAAss">
+            <English>Assistent AA Gunner</English>
+            <German>AA-Assistent</German>
         </Key>
         <Key ID="STR_JK_GEAR_AR_AT">
             <English>AT-Gunner(M3MAAWs)</English>
@@ -138,55 +271,11 @@
             <English>Specialist</English>
             <German>Spezialist</German>
         </Key>
-        <Key ID="STR_JK_GEAR_paratrooper">
-            <English>Paratrooper(AT-4)</English>
-            <German>Fallschirmjäger(AT-4)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraARman">
-            <English>Paratrooper(Automatic-Rifleman)</English>
-            <German>Fallschirmjäger(Automatik-Schütze)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraDropMedic">
-            <English>Paratrooper(Medic)</English>
-            <German>Fallschirmjäger(Sanitäter)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraExExpert">
-            <English>Paratrooper(Explosive-Expert)</English>
-            <German>Fallschirmjäger(Sprengstoffexperte)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraGrenadier">
-            <English>Paratrooper(Grenadier)</English>
-            <German>Fallschirmjäger(Grenadier)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraLeader">
-            <English>Paratrooper(Leader)</English>
-            <German>Fallschirmjäger(Truppführer)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraMarksman">
-            <English>Paratrooper(Marksman)</English>
-            <German>Fallschirmjäger(Gruppenscharfschütze)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraStormtrooper">
-            <English>Paratrooper(Breacher)</English>
-            <German>Fallschirmjäger(Zugangstechniker)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraAssAR">
-            <English>Paratrooper(Assistant-Automatic-Rifleman)</English>
-            <German>Fallschirmjäger(Automatik-Schütze-Assistent)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_paraSpecOps">
-            <English>Paratrooper(Commando)</English>
-            <German>Fallschirmjäger(Kommando)</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_SpecOps">
-            <English>Commando</English>
-            <German>Kommando</German>
-        </Key>
-        <Key ID="STR_JK_GEAR_mortarTeamBipod">
+        <Key ID="STR_JK_GEAR_AR_mortarTeamBipod">
             <English>Mortar-Observer(Bipod)</English>
             <German>Mörser-Beobachter(Bipod)</German>
         </Key>
-        <Key ID="STR_JK_GEAR_mortarTeamTube">
+        <Key ID="STR_JK_GEAR_AR_mortarTeamTube">
             <English>Mortar-Gunner(Tube)</English>
             <German>Mörser-Richtschütze(Tube)</German>
         </Key>
@@ -198,6 +287,51 @@
             <English>M2-Carrier(Gun)</English>
             <German>M2-Träger(Geschütz)</German>
         </Key>
+
+
+        // Paratrooper Action Names
+        <Key ID="STR_JK_GEAR_PARA_trooper">
+            <English>Paratrooper(AT-4)</English>
+            <German>Fallschirmjäger(AT-4)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_ARman">
+            <English>Paratrooper(Automatic-Rifleman)</English>
+            <German>Fallschirmjäger(Automatik-Schütze)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_DropMedic">
+            <English>Paratrooper(Medic)</English>
+            <German>Fallschirmjäger(Sanitäter)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_ExExpert">
+            <English>Paratrooper(Explosive-Expert)</English>
+            <German>Fallschirmjäger(Sprengstoffexperte)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_Grenadier">
+            <English>Paratrooper(Grenadier)</English>
+            <German>Fallschirmjäger(Grenadier)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_Leader">
+            <English>Paratrooper(Leader)</English>
+            <German>Fallschirmjäger(Truppführer)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_Marksman">
+            <English>Paratrooper(Marksman)</English>
+            <German>Fallschirmjäger(Gruppenscharfschütze)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_Stormtrooper">
+            <English>Paratrooper(Breacher)</English>
+            <German>Fallschirmjäger(Zugangstechniker)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_AssAR">
+            <English>Paratrooper(Assistant-Automatic-Rifleman)</English>
+            <German>Fallschirmjäger(Automatik-Schütze-Assistent)</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_PARA_SpecOps">
+            <English>Paratrooper(Commando)</English>
+            <German>Fallschirmjäger(Kommando)</German>
+        </Key>
+
+        // Spectial Classes Action Names
         <Key ID="STR_JK_GEAR_PILOT">
             <English>Pilot</English>
             <German>Pilot</German>
@@ -214,6 +348,12 @@
             <English>Para Jumper Medic</English>
             <German>Medevac Crew</German>
         </Key>
+        <Key ID="STR_JK_GEAR_DIVER">
+            <English>Frogman</English>
+            <German>Kampftaucher</German>
+        </Key>
+
+
         // Repair
        <Key ID="STR_JK_REPAIR_DAMAGE">
            <English>Current damage:</English>

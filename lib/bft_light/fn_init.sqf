@@ -1,3 +1,14 @@
+/*
+ * Author: Badguy, joko // Jonas
+ * initilize BFT System
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
+
 if (!hasInterface) exitWith {};
 
 BG_BFT_Icons = [];
@@ -52,7 +63,8 @@ _classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO
         },
         configName _x
     ];
-} forEach _classes;
+    nil
+} count _classes;
 
 BG_BFT_iconTypes = [_keys,_values];
 

@@ -12,30 +12,26 @@
     Example:
     [Box1,Box2] call JK_loadOut_Gear_fnc_chooseLoadout;
 */
-
 private ["_classes","_fnc_gear_Call","_count","_string","_endString"];
 JK_Gear = "Main";
-JK_USMC = ["Command", "radioOp", "Leader", "FTL", "Medic", "ARMan", "MG", "AssMG", "At", "ATmk153", "AtAss", "ATAssmk153", "Grenadier", "Rifleman", "stormtrooper", "Marksman", "Specialist"];
-JK_USARMY = ["AR_Command", "AR_radioOp", "AR_Leader", "AR_FTL", "AR_Medic", "AR_ARMan", "AR_MG", "AR_AssMG", "AR_At", "AR_ATmk153", "AR_AtAss", "AR_ATAssmk153", "AR_Grenadier", "AR_Rifleman", "AR_stormtrooper", "AR_Marksman", "Specialist"];
-JK_Para = ["paratrooper", "paraARman", "paraDropMedic", "paraExExpert", "paraGrenadier", "paraLeader", "paraMarksman", "paraStormtrooper", "paraAssAR"];
-JK_SpeczialClasses = ["Pilot", "Crew", "jetPilot", "pjMedic", "mortarTeamBipod", "mortarTeamTube", "AR_m2TeamTripod", "AR_m2TeamGun"];
-JK_classes = JK_USMC + JK_USARMY + JK_Para + JK_SpeczialClasses;
-reverse JK_classes;
 _fnc_gear_Call = {
-    //[player, "test", {test}, {"test" == "test"}, [], 12, 12] call JK_Core_fnc_addAction;
-    [_this ,"<t color='#52c652'>USMC Gear</t>", {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
-    [_this ,"<t color='#c6c6c6'>USARMY Gear</t>", {JK_Gear = "USARMY"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#7f7fff'>Paratrooper Gear</t>", {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#f9ea6b'>Crew/Special Gear</t>", {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 96, 3] call JK_Core_fnc_addAction;
-    [_this, "<t color='#AE2020'>Back</t>", {JK_Gear = "Main"}, {JK_Gear != "Main"}, nil, 95, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#52c652'>%1</t>", localize "STR_JK_GEAR_MC"], {JK_Gear = "USMC"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#c6c6c6'>%1</t>", localize "STR_JK_GEAR_AR"], {JK_Gear = "USARMY"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#fa6bff'>%1</t>", localize "STR_JK_GEAR_SO"], {JK_Gear = "USSOF"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#e1b10a'>%1</t>", localize "STR_JK_GEAR_SOF"], {JK_Gear = "USSOFlight"},  {JK_Gear == "Main"}, nil, 98, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#7f7fff'>%1</t>", localize "STR_JK_GEAR_PARA"], {JK_Gear = "Para"},  {JK_Gear == "Main"}, nil, 97, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#f9ea6b'>%1</t>", localize "STR_JK_GEAR_SPEC"], {JK_Gear = "Spec"}, {JK_Gear == "Main"}, nil, 96, 3] call JK_Core_fnc_addAction;
+    [_this, format ["<t color='#AE2020'>%1</t>", localize "STR_JK_GEAR_Back"], {JK_Gear = "Main"}, {JK_Gear != "Main"}, nil, 95, 3] call JK_Core_fnc_addAction;
     {
         private ["_string", "_cond", "_color"];
         _color = "52c652";
         _cond = call {
             if (_x in JK_USMC) exitWith {_color = "52c652";"JK_Gear == 'USMC'"};
             if (_x in JK_USARMY) exitWith {_color = "c6c6c6";"JK_Gear == 'USARMY'"};
+            if (_x in JK_USSOF) exitWith {_color = "fa6bff";"JK_Gear == 'USSOF'"};
+            if (_x in JK_USSOFlight) exitWith {_color = "e1b10a";"JK_Gear == 'USSOFlight'"};
             if (_x in JK_Para) exitWith {_color = "7f7fff";"JK_Gear == 'Para'"};
-            if (_x in JK_SpeczialClasses) exitWith {_color = "f9ea6b";"JK_Gear == 'Spec'"};
+            if (_x in JK_SpecialClasses) exitWith {_color = "f9ea6b";"JK_Gear == 'Spec'"};
             "true"
         };
 
@@ -43,9 +39,9 @@ _fnc_gear_Call = {
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
         _string = (format["<t color='#%2'>%1</t>",_string, _color]);
         [_this, _string, {
-            [player, _this select 3] call JK_loadOut_fnc_selectGear;
+            ["Loadouts:%1" + (_this select 3), player, "JK_loadOut_fnc_selectGear", true, 1] remoteExec ["db_fnc_codeload", 2, false];
             JK_Gear = "Main";
-        }, _cond, toLower _x, _foreachindex + 99, 3] call JK_Core_fnc_addAction;
+        }, _cond, _x, _foreachindex + 99, 3] call JK_Core_fnc_addAction;
     } forEach JK_classes;
 };
 

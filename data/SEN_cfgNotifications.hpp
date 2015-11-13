@@ -8,21 +8,27 @@ class Default {
     priority = 0; // Priority; higher number = more important; tasks in queue are selected by priority
     difficulty[] = {}; // Required difficulty settings. All listed difficulties has to be enabled
 };
-class SEN_approvalBonus {
+
+class SEN_approvalBonus: Default {
     title = "Civilian Approval Bonus +%1";
     iconPicture = "media\SEN_imgTaskCiv_64.paa";
-    iconText = "";
-    description = "FOB readiness provides an approval bonus!";
-    color[] = {1,1,1,1};
-    priority = 0;
-    difficulty[] = {};
+    description = "Civilian are now more frendly to you";
 };
-class SEN_liberate {
+
+class SEN_liberate: Default {
     title = "Location Liberated!";
     iconPicture = "media\SEN_imgLiberate_64.paa";
-    iconText = "";
     description = "The enemy surrenders! You've liberated %1!";
-    color[] = {1,1,1,1};
-    priority = 0;
-    difficulty[] = {};
+};
+
+class SEN_ticketAdd: Default {
+    title = "Tickets +%1";
+    iconPicture = "media\SEN_imgTickets_64.paa";
+    description = "New Tickets Added!";
+};
+
+class SEN_ticketSubstact: Default {
+    title = "Tickets -%1";
+    iconPicture = "media\SEN_imgTickets_64.paa";
+    description = "Tickets Substracted!";
 };

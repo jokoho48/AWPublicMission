@@ -33,7 +33,12 @@ _cString = {
     } else {
         _obj setVectorUp (surfacenormal (getPosATL _obj))
     };
-    if(count (_dat select 6) > 0) then {{call _x} foreach (_dat select 6)};
+    if(count (_dat select 6) > 0) then {
+        {
+            call _x;
+            nil
+        } count (_dat select 6);
+    };
 };
 
 _moveTo = {

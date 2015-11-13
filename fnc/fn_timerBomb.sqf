@@ -35,7 +35,7 @@ while {_time > 0 && {!SEN_defused}} do {
         SEN_armed = true;
         "Bo_GBU12_LGB_MI10" createVehicle (getposATL SEN_defuseObj); // create explosion at detonator
         for "_i" from 0 to ((ceil(count _houses)*0.5) min 15) do { // create explosions at various buildings
-            _splosion = _houses select (random ((count _houses) - 1));
+            _splosion = _houses call BIS_fnc_selectRandom;
             "Bo_GBU12_LGB_MI10" createVehicle (getposATL _splosion);
 
             uiSleep (0.5 + random 1.25);

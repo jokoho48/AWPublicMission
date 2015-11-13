@@ -20,10 +20,10 @@ if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
     missionNameSpace setVariable ["SEN_fobLock", true];
     _taskDescription = format ["A few hours ago, Command dispatched a convoy to %1. Upon arrival, the convoy was attacked by enemy forces. We have intel that our soldiers are holding out, but we're sending your team in to assist. Protect the supply cache and minimize friendly casualties.",_townName];
 } else {
-    _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _defendTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
     _townPos = getpos _defendTown;
     while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
-        _defendTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+        _defendTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
         _townPos = getpos _defendTown;
     };
     _townName = text _defendTown;
@@ -41,7 +41,7 @@ _cacheArray = [];
 _vehArray = [];
 
 for "_c" from 0 to 2 do {
-    _cache = (_cachePool select (random ((count _cachePool) - 1))) createVehicle _posCache;
+    _cache = (_cachePool call BIS_fnc_selectRandom) createVehicle _posCache;
     _cache allowDamage false;
     _cache setVectorUp [0,0,1];
     _cacheArray pushBack _cache;
@@ -102,11 +102,15 @@ if (({_x distance _posCache < 20} count (units _grp)) > 0) exitWith {
             sleep 0.5;
             createVehicle ["R_TBG32V_F", _posCache,[],0,"CAN_COLLIDE"];
         };
-    } forEach (units _grp);
+        nil
+    } count (units _grp);
 
     missionNameSpace setVariable ["SEN_fobLock", false];
     [_taskID, "FAILED"] call BIS_fnc_taskSetState;
-    {deleteVehicle _x} forEach _cacheArray;
+    {
+        deleteVehicle _x;
+        nil
+    } count _cacheArray;
     SEN_objectCleanup append _vehArray;
     SEN_objectCleanup append (units _grp);
     SEN_objectCleanup append (units _grpWest);

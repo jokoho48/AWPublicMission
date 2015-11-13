@@ -19,7 +19,8 @@ if (typeOf _obj isKindOf "LandVehicle" || {typeOf _obj isKindOf "Ship"}) exitWit
             _x setBehaviour "CARELESS";
             [_x,true] call ace_captives_fnc_setSurrendered;
             [0,"%1 surrenders.",typeOf _x] call SEN_fnc_log;
-        } forEach (crew _obj);
+            nil
+        } count (crew _obj);
 
     } else {
         _driver = driver _obj;
@@ -33,7 +34,8 @@ if (typeOf _obj isKindOf "LandVehicle" || {typeOf _obj isKindOf "Ship"}) exitWit
             doStop _x;
             [_x,true] call ace_captives_fnc_setSurrendered;
             [0,"%1 surrenders.",typeOf _x] call SEN_fnc_log;
-        } forEach units (group _driver);
+            nil
+        } count units (group _driver);
     };
     true
 };

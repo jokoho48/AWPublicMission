@@ -57,18 +57,6 @@ zbe_closestUnit = {
     _dist
 };
 
-/* = {
-    private ["_zbe_leader","_trigUnits"];
-    _zbe_leader = _this select 0;
-    _trigUnits = [];
-        {if ((((side _x) getFriend (side _zbe_leader)) <= 0.6)) then {
-        _trigUnits set [count _trigUnits, leader _x];
-                };
-        } forEach allGroups;
-        _trigUnits = _trigUnits + ([] call BIS_fnc_listPlayers);
-        _trigUnits;
-};Old function that is no longer used, left here for reference*/
-
 zbe_setPosLight = {
     {
         _testpos = (formationPosition _x);
@@ -106,7 +94,7 @@ zbe_removeDead = {
         if !(alive _x) then {
             _x enablesimulation true;
             _x hideobject false;
-            if (zbe_debug) then {
+            if (SEN_debug) then {
                 [0,format ["ZBE_Cache %1 died while cached from group %2, uncaching and removing from cache loop",_x,_group]] call SEN_fnc_log;
             };
             _toCache deleteAt _forEachIndex - _delete;
@@ -116,13 +104,25 @@ zbe_removeDead = {
 };
 
 zbe_cacheEvent = {
-    ({_x distance _leader < _distance} count zbe_players > 0) || !isNull (_leader findNearestEnemy _leader)
+    ({_x distance _leader < _distance} count allPlayers > 0) || !isNull (_leader findNearestEnemy _leader)
 };
 
 zbe_vehicleCache = {
     _vehicle enablesimulationglobal false;
+    _vehicle hideobjectglobal true;
+    _vehicle disableAI "TARGET";
+    _vehicle disableAI "AUTOTARGET";
+    _vehicle disableAI "MOVE";
+    _vehicle disableAI "ANIM";
+    _vehicle disableAI "FSM";
 };
 
 zbe_vehicleUncache = {
     _vehicle enablesimulationglobal true;
+    _vehicle hideobjectglobal false;
+    _vehicle enableAI "TARGET";
+    _vehicle enableAI "AUTOTARGET";
+    _vehicle enableAI "MOVE";
+    _vehicle enableAI "ANIM";
+    _vehicle enableAI "FSM";
 };

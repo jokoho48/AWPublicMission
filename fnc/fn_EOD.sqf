@@ -7,8 +7,6 @@
  *
  * Return Value:
  * None
- *
- * Public: No
  */
 if (isNil "JK_IED") then {
     JK_IED = [];
@@ -20,10 +18,12 @@ JK_fnc_startLoop = {
         private ["_distance", "_delete"];
         if (!("MineDetector"in items player)) exitWith {
             [_this select 1] call CBA_fnc_removePerFrameHandler;
+            JK_idPFH = nil;
         };
-        if (vehicle player != player) then {
-            doGetOut player;
-            hintSilent "You are not allowed to use Mine Detector in Vehicles. Please Deactivate this befor you go in a Vehicle";
+        if (vehicle player != player) exitWith {
+            [_this select 1] call CBA_fnc_removePerFrameHandler;
+            JK_idPFH = nil;
+            hintSilent "You are not allowed to use Mine Detector in Vehicles.";
         };
         if !(isNil "JK_EOD_IEDPos") exitWith {};
         _distance = (JK_IED select 0) distance player;
@@ -42,11 +42,10 @@ JK_fnc_startLoop = {
         } forEach JK_IED;
         if (_distance > 30) exitWith {};
         if (time > JK_lastTime + _distance / 20) then {
-            //hint format ["IED in Distance %1", _distance];
             playSound "button_click";
             JK_lastTime = time;
         };
-    }, 0.00001, []] call CBA_fnc_addPerFrameHandler;
+    }, 0, []] call CBA_fnc_addPerFrameHandler;
 };
 
 JK_fnc_stopLoop = {

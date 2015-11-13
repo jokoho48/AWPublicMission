@@ -1,3 +1,13 @@
+/*
+ * Author: Badguy, joko // Jonas
+ * Create and Update BFT Dialog
+ *
+ * Arguments:
+ * None
+ *
+ * Return Value:
+ * None
+ */
 disableSerialization;
 private ["_map","_ctrl","_gY","_gX","_gY0","_gX0"];
 
@@ -140,8 +150,8 @@ BG_fnc_bftdialog_editButton = {
                         BG_UI_BFT_lbIcon lbSetCurSel _tmp;
                     };
                 };
-
-            } forEach ((missionNamespace getVariable ["BG_BFT_iconTypes",[[],[]]]) select 1);
+                nil
+            } count ((missionNamespace getVariable ["BG_BFT_iconTypes",[[],[]]]) select 1);
 
             BG_UI_BFT_lbIcon ctrlCommit 0;
 

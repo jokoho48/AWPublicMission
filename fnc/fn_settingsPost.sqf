@@ -7,20 +7,16 @@ Description: postInit settings
 
         returns nothing
 __________________________________________________________________*/
+[] spawn compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
 "SEN_NoFireZone_mrk" setMarkerAlpha 0;
-[] spawn {
-waitUntil {!isNil "JK_DBSetup"};
-call {
 [0,"Starting fn_settingsPost."] call SEN_fnc_log;
 SEN_range = worldSize/2;
 publicVariable "SEN_range";
 SEN_centerPos = [SEN_range,SEN_range,0];
 SEN_occupiedLocation = [];
 SEN_whitelistLocation = [];
-
-waitUntil {!isNil "SEN_blacklistLocation"};
 
 _SEN_blacklistLocationReal = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
 _SEN_blacklistLocation = SEN_blacklistLocation + _SEN_blacklistLocationReal;
@@ -35,7 +31,8 @@ _SEN_safeZoneY = [((getMarkerPos "SEN_safezone_mrk") select 0) + _SEN_safeZoneSi
     if (_locPos distance (getmarkerpos "sen_safezone_mrk") > _SEN_safeZoneSize + 900) then {
         if (!(_locName in _SEN_blacklistLocation) && {!(_locName isEqualTo "")}) then {SEN_whitelistLocation pushBack _x};
     };
-} forEach (nearestLocations [SEN_centerPos, ["NameCityCapital","NameCity","NameVillage"], SEN_range]);
+    nil
+} count (nearestLocations [SEN_centerPos, ["NameCityCapital","NameCity","NameVillage"], SEN_range]);
 
 [0,"SEN_range: %1, SEN_centerPos: %2, SEN_whitelistLocation count: %3",SEN_range, SEN_centerPos, (count SEN_whitelistLocation)] call SEN_fnc_log;
 
@@ -51,11 +48,8 @@ if !(isNil "SEN_HC") then {
 // safezone setup
 _trgSafeZone = createTrigger ["EmptyDetector", getMarkerPos "SEN_safezone_mrk"];
 _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
-_trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x} forEach crew _x; deleteVehicle _x; }; } forEach thisList;", ""];
-if (SEN_enemySide isEqualTo EAST) then {_trgSafeZone setTriggerActivation ["EAST", "PRESENT", true]} else {_trgSafeZone setTriggerActivation ["GUER", "PRESENT", true]};
-
-// transport setup
-"SEN_transportRequest" addPublicVariableEventHandler {[_this select 1] spawn SEN_fnc_transportHandler};
+_trgSafeZone setTriggerStatements ["this","{if (!(_x isKindOf 'logic')) then { {deleteVehicle _x; nil} count crew _x; deleteVehicle _x; }; nil} count thisList;", ""];
+_trgSafeZone setTriggerActivation [str SEN_enemySide, "PRESENT", true];
 
 // debug setup
 if (SEN_debug) then {
@@ -72,7 +66,7 @@ if (SEN_debug) then {
 
 // occupied location setu
 for "_s" from 1 to (paramsArray select 7) do {
-    _targetTown = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
     SEN_occupiedLocation pushBack _targetTown;
     SEN_whitelistLocation = SEN_whitelistLocation - [_targetTown];
     [0,"Occupied location: Name: %1, Position: %2, Type: %3",text _targetTown,getpos _targetTown,type _targetTown] call SEN_fnc_log;
@@ -90,8 +84,8 @@ for "_s" from 1 to (paramsArray select 7) do {
             // destroy buildings
             _buildings = _townPos nearObjects ["House",_avgTownSize];
             if (count _buildings > 0) then {
-                for "_i" from 1 to ceil(((count _buildings)*0.25) min 15) do {
-                    _destroyed = _buildings select (random ((count _buildings) - 1));
+                for "_i" from 1 to ceil(((count _buildings)*0.1) min 15) do {
+                    _destroyed = _buildings call BIS_fnc_selectRandom;
                     _destroyedPos pushBack (getposatl _destroyed);
                     _destroyed setDamage 1;
                     _buildings = _buildings - [_destroyed];
@@ -104,9 +98,9 @@ for "_s" from 1 to (paramsArray select 7) do {
             if (count _roads > 0) then {
                 private ["_veh","_vehPos"];
 
-                for "_i" from 0 to (ceil random 6) do {
-                    _vehType = _wreckArray select (random ((count _wreckArray) - 1));
-                    _road = _roads select (random ((count _roads) - 1));
+                for "_i" from 0 to (ceil random 3) do {
+                    _vehType = _wreckArray call BIS_fnc_selectRandom;
+                    _road = _roads call BIS_fnc_selectRandom;
                     _roadConnectedTo = (roadsConnectedTo _road);
                     if (count _roadConnectedTo > 0) then {
                         _vehPos = [getposATL _road, getposATL (_roadConnectedTo select 0)] call SEN_fnc_findThirdPos;
@@ -117,7 +111,7 @@ for "_s" from 1 to (paramsArray select 7) do {
                             _veh setPosATL _vehPos;
                             _veh setDir random 360;
                             _veh setVectorUp surfaceNormal position _veh;
-                            if (random 1 < 0.5) then {
+                            if (random 1 < 0.2) then {
                                 _fx = "test_EmptyObjectForFireBig" createVehicle getposATL _veh;
                                 _fx attachTo [_veh,[0,0,0]];
                             };
@@ -128,17 +122,18 @@ for "_s" from 1 to (paramsArray select 7) do {
 
             // add smoke
             if (count _destroyedPos > 0) then {
-                for "_i" from 1 to ceil(((count _destroyedPos)*0.35) min 7) do {
-                    _smokingPos = _destroyedPos select (random ((count _destroyedPos) - 1));
+                for "_i" from 1 to ceil(((count _destroyedPos)*0.15) min 7) do {
+                    _smokingPos = _destroyedPos call BIS_fnc_selectRandom;
                     _fx = "test_EmptyObjectForSmoke" createVehicle _smokingPos;
                 };
             };
         };
     };
 };
+[] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 
-call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
-
+[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";
@@ -159,5 +154,3 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
 [0,"fn_settingsPost complete."] call SEN_fnc_log;
-};
-};

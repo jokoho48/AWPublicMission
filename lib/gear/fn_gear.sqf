@@ -1,7 +1,5 @@
 /*
 gear-adding function by joko
-Idea by Belbo
-adds the loadouts from ADV_Setup\gear\west\*.sqf to the units
 If custom content is added to the units, they possibly have to be added to _glrfls (if there are rifles with grenade launchers).
 define per cfgFunctions or from init.sqf or initPlayerLocal.sqf as early as possible via
 call JK_loadOut_fnc_gear;
@@ -28,7 +26,7 @@ removeallWeapons _unit;
 removeHeadgear _unit;
 removeBackpack _unit;
 removeVest _unit;
-{_unit removeMagazine _x} forEach magazines _unit;
+{_unit removeMagazine _x; nil} count magazines _unit;
 //...and readding. Clothing:
 _unit forceAddUniform _uniform;
 _unit addVest _vest;
@@ -88,10 +86,18 @@ if (JK_primaryweaponTracers >= 1) then {
         private "_primAttachmentTemp";
         _primAttachmentTemp = (_x call BIS_fnc_selectRandom);
         if (_primAttachmentTemp != "") then {
-            _unit addPrimaryWeaponItem _primAttachmentTemp;
+            if (_primAttachmentTemp in ["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"]) then {
+                _unit addPrimaryWeaponItem (["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"] select JK_Optics);
+            } else {
+                _unit addPrimaryWeaponItem _primAttachmentTemp;
+            };
         };
     } else {
-        _unit addPrimaryWeaponItem _x;
+        if (_x in ["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"]) then {
+            _unit addPrimaryWeaponItem (["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"] select JK_Optics);
+        } else {
+            _unit addPrimaryWeaponItem _x;
+        };
     };
     nil
 } count JK_itemsPrimaryweapon;
@@ -180,13 +186,15 @@ if (name _unit in ["joko // Jonas"]) then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {
     if (typeName JK_insignium == "ARRAY") then {
-        [_unit, JK_insignium call BIS_fnc_selectRandom] call BIS_fnc_setUnitInsignia;
+        private "_temp";
+        _temp = (JK_insignium call BIS_fnc_selectRandom);
+        if !(_temp isEqualTo "") then {
+            [_unit, _temp] call BIS_fnc_setUnitInsignia;
+        };
     } else {
         [_unit, JK_insignium] call BIS_fnc_setUnitInsignia;
     };
 };
-JK_buildNotDone = true;
-[] call VVS_fnc_buildCfg;
 
 _unit setVariable ["ace_medical_medicClass", JK_medicClass];
 _unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];

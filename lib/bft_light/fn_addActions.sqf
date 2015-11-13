@@ -1,3 +1,13 @@
+/*
+ * Author: joko // Jonas
+ * Add Action for grabbing BFT
+ *
+ * Arguments:
+ * 0: Unit <Object>
+ *
+ * Return Value:
+ * None
+ */
 private ["_action", "_fnc_Check", "_fnc_Action"];
 
 _fnc_Check = {
