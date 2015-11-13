@@ -109,8 +109,20 @@ zbe_cacheEvent = {
 
 zbe_vehicleCache = {
     _vehicle enablesimulationglobal false;
+    _vehicle hideobjectglobal true;
+    _vehicle disableAI "TARGET";
+    _vehicle disableAI "AUTOTARGET";
+    _vehicle disableAI "MOVE";
+    _vehicle disableAI "ANIM";
+    _vehicle disableAI "FSM";
 };
 
 zbe_vehicleUncache = {
     _vehicle enablesimulationglobal true;
+    _vehicle hideobjectglobal false;
+    _vehicle enableAI "TARGET";
+    _vehicle enableAI "AUTOTARGET";
+    _vehicle enableAI "MOVE";
+    _vehicle enableAI "ANIM";
+    _vehicle enableAI "FSM";
 };

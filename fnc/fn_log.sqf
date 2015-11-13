@@ -19,7 +19,7 @@ if (typeName _type isEqualTo "SCALAR") then {
         "LOG: "
     };
 };
-_time = if (!isNil "JK_DBSetup" && !isNil "db_fnc_time") then {
+_time = if (!isNil "db_fnc_time") then {
     [true, "_", 2] call db_fnc_time;
 } else {
     str serverTime;
@@ -29,11 +29,11 @@ _this set [1,_msg];
 _this deleteAt 0;
 _text = format ["[%2] %1", (format _this), _time];
 diag_log _text;
-_text spawn {
-    private "_text";
-    waitUntil {!isNil "JK_DBSetup"};
-    ["ArmAWorldPublicMissionErrorLog.log", _this] call db_fnc_log;
+
+if (!isNil "db_fnc_log") then {
+    ["ArmAWorldPublicMissionLog.log", _text] call db_fnc_log;
 };
+
 if (SEN_debug) then {
     hintSilent _text;
 };

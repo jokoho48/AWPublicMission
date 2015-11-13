@@ -27,7 +27,7 @@ if (_pos isEqualTo []) exitWith {
 _grpArray = [_pos,SEN_enemySide,8,.25,1] call SEN_fnc_spawnSquad;
 _grpArray params ["_baseArray", "_vehArray", "_grp"];
 _hq = nearestObjects [_pos, ["Land_Cargo_HQ_V3_F"], 100];
-_hq = (_hq select (random ((count _hq) - 1)));
+_hq = (_hq call BIS_fnc_selectRandom;
 
 for "_i" from 0 to 2 step 2 do {
     _ammo = "O_supplyCrate_F" createVehicle [0,0,0];
@@ -63,7 +63,10 @@ waitUntil {sleep 10; {(damage _x) > 0.95} forEach _cacheArray};
 JK_TicketSystem = JK_TicketSystem + 500;
 publicVariable "JK_TicketSystem";
 
-{deleteVehicle _x} forEach _cacheArray;
+{
+    deleteVehicle _x;
+     nil
+} count _cacheArray;
 SEN_objectCleanup append _baseArray;
 SEN_markerCleanup pushBack _mrk;
 [] call SEN_fnc_setTask;

@@ -17,11 +17,11 @@ _pos1 = getposATL _unit;
 for "_i" from 1 to 50 do {
     if ((count _this > 2) && {random 1 < 0.6}) then {
         _houses = _this select 2;
-        _house = _houses select (random ((count _houses) - 1));
-        _housePosArray = [_house] call bis_fnc_buildingPositions;
+        _house = _houses call BIS_fnc_selectRandom;
+        _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
         _houses = _houses - [_house];
         if (count _housePosArray > 1) then {
-            _pos2 = _housePosArray select (random ((count _housePosArray) - 1));
+            _pos2 = _housePosArray call BIS_fnc_selectRandom;
             _posArray pushBack _pos2;
         };
     } else {
@@ -38,7 +38,7 @@ for "_i" from 1 to 50 do {
 if (count _posArray < 2) exitWith { [2,"fn_setPatrolUnit position array count is too low for %1.",_unit] call SEN_fnc_log};
 
 while {alive _unit && !(isPlayer(_unit findNearestEnemy _unit)) && !(_unit getVariable ["SEN_patrol_exit",false])} do {
-    _moveTo = _posArray select (random ((count _posArray) - 1));
+    _moveTo = _posArray call BIS_fnc_selectRandom;
     _unit doMove _moveTo;
     /*[0,"fn_setPatrolUnit: %1 moving to %2.",_unit, _moveTo] call SEN_fnc_log;*/
     waitUntil {

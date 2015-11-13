@@ -20,10 +20,10 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
     missionNameSpace setVariable ["SEN_fobLock", true];
     _taskDescription = format ["Intel from an enemy officer shows that enemy forces plan to attack %1 in the coming days. In response, Command has increased the frequency of patrols in the area. A friendly unit scouting around %1 is in need of repair supplies. Make sure our soldiers are in top shape and airlift the supplies to the patrol.",_name];
 } else {
-    _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+    _town = SEN_whitelistLocation call BIS_fnc_selectRandom;
     _pos = getpos _town;
     while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && !(surfaceIsWater _pos))} do {
-        _town = SEN_whitelistLocation select (random ((count SEN_whitelistLocation) - 1));
+        _town = SEN_whitelistLocation call BIS_fnc_selectRandom;
         _pos = getpos _town;
     };
     _name = text _town;
@@ -33,7 +33,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
 };
 
 for "_i" from 0 to 1 do {
-    _repairVeh = (SEN_vehPoolWest select (random ((count SEN_vehPoolWest) - 1))) createVehicle _pos;
+    _repairVeh = (SEN_vehPoolWest call BIS_fnc_selectRandom) createVehicle _pos;
     _repairVeh setDir (random 360);
     _repairVeh setdamage 0.9;
     _repairVeh allowDamage false;
@@ -56,7 +56,12 @@ if ((getposASL _supplies select 2) < -3 || damage _supplies > 0.9 || isNull _sup
     SEN_objectCleanup append (units _grp);
     SEN_objectCleanup append _array;
     SEN_objectCleanup pushBack _supplies;
-    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_pos nearObjects 300);
+    {
+        if (typeOf _x isEqualTo "#particlesource") then {
+            deleteVehicle _x;
+        };
+        nil
+    } count (_pos nearObjects 300);
     missionNameSpace setVariable ["SEN_fobLock", false];
     [] call SEN_fnc_setTask;
 };
@@ -69,6 +74,11 @@ publicVariable "JK_TicketSystem";
 SEN_objectCleanup append (units _grp);
 SEN_objectCleanup append _array;
 SEN_objectCleanup pushBack _supplies;
-{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_pos nearObjects 300);
+{
+    if (typeOf _x isEqualTo "#particlesource") then {
+        deleteVehicle _x;
+    };
+    nil
+} count (_pos nearObjects 300);
 missionNameSpace setVariable ["SEN_fobLock", false];
 [] call SEN_fnc_setTask;

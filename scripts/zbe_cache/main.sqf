@@ -24,71 +24,79 @@ zbe_cached_cars = [];
 zbe_cached_air = [];
 zbe_cached_boat = [];
 JK_allreadyKnownCaching = [];
-[] spawn {
-    while {true} do {
-        {
-            private "_disable";
-            _disable = _x getVariable "JK_noCache";
-            if (isNil "_disable") then {_disable = false};
-            if (!_disable && {!(_x in zbe_cachedGroups)}) then {
-                zbe_cachedGroups pushBack _x;
-                [zbe_aiCacheDist, _x, zbe_minFrameRate, SEN_debug] execFSM "scripts\zbe_cache\zbe_aiCaching.fsm";
-            };
-            nil
-        } count allGroups;
 
-        private ["_assets", "_delete"];
-        _assets = entities "";
-
-        if !(JK_allreadyKnownCaching isEqualTo _assets) then {
-            JK_allreadyKnownCaching = +_assets;
-
-            {
-                call {
-                    if (_x isKindOf "LandVehicle") exitWith {
-                        if !(_x in zbe_cached_cars) then {
-                            zbe_cached_cars pushBack _x;
-                            [_x, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-                        };
-                    };
-                    if (_x isKindOf "Air") exitWith {
-                        if !(_x in zbe_cached_air) then {
-                            zbe_cached_air pushBack _x;
-                            [_x, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-                        };
-                    };
-                    if (_x isKindOf "Ship") exitWith {
-                        if !(_x in zbe_cached_boat) then {
-                            zbe_cached_boat pushBack _x;
-                            [_x, zbe_vehicleCacheDistBoat] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
-                        };
-                    };
+JK_fnc_addNewVehicleToCaching = {
+    params ["_vehicle"];
+    if (side _vehicle in [west, resistance]) then {
+        call {
+            if (_vehicle isKindOf "LandVehicle") exitWith {
+                if !(_vehicle in zbe_cached_cars) then {
+                    zbe_cached_cars pushBack _vehicle;
+                    [_vehicle, zbe_vehicleCacheDistCar] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
                 };
-                nil
-            } count _assets;
+            };
+            if (_vehicle isKindOf "Air") exitWith {
+                if !(_vehicle in zbe_cached_air) then {
+                    zbe_cached_air pushBack _vehicle;
+                    [_vehicle, zbe_vehicleCacheDistAir] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                };
+            };
+            if (_vehicle isKindOf "Ship") exitWith {
+                if !(_vehicle in zbe_cached_boat) then {
+                    zbe_cached_boat pushBack _vehicle;
+                    [_vehicle, zbe_vehicleCacheDistBoat] execFSM "scripts\zbe_cache\zbe_vehicleCaching.fsm";
+                };
+            };
         };
-        zbe_cached_boat = zbe_cached_boat - [nil];
-        zbe_cached_air = zbe_cached_air - [nil];
-        zbe_cached_cars = zbe_cached_cars - [nil];
-        JK_allreadyKnownCaching = JK_allreadyKnownCaching - [nil];
-
-
-        zbe_cached_boat = zbe_cached_boat - [objNull];
-        zbe_cached_air = zbe_cached_air - [objNull];
-        zbe_cached_cars = zbe_cached_cars - [objNull];
-        JK_allreadyKnownCaching = JK_allreadyKnownCaching - [objNull];
-        
-        zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
-        sleep 200;
     };
+    nil
 };
 
-// Vehicle Caching Beta (for client FPS)
+JK_fnc_addNewGroupToCaching = {
+    private "_disable";
+    params ["_group"];
+    if (!(_group getVariable ["JK_noCache", false]) && {!(_group in zbe_cachedGroups)}) then {
+        zbe_cachedGroups pushBack _group;
+        [zbe_aiCacheDist, _group, zbe_minFrameRate, SEN_debug] execFSM "scripts\zbe_cache\zbe_aiCaching.fsm";
+    };
+    nil
+};
+
+JK_cachePFHID = [{
+    {
+        [_x] call JK_fnc_addNewGroupToCaching;
+    } count allGroups;
+
+    private ["_assetsLoop", "_assets", "_delete"];
+    _assets = vehicles;
+    if !(JK_allreadyKnownCaching isEqualTo _assets) then {
+        _assetsLoop = _assets - JK_allreadyKnownCaching;
+        JK_allreadyKnownCaching = +_assets;
+
+        {
+            [_x] call JK_fnc_addNewVehicleToCaching;
+        } count _assetsLoop;
+    };
+    zbe_cached_boat = zbe_cached_boat - [nil];
+    zbe_cached_air = zbe_cached_air - [nil];
+    zbe_cached_cars = zbe_cached_cars - [nil];
+    JK_allreadyKnownCaching = JK_allreadyKnownCaching - [nil];
+
+
+    zbe_cached_boat = zbe_cached_boat - [objNull];
+    zbe_cached_air = zbe_cached_air - [objNull];
+    zbe_cached_cars = zbe_cached_cars - [objNull];
+    JK_allreadyKnownCaching = JK_allreadyKnownCaching - [objNull];
+
+    zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
+}, 200, []] call CBA_fnc_addPerFrameHandler;
+
+publicVariable "JK_cachePFHID";
 
 if (SEN_debug) then {
     [{
-        zbe_cachedUnits = (count allUnits - ({simulationEnabled _x} count allUnits));
-        zbe_cachedVehicles = (count zbe_allVehicles - ({simulationEnabled _x} count zbe_allVehicles));
+        zbe_cachedUnits = ({!simulationEnabled _x} count allUnits);
+        zbe_cachedVehicles = ({!simulationEnabled _x} count zbe_allVehicles);
         zbe_allVehiclesCount = (count zbe_allVehicles);
         hintSilent parseText format ["
         <t color='#FFFFFF' size='1.5'>ZBE Caching</t><br/>
@@ -106,5 +114,3 @@ if (SEN_debug) then {
         [0,format ["%1 ZBE_Cache (%2) ---  %3", (round time), name player, zbe_log_stats]] call SEN_fnc_log;
     }, 20, []] call CBA_fnc_addPerFrameHandler;
 };
-// Experimental, disabled for now
-// if (!isDedicated) then {execFSM "scripts\zbe_cache\zbe_clientObjectDrawAuto.fsm";};

@@ -55,7 +55,11 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         (leader _rebelGrp) playMoveNow "AinvPknlMstpSlayWrflDnon_medic";
         sleep 2;
         createVehicle ["R_TBG32V_F", _targetPos,[],0,"CAN_COLLIDE"];
-        {if (random 1 > 0.5) then {createVehicle ["R_TBG32V_F", getposATL _x,[],0,"CAN_COLLIDE"]}; _x setDamage 1} foreach (curatorEditableObjects SEN_curatorFOB);
+        {
+            if (random 1 > 0.5) then {createVehicle ["R_TBG32V_F", getposATL _x,[],0,"CAN_COLLIDE"]};
+            _x setDamage 1;
+            nil
+        } count (curatorEditableObjects SEN_curatorFOB);
         sleep 8;
         [_taskID, "FAILED"] call BIS_fnc_taskSetState;
         SEN_objectCleanup append (units _rebelGrp);
@@ -78,14 +82,17 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards your position. Defend yourself against the rebel attack!";
     _playerArray = [];
 
-    {if (alive _x) then {_playerArray pushBack _x}} forEach (call SEN_fnc_getPlayers);
+    {
+        if (alive _x) then {_playerArray pushBack _x;};
+        nil
+    } count (call SEN_fnc_getPlayers);
 
     if (count _playerArray isEqualTo 0) exitWith {
         [2,"Rebel target array is empty."] call SEN_fnc_log;
         sleep _sleep;
         [] spawn SEN_fnc_rebelTastCiv;
     };
-    _tar = _playerArray select (random ((count _playerArray) - 1));
+    _tar = _playerArray call BIS_fnc_selectRandom;
 
     if (isNull _tar || {(getposATL _tar select 2) > 5}) exitWith {
         [2,"Rebel target is unsuitable."] call SEN_fnc_log;

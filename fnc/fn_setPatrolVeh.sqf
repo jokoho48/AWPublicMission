@@ -38,7 +38,7 @@ if !(_isAir) then {
         };
     } else {
         for "_i" from 1 to 50 do {
-            _road = _roads select (random ((count _roads) - 1));
+            _road = _roads call BIS_fnc_selectRandom;
                if ({(_road distance _x) < _minDist} count _posArray isEqualTo 0) then {_posArray pushBack (getposATL _road)};
 
             if (count _posArray isEqualTo 5) exitWith {/*[0,"fn_setPatrolVeh: %1 has a full position array, %2. Iterations: %3.",_driver, _posArray, _i] call SEN_fnc_log;*/};
@@ -63,7 +63,7 @@ if !(_isAir) then {
 if (count _posArray < 2) exitWith {[2,"fn_setPatrolVeh position array count is too low for %1.",_driver] call SEN_fnc_log};
 
 while {alive _driver && vehicle _driver isEqualTo _veh && !(isPlayer(_driver findNearestEnemy _driver)) && !(_driver getVariable ["SEN_patrol_exit",false])} do {
-    _moveTo = _posArray select (random ((count _posArray) - 1));
+    _moveTo = _posArray call BIS_fnc_selectRandom;
     _driver doMove _moveTo;
     /*[0,"fn_setPatrolVeh: %1 moving to %2.",_driver, _moveTo] call SEN_fnc_log;*/
     waitUntil {

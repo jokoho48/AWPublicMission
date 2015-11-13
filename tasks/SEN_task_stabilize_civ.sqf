@@ -66,7 +66,10 @@ if (ace_medical_level isEqualTo 1) then {
 };
 
 if (_ambush) then {
-    {_x setUnitPos "UP";} foreach units _grp;
+    {
+        _x setUnitPos "UP";
+        nil
+    } count units _grp;
     _wp = _grp addWaypoint [_pos, 0];
     _wp setWaypointType "SAD";
     _wp setWaypointSpeed "FULL";
@@ -87,7 +90,11 @@ if (alive _civ) then {
 
 if !(alive _civ) exitWith {
     [_taskID, "FAILED"] call BIS_fnc_taskSetState;
-    {if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+    {
+        if (typeOf _x isEqualTo "#particlesource") then {
+            deleteVehicle _x;
+        };
+    } count (_vehPos nearObjects 100);
     SEN_objectCleanup append [_civ,_veh];
     sleep SEN_taskSleepCiv;
     [] call SEN_fnc_setTaskCiv;
@@ -101,7 +108,12 @@ publicVariable "JK_TicketSystem";
 SEN_approvalCiv = SEN_approvalCiv + (15 + random 5);
 publicVariable "SEN_approvalCiv";
 
-{if (typeOf _x isEqualTo "#particlesource") then {deleteVehicle _x}} forEach (_vehPos nearObjects 100);
+{
+    if (typeOf _x isEqualTo "#particlesource") then {
+        deleteVehicle _x;
+    };
+    nil
+} count (_vehPos nearObjects 100);
 SEN_objectCleanup append [_civ,_veh];
 sleep SEN_taskSleepCiv;
 [] call SEN_fnc_setTaskCiv;

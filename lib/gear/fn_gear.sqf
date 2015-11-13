@@ -28,7 +28,7 @@ removeallWeapons _unit;
 removeHeadgear _unit;
 removeBackpack _unit;
 removeVest _unit;
-{_unit removeMagazine _x} forEach magazines _unit;
+{_unit removeMagazine _x; nil} count magazines _unit;
 //...and readding. Clothing:
 _unit forceAddUniform _uniform;
 _unit addVest _vest;

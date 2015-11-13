@@ -35,6 +35,10 @@ JK_fnc_Sell = {
     hint format ["The Vehicle Costs %1 Tickets", _earnBack];
 
     doGetOut player;
+    {
+        deleteVehicle _vehicle;
+        nil
+    } count (_vehicle getVariable ["ace_cargo_loaded", []]);
     deleteVehicle _vehicle;
 };
 [] spawn {

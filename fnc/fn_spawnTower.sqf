@@ -13,10 +13,10 @@ params [["_pos", [0,0,0], [[]]], ["_range", 100, [0]], ["_count", 1, [0]], ["_si
 _unitArray  = [];
 _posArray = [];
 
-call {
-    if (_side isEqualTo WEST) exitWith {_type = SEN_unitPoolWest select (random ((count SEN_unitPoolWest) - 1));};
-    if (_side isEqualTo CIVILIAN) exitWith {_type = SEN_unitPoolCiv select (random ((count SEN_unitPoolCiv) - 1));};
-    _type = SEN_unitPool select (random ((count SEN_unitPool) - 1));
+_type = call {
+    if (_side isEqualTo WEST) exitWith {SEN_unitPoolWest call BIS_fnc_selectRandom};
+    if (_side isEqualTo CIVILIAN) exitWith {SEN_unitPoolCiv call BIS_fnc_selectRandom};
+     SEN_unitPool call BIS_fnc_selectRandom
 };
 
 _posArray = [_pos,_range,(_range*0.3),_count] call SEN_fnc_findPosArray;
@@ -38,7 +38,8 @@ if !(count _posArray isEqualTo 0) then {
         _unit setskill ["spotDistance",0.90];
         _unit disableAI "MOVE";
         _unitArray pushBack _unit;
-     } forEach _posArray;
+        nil
+    } count _posArray;
 
     _grp
 } else {

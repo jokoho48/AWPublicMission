@@ -63,7 +63,8 @@ _classes = "getText (_x >> 'markerClass') in ['NATO_BLUFOR', 'NATO_OPFOR', 'NATO
         },
         configName _x
     ];
-} forEach _classes;
+    nil
+} count _classes;
 
 BG_BFT_iconTypes = [_keys,_values];
 

@@ -7,17 +7,44 @@ Description: preInit settings
 
          returns nothing
 __________________________________________________________________*/
-db_fnc_log = {};
 if (isNil "db_fnc_log" && {!(db_fnc_log isEqualTo {})}) then {
     db_fnc_log = {};
 };
+
+[1500,0,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
+
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 publicVariable "SEN_debug";
 if (!isServer) exitWith {};
 
-[] spawn {
-waitUntil {!isNil "JK_DBSetup"};
-call {
+    if (isNil "db_fnc_save") then {
+        db_fnc_save = {
+            profileNamespace setVariable [_this select 0, call compile (_this select 1)];
+            saveProfileNamespace;
+        };
+    };
+
+    jk_db_fnc_load = if (isNil "db_fnc_load") then {
+        { _this resize 2; profileNameSpace getVariable _this }
+    } else {
+        { [(_this select 0), _this select 2] call db_fnc_load; }
+    };
+
+    JK_TicketSystem = ["JK_TicketSystem", 4000, 0] call jk_db_fnc_load;
+    publicVariable "JK_TicketSystem";
+
+    JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["rhsusf_m1025_w_s"],200,["All"]]], 2] call jk_db_fnc_load;
+    publicVariable "JK_VSS_ListTickets";
+
+    SEN_approvalCiv = ["SEN_approvalCiv", -1500, 0] call jk_db_fnc_load;
+    publicVariable "SEN_approvalCiv";
+
+    SEN_blacklistLocation = ["SEN_ClearedCitys", [], 0] call jk_db_fnc_load;
+    publicVariable "SEN_blacklistLocation";
+
+    SEN_ClearedCitys = SEN_blacklistLocation;
+    publicVariable "SEN_ClearedCitys";
+
 [0,"Starting fn_settingsPre."] call SEN_fnc_log;
 if ((paramsArray select 3) isEqualTo -1) then {
     setDate [2015, random ceil 11, random ceil 27, random round 23, 00];
@@ -114,6 +141,4 @@ if (SEN_enemySide isEqualTo EAST) exitWith {
     if (count SEN_officerPool isEqualTo 0) then {SEN_officerPool = ["O_officer_F"]};
     if (count SEN_sniperPool isEqualTo 0) then {SEN_sniperPool = ["O_sniper_F"]};
     [0,"fn_settingsPre complete."] call SEN_fnc_log;
-};
-};
 };
