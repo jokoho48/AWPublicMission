@@ -59,7 +59,7 @@ JK_launcherItems = [];
 JK_launcherAmmo = 0;
 
 //binocular - (string)
-JK_binocular = "Binocular";
+JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
 JK_grenadeHE = 0;
@@ -101,7 +101,7 @@ JK_MediKit = 0;        //if set to 1, a MediKit and all FirstAidKits will be add
 JK_itemsUniform = [];
 
 //items added specifically to vest: - (array)
-JK_itemsVest = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_RangeTable_82mm","ACE_Kestrel4500"];
+JK_itemsVest = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor","rhsusf_acc_compm4","ACE_RangeTable_82mm","ACE_Kestrel4500","ACE_RangeTable_82mm"];
 
 //items added specifically to Backpack: - (array)
 JK_itemsBackpack = [];
