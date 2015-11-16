@@ -7,12 +7,6 @@ Last modified: 8/15/2015
 
 Description: Dynamic Combat Generator
 
-To Do:
-    create more tasks that interact with FOB
-
-Known Issues:
-    momentary lag when SEN_occupy.sqf runs
-
 License:
     Copyright 2015 Nicholas Clark (SENSEI). All rights reserved.
     This work is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.
@@ -20,7 +14,7 @@ License:
 __________________________________________________________________*/
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 if (SEN_debug) then {
-    ["JK_MapClickEvent1","onMapSingleClick",{
+    ["JK_MapClickEvent1", "onMapSingleClick", {
         if (_alt && local player) then {
             player setPos _pos;
         };

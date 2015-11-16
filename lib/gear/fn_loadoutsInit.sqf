@@ -6,7 +6,6 @@ Call from initPlayerLocal.sqf via:
 */
 
 ///// No editing necessary below this line /////
-if (isNil "db_fnc_codeload") exitWith {};
 params [["_target", player, [objNull]]];
 _command = ["plt_sgt", "plt_co"];
 _TL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
