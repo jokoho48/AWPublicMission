@@ -15,5 +15,5 @@ if !(isServer) then {
 } else {
     private "_var";
     _var = [_this, 1] call db_fnc_load;
-    _var call JK_crate_fnc_crateCreate;
+    _var call JK_crate_fnc_createCrate;
 };
