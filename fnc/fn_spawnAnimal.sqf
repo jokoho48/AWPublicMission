@@ -7,7 +7,7 @@ Description: spawns animals
 
              returns nothing
 __________________________________________________________________*/
-private ["_pos","_expression","_count","_trgVar","_agentArray","_type","_agent"];
+private ["_agentArray","_type","_agent"];
 params ["_pos", "_expression", "_count", "_trgVar"];
 _agentArray = [];
 _type = "";

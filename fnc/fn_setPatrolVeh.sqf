@@ -29,7 +29,7 @@ if !(_isAir) then {
     if (count _roads isEqualTo 0) then {
         _pos1 = getposATL _veh;
 
-        for "_i" from 1 to 50 do {
+        for "_i" from 1 to 100 do {
             _dir = random 360;
             _range = (ceil random _maxRange);
             _pos2 = [(_pos1 select 0) + (sin _dir) * _range, (_pos1 select 1) + (cos _dir) * _range, 0];
@@ -46,13 +46,12 @@ if !(_isAir) then {
                   [_grp, _wpindex] setWaypointTimeout [2,20,6];
                 };
             };
-
             if (count _posArray isEqualTo 5) exitWith {
                 [_grp, _wpindex] setWaypointStatements ["true", "(group this) setCurrentWaypoint [group this, 1];"];
             };
         };
     } else {
-        for "_i" from 1 to 50 do {
+        for "_i" from 1 to 100 do {
             _road = _roads call BIS_fnc_selectRandom;
                if ({(_road distance _x) < _minDist} count _posArray isEqualTo 0) then {
                  _posArray pushBack (getposATL _road);

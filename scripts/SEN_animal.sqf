@@ -34,7 +34,7 @@ if (count _posArray isEqualTo 0) exitWith {[2,"SEN_animal.sqf, position array is
 
     _cond = format["{(getposATL (vehicle _x) distance %1 < %2 && {((getposATL _x) select 2) < 30})} count allPlayers > 0",(getposATL _trg),_dist];
     _trgVar = format ["SEN_%1_animal_trg", _pos];
-    _trgAct = format ["[%1,%2,%3,%4] spawn SEN_fnc_spawnAnimal;",_pos,str _str,round(5+random 5),str _trgVar];
+    _trgAct = format ["[%1,%2,%3,%4] spawn SEN_fnc_spawnAnimal;",_pos,str _str,round(2 + random 2),str _trgVar];
     _trgDe = format ["missionNameSpace setvariable [%1,false]",str _trgVar];
     _trg setTriggerStatements [_cond,_trgAct,_trgDe];
 
