@@ -53,9 +53,10 @@ JK_fnc_addNewVehicleToCaching = {
 };
 
 JK_fnc_addNewGroupToCaching = {
-    private "_disable";
+    private ["_disable", "_leader"];
     params ["_group"];
-    if (!(_group getVariable ["JK_noCache", false]) && {!(_group in zbe_cachedGroups)}) then {
+    _leader = leader _group;
+    if (!(_group getVariable ["JK_noCache", false]) && {!(_group in zbe_cachedGroups)} && {(vehicle _leader == _leader)}) then {
         zbe_cachedGroups pushBack _group;
         [zbe_aiCacheDist, _group, zbe_minFrameRate, SEN_debug] execFSM "scripts\zbe_cache\zbe_aiCaching.fsm";
     };
@@ -63,10 +64,6 @@ JK_fnc_addNewGroupToCaching = {
 };
 
 JK_cachePFHID = [{
-    {
-        [_x] call JK_fnc_addNewGroupToCaching;
-    } count allGroups;
-
     private ["_assetsLoop", "_assets", "_delete"];
     _assets = vehicles;
     if !(JK_allreadyKnownCaching isEqualTo _assets) then {
@@ -89,6 +86,9 @@ JK_cachePFHID = [{
     JK_allreadyKnownCaching = JK_allreadyKnownCaching - [objNull];
 
     zbe_allVehicles = (zbe_cached_boat + zbe_cached_air + zbe_cached_cars);
+    {
+        [_x] call JK_fnc_addNewGroupToCaching;
+    } count allGroups;
 }, 200, []] call CBA_fnc_addPerFrameHandler;
 
 publicVariable "JK_cachePFHID";

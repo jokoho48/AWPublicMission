@@ -1,17 +1,3 @@
-zbe_deleteunitsnotleaderfnc = {
-    {
-        deleteVehicle _x;
-        nil
-    } count units _this - [leader _this];
-};
-
-zbe_deleteunitsnotleader = {
-    {
-        _x call zbe_deleteunitsnotleaderfnc;
-        nil
-    } count allGroups;
-};
-
 zbe_cache = {
     _toCache = (units _group) - [(_leader)];
     {
