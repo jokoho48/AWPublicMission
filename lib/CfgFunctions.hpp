@@ -1,0 +1,6 @@
+#include "bft_light\CfgFunctions.hpp"
+#include "core\CfgFunctions.hpp"
+#include "gear\cfgFunctions.hpp"
+#include "repair\CfgFunctions.hpp"
+#include "VSS\CfgFunctions.hpp"
+#include "crate\CfgFunctions.hpp"

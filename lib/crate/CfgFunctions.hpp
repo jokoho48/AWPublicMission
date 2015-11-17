@@ -1,0 +1,14 @@
+/*
+loadout script by joko
+Idea by Belbo
+*/
+
+class JK_crate {
+    tag = "JK_crate";
+    class JK_crate {
+        file = "lib\crate";
+        class init { postInit = 1; };
+        class createCrate;
+        class loadDB;
+    };
+};
