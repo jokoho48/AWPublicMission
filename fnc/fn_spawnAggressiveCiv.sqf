@@ -13,6 +13,7 @@ _unit = leader _grp;
 _unit forceSpeed (_unit getSpeed "FAST");
 _unit allowfleeing 0;
 _targets = [(getPosATL _unit),_range] call SEN_fnc_getNearPlayers;
+_unit setVariable ["JK_isBomber", true, true];
 
 if (count _targets isEqualTo 0) exitWith {[1,"No players near Aggressive Civilian."] call SEN_fnc_log};
 
