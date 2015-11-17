@@ -21,7 +21,7 @@ _officerTown set [2,0];
 SEN_intelObj = (createGroup SEN_enemySide) createUnit [_unitType, _officerTown, [], 0, "NONE"];
 publicVariable "SEN_intelObj";
 removeFromRemainsCollector [SEN_intelObj];
-
+SEN_intelObj setVariable ["SEN_noClean", true, true];
 SEN_intelObj addEventHandler ["hit", {
     (_this select 0) removeAllEventHandlers "hit";
     if (alive (_this select 0)) then {

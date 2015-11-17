@@ -90,3 +90,10 @@ class param12 {
     default = 1;
     SEN_paramCode = "";
 };
+class param13 {
+    title = "Town Group Size";
+    values[] = {2,4,6,8};
+    texts[] = {"Small", "Medium", "Default", "High"};
+    default = 6;
+    SEN_paramCode = "";
+};

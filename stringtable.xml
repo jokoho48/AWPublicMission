@@ -332,23 +332,23 @@
         </Key>
 
         // Spectial Classes Action Names
-        <Key ID="STR_JK_GEAR_PILOT">
+        <Key ID="STR_JK_GEAR_SC_PILOT">
             <English>Pilot</English>
             <German>Pilot</German>
         </Key>
-        <Key ID="STR_JK_GEAR_CREW">
+        <Key ID="STR_JK_GEAR_SC_CREW">
             <English>Crew Man</English>
             <German>Fahrzeug Besatzung</German>
         </Key>
-        <Key ID="STR_JK_GEAR_JETPILOT">
+        <Key ID="STR_JK_GEAR_SC_JETPILOT">
             <English>Jet Pilot</English>
             <German>Flugzeug Pilot</German>
         </Key>
-        <Key ID="STR_JK_GEAR_PJMEDIC">
+        <Key ID="STR_JK_GEAR_SC_PJMEDIC">
             <English>Para Jumper Medic</English>
             <German>Medevac Crew</German>
         </Key>
-        <Key ID="STR_JK_GEAR_DIVER">
+        <Key ID="STR_JK_GEAR_SC_DIVER">
             <English>Frogman</English>
             <German>Kampftaucher</German>
         </Key>

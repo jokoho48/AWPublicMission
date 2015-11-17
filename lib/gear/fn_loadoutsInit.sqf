@@ -6,7 +6,6 @@ Call from initPlayerLocal.sqf via:
 */
 
 ///// No editing necessary below this line /////
-if (isNil "db_fnc_codeload") exitWith {};
 params [["_target", player, [objNull]]];
 _command = ["plt_sgt", "plt_co"];
 _TL = ["b1_ftl", "b2_ftl", "a1_ftl", "a2_ftl"];
@@ -29,9 +28,9 @@ if (_strTarget in _SL) exitWith {
     ["Loadouts:AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _crew) exitWith {
-    ["Loadouts:CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:SC_CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _pilots) exitWith {
-    ["Loadouts:PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["Loadouts:SC_PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 ["Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];

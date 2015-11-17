@@ -24,7 +24,7 @@ _posArray = [_pos,_range,(_range*0.3),_count] call SEN_fnc_findPosArray;
 if !(count _posArray isEqualTo 0) then {
     _grp = createGroup _side;
     _grp allowfleeing 0;
-    _grp setVariable ["zbe_cacheDisabled", true, true];
+    _grp setVariable ["JK_noCache", true, true];
     {
         _tower = "Land_Cargo_Patrol_V1_F" createVehicle [0,0,0];
         _tower setdir random 360;
