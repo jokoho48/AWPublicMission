@@ -22,6 +22,7 @@ if (_exit) exitWith {[0,"Exiting SEN_occupy.sqf."] call SEN_fnc_log};
 [0,"Starting SEN_occupy.sqf."] call SEN_fnc_log;
 
 _strength = (paramsArray select 8);
+_grpsize = (paramsArray select 13);
 _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) max 9) min 15} else {0}; // number of patrols per location
 
 {
@@ -42,9 +43,11 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             [_townPos,ceil random 4,_avgTownSize*1.5,_avgTownSize*8] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
             [_townPos, _avgTownSize*0.6, 2] call SEN_fnc_spawnStatic;
-            _grp = [_townPos,0,_strength,SEN_enemySide] call SEN_fnc_spawnGroup;
+            for "_i" from 0 to _strength step _grpsize do {
+                _grp = [_townPos,0,_grpsize,SEN_enemySide] call SEN_fnc_spawnGroup;
+                [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
+            };
             _vehArray = [([_townPos, 50, 150, 2, 0, 1, 0] call BIS_fnc_findSafePos),1,1,SEN_enemySide] call SEN_fnc_spawnGroup;
-            [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
             [(_vehArray select 0),_avgTownSize*2,false] spawn SEN_fnc_setPatrolVeh;
             if (random 1 < 0.5) then {
                 _airArray = [_townPos,2,1] call SEN_fnc_spawnGroup;
@@ -55,8 +58,10 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             [_townPos,ceil random 3,_avgTownSize*1.5,_avgTownSize*6] call SEN_fnc_spawnSniper;
             [_townPos,_avgTownSize,2] call SEN_fnc_spawnTower;
             [_townPos, _avgTownSize*0.45, 2] call SEN_fnc_spawnStatic;
-            _grp = [_townPos,0,_strength*.75,SEN_enemySide] call SEN_fnc_spawnGroup;
-            [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
+            for "_i" from 0 to _strength step _grpsize do {
+                _grp = [_townPos,0,_grpsize*.75,SEN_enemySide] call SEN_fnc_spawnGroup;
+                [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
+            };
             if (random 1 < 0.7) then {
                 _vehArray = [([_townPos, 50, 150, 2, 0, 1, 0] call BIS_fnc_findSafePos),1,1,SEN_enemySide] call SEN_fnc_spawnGroup;
                 [(_vehArray select 0),_avgTownSize*2,false] spawn SEN_fnc_setPatrolVeh;
@@ -66,8 +71,10 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
         [_townPos,ceil random 2,_avgTownSize*1.5,_avgTownSize*4] call SEN_fnc_spawnSniper;
         [_townPos,_avgTownSize,1] call SEN_fnc_spawnTower;
         [_townPos, _avgTownSize*0.45, 1] call SEN_fnc_spawnStatic;
-        _grp = [_townPos,0,_strength*.50,SEN_enemySide] call SEN_fnc_spawnGroup;
-        [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
+        for "_i" from 0 to _strength step _grpsize do {
+            _grp = [_townPos,0,_grpsize*.50,SEN_enemySide] call SEN_fnc_spawnGroup;
+            [_grp,_avgTownSize*0.75] spawn SEN_fnc_setPatrolGroup;
+        };
         if (random 1 < 0.3) then {
             _vehArray = [([_townPos, 50, 150, 2, 0, 1, 0] call BIS_fnc_findSafePos),1,1,SEN_enemySide] call SEN_fnc_spawnGroup;
             [(_vehArray select 0),_avgTownSize*2,false] spawn SEN_fnc_setPatrolVeh;
