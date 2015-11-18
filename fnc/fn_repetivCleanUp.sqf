@@ -122,7 +122,7 @@ JK_objectStorage = [];
                 if (isNull _x) then {
                     SEN_objectCleanup deleteAt (SEN_objectCleanup find _x);
                 } else {
-                    if ({(_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"})}) then {
+                    if ((([getPosATL _x,800] call SEN_fnc_getNearPlayers) isEqualTo []) && {(_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"})}) then {
                         if ((([getPosATL _x,800] call SEN_fnc_getNearPlayers) isEqualTo []) && {{isPlayer _x} count (crew _x) isEqualTo 0}) then {
                             {
                                 deleteVehicle _x;
@@ -141,6 +141,6 @@ JK_objectStorage = [];
                 nil
             } count +SEN_objectCleanup;
         };
-        uiSleep 300;
+        uiSleep 120;
     };
 };
