@@ -18,8 +18,7 @@ SEN_centerPos = [SEN_range,SEN_range,0];
 SEN_occupiedLocation = [];
 SEN_whitelistLocation = [];
 
-_SEN_blacklistLocationReal = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
-_SEN_blacklistLocation = SEN_blacklistLocation + _SEN_blacklistLocationReal;
+_SEN_blacklistLocation = []; // location names in array will be removed from DCG. You can add to this array, however I suggest you don't remove the current locations from the list
 _SEN_safeZoneSize = ((getMarkerSize "SEN_safezone_mrk") select 0);
 _SEN_safeZoneX = [((getMarkerPos "SEN_safezone_mrk") select 0) - _SEN_safeZoneSize, ((getMarkerPos "SEN_safezone_mrk") select 1) + _SEN_safeZoneSize, 0];
 _SEN_safeZoneY = [((getMarkerPos "SEN_safezone_mrk") select 0) + _SEN_safeZoneSize, ((getMarkerPos "SEN_safezone_mrk") select 1) - _SEN_safeZoneSize, 0];
@@ -67,6 +66,9 @@ if (SEN_debug) then {
 // occupied location setu
 for "_s" from 1 to (paramsArray select 7) do {
     _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    while {_targetTown in SEN_blacklistLocation} do {
+        _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    };
     SEN_occupiedLocation pushBack _targetTown;
     SEN_whitelistLocation = SEN_whitelistLocation - [_targetTown];
     [0,"Occupied location: Name: %1, Position: %2, Type: %3",text _targetTown,getpos _targetTown,type _targetTown] call SEN_fnc_log;

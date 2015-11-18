@@ -33,10 +33,6 @@ _grp = group (_vehCrew select 0);
     nil
 } count _vehCrew;
 
-if (_class isEqualTo "O_Plane_CAS_02_F") then {
-
-};
-
 private ["_wp1", "_wp2"];
 
 _wp1 = _grp addWaypoint [_pos, 0];
