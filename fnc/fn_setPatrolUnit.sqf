@@ -26,7 +26,7 @@ for "_i" from 1 to 50 do {
             _posArray pushBack _pos2;
             _wpindex = _wpindex + 1;
             _wp = _grp addWaypoint [_pos2, 0];
-            _wp setWaypointType "MOVE";
+            _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
             _wp waypointAttachObject _house;
             [_grp, _wpindex] setWaypointHousePosition floor(random(count _housePosArray));
             [_grp, _wpindex] setWaypointBehaviour "SAFE";
@@ -45,7 +45,7 @@ for "_i" from 1 to 50 do {
                 _posArray pushBack _pos2;
                 _wpindex = _wpindex + 1;
                 _wp = _grp addWaypoint [_pos2, 0];
-                _wp setWaypointType "MOVE";
+                _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
                 [_grp, _wpindex] setWaypointBehaviour "SAFE";
                 [_grp, _wpindex] setWaypointCombatMode "RED";
                 [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;

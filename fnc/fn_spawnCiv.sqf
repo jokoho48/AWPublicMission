@@ -25,6 +25,7 @@ for "_i" from 0 to (_vehCount min (count _roads)) - 1 do {
     _unit disableAI "AIMINGERROR";
     _unit disableAI "SUPPRESSION";
     _unit setBehaviour "CARELESS";
+    _unit forceSpeed (_unit getSpeed "SLOW");
     _unit moveInDriver _veh;
     _vehArray pushBack _veh;
     _driverArray pushBack _unit;
@@ -40,12 +41,13 @@ for "_i" from 0 to _unitCount - 1 do {
     _unit disableAI "AIMINGERROR";
     _unit disableAI "SUPPRESSION";
     _unit setBehaviour "CARELESS";
+    _unit forceSpeed (_unit getSpeed "SLOW");
     _unitArray pushBack _unit;
     [_grp,80] spawn SEN_fnc_setPatrolGroup;
 };
 
 if (random 100 < ((call SEN_fnc_getApproval) select 0)) then {
-    _unit = ((_unitArray + _driverArray) call BIS_fnc_selectRandom);
+    _unit = (_unitArray call BIS_fnc_selectRandom);
     _unit setVariable ["SEN_patrol_exit",true];
     if (random 100 < 50) then {
         [_unit, ((SEN_range*0.04) max 400) + 50] call SEN_fnc_spawnCivSuicide;

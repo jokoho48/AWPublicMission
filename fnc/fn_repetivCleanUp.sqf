@@ -99,7 +99,7 @@ JK_objectStorage = [];
                             deleteVehicle _object;
                             [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
-                    }, 1, [_object, _height]] call CBA_fnc_addPerframeHandler;
+                    }, 0, [_object, _height]] call CBA_fnc_addPerframeHandler;
                 };
                 nil
             } count +JK_objectStorage;
@@ -121,18 +121,25 @@ JK_objectStorage = [];
             {
                 if (isNull _x) then {
                     SEN_objectCleanup deleteAt (SEN_objectCleanup find _x);
-                };
-                if (_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"}) then {
-                    if ({isPlayer _x} count (crew _x) isEqualTo 0) then {
-                        {
-                            deleteVehicle _x
-                        } forEach (crew _x);
-                        deleteVehicle _x;
-                    };
                 } else {
-                    if (([getPosATL _x,200] call SEN_fnc_getNearPlayers) isEqualTo []) then {deleteVehicle _x};
+                    if ({(_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"})}) then {
+                        if ((([getPosATL _x,800] call SEN_fnc_getNearPlayers) isEqualTo []) && {{isPlayer _x} count (crew _x) isEqualTo 0}) then {
+                            {
+                                deleteVehicle _x
+                                nil
+                            } count (crew _x);
+                            {
+                                deleteVehicle _x;
+                                nil
+                            } count (_x getVariable ["ace_cargo_loaded",[]]);
+                            deleteVehicle _x;
+                        };
+                    } else {
+                        if (([getPosATL _x,800] call SEN_fnc_getNearPlayers) isEqualTo []) then {deleteVehicle _x};
+                    };
                 };
-            } forEach +SEN_objectCleanup;
+                nil
+            } count +SEN_objectCleanup;
         };
         uiSleep 300;
     };
