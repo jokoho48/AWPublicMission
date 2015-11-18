@@ -22,7 +22,10 @@ _unit enableAI "TARGET";
 _unit enableAI "AUTOTARGET";
 _unit enableAI "AIMINGERROR";
 _unit enableAI "SUPPRESSION";
-if (count _targets isEqualTo 0) exitWith {[1,"No players near Aggressive Civilian."] call SEN_fnc_log};
+if (_targets isEqualTo []) exitWith {
+    [1,"No players near Aggressive Civilian."] call SEN_fnc_log;
+    SEN_objectCleanup append units _grp;
+};
 
 _targetPlayer = _targets call BIS_fnc_selectRandom;
 
@@ -43,6 +46,9 @@ _targetPlayer = _targets call BIS_fnc_selectRandom;
         if (_targetPlayer getVariable ["ACE_isUnconscious", false] || !alive _targetPlayer) then {
             private "_targets";
             _targets = [(getPosATL _unit),_range] call SEN_fnc_getNearPlayers;
+            if (_targets isEqualTo []) exitWith {
+                SEN_objectCleanup append units _grp;
+            };
             _targetPlayer = _targets call BIS_fnc_selectRandom;
         };
         _wp setWaypointPosition [getPos _targetPlayer, 10];
