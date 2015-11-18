@@ -125,7 +125,7 @@ JK_objectStorage = [];
                     if ({(_x isKindOf "LandVehicle" || {_x isKindOf "Air"} || {_x isKindOf "Ship"})}) then {
                         if ((([getPosATL _x,800] call SEN_fnc_getNearPlayers) isEqualTo []) && {{isPlayer _x} count (crew _x) isEqualTo 0}) then {
                             {
-                                deleteVehicle _x
+                                deleteVehicle _x;
                                 nil
                             } count (crew _x);
                             {

@@ -9,7 +9,7 @@ betterDisarmers = []; // people who are better at disarming
 baseDisarmChance = 90; //how well everybody can disarm
 bonusDisarmChance = 0; //increase that the "betterDisarmers" get
 
-secondaryChance = 10; //Chance that a secondary IED will spawn.
+secondaryChance = 25; //Chance that a secondary IED will spawn.
 
 smallChance = 20; //Chance that a small IED will be chosen.
 mediumChance = 40; //Chance that a medium IED will be chosen.
