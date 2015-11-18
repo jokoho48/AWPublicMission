@@ -18,6 +18,11 @@ if (random 100 < ((call SEN_fnc_getApproval) select 1)) exitWith {
     [] spawn SEN_fnc_rebelTastCiv;
 };
 
+
+if (random 100 < 30) exitWith {
+    [] spawn JK_fnc_airAttack;
+};
+
 if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     _targetPos = getPosATL SEN_flagFOB;
     _spawnPos = [_targetPos,1000,1200] call SEN_fnc_findRandomPos;
