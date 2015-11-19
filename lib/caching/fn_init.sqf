@@ -1,15 +1,15 @@
 if (!isServer) exitWith {};
 JK_aiCacheDist = 2000;
 JK_aiUnCacheDist = 1500;
-JK_debug = true;
+JK_debug = (paramsArray select 1) isEqualTo 1;
 JK_cachedGroups = [];
-JK_currentIndex = 1;
+JK_currentIndex = -1;
 JK_maxIndex = 0;
-
+JK_isStaticMission = false;
 #include "functions.sqf"
 
 JK_fnc_registerGroupsPFH = {
-    JK_maxIndex = ({
+    {
         private ["_disable", "_leader", "_return"];
         _return = false;
         _leader = leader _x;
@@ -17,18 +17,19 @@ JK_fnc_registerGroupsPFH = {
             JK_cachedGroups pushBack _x;
             _return = true;
             _x setVariable ["JK_Leader", _leader];
-            //_x setVariable ["JK_isCached", false];
         };
         _return
-    } count allGroups) + JK_maxIndex;
+    } count allGroups;
+    JK_maxIndex = (count JK_cachedGroups);
+    JK_currentIndex = 0;
 };
 
-JK_fnc_cachingLoop = {
+JK_fnc_cachingLoopPFH = {
     private "_group";
-    if (JK_cachedGroups isEqualTo []) exitWith {};
-    _group = JK_cachedGroups select (JK_currentIndex);
+    if (JK_cachedGroups isEqualTo [] || (JK_currentIndex isEqualTo -1) || (JK_maxIndex isEqualTo 0)) exitWith {};
+    JK_currentIndex = ((JK_currentIndex + 1) mod JK_maxIndex);
+    _group = JK_cachedGroups select JK_currentIndex;
     _leader = leader _group;
-    JK_currentIndex = (JK_currentIndex + 1) mod (JK_maxIndex - 1);
 
     // Delete Empty || groups that are Dead || that are not allow to Cache
     if (isNull _group || {_group getVariable ["JK_noCache", false]} || {({alive _x} count units _group isEqualTo 0)}) exitWith {
@@ -38,8 +39,8 @@ JK_fnc_cachingLoop = {
         };
         call JK_fnc_unCache;
         JK_cachedGroups deleteAt JK_currentIndex;
-        JK_maxIndex = JK_maxIndex - 1;
-        JK_currentIndex = (JK_currentIndex - 1) mod (JK_maxIndex - 1);
+        JK_maxIndex = (count JK_cachedGroups);
+        JK_currentIndex = (JK_currentIndex - 1) max 0;
     };
 
     // Resync Team Leader
@@ -51,7 +52,9 @@ JK_fnc_cachingLoop = {
         call JK_fnc_unCache;
         _leader = (leader _group);
         _group setVariable ["JK_Leader", _leader];
-        call JK_fnc_cache;
+        if (call JK_fnc_cacheEvent) then {
+            call JK_fnc_cache;
+        };
     };
 
     // UnCache Group
@@ -78,5 +81,7 @@ JK_fnc_cachingLoop = {
 };
 
 call JK_fnc_registerGroupsPFH;
-[JK_fnc_registerGroupsPFH, 120, []] call CBA_fnc_addPerFrameHandler;
-[JK_fnc_cachingLoop, 0, []] call CBA_fnc_addPerFrameHandler;
+if !(JK_isStaticMission) then {
+    [JK_fnc_registerGroupsPFH, 120, []] call CBA_fnc_addPerFrameHandler;
+};
+[JK_fnc_cachingLoopPFH, 0, []] call CBA_fnc_addPerFrameHandler;

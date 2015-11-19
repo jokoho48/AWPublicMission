@@ -15,17 +15,15 @@ jk_fnc_cache = {
 };
 
 jk_fnc_unCache = {
-    _toCache = (units _group) - [(_leader)];
+    _toCache = (units _group);
     {
-        if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
-            _x enablesimulationglobal true;
-            _x hideobjectglobal false;
-            _x enableAI "TARGET";
-            _x enableAI "AUTOTARGET";
-            _x enableAI "MOVE";
-            _x enableAI "ANIM";
-            _x enableAI "FSM";
-        };
+        _x enablesimulationglobal true;
+        _x hideobjectglobal false;
+        _x enableAI "TARGET";
+        _x enableAI "AUTOTARGET";
+        _x enableAI "MOVE";
+        _x enableAI "ANIM";
+        _x enableAI "FSM";
         nil
     } count _toCache;
 };
