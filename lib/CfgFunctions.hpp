@@ -4,3 +4,4 @@
 #include "repair\CfgFunctions.hpp"
 #include "VSS\CfgFunctions.hpp"
 #include "crate\CfgFunctions.hpp"
+#include "caching\CfgFunctions.hpp"

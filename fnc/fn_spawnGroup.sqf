@@ -44,7 +44,6 @@ for "_j" from 0 to (_count - 1) do {
         };
     };
 };
-[_grp] call JK_fnc_addNewGroupToCaching;
 if (_uncache) then {_grp setVariable ["JK_noCache", true, true]};
 if (_type isEqualTo 0) exitWith {_grp};
 

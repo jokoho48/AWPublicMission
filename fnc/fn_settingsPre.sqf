@@ -16,7 +16,6 @@ publicVariable "SEN_debug";
 
 if (!isServer) exitWith {};
 
-[1500,0,2000,2500,1500] call compile preprocessFileLineNumbers "scripts\zbe_cache\main.sqf";
 if (isNil "db_fnc_save") then {
     db_fnc_save = {
         profileNamespace setVariable [_this select 0, call compile (_this select 1)];

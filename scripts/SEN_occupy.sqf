@@ -164,6 +164,8 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
     };
 } forEach SEN_occupiedLocation;
 
+call JK_fnc_registerGroupsPFH;
+
 [] call compile preprocessFileLineNumbers "tasks\SEN_taskHandler.sqf";
 
 if (SEN_HCPresent) then {publicVariableServer "SEN_complete"};
