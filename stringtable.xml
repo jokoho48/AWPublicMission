@@ -125,6 +125,10 @@
             <English>M2-Carrier(Gun)</English>
             <German>M2-Träger(Geschütz)</German>
         </Key>
+        <Key ID="STR_JK_GEAR_MC_driver">
+            <English>Driver</English>
+            <German>Fahrer</German>
+        </Key>
 
         // SpecOps(Heavy) Action Names
         <Key ID="STR_JK_GEAR_SO_LEADER">
@@ -287,6 +291,10 @@
             <English>M2-Carrier(Gun)</English>
             <German>M2-Träger(Geschütz)</German>
         </Key>
+        <Key ID="STR_JK_GEAR_AR_driver">
+            <English>Driver</English>
+            <German>Fahrer</German>
+        </Key>
 
 
         // Paratrooper Action Names
@@ -351,6 +359,30 @@
         <Key ID="STR_JK_GEAR_SC_DIVER">
             <English>Frogman</English>
             <German>Kampftaucher</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_crewchief">
+            <English>Crewchief/Gunner</English>
+            <German>Crewchief/Gunner</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_DIVER_ARm">
+            <English>Frogman Automatic-Rifleman</English>
+            <German>Kampftaucher Automatik-Schütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_DIVER_AT">
+            <English>Frogman AT-4</English>
+            <German>Kampftaucher AT-4</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_DIVER_Leader">
+            <English>Frogman Leader</English>
+            <German>Kampftaucher Gruppenführer</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_DIVER_Marksman">
+            <English>Frogman Marksman</English>
+            <German>Kampftaucher Scharfschütze</German>
+        </Key>
+        <Key ID="STR_JK_GEAR_SC_DIVER_Specialist">
+            <English>Frogman Specialist</English>
+            <German>Kampftaucher Spezialist</German>
         </Key>
 
 
