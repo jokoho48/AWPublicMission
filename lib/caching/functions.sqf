@@ -33,7 +33,7 @@ jk_fnc_uncacheEvent = {
 };
 
 jk_fnc_cacheEvent = {
-    !({_x distance _leader < JK_aiCacheDist} count allPlayers > 0) || !isNull (_leader findNearestEnemy _leader)
+    !(({_x distance _leader < JK_aiCacheDist} count allPlayers > 0) || !isNull (_leader findNearestEnemy _leader))
 };
 
 jk_fnc_setPosFull = {

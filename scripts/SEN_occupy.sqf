@@ -87,7 +87,7 @@ _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) m
             if (_pos distance SEN_centerPos <= SEN_range && {!(surfaceIsWater _pos)} && {!([_pos, "SEN_safezone_mrk"] call SEN_fnc_checkInMarker)}) then {
                 if (random 1 > ((paramsArray select 6)*.01)) then {
                     _grp = [_pos,0,(4 + round(random 4))] call SEN_fnc_spawnGroup; // infantry
-                    [_grp,_pos,(SEN_range*0.08 max 1000), floor (random 8) max 3,"MOVE", "SAFE", "YELLOW", "NORMAL", (["COLUMN", "STAG COLUMN"] call BIS_fnc_selectRandom), "", [2,6,12]] call CBA_fnc_taskPatrol;
+                    [_grp,_pos,(SEN_range*0.08 max 1000), floor (random 8) max 3,"MOVE", "SAFE", "RED", "LIMITED", (["COLUMN", "STAG COLUMN"] call BIS_fnc_selectRandom), "", [2,6,12]] call CBA_fnc_taskPatrol;
                 } else {
                     _grp = [_pos,1,1] call SEN_fnc_spawnGroup; // technical
                     _driver = (_grp select 0);
