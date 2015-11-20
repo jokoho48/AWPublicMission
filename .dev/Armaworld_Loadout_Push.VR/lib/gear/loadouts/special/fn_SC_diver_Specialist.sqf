@@ -16,13 +16,13 @@ JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will b
 JK_goggles = "G_B_Diving";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
+JK_primaryweapon = ["rhs_weap_m16a4", "rhs_weap_m16a4_grip", "rhs_weap_m16a4_carryhandle", "rhs_weap_m16a4_carryhandle_grip_pmag", "rhs_weap_m16a4_carryhandle_grip", "rhs_weap_m16a4_carryhandle_pmag", "rhs_weap_m4", "rhs_weap_m4_grip2", "rhs_weap_m4_grip", "rhs_weap_m4_carryhandle", "rhs_weap_m4_carryhandle_pmag"];
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["rhsusf_acc_compm4","rhsusf_acc_anpeq15side","",["rhsusf_acc_nt4_black","rhsusf_acc_rotex5_grey"]];
+JK_itemsPrimaryweapon = [["rhsusf_acc_ACOG2_USMC","rhsusf_acc_ACOG3_USMC","rhsusf_acc_ACOG_USMC","rhsusf_acc_ACOG","rhsusf_acc_ACOG2","rhsusf_acc_ACOG3","rhsusf_acc_ACOG_d","rhsusf_acc_ACOG_sa","rhsusf_acc_ACOG_wd"],"rhsusf_acc_anpeq15side", ["rhsusf_acc_SFMB556", "rhsusf_acc_SF3P556", ""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
+JK_primaryweaponAmmo = 5;
 JK_primaryweaponTracers = 2;
 
 //40mm Grenades - (integer)
@@ -47,7 +47,7 @@ JK_handgun = "rhsusf_weap_m1911a1";
 JK_itemsHandgun = [];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 3;
+JK_handgunAmmo = 1;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -62,13 +62,13 @@ JK_binocular = "ACE_Vector";
 
 //throwables - (integer)
 JK_grenadeHE = 2;
-JK_grenadeSmokeWhite = 3;
+JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
-JK_grenadeSmokeRed = 2;
-JK_grenadeSmokePurple = 1;
-JK_grenadeSmokeBlue = 1;
-JK_grenadeSmokeGreen = 2;
+JK_grenadeSmokeRed = 0;
+JK_grenadeSmokePurple = 0;
+JK_grenadeSmokeBlue = 0;
+JK_grenadeSmokeGreen = 0;
 JK_chemlightYellow = 1;
 JK_chemlightRed = 1;
 JK_chemlightGreen = 1;
@@ -76,14 +76,14 @@ JK_chemlightBlue = 1;
 JK_IRgrenade = 1;
 
 //ACE Items
-JK_IVBagSaline250 = 0;
+JK_IVBagSaline250 = 1;
 JK_IVBagSaline500 = 0;
-JK_IVBagSaline1000 = 1;
-JK_epinephrine = 15;
-JK_morphine = 15;
+JK_IVBagSaline1000 = 0;
+JK_epinephrine = 3;
+JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 30;
+JK_fieldDressing = 10;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
@@ -103,7 +103,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [];
+JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","DemoCharge_Remote_Mag","ACE_Clacker"];
 
 //linked items - (array)
 JK_itemsLink = [
@@ -116,11 +116,11 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_DAGR","ACE_Banana"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_DAGR"];
 
 JK_medicClass = 1;
 JK_spawnAllowed = false;
-JK_isEngineer = 0;
+JK_isEngineer = 2;
 JK_isPilot = false;
 
 //Vehicle Spawn System

@@ -16,13 +16,14 @@ JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will b
 JK_goggles = "G_B_Diving";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["rhs_weap_m4a1_carryhandle", "rhs_weap_m4a1_grip", "rhs_weap_m4a1_carryhandle_grip2", "rhs_weap_m4a1_carryhandle_grip", "rhs_weap_m4a1_carryhandle_pmag", "rhs_weap_m4a1", "rhs_weap_m4a1_grip2"];
+JK_primaryweapon = ["rhs_weap_m249_pip_S", "rhs_weap_m249_pip_S_para", "rhs_weap_m249_pip_S_vfg"];
+
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["rhsusf_acc_compm4","rhsusf_acc_anpeq15side","",["rhsusf_acc_nt4_black","rhsusf_acc_rotex5_grey"]];
+JK_itemsPrimaryweapon = ["rhsusf_acc_ELCAN","rhsusf_acc_anpeq15side"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
-JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
+JK_ARhandle = 0;        //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
+JK_primaryweaponAmmo = 2;
 JK_primaryweaponTracers = 2;
 
 //40mm Grenades - (integer)
@@ -79,18 +80,18 @@ JK_IRgrenade = 1;
 JK_IVBagSaline250 = 0;
 JK_IVBagSaline500 = 0;
 JK_IVBagSaline1000 = 1;
-JK_epinephrine = 15;
-JK_morphine = 15;
+JK_epinephrine = 3;
+JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 30;
+JK_fieldDressing = 10;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
 JK_tourniquet = 0;
 
 JK_earPlugs = 1;
-JK_swapBarrel = 0;
+JK_swapBarrel = 1;
 
 //first aid kits and medi kits- (integer)
 JK_FirstAidKits = 0;
@@ -116,7 +117,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_DAGR","ACE_Banana"];
+JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_DAGR"];
 
 JK_medicClass = 1;
 JK_spawnAllowed = false;
