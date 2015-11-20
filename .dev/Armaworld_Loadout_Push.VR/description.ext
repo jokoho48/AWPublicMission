@@ -17,13 +17,16 @@ disableChannels[]={2,6};
 enableItemsDropping = 0;
 class Header
 {
-	gameType=Sandbox;
-	minPlayers=1;
-	maxPlayers=1;
+    gameType=Sandbox;
+    minPlayers=1;
+    maxPlayers=1;
 };
-class param0 {
-    title = "---------------------- Dynamic Combat Generator Parameters ----------------------";
-    values[] = {0, 1, 2, 3};
-    texts[] = {"None", "Loadouts", "Crates", "Both"};
-    default = 0;
+
+class Params {
+    class param0 {
+        title = "DB Push";
+        values[] = {0, 1, 2, 3};
+        texts[] = {"None", "Loadouts", "Crates", "Both"};
+        default = 0;
+    };
 };

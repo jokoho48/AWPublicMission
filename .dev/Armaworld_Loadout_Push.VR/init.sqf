@@ -29,22 +29,22 @@ if ((paramsArray select 0) in [1, 3]) then {
         private "_path";
         _path = call {
             if (_x in JK_USMC) exitWith {
-                _path = "USMC";
+                "USMC"
             };
             if (_x in JK_USARMY) exitWith {
-                _path = "USARMY";
+                "USARMY"
             };
             if (_x in JK_USSOF) exitWith {
-                _path = "USSOF";
+                "USSOF"
             };
             if (_x in JK_USSOFLIGHT) exitWith {
-                _path = "USSOFlight";
+                "USSOFlight"
             };
             if (_x in JK_SPECIALCLASSES) exitWith {
-                _path = "special";
+                "special"
             };
             if (_x in JK_PARA) exitWith {
-                _path = "parachute";
+                "parachute"
             };
         };
         ["Loadouts:"+ _x,(compile preprocessFileLineNumbers format["lib\gear\loadouts\%1\fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
