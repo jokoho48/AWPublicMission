@@ -95,3 +95,9 @@
 "C_Offroad_01_repair_F",
 "rhsusf_m113_usarmy_supply",
 "B_APC_Tracked_01_CRV_F"
+
+// UAV
+"B_UAV_02_F",
+"B_UAV_02_CAS_F",
+"B_UGV_01_F",
+"B_UGV_01_rcws_F"

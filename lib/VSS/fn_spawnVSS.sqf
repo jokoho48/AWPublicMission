@@ -67,11 +67,15 @@ call {
     if (_className in ["B_APC_Tracked_01_CRV_F", "C_Offroad_01_repair_F", "B_Truck_01_Repair_F"]) exitWith {
         _vehicle setVariable ["ACE_isRepairVehicle", 1, true];
     };
-    if (_className in ["B_Truck_01_ammo_F","rhsusf_m113_usarmy_supply"]) exitWith {
+    /*if (_className in ["B_Truck_01_ammo_F","rhsusf_m113_usarmy_supply"]) exitWith {
         _vehicle setVariable ["JK_isRearmVehicle", true, true];
     };
     if (_className in ["B_Truck_01_fuel_F", "rhsusf_M978A2_usarmy_wd", "C_Van_01_fuel_F", "B_Truck_01_fuel_F"]) exitWith {
         _vehicle setVariable ["JK_isRefuelVehicle", true, true];
+    };
+    */
+    if (_className in ["B_UAV_02_F", "B_UAV_02_CAS_F", "B_UGV_01_F", "B_UGV_01_rcws_F"]) exitWith {
+        createVehicleCrew _vehicle;
     };
 };
 

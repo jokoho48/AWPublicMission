@@ -1,12 +1,31 @@
 if (!isServer) exitWith {};
-JK_aiCacheDist = 2000;
-JK_aiUnCacheDist = 1500;
-JK_debug = (paramsArray select 1) isEqualTo 1;
+
+// Settings
+JK_aiCacheDist = 2000;                              // Distance where Units get Cached
+JK_aiUnCacheDist = 1500;                            // Distance where Units Get Uncached
+JK_debug = (paramsArray select 1) isEqualTo 1;      // debug Paramter
+JK_isStaticMission = false;                         // Mission Is Static mean that no script or function spawn Units after Mission Start
+JK_loopUpdateLoopTime = 30;                         // Time until the Player Array/ Group Array gets Updated
+
+//Dont change below
 JK_cachedGroups = [];
-JK_currentIndex = -1;
+JK_allPlayers = +allPlayers;
+JK_currentIndex = 0;
 JK_maxIndex = 0;
-JK_isStaticMission = false;
 #include "functions.sqf"
+
+JK_fnc_updateAllPlayers = {
+    JK_allPlayers = +allPlayers;
+    {
+        if (isUAVConnected _x) then {
+            JK_allPlayers pushBack _x;
+        };
+        if !(_x getVariable ["JK_noCache", false]) then {
+            _x setVariable ["JK_noCache", true];
+        };
+        nil
+    } count allUnitsUAV;
+};
 
 JK_fnc_registerGroupsPFH = {
     {
@@ -21,7 +40,7 @@ JK_fnc_registerGroupsPFH = {
         _return
     } count allGroups;
     JK_maxIndex = (count JK_cachedGroups);
-    JK_currentIndex = 0;
+    call JK_fnc_updateallPlayers;
 };
 
 JK_fnc_cachingLoopPFH = {
@@ -82,6 +101,8 @@ JK_fnc_cachingLoopPFH = {
 
 call JK_fnc_registerGroupsPFH;
 if !(JK_isStaticMission) then {
-    [JK_fnc_registerGroupsPFH, 120, []] call CBA_fnc_addPerFrameHandler;
+    [JK_fnc_registerGroupsPFH, JK_loopUpdateLoopTime, []] call CBA_fnc_addPerFrameHandler;
+} else {
+    [JK_fnc_updateallPlayers, JK_loopUpdateLoopTime, []] call CBA_fnc_addPerFrameHandler;
 };
 [JK_fnc_cachingLoopPFH, 0, []] call CBA_fnc_addPerFrameHandler;
