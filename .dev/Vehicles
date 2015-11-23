@@ -87,6 +87,12 @@
 "RHS_C130J",
 "RHS_A10"
 
+"MELB_AH6M_H",
+"MELB_AH6M_L",
+"MELB_AH6M_M",
+"MELB_MH6M",
+"MELB_H6M"
+
 // Support
 "B_Truck_01_Repair_F",
 "B_Truck_01_ammo_F",

@@ -20,7 +20,7 @@ lbClear _filter;
 _filter lbAdd "Alle";
 _filter lbSetData[(lbSize _filter)-1,"Alle"];
 {
-    if(JK_VehClass == (_x select 3)) then {
+    if(JK_VehClass in (_x select 3)) then {
         _filter lbAdd (_x select 0);
         _filter lbSetData[(lbSize _filter)-1,(_x select 0)];
     };
