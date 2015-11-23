@@ -2,7 +2,7 @@ private ["_fnc_medical", "_fnc_ammo", "_fnc_mg_ammo", "_fnc_nade", "_fnc_exp", "
 JK_SpawnMarker = "SEN_ammo_mrk";
 
 _fnc_spawnCrate = {
-    ("Crate:" + (_this select 3)) call JK_crate_fnc_loadDB;
+    [("Crate:" + (_this select 3)), JK_SpawnMarker] call JK_crate_fnc_loadDB;
 };
 _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Radio/Backpack Crate</t>", _fnc_spawnCrate, "true", "radio"] call JK_Core_fnc_addAction;

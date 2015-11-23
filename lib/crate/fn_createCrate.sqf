@@ -5,10 +5,10 @@ if (!(JK_ammoSuppAvail)) exitWith {
 
 JK_ammoSuppAvail = false;
 publicVariable "JK_ammoSuppAvail";
+params ["_args", "_marker"];
+_args params ["_crateType", ["_reloadTime", 20], "_content"];
 
-params ["_crateType", ["_reloadTime", 20], "_content"];
-
-_position = ((getMarkerPos JK_SpawnMarker) findEmptyPosition [0, 10]);
+_position = ((getMarkerPos _marker) findEmptyPosition [0, 10]);
 if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
 _crateObject = _crateType createVehicle _position;
 
