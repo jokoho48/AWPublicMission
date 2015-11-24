@@ -51,5 +51,5 @@ JK_badClassnamesOld = [];
         } count (_entrys - JK_badClassnamesOld);
     };
     call _fnc_PFH;
-    [_fnc_PFH, 0, []] call CBA_fnc_addPerFrameHandler;
+    [_fnc_PFH, 30, []] call CBA_fnc_addPerFrameHandler;
 }, [], 4] call ace_common_fnc_waitAndExecute;
