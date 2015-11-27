@@ -1,0 +1,214 @@
+/*%FSM<COMPILE "D:\Programme\SteamLibrary\steamapps\common\Arma 3 Tools\FSMEditor\scriptedFSM.cfg, supression">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,4346,-74.740387,-215.856079,15.259613,-165.856079,0.000000,"Start"};
+item1[] = {"Wait_till_game_",4,218,-209.506500,-220.169357,-119.506500,-170.169357,0.000000,"Wait till game" \n " is live "};
+item2[] = {"Look___Fire_",3,250,-72.199188,-57.305389,17.800812,-7.305389,0.000000,"Look & Fire!"};
+item3[] = {"Control_Rate_of",4,218,149.070251,-59.727158,239.070251,-9.727158,0.000000,"Control Rate of Fire"};
+item4[] = {"create_fake_target",3,250,-209.077530,-138.835495,-119.077553,-88.835495,0.000000,"create fake target" \n "prepare units" \n "look at target"};
+item5[] = {"wait_3_seconds",4,218,-72.663452,-137.171967,17.336548,-87.171967,0.000000,"wait 3 seconds"};
+item6[] = {"Abort_",4,218,-71.554474,3.123810,18.445526,53.123810,1.000000,"Abort?"};
+item7[] = {"End",1,250,-72.108963,84.084991,17.891068,134.084976,0.000000,"End"};
+link0[] = {0,1};
+link1[] = {1,4};
+link2[] = {2,3};
+link3[] = {2,6};
+link4[] = {3,2};
+link5[] = {4,5};
+link6[] = {5,2};
+link7[] = {6,7};
+globals[] = {0.000000,0,0,0,0,640,480,1,32,6316128,1,-331.073853,268.926086,312.547180,-287.449158,1085,949,1};
+window[] = {2,-1,-1,-1,-1,949,182,1622,182,3,1103};
+*//*%FSM</HEAD>*/
+class FSM
+{
+        fsmName = "supression";
+        class States
+        {
+                /*%FSM<STATE "Start">*/
+                class Start
+                {
+                        name = "Start";
+                        itemno = 0;
+                        init = /*%FSM<STATEINIT""">*/"_duration = missionNamespace getVariable['snip_suppress_duration',30];" \n
+                         "_rof = missionNamespace getVariable['snip_suppress_rof','Normal'];"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/"true"/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Wait_till_game_">*/
+                                class Wait_till_game_
+                                {
+                                        itemno = 1;
+                                        priority = 0.000000;
+                                        to="create_fake_target";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > 0"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "Look___Fire_">*/
+                class Look___Fire_
+                {
+                        name = "Look___Fire_";
+                        itemno = 2;
+                        init = /*%FSM<STATEINIT""">*/"(units _group) doWatch _fakeObject;" \n
+                         "(units _group) lookAt _fakeObject;" \n
+                         "" \n
+                         "_pos2 = getPos _fakeObject;" \n
+                         "_time = time + 10; //prevent from jumping too early." \n
+                         "" \n
+                         "if (time > _finishTime) exitWith {_abort = true};" \n
+                         "" \n
+                         "{	" \n
+                         "	_veh = vehicle _x;" \n
+                         "	if (_veh != _x) then {" \n
+                         "		if (gunner _veh == _x) then {" \n
+                         "			_weapons = _veh weaponsTurret [0];" \n
+                         "			_wpIDX = (_weapons find (_veh currentWeaponTurret [0]));" \n
+                         "			_veh action [""UseWeapon"", _veh, _x, _wpIDX];" \n
+                         "		};" \n
+                         "	} else {" \n
+                         "		if (!weaponLowered _x) then {" \n
+                         "			_x forceWeaponFire [currentWeapon _x, currentWeaponMode _x];" \n
+                         "		};" \n
+                         "	};" \n
+                         "} forEach (units _group);" \n
+                         "" \n
+                         "" \n
+                         "_time = time + _sleepTime;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "Abort_">*/
+                                class Abort_
+                                {
+                                        itemno = 6;
+                                        priority = 1.000000;
+                                        to="End";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"_abort"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                                /*%FSM<LINK "Control_Rate_of">*/
+                                class Control_Rate_of
+                                {
+                                        itemno = 3;
+                                        priority = 0.000000;
+                                        to="Look___Fire_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "create_fake_target">*/
+                class create_fake_target
+                {
+                        name = "create_fake_target";
+                        itemno = 4;
+                        init = /*%FSM<STATEINIT""">*/"_group = (group _leader);" \n
+                         "_time = time + 3; //init var early" \n
+                         "" \n
+                         "_fakeClassName = ""O_Soldier_F"";" \n
+                         "" \n
+                         "if (side _group == east) then { _fakeClassName = ""B_Soldier_02_f"";};" \n
+                         "" \n
+                         "//_fakeObject = _fakeClassName createVehicle _destination;" \n
+                         "_fakeObject = _fakeClassName createVehicleLocal _destination;" \n
+                         "_fakeObject allowDamage false;" \n
+                         "//_fakeObject enableSimulationGlobal false;" \n
+                         "_fakeObject enableSimulation false;" \n
+                         "_fakeObject addRating -20000;" \n
+                         "_fakeObject hideObject true;" \n
+                         "//hideObjectGlobal _fakeObject;" \n
+                         "" \n
+                         "" \n
+                         "_sleepTime = switch (_rof) do {" \n
+                         "	case ""Rapid"": {60/120}; //60 rpm" \n
+                         "	case ""Low"": {60/15}; //10 rpm" \n
+                         "	case ""Assault"": {60/500}; // 500rpm" \n
+                         "	default {60/45}; // 30 rpm" \n
+                         "};" \n
+                         "" \n
+                         "/*_mgs = [];" \n
+                         "{" \n
+                         "	if (getNumber (configFile >> ""CfgMagazines"" >> currentMagazine _x >> ""count"") > 45) then {" \n
+                         "		_mgs pushBack _x;" \n
+                         "	};" \n
+                         "} forEach _units;" \n
+                         "" \n
+                         "player sideChat str _mgs;*/" \n
+                         "" \n
+                         "//Force combat mode" \n
+                         "(group _leader) setBehaviour ""COMBAT""; " \n
+                         "" \n
+                         "//prevent move" \n
+                         "{" \n
+                         "	_x forceSpeed 0;" \n
+                         "} forEach (units _group);" \n
+                         "" \n
+                         "" \n
+                         "(units _group) doWatch _fakeObject;" \n
+                         "(units _group) lookAt _fakeObject;" \n
+                         "" \n
+                         "" \n
+                         "//Find better positions?" \n
+                         "" \n
+                         "_time = time + 3;" \n
+                         "_finishTime = _time + _duration;" \n
+                         "" \n
+                         "_abort = false;"/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/"true"/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                                /*%FSM<LINK "wait_3_seconds">*/
+                                class wait_3_seconds
+                                {
+                                        itemno = 5;
+                                        priority = 0.000000;
+                                        to="Look___Fire_";
+                                        precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+                                        condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+                                        action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+                                };
+                                /*%FSM</LINK>*/
+                        };
+                };
+                /*%FSM</STATE>*/
+                /*%FSM<STATE "End">*/
+                class End
+                {
+                        name = "End";
+                        itemno = 7;
+                        init = /*%FSM<STATEINIT""">*/"//Cancel look" \n
+                         "(units _group) doWatch objNull;" \n
+                         "{" \n
+                         "	_x forceSpeed -1;" \n
+                         "} forEach (units _group);" \n
+                         "" \n
+                         "if (!isNil ""_fakeObject"") then {" \n
+                         "	if (!isNull _fakeObject) then {" \n
+                         "		deleteVehicle _fakeObject;" \n
+                         "	};" \n
+                         "};" \n
+                         ""/*%FSM</STATEINIT""">*/;
+                        precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+                        class Links
+                        {
+                        };
+                };
+                /*%FSM</STATE>*/
+        };
+        initState="Start";
+        finalStates[] =
+        {
+                "End",
+        };
+};
+/*%FSM</COMPILE>*/

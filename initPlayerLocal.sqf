@@ -5,6 +5,9 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 if (!hasInterface) exitWith {}; // headless client exit
+if (isClass (configFile >> "CfgPatches" >> "Ares")) then {
+    call compile preprocessFileLineNumbers "ares_extend_true.sqf";
+}
 private "_fnc_tfarSettings";
 [] spawn compile preprocessFileLineNumbers "scripts\intro.sqf";
 _fnc_tfarSettings = compile preprocessFileLineNumbers "tfarSettings.sqf";
