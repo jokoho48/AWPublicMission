@@ -110,8 +110,6 @@ JK_itemsBackpack = ["ACRE_PRC117F", "rhsusf_patrolcap_ocp"];
 
 //linked items - (array)
 JK_itemsLink = [
-        "ACRE_PRC148",
-        "ACRE_PRC343",
         "ItemWatch",
         "ACE_NVG_Wide",
         "ItemCompass",
@@ -120,7 +118,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+JK_items = ["ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

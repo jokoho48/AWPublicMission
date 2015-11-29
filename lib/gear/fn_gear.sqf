@@ -4,10 +4,11 @@ If custom content is added to the units, they possibly have to be added to _glrf
 define per cfgFunctions or from init.sqf or initPlayerLocal.sqf as early as possible via
 call JK_loadOut_fnc_gear;
 */
-_unit setCaptive true;
+_this spawn {
 
 private ["_uniform", "_headgear", "_vest", "_backpack", "_count"];
-params ["_unit"];
+params [["_unit", player, [objNull]]];
+_unit setCaptive true;
 
 //randomizers:
 _uniform = JK_uniforms call BIS_fnc_selectRandom;
@@ -27,6 +28,8 @@ removeHeadgear _unit;
 removeBackpack _unit;
 removeVest _unit;
 {_unit removeMagazine _x; nil} count magazines _unit;
+
+sleep 1;
 //...and readding. Clothing:
 _unit forceAddUniform _uniform;
 _unit addVest _vest;
@@ -201,3 +204,4 @@ _unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];
 _unit setVariable ["ACE_IsEngineer", JK_isEngineer];
 _unit setVariable ["JK_isPilot", JK_isPilot];
 _unit setCaptive false;
+};

@@ -114,7 +114,6 @@ JK_itemsBackpack = [
 
 //linked items - (array)
 JK_itemsLink = [
-        "ACRE_PRC343",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",
@@ -123,7 +122,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

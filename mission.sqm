@@ -1905,7 +1905,7 @@ class Mission
 						};
 						class Item2
 						{
-							value="ACRE_PRC343";
+							value="";
 							parentCls="acre_api_basicMissionSetup";
 							typeName="DefaultRadio";
 						};
@@ -1937,7 +1937,7 @@ class Mission
 				};
 				class Item1
 				{
-					position[]={15066.354,14.868108,17391.266};
+					position[]={15059.359,14.875284,17391.391};
 					class args
 					{
 						items=3;
@@ -1949,7 +1949,7 @@ class Mission
 						};
 						class Item1
 						{
-							value="1";
+							value="0";
 							parentCls="acre_api_DifficultySettings";
 							typeName="FullDuplex";
 						};
@@ -1968,7 +1968,7 @@ class Mission
 				};
 				class Item2
 				{
-					position[]={15070.396,14.874866,17391.428};
+					position[]={15064.144,14.869522,17391.553};
 					class args
 					{
 						items=11;
