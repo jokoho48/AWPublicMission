@@ -15,7 +15,7 @@ JK_lastTime = time;
 if !(hasInterface) exitWith {};
 JK_fnc_startLoop = {
     JK_idPFH = [{
-        private ["_distance", "_delete"];
+        private "_distance";
         if (!("MineDetector"in items player)) exitWith {
             [_this select 1] call CBA_fnc_removePerFrameHandler;
             JK_idPFH = nil;
@@ -25,19 +25,15 @@ JK_fnc_startLoop = {
             JK_idPFH = nil;
             hintSilent "You are not allowed to use Mine Detector in Vehicles.";
         };
-        if !(isNil "JK_EOD_IEDPos") exitWith {};
         _distance = (JK_IED select 0) distance player;
-        _delete = 0;
         {
-            if (isNil "_x" || {isNull _x}) then {
-                JK_IED deleteAt _forEachIndex - _delete;
-                _delete = _delete + 1;
-            } else {
-                private "_dis";
-                _dis = _x distance player;
-                if (_distance > _dis) then {
-                    _distance = _dis;
-                };
+            if (isNil "_x" || {isNull _x}) exitWith {
+                JK_IED deleteAt _forEachIndex;
+            };
+            private "_dis";
+            _dis = _x distance player;
+            if (_distance > _dis) then {
+                _distance = _dis;
             };
         } forEach JK_IED;
         if (_distance > 30) exitWith {};

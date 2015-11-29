@@ -110,6 +110,7 @@ if(isServer) then {
     iedsAdded = true;
     publicVariable "iedsAdded";
 
+    publicVariable "JK_IED";
 
 };
 [] spawn {

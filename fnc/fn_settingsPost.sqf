@@ -88,7 +88,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             if (count _buildings > 0) then {
                 for "_i" from 1 to ceil(((count _buildings)*0.1) min 15) do {
                     _destroyed = _buildings call BIS_fnc_selectRandom;
-                    _cls = toLower (getText (configFile >> "CfgVehicles" >> (typeOf _x) >> "vehicleClass" ));
+                    _cls = toLower (getText (configFile >> "CfgVehicles" >> (typeOf _destroyed) >> "vehicleClass" ));
                     if (((_cls find "town" ) !=-1) || ((_cls find "commercial" ) != -1) || ((_cls find "village" ) != -1)) then {
                         _destroyedPos pushBack (getposatl _destroyed);
                         _destroyed setDamage 1;

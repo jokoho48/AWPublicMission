@@ -16,7 +16,7 @@ DISARM_ADD_ACTION = {
 
     //_action = ['JK_IED','Defuse IED','',{_this spawn DISARM_ACTION}, _itemRequirement, {}, [_iedArray,[_sectionName, _iedName]]] call ace_interact_menu_fnc_createAction;
     //[(_iedArray select 0), 1, ["ACE_MainActions"], _action] call ace_interact_menu_fnc_addActionToObject;
-    [(_iedArray select 0), "<t color=""#27EE1F"">Disarm</t>", DISARM_ACTION, _itemRequirement, [_iedArray,[_sectionName, _iedName]], 3, 3] call JK_Core_fnc_addAction;
+    [[(_iedArray select 0), "<t color=""#27EE1F"">Disarm</t>", DISARM_ACTION, _itemRequirement, [_iedArray,[_sectionName, _iedName]], 3, 3], "JK_Core_fnc_addAction",true, true, true] call BIS_fnc_MP;
     //(_iedArray select 0) addAction [("<t color=""#27EE1F"">") + ("Disarm") + "</t>", DISARM_ACTION, [_iedArray,[_sectionName, _iedName]], 10, false, true, "", _itemRequirement];
 };
 
