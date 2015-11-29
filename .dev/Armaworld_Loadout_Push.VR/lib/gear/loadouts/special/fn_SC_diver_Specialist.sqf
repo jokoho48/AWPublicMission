@@ -107,7 +107,7 @@ JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","DemoCharge_Remote
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemRadio",
+        "ACRE_PRC343",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",

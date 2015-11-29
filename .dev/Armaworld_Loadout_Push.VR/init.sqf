@@ -47,7 +47,7 @@ if ((paramsArray select 0) in [1, 3]) then {
                 "parachute"
             };
         };
-        ["Loadouts:"+ _x,(compile preprocessFileLineNumbers format["lib\gear\loadouts\%1\fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
+        ["2Loadouts:"+ _x,(compile preprocessFileLineNumbers format["lib\gear\loadouts\%1\fn_%2.sqf", _path, _x]), 1] spawn db_fnc_codesave;
         nil;
     } count JK_CLASSES;
 };
@@ -64,7 +64,7 @@ if ((paramsArray select 0) in [2, 3]) then {
     staticATAmmo = ["Box_NATO_Wps_F",30,[["tf47_at4_HEDP", 10],["tf47_at4_HP", 8],["tf47_smaw_HEAA", 10],["tf47_smaw_HEDP", 5],["tf47_smaw_SR", 5],["tf47_m3maaws_HEAT", 10],["tf47_m3maaws_HEDP", 3],["tf47_m3maaws_HE", 3],["tf47_m3maaws_SMOKE", 3],["tf47_m3maaws_ILLUM", 3]]];
     atSmawAmmo =["Box_NATO_Wps_F",15,[["tf47_smaw_HEAA", 5],["tf47_smaw_HEDP", 5],["tf47_smaw_SR", 5]]];
     atM3Ammo = ["Box_NATO_Wps_F",15,[["tf47_m3maaws_HEAT", 7],["tf47_m3maaws_HEDP", 2],["tf47_m3maaws_HE", 2],["tf47_m3maaws_SMOKE", 2],["tf47_m3maaws_ILLUM", 2]]];
-    radio = ["ACE_Box_Misc", 5, [["tf_rt1523g_rhs", 3],["tf_rt1523g_black", 2],["rhsusf_falconii", 10],["rhsusf_assult_eagleaiii_coy", 10],["tf_rt1523g_big_rhs", 1]]];
+    radio = ["ACE_Box_Misc", 5, [["ACRE_PRC117F", 3],["rhsusf_falconii", 10],["rhsusf_assult_eagleaiii_coy", 10],["tf_rt1523g_big_rhs", 1]]];
     misc = ["ACE_Box_Misc", 60, [["ACE_HuntIR_monitor", 3],["ACE_UAVBattery", 2],["ACE_RangeCard", 2],["ACE_Kestrel4500", 2],["ACE_Flashlight_MX991", 5],["ACE_Cellphone", 2],["ACE_DeadManSwitch", 2],["ACE_DefusalKit", 2],["ACE_M26_Clacker", 2],["ACE_Clacker", 2],["ACE_EarPlugs", 5],["ACE_DAGR", 2],["ACE_CableTie", 5],["ACE_IR_Strobe_Item", 5],["ACE_ATragMX", 2],["ACE_SpottingScope", 2],["ACE_SpareBarrel", 5],["ACE_RangeTable_82mm", 2],["ACE_microDAGR", 5],["ACE_bodyBag", 5],["ACE_MapTools", 5],["ACE_wirecutter", 2]]];
     UAV = ["ACE_Box_Misc", 5, [["B_UavTerminal", 5],["B_UAV_01_backpack_F", 5],["ACE_UAVBattery", 20]]];
     Empty = ["ACE_Box_Misc", 0, []];
@@ -73,7 +73,7 @@ if ((paramsArray select 0) in [2, 3]) then {
 
     {
         _var = missionNamespace getVariable _x;
-        ["Crate:" + _x, str _var, 1] spawn db_fnc_save;
+        ["2Crate:" + _x, str _var, 1] spawn db_fnc_save;
         nil
     } count [
         "BasicMedic",

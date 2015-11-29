@@ -108,7 +108,7 @@ JK_itemsBackpack = ["tf47_m3maaws_HEAT", "tf47_m3maaws_HEDP", "tf47_m3maaws_HEAT
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemRadio",
+        "ACRE_PRC343",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",

@@ -108,7 +108,8 @@ JK_itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
-        "ItemRadio",
+        "ACRE_PRC148",
+        "ACRE_PRC343",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",

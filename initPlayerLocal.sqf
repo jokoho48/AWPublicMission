@@ -7,9 +7,9 @@ SEN_debug = (paramsArray select 1) isEqualTo 1;
 if (!hasInterface) exitWith {}; // headless client exit
 private "_fnc_tfarSettings";
 [] spawn compile preprocessFileLineNumbers "scripts\intro.sqf";
-_fnc_tfarSettings = compile preprocessFileLineNumbers "tfarSettings.sqf";
-call _fnc_tfarSettings;
-["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
+//_fnc_tfarSettings = compile preprocessFileLineNumbers "tfarSettings.sqf";
+//call _fnc_tfarSettings;
+//["JK_AssignTFARFrequencies", "OnRadiosReceived", _fnc_tfarSettings, player] call TFAR_fnc_addEventHandler;
 [] call compile PreprocessFileLineNumbers "scripts\VVS\configuration.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
 

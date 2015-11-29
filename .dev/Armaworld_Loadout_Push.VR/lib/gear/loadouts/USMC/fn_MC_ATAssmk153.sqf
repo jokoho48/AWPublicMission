@@ -108,7 +108,7 @@ JK_itemsBackpack = ["tf47_smaw_HEAA","tf47_smaw_SR"];
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemRadio",
+        "ACRE_PRC343",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",
