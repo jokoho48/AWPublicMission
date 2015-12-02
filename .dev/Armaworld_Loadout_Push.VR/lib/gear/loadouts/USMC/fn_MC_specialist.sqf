@@ -108,7 +108,6 @@ JK_itemsBackpack = ["ToolKit","MineDetector","ACE_DefusalKit","DemoCharge_Remote
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
-        "ItemRadio",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",
@@ -117,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_M26_Clacker","ACE_Clacker"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","ACE_M26_Clacker","ACE_Clacker"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

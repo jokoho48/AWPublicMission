@@ -108,7 +108,6 @@ JK_itemsBackpack = [];
 
 //linked items (don't put "ItemRadio" in here, as it's set with _equipRadio) - (array)
 JK_itemsLink = [
-        "ItemRadio",
         "ACE_Altimeter",
         "ItemCompass",
         "ACE_NVG_Wide",
@@ -117,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = [];
+JK_items = ["ACRE_PRC343"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = false;

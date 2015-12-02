@@ -19,18 +19,18 @@ _pilots = ["r_1", "r_2", "r_3", "r_4"];
 _db = 1;
 _strTarget = str _target;
 if (_strTarget in _command) exitWith {
-    ["Loadouts:AR_COMMAND", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["2Loadouts:AR_COMMAND", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _TL) exitWith {
-    ["Loadouts:AR_FTL", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["2Loadouts:AR_FTL", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _SL) exitWith {
-    ["Loadouts:AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["2Loadouts:AR_LEADER", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _crew) exitWith {
-    ["Loadouts:SC_CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["2Loadouts:SC_CREW", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
 if (_strTarget in _pilots) exitWith {
-    ["Loadouts:SC_PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+    ["2Loadouts:SC_PILOT", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
 };
-["Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+["2Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];

@@ -10,7 +10,7 @@ magazines one for one in JK_items.
 JK_uniforms = ["rhs_uniform_FROG01_m81", "rhs_uniform_FROG01_wd"];
 JK_vests = ["rhsusf_iotv_ocp_Teamleader"];
 JK_headgears = ["rhsusf_opscore_01_tan", "H_HelmetSpecB_paint1", "H_HelmetSpecB_blk", "rhsusf_ach_bare_des_headset", "rhsusf_opscore_02_tan", "H_HelmetSpecB", "H_HelmetSpecB_snakeskin", "H_HelmetSpecB_sand", "rhsusf_lwh_helmet_marpatwd","rhsusf_ach_helmet_headset_ocp"];
-JK_backpacks = ["tf_rt1523g_rhs"];
+JK_backpacks = ["rhsusf_assault_eagleaiii_coy"];
 JK_insignium = [""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
@@ -104,11 +104,10 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [];
+JK_itemsBackpack = ["ACRE_PRC117F"];
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemRadio",
         "ItemWatch",
         "ItemCompass",
         "ACE_NVG_Wide",
@@ -117,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","rhs_weap_tr8"];
+JK_items = ["ACRE_PRC148","ACRE_PRC343","ACE_Flashlight_MX991","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_M203","ACE_HuntIR_monitor","ACE_MapTools","ACE_CableTie","ACE_microDAGR","rhsusf_acc_compm4","rhs_weap_tr8"];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
