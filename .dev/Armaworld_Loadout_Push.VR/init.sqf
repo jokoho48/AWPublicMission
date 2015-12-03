@@ -18,7 +18,6 @@ enableSaving [false,false];
 _varAllHandle = [];
 if ((paramsArray select 0) in [1, 3]) then {
     JK_CLASSES = ["Commander", "Leader", "Medic", "Rifleman", "Gren", "AT", "MG", "Pilot", "Marksman"];
-
     {
         private "_path";
         _handle = ["Loadouts:"+ _x,(compile preprocessFileLineNumbers format["lib\gear\loadouts\fn_%2.sqf", _x]), 1] spawn db_fnc_codesave;

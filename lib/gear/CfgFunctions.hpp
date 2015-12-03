@@ -7,7 +7,6 @@ class JK_loadOut {
     tag = "JK_loadOut";
     class core {
         file = "lib\gear";
-        class applyLoadout;
         class gear;
         class loadoutsInit;
         class chooseLoadout;

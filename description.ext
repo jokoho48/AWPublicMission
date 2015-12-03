@@ -17,7 +17,7 @@ disabledAI = 1;
 //ShowGPS = 0;
 //forceRotorLibSimulation = 1;
 enableDebugConsole = 1;
-//allowFunctionsLog = 1;
+allowFunctionsLog = 0;
 
 corpseManagerMode = 1;
 corpseLimit = 10;
