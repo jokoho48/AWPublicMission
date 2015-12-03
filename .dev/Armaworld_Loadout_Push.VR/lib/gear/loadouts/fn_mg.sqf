@@ -19,7 +19,7 @@ JK_goggles = "G_Aviator";
 JK_primaryweapon = ["LMG_Mk200_F"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["optic_Holosight_smg",];
+JK_itemsPrimaryweapon = ["optic_Holosight_smg"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.

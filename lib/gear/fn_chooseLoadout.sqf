@@ -18,7 +18,7 @@ _fnc_gear_Call = {
     {
         private ["_string", "_cond", "_color"];
         _color = "52c652";
-        _cond = "JK_Gear == 'USMC'";
+        _cond = "true";
         _string = (format ["STR_JK_GEAR_%1", toUpper _x]);
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
         _string = (format["<t color='#%2'>%1</t>",_string, _color]);

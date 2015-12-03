@@ -1,7 +1,9 @@
 private "_crate";
+/*
 if (!(JK_ammoSuppAvail)) exitWith {
     hint "Supply Crate is not currently available"
 };
+*/
 
 JK_ammoSuppAvail = false;
 publicVariable "JK_ammoSuppAvail";
