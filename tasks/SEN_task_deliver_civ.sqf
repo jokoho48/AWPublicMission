@@ -25,7 +25,7 @@ _aidArray = [];
 _grp = grpNull;
 
 
-_aid = "rhsusf_M1083A1P2_B_M2_d_Medical_fmtv_usarmy" createVehicle (getMarkerPos _spawnMrk);
+_aid = "B_Truck_01_box_F" createVehicle (getMarkerPos _spawnMrk);
 _aid setDir (markerDir _spawnMrk);
 _aid setVariable ["SEN_noClean", true];
 clearItemCargoGlobal _aid;

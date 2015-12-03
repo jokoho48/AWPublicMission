@@ -18,7 +18,7 @@ _taskID = format["%1_rebel_civ",time];
 _taskText = "Air Priority Target";
 _taskDescription = "A Air Priority Target is Entering our Air Area";
 
-_class = (["O_Plane_CAS_02_F", "RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"] call BIS_fnc_selectRandom);
+_class = (["O_Plane_CAS_02_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F", "O_Heli_Light_02_F"] call BIS_fnc_selectRandom);
 _spawnPos = getmarkerPos (["JK_AirSpawn_1", "JK_AirSpawn_2", "JK_AirSpawn_3", "JK_AirSpawn_4", "JK_AirSpawn_5", "JK_AirSpawn_6", "JK_AirSpawn_7", "JK_AirSpawn_8", "JK_AirSpawn_9"] call BIS_fnc_selectRandom);
 _spawnPos set [2, 4000];
 _veh = createVehicle [_class, _spawnPos, [], 0, "FLY"];

@@ -18,7 +18,7 @@ call {
 
     };
     _unitPool = SEN_unitPool;
-    _veh = (["RHS_Mi8mt_vdv", "RHS_Mi8mt_Cargo_vdv", "RHS_Mi8MTV3_vdv", "RHS_Mi8MTV3_FAB_vdv"] call BIS_fnc_selectRandom);
+    _veh = "O_Heli_Light_02_F";
 };
 
 for "_s" from 1 to 15 do {

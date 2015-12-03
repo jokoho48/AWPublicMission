@@ -53,7 +53,7 @@ for "_c" from 0 to 2 do {
         _pos = getposATL (_roads select _c);
         _dir = getDir (_roads select _c);
     };
-    _transport = "rhsusf_M1083A1P2_B_M2_d_MHQ_fmtv_usarmy" createVehicle [0,0,0];
+    _transport = "B_Truck_01_box_F" createVehicle [0,0,0];
     _transport setDir _dir;
     _transport setpos _pos;
     _transport lock true;

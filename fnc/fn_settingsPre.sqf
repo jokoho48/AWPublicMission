@@ -32,7 +32,7 @@ jk_db_fnc_load = if (isNil "db_fnc_load") then {
 JK_TicketSystem = ["JK_TicketSystem", 4000, 0] call jk_db_fnc_load;
 publicVariable "JK_TicketSystem";
 
-JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["rhsusf_m1025_w_s"],200,["All"]]], 2] call jk_db_fnc_load;
+JK_VSS_ListTickets = ["JK_VSS_ListTickets", [["test", ["B_MRAP_01_F"],200,["All"]]], 2] call jk_db_fnc_load;
 publicVariable "JK_VSS_ListTickets";
 
 SEN_approvalCiv = ["SEN_approvalCiv", -1500, 0] call jk_db_fnc_load;
@@ -93,6 +93,9 @@ if (SEN_rhsUSAFEnabled) then { // RHS: USAF
     SEN_sniperPoolWest = ["rhsusf_army_ucp_sniper"];
 };
 if (SEN_rhsAFRFEnabled) then { // RHS: AFRF
+    SEN_unitPoolRebel = ["rhs_g_Soldier_GL_F","rhs_g_Soldier_AAT_F","rhs_g_engineer_F","rhs_g_Soldier_AA_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_AAR_F","rhs_g_Soldier_F3","rhs_g_medic_F","rhs_g_Soldier_F2","rhs_g_Soldier_F","rhs_g_Soldier_lite_F","rhs_g_Soldier_LAT_F","rhs_g_Soldier_AT_F","rhs_g_Soldier_M_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_TL_F", "rhs_g_Soldier_SL_F"];
+    SEN_vehPoolRebel = ["RHS_UAZ_chdkz", "rhs_uaz_open_chdkz"];
+    SEN_airPoolRebel = [];
     if (SEN_enemySide isEqualTo RESISTANCE) exitWith {
         SEN_unitPool = ["rhs_g_Soldier_lite_F","rhs_g_medic_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_GL_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_M_F","rhs_g_Soldier_F3","rhs_g_Soldier_LAT_F","rhs_g_engineer_F","rhs_g_Soldier_AAR_F"];
         SEN_vehPool = ["rhs_bmd2_chdkz", "rhs_bmd2_chdkz", "rhs_bmd1_chdkz", "rhs_btr70_chdkz", "rhs_btr60_chdkz"];
@@ -120,10 +123,9 @@ if (count SEN_sniperPoolWest isEqualTo 0) then {SEN_sniperPoolWest = ["B_sniper_
 if (count SEN_unitPoolCiv isEqualTo 0) then {SEN_unitPoolCiv = ["C_man_1","C_man_1_1_F","C_man_1_2_F","C_man_1_3_F","C_man_hunter_1_F","C_man_p_beggar_F","C_man_p_beggar_F_afro","C_man_p_fugitive_F","C_man_p_shorts_1_F","C_man_polo_1_F","C_man_polo_2_F","C_man_polo_3_F","C_man_polo_4_F","C_man_polo_5_F","C_man_polo_6_F","C_man_shorts_1_F","C_man_shorts_2_F","C_man_shorts_3_F","C_man_shorts_4_F","C_man_w_worker_F"]};
 if (count SEN_vehPoolCiv isEqualTo 0) then {SEN_vehPoolCiv = ["C_Offroad_01_F","C_SUV_01_F","C_Van_01_box_F","C_Van_01_fuel_F","C_Van_01_transport_F"]};
 if (count SEN_airPoolCiv isEqualTo 0) then {SEN_airPoolCiv = ["C_Heli_Light_01_civil_F"]};
-
-if (count SEN_unitPoolRebel isEqualTo 0) then { SEN_unitPoolRebel = ["rhs_g_Soldier_GL_F","rhs_g_Soldier_AAT_F","rhs_g_engineer_F","rhs_g_Soldier_AA_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_AAR_F","rhs_g_Soldier_F3","rhs_g_medic_F","rhs_g_Soldier_F2","rhs_g_Soldier_F","rhs_g_Soldier_lite_F","rhs_g_Soldier_LAT_F","rhs_g_Soldier_AT_F","rhs_g_Soldier_M_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_TL_F", "rhs_g_Soldier_SL_F"];};
-if (count SEN_vehPoolRebel isEqualTo 0) then {SEN_vehPoolRebel = ["RHS_UAZ_chdkz", "rhs_uaz_open_chdkz"];};
-if (count SEN_airPoolRebel isEqualTo 0) then {SEN_airPoolRebel = [];};
+if (count SEN_unitPoolRebel isEqualTo 0) then { SEN_unitPoolRebel = SEN_unitPoolCiv;};
+if (count SEN_vehPoolRebel isEqualTo 0) then {SEN_vehPoolRebel = SEN_vehPoolCiv;};
+if (count SEN_airPoolRebel isEqualTo 0) then {SEN_airPoolRebel = SEN_airPoolCiv;};
 
 if (SEN_enemySide isEqualTo RESISTANCE) exitWith {
     if (count SEN_unitPool isEqualTo 0) then {SEN_unitPool = ["I_soldier_AR_F","I_medic_F","I_soldier_exp_F","I_soldier_GL_F","I_soldier_AT_F","I_soldier_repair_F","I_soldier_AAR_F","I_soldier_M_F","I_soldier_F","I_support_AMort_F","I_support_AMG_F","I_support_MG_F","I_support_Mort_F","I_engineer_F","I_Soldier_AAT_F","I_Soldier_A_F","I_Soldier_AA_F"]};
