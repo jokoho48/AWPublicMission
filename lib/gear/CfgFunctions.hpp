@@ -11,7 +11,6 @@ class JK_loadOut {
         class loadoutsInit;
         class chooseLoadout;
         class selectGear;
-        class crate { postInit = 1; };
         class init { preInit = 1;};
     };
 };
