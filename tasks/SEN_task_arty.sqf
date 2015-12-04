@@ -43,7 +43,7 @@ _grpArray params ["_baseArray", "_vehArray", "_grp"];
 _posArty = getposATL ((nearestObjects [_pos, ["Land_DuctTape_F"], 200]) select 0);
 
 for "_j" from 1 to 3 do {
-    _arty = "O_MBT_02_arty_F" createVehicle [0,0,0];
+    _arty = (SEN_AriPool call BIS_fnc_selectRandom) createVehicle [0,0,0];
     _arty allowDamage false;
     _arty setDir (getDir _arty - 70);
     if (count _artyArray > 0) then {

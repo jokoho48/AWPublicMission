@@ -82,6 +82,8 @@ SEN_officerPool = [];
 SEN_unitPoolRebel = [];
 SEN_vehPoolRebel = [];
 SEN_airPoolRebel = [];
+SEN_airAttackPool = [];
+SEN_AriPool = [];
 ////////////////// EDIT BELOW //////////////////
 
 // fill arrays with addon content if enabled
@@ -96,6 +98,8 @@ if (SEN_rhsAFRFEnabled) then { // RHS: AFRF
     SEN_unitPoolRebel = ["rhs_g_Soldier_GL_F","rhs_g_Soldier_AAT_F","rhs_g_engineer_F","rhs_g_Soldier_AA_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_AAR_F","rhs_g_Soldier_F3","rhs_g_medic_F","rhs_g_Soldier_F2","rhs_g_Soldier_F","rhs_g_Soldier_lite_F","rhs_g_Soldier_LAT_F","rhs_g_Soldier_AT_F","rhs_g_Soldier_M_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_TL_F", "rhs_g_Soldier_SL_F"];
     SEN_vehPoolRebel = ["RHS_UAZ_chdkz", "rhs_uaz_open_chdkz"];
     SEN_airPoolRebel = [];
+    SEN_airAttackPool = ["O_Plane_CAS_02_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F", "O_Heli_Light_02_F"];
+    SEN_AriPool = ["rhs_2s3_tv", "RHS_BM21_MSV_01"];
     if (SEN_enemySide isEqualTo RESISTANCE) exitWith {
         SEN_unitPool = ["rhs_g_Soldier_lite_F","rhs_g_medic_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_GL_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_M_F","rhs_g_Soldier_F3","rhs_g_Soldier_LAT_F","rhs_g_engineer_F","rhs_g_Soldier_AAR_F"];
         SEN_vehPool = ["rhs_bmd2_chdkz", "rhs_bmd2_chdkz", "rhs_bmd1_chdkz", "rhs_btr70_chdkz", "rhs_btr60_chdkz"];
@@ -126,7 +130,8 @@ if (count SEN_airPoolCiv isEqualTo 0) then {SEN_airPoolCiv = ["C_Heli_Light_01_c
 if (count SEN_unitPoolRebel isEqualTo 0) then { SEN_unitPoolRebel = SEN_unitPoolCiv;};
 if (count SEN_vehPoolRebel isEqualTo 0) then {SEN_vehPoolRebel = SEN_vehPoolCiv;};
 if (count SEN_airPoolRebel isEqualTo 0) then {SEN_airPoolRebel = SEN_airPoolCiv;};
-
+if (count SEN_airAttackPool isEqualTo 0) then {SEN_airAttackPool = ["O_Plane_CAS_02_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F", "O_Heli_Light_02_F"]};
+if (count SEN_AriPool isEqualTo 0) then {SEN_AriPool = ["O_MBT_02_arty_F"];};
 if (SEN_enemySide isEqualTo RESISTANCE) exitWith {
     if (count SEN_unitPool isEqualTo 0) then {SEN_unitPool = ["I_soldier_AR_F","I_medic_F","I_soldier_exp_F","I_soldier_GL_F","I_soldier_AT_F","I_soldier_repair_F","I_soldier_AAR_F","I_soldier_M_F","I_soldier_F","I_support_AMort_F","I_support_AMG_F","I_support_MG_F","I_support_Mort_F","I_engineer_F","I_Soldier_AAT_F","I_Soldier_A_F","I_Soldier_AA_F"]};
     if (count SEN_vehPool isEqualTo 0) then {SEN_vehPool = ["I_MRAP_03_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_Quadbike_01_F","I_APC_tracked_03_cannon_F","I_APC_Wheeled_03_cannon_F","O_APC_Tracked_02_AA_F"]};

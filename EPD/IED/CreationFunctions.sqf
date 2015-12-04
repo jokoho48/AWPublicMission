@@ -56,7 +56,7 @@ CREATE_SPECIFIC_IED = {
     params ["_dictionary", "_sectionName", "_origin", "_parameters"];
     _side = _parameters select ((count _parameters)-1);
 
-    _sizeAndType = "" call GET_SIZE_AND_TYPE;
+    _sizeAndType = [smallChance, mediumChance, largeChance] call GET_SIZE_AND_TYPE;
     _chance = 100;
     if(count _parameters == 3) then {
         if(typename( _parameters select 1) == "ARRAY") then {

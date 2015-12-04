@@ -49,13 +49,15 @@ class Mission
 		"A3_Structures_F_Items_Electronics",
 		"A3_Structures_F_Ind_Tank",
 		"a3_map_altis",
-		"A3_Air_F_Beta_Heli_Transport_01",
-		"A3_Soft_F_MRAP_01",
 		"ace_map_gestures",
 		"ace_refuel",
 		"ace_rearm",
 		"ace_nightvision",
-		"ace_medical_menu"
+		"ace_medical_menu",
+		"RHS_US_A2_AirImport",
+		"rhsusf_c_hmmwv",
+		"rhsusf_vehicles",
+		"rhsusf_c_fmtv"
 	};
 	addOnsAuto[]=
 	{
@@ -99,11 +101,13 @@ class Mission
 		"A3_Structures_F_Mil_Shelters",
 		"MELB",
 		"A3_Structures_F_Civ_Lamps",
-		"A3_Air_F_Beta_Heli_Transport_01",
-		"A3_Soft_F_MRAP_01",
+		"RHS_US_A2_AirImport",
+		"rhsusf_c_hmmwv",
+		"rhsusf_vehicles",
 		"A3_Structures_F_Mil_Fortification",
 		"A3_Structures_F_Mil_Cargo",
 		"A3_Structures_F_Mil_Flags",
+		"rhsusf_c_fmtv",
 		"A3_Structures_F_Ind_Shed",
 		"A3_Structures_F_Mil_BagBunker",
 		"A3_Structures_F_Civ_Camping",
@@ -2296,8 +2300,9 @@ class Mission
 			offsetY=-0.0101013;
 			id=95;
 			side="EMPTY";
-			vehicle="B_Heli_Transport_01_F";
+			vehicle="RHS_UH60M_MEV";
 			skill=0.60000002;
+			text="Heli1";
 		};
 		class Item29
 		{
@@ -2321,14 +2326,15 @@ class Mission
 		};
 		class Item31
 		{
-			position[]={15193.1,17.936935,17279.6};
+			position[]={15192.586,17.936783,17281.74};
 			azimut=313.742;
 			offsetY=-0.0029468499;
 			id=98;
 			side="EMPTY";
-			vehicle="B_MRAP_01_hmg_F";
+			vehicle="rhsusf_m998_w_2dr_halftop";
 			lock="LOCKED";
 			skill=0.60000002;
+			text="Car6";
 		};
 		class Item32
 		{
@@ -2369,8 +2375,9 @@ class Mission
 			offsetY=-0.037344001;
 			id=102;
 			side="EMPTY";
-			vehicle="B_MRAP_01_F";
+			vehicle="rhsusf_m998_w_s_4dr_fulltop";
 			skill=0.60000002;
+			text="Car7";
 		};
 		class Item36
 		{
@@ -2406,8 +2413,9 @@ class Mission
 			offsetY=0.00032424901;
 			id=106;
 			side="EMPTY";
-			vehicle="B_MRAP_01_F";
+			vehicle="rhsusf_M1078A1P2_B_M2_wd_fmtv_usarmy";
 			skill=0.60000002;
+			text="Car8";
 		};
 		class Item40
 		{
@@ -2428,14 +2436,15 @@ class Mission
 		};
 		class Item42
 		{
-			position[]={15167.4,17.851873,17307.801};
+			position[]={15168.332,17.862675,17306.498};
 			azimut=135.511;
 			offsetY=0.000270844;
 			id=109;
 			side="EMPTY";
-			vehicle="B_MRAP_01_gmg_F";
+			vehicle="rhsusf_m1025_w_mk19";
 			lock="LOCKED";
 			skill=0.60000002;
+			text="Car1";
 		};
 		class Item43
 		{
@@ -2449,23 +2458,25 @@ class Mission
 		};
 		class Item44
 		{
-			position[]={15203.5,17.941336,17290.1};
+			position[]={15201.777,17.940001,17290.936};
 			azimut=316.021;
 			offsetY=0.0061645498;
 			id=111;
 			side="EMPTY";
-			vehicle="B_MRAP_01_gmg_F";
+			vehicle="rhsusf_m998_w_2dr_fulltop";
 			skill=0.60000002;
+			text="Car4";
 		};
 		class Item45
 		{
-			position[]={15197.6,17.940001,17284.699};
+			position[]={15196.621,17.940001,17286.049};
 			azimut=313.73901;
 			offsetY=-0.0026340501;
 			id=112;
 			side="EMPTY";
-			vehicle="B_MRAP_01_F";
+			vehicle="rhsusf_m1025_w";
 			skill=0.60000002;
+			text="Car5";
 		};
 		class Item46
 		{
@@ -2615,24 +2626,26 @@ class Mission
 		};
 		class Item60
 		{
-			position[]={15177.8,17.880136,17318.699};
+			position[]={15178.731,17.881683,17317.396};
 			azimut=136.308;
 			offsetY=-0.00331688;
 			id=127;
 			side="EMPTY";
-			vehicle="B_MRAP_01_hmg_F";
+			vehicle="rhsusf_m1025_w_m2";
 			skill=0.60000002;
+			text="Car3";
 		};
 		class Item61
 		{
-			position[]={15172,17.865326,17313};
+			position[]={15172.932,17.872099,17311.697};
 			azimut=133.75101;
 			offsetY=0.00103569;
 			id=128;
 			side="EMPTY";
-			vehicle="B_MRAP_01_F";
+			vehicle="rhsusf_m998_w_4dr_fulltop";
 			lock="LOCKED";
 			skill=0.60000002;
+			text="Car2";
 		};
 		class Item62
 		{
