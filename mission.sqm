@@ -3356,8 +3356,8 @@ class Mission
 		};
 		class Item128
 		{
-			position[]={15128.1,17.91,17154};
-			azimut=306.798;
+			position[]={15138.997,17.91,17146.35};
+			azimut=287.82809;
 			id=195;
 			side="EMPTY";
 			vehicle="Land_BagBunker_Tower_F";
@@ -3386,8 +3386,8 @@ class Mission
 		};
 		class Item131
 		{
-			position[]={15126.4,17.91,17158.4};
-			azimut=305.96399;
+			position[]={15135.962,17.91,17149.961};
+			azimut=286.99408;
 			id=198;
 			side="EMPTY";
 			vehicle="Land_HBarrier_5_F";
@@ -3396,8 +3396,8 @@ class Mission
 		};
 		class Item132
 		{
-			position[]={15131.1,17.91,17149.5};
-			azimut=37.584499;
+			position[]={15143.295,17.91106,17143.07};
+			azimut=18.614578;
 			id=199;
 			side="EMPTY";
 			vehicle="Land_HBarrier_5_F";
@@ -3406,8 +3406,8 @@ class Mission
 		};
 		class Item133
 		{
-			position[]={15135.2,17.91,17146.301};
-			azimut=37.584499;
+			position[]={15148.219,17.914833,17141.373};
+			azimut=18.614578;
 			id=200;
 			side="EMPTY";
 			vehicle="Land_HBarrier_5_F";
@@ -3416,8 +3416,8 @@ class Mission
 		};
 		class Item134
 		{
-			position[]={15144,17.912001,17143.301};
-			azimut=182.01199;
+			position[]={15157.513,18.153448,17141.395};
+			azimut=163.04207;
 			id=201;
 			side="EMPTY";
 			vehicle="Land_HBarrier_5_F";
@@ -3426,8 +3426,8 @@ class Mission
 		};
 		class Item135
 		{
-			position[]={15148.9,17.91,17147.699};
-			azimut=147.67799;
+			position[]={15153.228,17.996084,17147.518};
+			azimut=354.71808;
 			id=202;
 			side="EMPTY";
 			vehicle="CamoNet_BLUFOR_F";
@@ -3728,8 +3728,8 @@ class Mission
 		};
 		class Item163
 		{
-			position[]={15125.768,17.91,17150.148};
-			azimut=215.33231;
+			position[]={15138.051,17.91,17141.941};
+			azimut=196.36238;
 			offsetY=0.0858135;
 			id=230;
 			side="EMPTY";
@@ -3739,8 +3739,8 @@ class Mission
 		};
 		class Item164
 		{
-			position[]={15123.199,17.91,17158.17};
-			azimut=124.84462;
+			position[]={15133.006,17.91,17148.707};
+			azimut=105.87466;
 			offsetY=0.0858135;
 			id=231;
 			side="EMPTY";
@@ -3750,8 +3750,8 @@ class Mission
 		};
 		class Item165
 		{
-			position[]={15133.603,17.91,17144.756};
-			azimut=215.33231;
+			position[]={15147.207,17.916277,17139.391};
+			azimut=196.36238;
 			offsetY=0.0858135;
 			id=232;
 			side="EMPTY";
@@ -3954,10 +3954,10 @@ class Mission
 		};
 		class Item21
 		{
-			position[]={15133.465,17.91,17164.855};
+			position[]={15140.544,17.91,17158.363};
 			name="SEN_ammo_mrk_1";
 			type="Empty";
-			angle=-47.030998;
+			angle=-66.000916;
 		};
 		class Item22
 		{
