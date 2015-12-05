@@ -10,7 +10,7 @@ magazines one for one in JK_items.
 JK_uniforms = ["U_B_HeliPilotCoveralls"];
 JK_vests = ["V_TacVest_blk"];
 JK_headgears = ["H_CrewHelmetHeli_B"];
-JK_backpacks = [""];
+JK_backpacks = ["B_Kitbag_rgr"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
@@ -103,7 +103,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [ACRE_PRC117F];
+JK_itemsBackpack = ["ACRE_PRC117F"];
 
 //linked items - (array)
 JK_itemsLink = [
