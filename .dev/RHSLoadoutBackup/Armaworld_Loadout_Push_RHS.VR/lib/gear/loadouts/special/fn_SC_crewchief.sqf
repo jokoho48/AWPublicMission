@@ -103,7 +103,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [];
+JK_itemsBackpack = [ACRE_PRC117F];
 
 //linked items - (array)
 JK_itemsLink = [
