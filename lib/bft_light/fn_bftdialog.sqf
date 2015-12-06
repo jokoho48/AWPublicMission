@@ -22,11 +22,11 @@ with uiNamespace do {
 
 
     BG_UI_BFT_editButton = _map ctrlCreate ["RscButton",-1];
-    BG_UI_BFT_editButton ctrlSetPosition [_gX0+safeZoneW-19.5*_gX,_gY0+0.1*_gY,2.5*_gX,1.3*_gY];
+    BG_UI_BFT_editButton ctrlSetPosition [_gX0+safeZoneW-24*_gX,_gY0+0.1*_gY,2.5*_gX,1.3*_gY];
     BG_UI_BFT_editButton ctrlSetText "ID";
 
     BG_UI_BFT_ctrlGroup  = _map ctrlCreate ["RscControlsGroupNoScrollbars",-1];
-    BG_UI_BFT_ctrlGroup ctrlSetPosition [_gX0+safeZoneW-19.5*_gX,_gY0+1.4*_gY,13*_gX,8.1*_gY];
+    BG_UI_BFT_ctrlGroup ctrlSetPosition [_gX0+safeZoneW-24*_gX,_gY0+1.4*_gY,13*_gX,8.1*_gY];
     BG_UI_BFT_ctrlGroup ctrlCommit 0;
 
     _ctrl = _map ctrlCreate ["RscBackground",-1,BG_UI_BFT_ctrlGroup];
