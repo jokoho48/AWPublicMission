@@ -32,7 +32,7 @@ _defaultIcon = switch (playerSide) do {
 
 if (BG_BFT_onlyPlayer) then {
     {
-        if (!((group _x) in _groups) && {_x getVariable ["BG_BFT_playerSide", side _x] == playerSide}) then {
+        if (!((group _x) in _groups) && {_x getVariable ["BG_BFT_playerSide", side _x] == playerSide} && {_x getVariable ["BG_BFT_item", 0] > 1}) then {
             _groups pushBack group _x;
             _icon = (group _x) getVariable ["BG_BFT_icon", _defaultIcon];
             _text = (group _x) getVariable ["BG_BFT_groupId", groupId (group _x)];
@@ -58,7 +58,7 @@ if (BG_BFT_onlyPlayer) then {
     } count allPlayers;
 } else {
     {
-        if (_x getVariable ["BG_BFT_playerSide", side _x] == playerSide) then {
+        if (_x getVariable ["BG_BFT_playerSide", side _x] == playerSide && {_x getVariable ["BG_BFT_item", 0] > 1}) then {
             _icon = _x getVariable ["BG_BFT_icon", _defaultIcon];
             _text = _x getVariable ["BG_BFT_groupId", groupId _x];
             _iconType = (BG_BFT_iconTypes select 0) find _icon;
