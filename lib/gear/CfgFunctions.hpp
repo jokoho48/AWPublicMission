@@ -11,6 +11,7 @@ class JK_loadOut {
         class loadoutsInit;
         class chooseLoadout;
         class selectGear;
+        class addContainer;
         class init { preInit = 1;};
     };
 };

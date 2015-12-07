@@ -20,21 +20,16 @@ if (typeName JK_primaryweapon == "ARRAY") then {JK_primaryweapon = JK_primarywea
 
 
 //removals:
-removeUniform _unit;
-removeallItems _unit;
 removeAllAssignedItems _unit;
 removeallWeapons _unit;
 removeHeadgear _unit;
-removeBackpack _unit;
-removeVest _unit;
 {_unit removeMagazine _x; nil} count magazines _unit;
 
-sleep 1;
 //...and readding. Clothing:
-_unit forceAddUniform _uniform;
-_unit addVest _vest;
+[_unit, _uniform] call JK_loadOut_fnc_addContainer;
+[_unit, _vest] call JK_loadOut_fnc_addContainer;
 if (_backpack != "") then {
-    _unit addBackpack _backpack;
+  [_unit, _backpack] call JK_loadOut_fnc_addContainer;
 };
 _unit addHeadgear _headgear;
 if (JK_useProfileGoggles == 0) then {
