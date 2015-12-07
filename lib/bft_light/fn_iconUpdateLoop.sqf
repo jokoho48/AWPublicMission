@@ -14,7 +14,7 @@ _icons = [];
 _textSize = 0.06;
 _font = "PuristaSemiBold";
 _align = "right";
-_defaultIcon = switch (player getVariable ["BG_BFT_playerSide", side _x]) do {
+_defaultIcon = switch (playerSide) do {
     case (west): {
       "b_unknown"
     };
