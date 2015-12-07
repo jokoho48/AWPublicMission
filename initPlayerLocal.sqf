@@ -113,18 +113,9 @@ player createDiaryRecord ["rules",
 
 player createDiaryRecord ["teamspeak",
 [
-"TS3",
-"
-<br /> Teamspeak:<br /><br />
-<br /> http://www.teamspeak.com/?page=downloads
-"
-]];
-
-player createDiaryRecord ["teamspeak",
-[
 "Armaworld",
 "
-<br /> Addresse: 146.0.35.28:11111
+<br /> Addresse: 176.57.133.107
 <br />
 <br /> Jegliche Besucher und Gäste sind herzlichst Willkommen!
 "
