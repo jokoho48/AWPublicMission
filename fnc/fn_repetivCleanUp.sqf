@@ -85,11 +85,11 @@ JK_objectStorage = [];
                         _args params ["_object", "_height"];
 
                         // Get the current position and subtract some value from the z axis.
-                        _position = getPosATL _object;
+                        _position = getPos _object;
                         if (surfaceIsWater _position) then {
                             _position = getPosASL _object;
                         };
-                        _position set [2, (_position select 2) - 0.05];
+                        _position set [2,  (_position select 2) - 0.05];
 
                         // Apply the position change.
                         _object setPos _position;
@@ -97,8 +97,10 @@ JK_objectStorage = [];
                         // If the object is below the surface delete it and remove the OEF EH.
                         if ((_position select 2) < (0 - _height)) then {
                             deleteVehicle _object;
-                            [_idPFH] call CBA_fnc_removePerFrameHandler;
                         };
+                        if (isNull _object) then {
+                            [_idPFH] call CBA_fnc_removePerFrameHandler;
+                        }
                     }, 0, [_object, _height]] call CBA_fnc_addPerframeHandler;
                 };
                 nil
@@ -141,6 +143,6 @@ JK_objectStorage = [];
                 nil
             } count +SEN_objectCleanup;
         };
-        uiSleep 120;
+        uiSleep 30;
     };
 };

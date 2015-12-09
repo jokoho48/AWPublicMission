@@ -4,8 +4,6 @@ If custom content is added to the units, they possibly have to be added to _glrf
 define per cfgFunctions or from init.sqf or initPlayerLocal.sqf as early as possible via
 call JK_loadOut_fnc_gear;
 */
-_this spawn {
-
 private ["_uniform", "_headgear", "_vest", "_backpack", "_count"];
 params [["_unit", player, [objNull]]];
 _unit setCaptive true;
@@ -30,6 +28,8 @@ removeHeadgear _unit;
 [_unit, _vest] call JK_loadOut_fnc_addContainer;
 if (_backpack != "") then {
   [_unit, _backpack] call JK_loadOut_fnc_addContainer;
+} else {
+    removeBackpack _unit;
 };
 _unit addHeadgear _headgear;
 if (JK_useProfileGoggles == 0) then {
@@ -173,11 +173,11 @@ for "_i" from 1 to JK_swapBarrel do {
 };
 
 //items:
-{_unit linkitem _x; false} count JK_itemslink;
-{_unit addItemToUniform _x; false} count JK_itemsUniform;
-{_unit addItemToVest _x; false} count JK_itemsVest;
+{_unit linkitem _x; nil} count JK_itemslink;
+{_unit addItemToUniform _x; nil} count JK_itemsUniform;
+{_unit addItemToVest _x; nil} count JK_itemsVest;
 if (_backpack != "") then {
-    {_unit addItemToBackpack _x; false} count JK_itemsBackpack;
+    {_unit addItemToBackpack _x; nil} count JK_itemsBackpack;
 };
 {_unit addItem _x; false} count JK_items;
 if (name _unit in ["joko // Jonas"]) then {
@@ -199,4 +199,3 @@ _unit setVariable ["JK_CrateSpawnAllowed", JK_spawnAllowed];
 _unit setVariable ["ACE_IsEngineer", JK_isEngineer];
 _unit setVariable ["JK_isPilot", JK_isPilot];
 _unit setCaptive false;
-};

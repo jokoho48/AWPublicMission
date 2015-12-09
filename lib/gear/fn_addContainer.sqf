@@ -1,5 +1,5 @@
 private ["_parameterCorrect", "_returnValue", "_cfg"];
-_parameterCorrect = params [["_x",objNull,[objNull]],["_containerClassname","",["STRING"]],["_containerNumber", -1, [-1]]];
+_parameterCorrect = params [["_unit",objNull,[objNull]],["_containerClassname","",["STRING"]],["_containerNumber", -1, [-1]]];
 _returnValue = false;
 
 if (_containerNumber == -1) then {
@@ -18,39 +18,39 @@ if (_containerNumber == -1) then {
 _returnValue = true;
 switch (_containerNumber) do {
     case 0 : {
-        _uniformName = uniform _x;
+        _uniformName = uniform _unit;
         if(_containerClassname == _uniformName && _containerClassname != "") then {
-            _uniform = uniformContainer _x;
+            _uniform = uniformContainer _unit;
             clearItemCargoGlobal _uniform;
             clearMagazineCargoGlobal _uniform;
             clearWeaponCargoGlobal _uniform;
         } else {
-            removeUniform _x;
-            _x forceAddUniform _containerClassname;
+            removeUniform _unit;
+            _unit forceAddUniform _containerClassname;
         };
     };
     case 1 : {
-        _vestName = vest _x;
+        _vestName = vest _unit;
         if(_containerClassname == _vestName && _containerClassname != "") then {
-            _vest = vestContainer _x;
+            _vest = vestContainer _unit;
             clearItemCargoGlobal _vest;
             clearMagazineCargoGlobal _vest;
             clearWeaponCargoGlobal _vest;
         } else {
-            removeVest _x;
-            _x addVest _containerClassname;
+            removeVest _unit;
+            _unit addVest _containerClassname;
         };
     };
     case 2 : {
-        _backpackName = backpack _x;
+        _backpackName = backpack _unit;
         if(_containerClassname == _backpackName && _containerClassname != "") then {
-            _backpack = backpackContainer _x;
+            _backpack = backpackContainer _unit;
             clearItemCargoGlobal _backpack;
             clearMagazineCargoGlobal _backpack;
             clearWeaponCargoGlobal _backpack;
         } else {
-            removeBackpack _x;
-            _x addBackpack _containerClassname;
+            removeBackpack _unit;
+            _unit addBackpack _containerClassname;
         };
     };
     default {

@@ -58,7 +58,7 @@ if (count _players > 0) then {
 };
 
 uiSleep 60 + random 100;
-
+_enemyArray = [];
 { // check for new units in area
     if (side _x isEqualTo SEN_enemySide) then {_enemyArray pushBack _x};
     nil

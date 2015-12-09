@@ -41,7 +41,7 @@ if (didJIP) then {
 SEN_civQuestioned = [];
 player setVariable ["SEN_inProgress",false];
 
-if ((paramsArray select 2) isEqualTo 1 && SEN_debug) then {
+if ((paramsArray select 2) isEqualTo 1 && !SEN_debug) then {
     [] spawn {
         while {true} do {
             uiSleep 10;
