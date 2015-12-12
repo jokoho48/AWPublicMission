@@ -130,10 +130,6 @@ JK_objectStorage = [];
                                 deleteVehicle _x;
                                 nil
                             } count (crew _x);
-                            {
-                                deleteVehicle _x;
-                                nil
-                            } count (_x getVariable ["ace_cargo_loaded",[]]);
                             deleteVehicle _x;
                         };
                     } else {

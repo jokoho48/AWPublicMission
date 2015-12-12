@@ -1,5 +1,5 @@
-private ["_parameterCorrect", "_returnValue", "_cfg"];
-_parameterCorrect = params [["_unit",objNull,[objNull]],["_containerClassname","",["STRING"]],["_containerNumber", -1, [-1]]];
+private ["_returnValue", "_cfg"];
+params [["_unit",objNull,[objNull]],["_containerClassname","",["STRING"]],["_containerNumber", -1, [-1]]];
 _returnValue = false;
 
 if (_containerNumber == -1) then {

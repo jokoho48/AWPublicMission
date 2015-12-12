@@ -176,7 +176,7 @@ for "_i" from 1 to JK_swapBarrel do {
 {_unit linkitem _x; nil} count JK_itemslink;
 {_unit addItemToUniform _x; nil} count JK_itemsUniform;
 {_unit addItemToVest _x; nil} count JK_itemsVest;
-if (_backpack != "") then {
+if !(_backpack isEqualTo "") then {
     {_unit addItemToBackpack _x; nil} count JK_itemsBackpack;
 };
 {_unit addItem _x; false} count JK_items;
