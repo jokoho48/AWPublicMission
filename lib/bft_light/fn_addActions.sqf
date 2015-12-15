@@ -23,7 +23,7 @@ _fnc_Action = {
     [{
         params ["_args", "_idPFH"];
         _args params ["_target", "_caller"];
-        if ((_target distance _caller) <= 3) then {
+        if ((_target distance _caller) >= 3) then {
             _caller setVariable ["BG_BFT_item", _caller getVariable ["BG_BTF_itemOld", 0]];
             [_idPFH] call CBA_fnc_removePerFrameHandler;
             _caller setVariable ["BG_BTF_itemOld", nil];
