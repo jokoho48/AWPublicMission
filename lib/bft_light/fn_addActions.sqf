@@ -17,15 +17,16 @@ _fnc_Check = {
 };
 _fnc_Action = {
     params ["_target", "_caller"];
-    player setVariable ["BG_BTF_itemOld", 1];
+    _caller setVariable ["BG_BTF_itemOld", player getVariable ["BG_BTF_item", 0]];
+    _caller setVariable ["BG_BFT_item", 1];
     showMap true;
     [{
         params ["_args", "_idPFH"];
         _args params ["_target", "_caller"];
         if ((_target distance _caller) <= 3) then {
-            player setVariable ["BG_BFT_item", player getVariable ["BG_BTF_itemOld", 0]];
+            _caller setVariable ["BG_BFT_item", _caller getVariable ["BG_BTF_itemOld", 0]];
             [_idPFH] call CBA_fnc_removePerFrameHandler;
-            player setVariable ["BG_BTF_itemOld", nil];
+            _caller setVariable ["BG_BTF_itemOld", nil];
         };
     }, 0.2, [_target, _caller]] call CBA_fnc_addPerFrameHandler;
 };
