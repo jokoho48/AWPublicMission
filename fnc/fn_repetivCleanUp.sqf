@@ -79,16 +79,10 @@ JK_objectStorage = [];
                     // Use an OEF EH to move the object slowly below the surface.
                     //@todo make this optional cause it should not be visible in general.
                     [{
-                        private "_position";
-
                         params ["_args", "_idPFH"];
-                        _args params ["_object", "_height"];
+                        _args params ["_object", "_height", "_position"];
 
                         // Get the current position and subtract some value from the z axis.
-                        _position = getPos _object;
-                        if (surfaceIsWater _position) then {
-                            _position = getPosASL _object;
-                        };
                         _position set [2,  (_position select 2) - 0.05];
 
                         // Apply the position change.
@@ -101,7 +95,7 @@ JK_objectStorage = [];
                         if (isNull _object) then {
                             [_idPFH] call CBA_fnc_removePerFrameHandler;
                         }
-                    }, 0, [_object, _height]] call CBA_fnc_addPerframeHandler;
+                    }, 0, [_object, _height, getPos _object]] call CBA_fnc_addPerframeHandler;
                 };
                 nil
             } count +JK_objectStorage;
