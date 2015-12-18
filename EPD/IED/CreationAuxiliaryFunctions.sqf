@@ -82,8 +82,10 @@ FIND_LOCATION_BY_ROAD = {
 
 GET_SIZE_AND_TYPE = {
     private ["_size", "_type", "_r"];
-    params [["_smallChance", smallChance, [0]], ["_mediumChance", mediumChance, [0]], ["_largeChance", largeChance, [0]]];
-
+    params [["_smallChance", smallChance, [0, ""]], ["_mediumChance", mediumChance, [0]], ["_largeChance", largeChance, [0]]];
+	if (typeName _smallChance isEqualTo typeName "") then {
+		_smallChance = smallChance;
+	};
     _size = "SMALL";
     _r = floor random (_smallChance + _mediumChance + _largeChance);
     if (_r > _smallChance) then {
