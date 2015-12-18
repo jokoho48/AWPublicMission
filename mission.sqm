@@ -2234,7 +2234,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=210;
+		items=196;
 		class Item0
 		{
 			position[]={15107.574,17.91,17184.059};
@@ -4165,7 +4165,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BlockConcrete_F";
 			skill=0.60000002;
-			init="this setPos[getPos this select 0, getPos this select 1, -0.5];this enableSimulation false;";
+			init="this enableSimulation false;";
 		};
 		class Item184
 		{
@@ -4176,7 +4176,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BlockConcrete_F";
 			skill=0.60000002;
-			init="this setPos[getPos this select 0, getPos this select 1, -0.5];this enableSimulation false;";
+			init="this enableSimulation false;";
 		};
 		class Item185
 		{
@@ -4251,20 +4251,22 @@ class Mission
 		class Item192
 		{
 			position[]={15178.962,17.930714,17202.391};
-			azimut=315.41605;
+			azimut=315.41599;
 			id=257;
 			side="EMPTY";
 			vehicle="Land_PaperBox_open_full_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item193
 		{
 			position[]={15180.202,17.934008,17201.385};
-			azimut=220.56224;
+			azimut=220.562;
 			id=258;
 			side="EMPTY";
 			vehicle="Land_PaperBox_open_empty_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item194
 		{
@@ -4274,6 +4276,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Oil_Spill_F";
 			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 		class Item195
 		{
@@ -4283,136 +4286,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Oil_Spill_F";
 			skill=0.60000002;
-		};
-		class Item196
-		{
-			position[]={15185.444,17.975348,17214.025};
-			azimut=200.07899;
-			id=261;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item197
-		{
-			position[]={15185.873,17.980488,17213.713};
-			azimut=200.07899;
-			id=262;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item198
-		{
-			position[]={15186.377,17.98653,17213.174};
-			azimut=200.07899;
-			id=263;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item199
-		{
-			position[]={15184.324,17.961899,17215.27};
-			azimut=200.07899;
-			id=264;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item200
-		{
-			position[]={15185.253,17.97304,17214.451};
-			azimut=200.07899;
-			id=265;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item201
-		{
-			position[]={15184.787,17.967459,17214.762};
-			azimut=200.07899;
-			id=266;
-			side="EMPTY";
-			vehicle="ACE_Track";
-			skill=0.60000002;
-		};
-		class Item202
-		{
-			position[]={15187.813,17.998106,17212.27};
-			azimut=200.07899;
-			offsetY=0.5;
-			id=267;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item203
-		{
-			position[]={15188.82,17.987402,17213.006};
-			azimut=200.07899;
-			offsetY=0.5;
-			id=268;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item204
-		{
-			position[]={15187.813,17.998106,17212.27};
-			azimut=200.07899;
-			id=269;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item205
-		{
-			position[]={15188.82,17.987402,17213.006};
-			azimut=200.07899;
-			id=270;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item206
-		{
-			position[]={15188.898,17.991873,17211.029};
-			azimut=200.07899;
-			offsetY=0.5;
-			id=271;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item207
-		{
-			position[]={15189.906,17.982702,17211.766};
-			azimut=200.07899;
-			offsetY=0.5;
-			id=272;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item208
-		{
-			position[]={15188.898,17.991873,17211.029};
-			azimut=200.07899;
-			id=273;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
-		};
-		class Item209
-		{
-			position[]={15189.906,17.982702,17211.766};
-			azimut=200.07899;
-			id=274;
-			side="EMPTY";
-			vehicle="ACE_Wheel";
-			skill=0.60000002;
+			init="this enableSimulation false;";
 		};
 	};
 	class Markers

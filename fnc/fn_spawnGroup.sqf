@@ -7,12 +7,10 @@ Description: spawns group
 
         returns group or array
 __________________________________________________________________*/
-private ["_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"];
+private ["_setSkill", "_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"];
 
 params [["_pos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side",SEN_enemySide], ["_uncache",false]];
-if !(_side in [WEST, CIVILIAN]) then {
-    _setSkill = true;
-};
+_setSkill = !(_side in [WEST, CIVILIAN]);
 
 switch _side do {
     case WEST: {_unitPool = SEN_unitPoolWest; _vehPool = SEN_vehPoolWest; _airPool = SEN_airPoolWest;};
@@ -26,6 +24,7 @@ _grp allowfleeing 0;
 _driverArray = [];
 
 for "_j" from 0 to (_count - 1) do {
+    _unit = objNull;
     call {
         if (_type isEqualTo 0) exitWith {
             (_unitPool call BIS_fnc_selectRandom) createUnit [_pos, _grp];
