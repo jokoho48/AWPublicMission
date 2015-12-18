@@ -121,7 +121,8 @@
             "RHS_M2A3_wd",
             "RHS_M2A3_BUSKI_wd",
             "RHS_M2A3_BUSKIII_wd",
-            "RHS_M6_wd"
+            "RHS_M6_wd",
+			"B_APC_Wheeled_01_cannon_F"
         ],
         500,
         [
@@ -151,6 +152,7 @@
             "RHS_UH1Y",
             "RHS_UH1Y_UNARMED",
             "RHS_CH_47F",
+            "rhsusf_CH53E_USMC",
             "RHS_UH60M",
             "RHS_UH60M_MEV2",
             "RHS_UH60M_MEV"
@@ -179,7 +181,7 @@
     [
         "Flugzeuge",
         [
-            "RHS_C130J",
+            "rhsusf_f22",
             "RHS_A10"
         ],
         1000,
