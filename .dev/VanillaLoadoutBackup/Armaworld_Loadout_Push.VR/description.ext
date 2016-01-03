@@ -1,0 +1,32 @@
+author="Creedcoder";
+OnLoadName = "ArmaRedisClient Demo";
+OnLoadMission = "ArmaRedisClient Framework";
+joinUnassigned = 0;
+//corpseManagerMode = 2;
+corpseRemovalMinTime = 3*60;
+corpseRemovalMaxTime = 9*60;
+//wreckManagerMode = 1;
+wreckRemovalMinTime = 30*60;
+wreckRemovalMaxTime = 60*60;
+enableDebugConsole = 1;
+respawnDialog = 0;
+respawn = "BASE";
+respawndelay=15;
+disabledAI=1;
+disableChannels[]={2,6};
+enableItemsDropping = 0;
+class Header
+{
+    gameType=Sandbox;
+    minPlayers=1;
+    maxPlayers=1;
+};
+
+class Params {
+    class param0 {
+        title = "DB Push";
+        values[] = {0, 1, 2, 3};
+        texts[] = {"None", "Loadouts", "Crates", "Both"};
+        default = 0;
+    };
+};
