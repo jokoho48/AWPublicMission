@@ -14,6 +14,7 @@ class CfgFactionClasses {
         side = 3;
     };
 };
+
 class CfgVehicles {
     #include "RU.hpp"
     #include "Ins.hpp"

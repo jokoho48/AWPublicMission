@@ -1,4 +1,3 @@
-class min_rf_soldier_LAT;
 class AW_ins_base: min_rf_soldier_LAT {
     displayname = "[AW] INS Base";
     scope = 2;
