@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: rescue vip
 __________________________________________________________________*/
+scriptName "SEN_task_vip";
 if (!isServer) exitWith {};
 
 private ["_houseArray","_posVIP"];

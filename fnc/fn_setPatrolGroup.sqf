@@ -15,7 +15,7 @@ _grp setBehaviour "SAFE";
 _lead = leader _grp;
 _houseArray = (getposATL _lead) nearObjects ["house",_range];
 if (count _houseArray > 0) then {
-    [_grp, _range, _houseArray] spawn SEN_fnc_setPatrolUnit;
+    [_grp, _range, _houseArray] call SEN_fnc_setPatrolUnit;
 } else {
-    [_grp, _range] spawn SEN_fnc_setPatrolUnit;
+    [_grp, _range] call SEN_fnc_setPatrolUnit;
 };

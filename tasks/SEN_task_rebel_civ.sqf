@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: spawns rebel force on player or FOB
 __________________________________________________________________*/
+scriptName "SEN_task_rebeld_civ";
 if (!isServer) exitWith {};
 
 _taskID = format["%1_rebel_civ",time];

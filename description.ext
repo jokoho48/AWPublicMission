@@ -53,7 +53,6 @@ class Params {
 };
 class CfgFunctions {
     #include "data\SEN_cfgFunctions.hpp"
-    #include "EPD\EPDcfgFunctions.hpp"
     #include "lib\CfgFunctions.hpp"
 };
 

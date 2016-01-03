@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: rescue civilians and escort to town safely.
 __________________________________________________________________*/
+scriptName "SEN_task_rescue_civ";
 if (!isServer) exitWith {};
 
 private ["_pos","_houseArray"];

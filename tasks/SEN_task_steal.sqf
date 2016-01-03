@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: steal intel from device
 __________________________________________________________________*/
+scriptName "SEN_task_steal";
 if (!isServer) exitWith {};
 
 private "_mrkDebug";

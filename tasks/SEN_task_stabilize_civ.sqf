@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: stabilize injured civilians and transport to medical station
 __________________________________________________________________*/
+scriptName "SEN_task_stabilize_civ";
 if (!isServer) exitWith {};
 
 private ["_roads","_part","_size","_count","_civ","_ambush","_rebelWeapon","_rebelMag","_pos","_grp","_vehPos","_damage","_town"];

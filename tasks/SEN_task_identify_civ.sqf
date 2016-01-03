@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: identify dead politician
 __________________________________________________________________*/
+scriptName "SEN_task_indentify_civ";
 if (!isServer) exitWith {};
 
 _taskID = format["%1_identify_civ",SEN_taskCounterCiv];

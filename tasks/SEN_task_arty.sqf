@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: destroy artillery before time expires
 __________________________________________________________________*/
+scriptName "SEN_task_arty";
 if (!isServer) exitWith {};
 
 _taskID = "arty";

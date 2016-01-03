@@ -3,7 +3,7 @@ Author: joko // Jonas
 
 Description: Plane or Heli attack Player
 __________________________________________________________________*/
-
+scriptName "SEN_task_AirAttack";
 
 JK_airAttackDone = false;
 _target = allPlayers call BIS_fnc_selectRandom;

@@ -7,7 +7,7 @@ Description: postInit settings
 
         returns nothing
 __________________________________________________________________*/
-[] spawn compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
+//[] call compile preprocessFileLineNumbers "EPD\Ied_Init.sqf";
 if !(isServer) exitWith {};
 "SEN_safezone_mrk" setMarkerAlpha 0;
 "SEN_NoFireZone_mrk" setMarkerAlpha 0;
@@ -135,7 +135,7 @@ for "_s" from 1 to (paramsArray select 7) do {
         };
     };
 };
-[] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+[] call compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 
 [((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";

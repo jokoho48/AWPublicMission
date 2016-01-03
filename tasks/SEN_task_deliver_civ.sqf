@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: deliver supplies to town
 __________________________________________________________________*/
+scriptName "SEN_task_deliver_civ";
 if (!isServer) exitWith {};
 
 private "_grp";

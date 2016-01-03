@@ -5,6 +5,7 @@ Last modified: 8/13/2015
 
 Description: officer task
 __________________________________________________________________*/
+scriptName "SEN_task_officer";
 if (!isServer) exitWith {};
 
 private ["_mrk","_unitType"];

@@ -13,7 +13,13 @@ if (isNil "db_fnc_log" && {!(db_fnc_log isEqualTo {})}) then {
 
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 publicVariable "SEN_debug";
-
+[{
+    if (!isNil "JK_postInit") then {
+        //call SEN_fnc_EOD;
+        call SEN_fnc_settingsPost;
+        [_this select 1] call CBA_fnc_removePerFrameHandler;
+    };
+},0,0] call CBA_fnc_addPerFrameHandler;
 if (!isServer) exitWith {};
 
 if (isNil "db_fnc_save") then {
@@ -60,11 +66,9 @@ CIVILIAN setFriend [SEN_enemySide,1];
 if ((paramsArray select 11) isEqualTo 1) then {
     SEN_rhsAFRFEnabled = (isClass (configfile >> "CfgPatches" >> "rhs_main"));
     SEN_rhsUSAFEnabled = (isClass (configfile >> "CfgPatches" >> "rhsusf_main"));
-    SEN_lopEnabled = (isClass (configfile >> "CfgPatches" >> "lop_main"));
 } else {
     SEN_rhsAFRFEnabled = false;
     SEN_rhsUSAFEnabled = false;
-    SEN_lopEnabled = false;
 };
 
 SEN_unitPoolWest = [];
@@ -95,22 +99,11 @@ if (SEN_rhsUSAFEnabled) then { // RHS: USAF
     SEN_sniperPoolWest = ["rhsusf_army_ucp_sniper"];
 };
 if (SEN_rhsAFRFEnabled) then { // RHS: AFRF
-    SEN_unitPoolRebel = ["rhs_g_Soldier_GL_F","rhs_g_Soldier_AAT_F","rhs_g_engineer_F","rhs_g_Soldier_AA_F","rhs_g_Soldier_AR_F","rhs_g_Soldier_AAR_F","rhs_g_Soldier_F3","rhs_g_medic_F","rhs_g_Soldier_F2","rhs_g_Soldier_F","rhs_g_Soldier_lite_F","rhs_g_Soldier_LAT_F","rhs_g_Soldier_AT_F","rhs_g_Soldier_M_F","rhs_g_Soldier_exp_F","rhs_g_Soldier_TL_F", "rhs_g_Soldier_SL_F"];
-    SEN_vehPoolRebel = ["rhs_uaz_spg9_chdkz","rhs_uaz_dshkm_chdkz","rhs_uaz_ags_chdkz"];
-    SEN_airPoolRebel = [];
-    SEN_airAttackPool = ["O_Heli_Light_02_v2_F","RHS_Ka52_vvsc","RHS_Mi24V_vvs","RHS_Mi24P_vvs","RHS_Mi8AMTSh_vvs","RHS_Mi8MTV3_vvs","RHS_Su25SM_vvs","RHS_T50_vvs_051","O_Plane_CAS_02_F"];
-    SEN_AriPool = ["rhs_2s3_tv", "RHS_BM21_MSV_01"];
-    if (SEN_enemySide isEqualTo EAST) exitWith {
-        SEN_unitPool = ["rhs_msv_at", "rhs_msv_grenadier", "rhs_msv_LAT", "rhs_msv_RShG2", "rhs_msv_sergeant", "rhs_msv_junior_sergeant", "rhs_msv_efreitor", "rhs_msv_grenadier_rpg", "rhs_msv_engineer", "rhs_msv_strelok_rpg_assist", "rhs_msv_aa", "rhs_msv_machinegunner", "rhs_msv_machinegunner_assistant", "rhs_msv_medic", "rhs_msv_rifleman"];
-        SEN_vehPool = ["rhs_uaz_spg9_chdkz","rhs_uaz_dshkm_chdkz","rhs_uaz_ags_chdkz","rhs_tigr_sts_3camo_vv", "rhs_sprut_vdv", "rhs_bmd1", "rhs_bmd1p", "rhs_bmd1pk", "rhs_bmd1r", "rhs_bmd2", "rhs_bmd2m", "rhs_bmp1_vdv", "rhs_bmp1d_vdv", "rhs_bmp1k_vdv", "rhs_bmp1p_vdv","rhs_bmp2_vdv","rhs_bmp2e_vdv","rhs_bmp2d_vdv","rhs_bmp2k_vdv","rhs_bmp3_msv","rhs_bmp3_late_msv","rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_brm1k_vdv","rhs_prp3_vdv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80","rhs_t80a","rhs_t80b","rhs_t80bv","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80uk","rhs_t80um","rhs_t90_tv","rhs_t90a_tv","rhs_zsu234_aa"];
-        SEN_airPool = ["RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"];
-        SEN_sniperPool = ["rhs_msv_marksman"];
-        SEN_officerPool = ["rhs_msv_officer_armored"];
-    };
-};
-if (toUpper worldName isEqualTo "TAKISTAN" && SEN_lopEnabled) then {
-    SEN_unitPoolCiv = ["LOP_Tak_Civ_Man_01","LOP_Tak_Civ_Man_02","LOP_Tak_Civ_Man_04"];
-    SEN_vehPoolCiv = ["LOP_TAK_Civ_Hatchback","LOP_TAK_Civ_Landrover","LOP_TAK_Civ_Offroad","LOP_TAK_Civ_UAZ","LOP_TAK_Civ_UAZ_Open","LOP_TAK_Civ_Ural","LOP_TAK_Civ_Ural_open"];
+    SEN_unitPool = ["rhs_msv_at", "rhs_msv_grenadier", "rhs_msv_LAT", "rhs_msv_RShG2", "rhs_msv_sergeant", "rhs_msv_junior_sergeant", "rhs_msv_efreitor", "rhs_msv_grenadier_rpg", "rhs_msv_engineer", "rhs_msv_strelok_rpg_assist", "rhs_msv_aa", "rhs_msv_machinegunner", "rhs_msv_machinegunner_assistant", "rhs_msv_medic", "rhs_msv_rifleman"];
+    SEN_vehPool = ["rhs_uaz_spg9_chdkz","rhs_uaz_dshkm_chdkz","rhs_uaz_ags_chdkz","rhs_tigr_sts_3camo_vv", "rhs_sprut_vdv", "rhs_bmd1", "rhs_bmd1p", "rhs_bmd1pk", "rhs_bmd1r", "rhs_bmd2", "rhs_bmd2m", "rhs_bmp1_vdv", "rhs_bmp1d_vdv", "rhs_bmp1k_vdv", "rhs_bmp1p_vdv","rhs_bmp2_vdv","rhs_bmp2e_vdv","rhs_bmp2d_vdv","rhs_bmp2k_vdv","rhs_bmp3_msv","rhs_bmp3_late_msv","rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_brm1k_vdv","rhs_prp3_vdv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80","rhs_t80a","rhs_t80b","rhs_t80bv","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80uk","rhs_t80um","rhs_t90_tv","rhs_t90a_tv","rhs_zsu234_aa"];
+    SEN_airPool = ["RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"];
+    SEN_sniperPool = ["rhs_msv_marksman"];
+    SEN_officerPool = ["rhs_msv_officer_armored"];
 };
 // fill arrays with vanilla content if still empty
 if (count SEN_unitPoolWest isEqualTo 0) then {SEN_unitPoolWest = ["B_Soldier_SL_F","B_medic_F","B_soldier_AR_F","B_soldier_M_F","B_Soldier_AA_F","B_soldier_AT_F","B_soldier_F"]};

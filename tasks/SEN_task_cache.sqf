@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: destroy ammo cache
 __________________________________________________________________*/
+scriptName "SEN_task_cache";
 if (!isServer) exitWith {};
 
 _taskID = "cache";

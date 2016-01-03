@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: debrief task
 __________________________________________________________________*/
+scriptName "SEN_task_debriefing";
 _taskID = "debriefing";
 _taskText = "Debriefing (Mission Complete)";
 _taskDescription = "Return to MOB Dodge and assess the mission outcome.";

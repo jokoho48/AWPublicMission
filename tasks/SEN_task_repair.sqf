@@ -5,6 +5,7 @@ Last modified: 8/14/2015
 
 Description: repair patrol vehicles
 __________________________________________________________________*/
+scriptName "SEN_task_repair";
 if (!isServer) exitWith {};
 
 private ["_pos","_size","_town","_taskDescription"];

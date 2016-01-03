@@ -29,8 +29,9 @@ class SEN {
         class spawnReinforcements;
         class spawnAggressiveCiv;
         class settingsPre { preInit = 1; };
-        class settingsPost { postInit = 1; };
-        class EOD {postInit = 1;};
+        class settingsPost;
+        class postInit {postInit = 1;};
+        class EOD;
         class setOwner;
         class setParams;
         class setUnitSurrender;
