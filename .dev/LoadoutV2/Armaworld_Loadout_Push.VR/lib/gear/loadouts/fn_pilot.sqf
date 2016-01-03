@@ -8,9 +8,9 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 JK_uniforms = ["U_B_HeliPilotCoveralls"];
-JK_vests = ["V_TacVest_blk"];
-JK_headgears = ["H_CrewHelmetHeli_B"];
-JK_backpacks = ["B_Kitbag_rgr"];
+JK_vests = ["CUP_V_B_PilotVest"];
+JK_headgears = ["H_PilotHelmetHeli_B"];
+JK_backpacks = ["B_AssaultPack_rgr"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Aviator";
@@ -23,7 +23,7 @@ JK_itemsPrimaryweapon = ["optic_Aco_smg"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 4;
+JK_primaryweaponAmmo = 2;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -42,7 +42,7 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "hgun_ACPC2_F";
+JK_handgun = "hgun_Pistol_heavy_01_F";
 
 //handgun items - (array)
 JK_itemsHandgun = [""];

@@ -7,19 +7,19 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam"];
-JK_vests = ["V_PlateCarrier1_rgr","V_PlateCarrierGL_rgr","V_PlateCarrierSpec_rgr"];
-JK_headgears = ["H_HelmetSpecB","H_HelmetSpecB_paint1","H_HelmetSpecB_blk"];
-JK_backpacks = ["B_Kitbag_mcamo"];
+JK_uniforms = ["AOR1_Camo", "AOR1_Camo_Cyre_GP","AOR1_Camo_Cyre_GS","AOR1_Camo_Cyre_TP","AOR1_Camo_Cyre_TS","AOR1_Camo_Cyre","AOR1_TP_Camo_SS","AOR1_TS_Camo","AOR1_TS_Camo_SS","AOR1_GP_Camo","AOR1_GS_Camo"];
+JK_vests = ["AOR1_Vest_5","AOR1_Vest_4","AOR1_Vest_3","AOR1_Vest_1","AOR1_Vest_2","OGA_Vest_1","OGA_Vest_2"];
+JK_headgears = ["AOR1_Helmet1","AOR1_Helmet2","AORU_Helmet1","AORU_Helmet2"];
+JK_backpacks = ["AOR1_Backpack_Kitbag"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Aviator";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["LMG_Mk200_F"];
+JK_primaryweapon = ["CUP_lmg_m249_pip4"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["optic_Holosight_smg"];
+JK_itemsPrimaryweapon = ["RH_barska_rds","optic_Holosight_smg"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.

@@ -7,23 +7,23 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["U_B_CombatUniform_mcam_vest", "U_B_CombatUniform_mcam_tshirt","U_B_CombatUniform_mcam"];
-JK_vests = ["V_PlateCarrier1_rgr","V_PlateCarrierGL_rgr","V_PlateCarrierSpec_rgr"];
-JK_headgears = ["H_HelmetSpecB","H_HelmetSpecB_paint1","H_HelmetSpecB_blk"];
-JK_backpacks = ["B_AssaultPack_mcamo"];
+JK_uniforms = ["AOR1_Camo", "AOR1_Camo_Cyre_GP","AOR1_Camo_Cyre_GS","AOR1_Camo_Cyre_TP","AOR1_Camo_Cyre_TS","AOR1_Camo_Cyre","AOR1_TP_Camo_SS","AOR1_TS_Camo","AOR1_TS_Camo_SS","AOR1_GP_Camo","AOR1_GS_Camo"];
+JK_vests = ["AOR1_Vest_5","AOR1_Vest_4","AOR1_Vest_3","AOR1_Vest_1","AOR1_Vest_2","OGA_Vest_1","OGA_Vest_2"];
+JK_headgears = ["AOR1_Helmet1","AOR1_Helmet2","AORU_Helmet1","AORU_Helmet2"];
+JK_backpacks = ["AOR1_Backpack_Compact"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "G_Aviator";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["arifle_MX_F"];
+JK_primaryweapon = ["RH_M16A6"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["optic_MRCO","optic_Hamr"];
+JK_itemsPrimaryweapon = ["RH_ta31rmr_tan","RH_ta31rco_tan"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 10;
+JK_primaryweaponAmmo = 8;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;
