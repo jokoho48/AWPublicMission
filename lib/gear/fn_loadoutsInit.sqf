@@ -10,4 +10,4 @@ params [["_target", player, [objNull]]];
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
 
 private _db = 1;
-["Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExec ["db_fnc_codeload", 2, false];
+["Loadouts:AR_RIFLEMAN", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExecCall ["db_fnc_codeload", 2, false];

@@ -36,11 +36,10 @@
         _eventFunction
     };
 
-    // Call Code with BIS_fnc_MP @todo(Update to remoteExec)
     if (_eventCall == 0) then {
-        [_eventParameter,_eventCode,"BIS_fnc_call",_target, false, true] call BIS_fnc_MP;
+        [_eventParameter,_eventCode] remoteExecCall ["BIS_fnc_call", 0, false];
     } else {
-        [_eventParameter,_eventCode,"BIS_fnc_spawn",_target, false, true] call BIS_fnc_MP;
+        [_eventParameter,_eventCode] remoteExecCall ["BIS_fnc_spawn", 0, false];
     };
 
     missionNameSpace setVariable [_name, _eventVariable];

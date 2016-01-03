@@ -54,7 +54,7 @@ _players = (call SEN_fnc_getPlayers);
 
 if (count _players > 0) then {
     _hint = format ["The enemy is losing control of %1! Keep up the fight and they will surrender!",_townName];
-    [_hint,"hintSilent",_players] call BIS_fnc_MP;
+    _hint remoteExecCall ["hintSilent", _players, JIP];
 };
 
 uiSleep 60 + random 100;
@@ -74,8 +74,7 @@ if (count _enemyArray > 0) then {
                     SEN_objectCleanup pushBack _x;
                 };
                 if !(local _x) then {
-
-                    [[_x],"SEN_fnc_setUnitSurrender",owner _x] call BIS_fnc_MP;
+                    [_x] remoteExecCall ["SEN_fnc_setUnitSurrender", owner _x, false];
                     if !(_x isEqualTo SEN_intelObj) then {SEN_objectCleanup pushBack _x};
                 } else {
                     [_x] call SEN_fnc_setUnitSurrender;
@@ -89,7 +88,7 @@ if (count _enemyArray > 0) then {
 
 _players = (call SEN_fnc_getPlayers);
 if (count _players > 0) then {
-    [["SEN_liberate",[_townName]],"BIS_fnc_showNotification",_players] call BIS_fnc_MP;
+    ["SEN_liberate",[_townName]] remoteExecCall ["BIS_fnc_showNotification", _players, false];
 };
 _mrk setMarkerText format ["Liberated %1",_townType];
 _mrk setMarkerColor "ColorWEST";
@@ -113,7 +112,7 @@ for "_i" from floor(random 10) to 0 do {
 if !(isNull SEN_intelObj) then {
     if (getposATL SEN_intelObj distance _pos < _radius) then {
         _hint = format ["Aerial reconnaissance shows the enemy officer is somewhere in %1.",_townName];
-        [_hint,"hintSilent",_players] call BIS_fnc_MP;
+        _hint remoteExecCall ["hintSilent", _players, false];
         ["officer",getPosATL SEN_intelObj] call BIS_fnc_taskSetDestination;
     };
 };

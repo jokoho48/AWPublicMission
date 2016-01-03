@@ -13,7 +13,6 @@
 */
 if (!isServer) exitWith {};
 
-if (SEN_HCPresent) then {[[],"SEN_fnc_repetivCleanUp",(owner SEN_HC)] call BIS_fnc_MP}; // if headless client active run loop on HC as well
 SEN_markerCleanup = [];
 SEN_objectCleanup = [];
 JK_objectStorage = [];

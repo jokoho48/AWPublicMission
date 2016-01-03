@@ -110,7 +110,8 @@ if ({isPlayer _x} count (crew _transport) > 0) then {
             createVehicle ["R_TBG32V_F", _transport modeltoworld [(-5 + random 10),(25 + random 8),-3],[],0,"CAN_COLLIDE"];
             sleep 1;
             createVehicle ["R_TBG32V_F", _transport modeltoworld [(-5 + random 10),(13 + random 5),-3],[],0,"CAN_COLLIDE"];
-            [[_transport,["motor",1]],"setHit",owner _transport] call BIS_fnc_MP;
+            [_transport,["motor",1]] remoteExecCall ["setHit", owner _transport, false];
+
         } else {
             createVehicle ["R_TBG32V_F", _transport modeltoworld [(-5 + random 10),(25 + random 8),-3],[],0,"CAN_COLLIDE"];
             sleep 1;

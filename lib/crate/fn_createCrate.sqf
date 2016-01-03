@@ -50,7 +50,7 @@ if (!isNil "_content") then {
     publicVariable "JK_ammoSuppAvail";
 }, [], _reloadTime] call ace_common_fnc_waitAndExecute;
 
-[[[_crateObject, _content], {
+[[_crateObject, _content], {
     params ["_crateObject", "_content"];
     _crateObject addAction ["<t color='#FF0000'>Delete Crate</t>", { deleteVehicle (_this select 0); JK_ammoSuppAvail = true; publicVariable "JK_ammoSuppAvail";}];
-}], "BIS_fnc_call", true, false, true] call BIS_fnc_MP;
+}] remoteExecCall ["BIS_fnc_call", 0, false];

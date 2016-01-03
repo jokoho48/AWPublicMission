@@ -19,4 +19,4 @@ if (!isServer) exitWith {};
     if !(_override isEqualTo "") exitWith { [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _override]; };
     _task = SEN_taskListCiv call BIS_fnc_selectRandom;
     [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _task];
-}, 15, _this] call ace_common_fnc_waitAndExecute;
+}, _this, 15] call ace_common_fnc_waitAndExecute;

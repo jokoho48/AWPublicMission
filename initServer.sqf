@@ -14,17 +14,18 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
 };
 
 [["SEN_approvalCiv", "JK_TicketSystem", "SEN_ClearedCitys"], {
+    if !(isServer) exitWith {};
     params ["_key", "_value", "", "_preValue"];
     if ("JK_TicketSystem" == _key) then {
         if (_value > _preValue) then {
-            [["SEN_ticketAdd",[floor(_value - _preValue)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            ["SEN_ticketAdd",[floor(_value - _preValue)]] remoteExecCall ["BIS_fnc_showNotification", 0, false];
         } else {
-            [["SEN_ticketSubstact",[floor(_preValue - _value)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            ["SEN_ticketSubstact",[floor(_preValue - _value)]] remoteExecCall ["BIS_fnc_showNotification", 0, false];
         };
     };
     if ("SEN_approvalCiv" == _key) then {
         if (_value > _preValue) then {
-            [["SEN_approvalBonus",[floor(_value - _preValue)]],"BIS_fnc_showNotification",true] call BIS_fnc_MP;
+            ["SEN_approvalBonus",[floor(_value - _preValue)]] remoteExecCall ["BIS_fnc_showNotification", 0, false];
         };
     };
     [_key, str _value] spawn db_fnc_save;

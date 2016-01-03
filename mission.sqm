@@ -63,7 +63,8 @@ class Mission
 		"CUP_AirVehicles_UH60",
 		"CUP_WheeledVehicles_HMMWV",
 		"CUP_WheeledVehicles_LR",
-		"CUP_TrackedVehicles_M113"
+		"CUP_TrackedVehicles_M113",
+		"aw_comp"
 	};
 	addOnsAuto[]=
 	{
@@ -111,7 +112,6 @@ class Mission
 		"A3_Structures_F_Mil_Fortification",
 		"A3_Structures_F_Mil_Cargo",
 		"A3_Structures_F_Mil_Flags",
-		"CUP_WheeledVehicles_LR",
 		"A3_Structures_F_Ind_Shed",
 		"A3_Structures_F_Mil_BagBunker",
 		"A3_Structures_F_Civ_Camping",

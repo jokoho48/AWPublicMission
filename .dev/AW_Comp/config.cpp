@@ -3,7 +3,12 @@ class CfgPatches {
         units[] = {"AW_min_rf_soldier_AT", "AW_min_rf_soldier_LAT", "AW_min_rf_soldier_AA", "AW_ins_AT","AW_ins_AR","AW_ins_MK","AW_ins_MG","AW_ins_GL","AW_ins_RF"};
         weapons[] = {};
         requiredVersion = 1;
-        requiredAddons[] = {"A3_Characters_F","A3_characters_f_beta","A3_Weapons_F_Ammoboxes","A3_Weapons_F","A3_Characters_F_Heads","min_rf_air","min_rf_boat","min_rf_data","min_rf_radio","min_rf_vehicle","min_rf_wp","min_rf_wp_c","CUP_Weapons_RPG7","CUP_Weapons_RPG18"};
+        requiredAddons[] = {
+            "A3_Characters_F","A3_characters_f_beta","A3_Weapons_F_Ammoboxes",
+            "A3_Weapons_F","A3_Characters_F_Heads","CBA_Extended_EventHandlers",
+            "CUP_Weapons_Stinger","CUP_Weapons_AK","CUP_Weapons_WeaponsCore",
+            "min_rf_data","min_rf_vehicle","min_rf_units","min_rf_wp","RH_m4_cfg"
+        };
     };
 };
 class CfgFactionClasses {
@@ -81,6 +86,7 @@ class CfgVehicles {
     class AW_ins_RF: AW_ins_base {
         displayname = "AW INS RF";
     };
+
 };
 
 class Extended_Init_Eventhandlers {
@@ -92,5 +98,5 @@ class Extended_Init_Eventhandlers {
 };
 
 class Extended_PreInit_EventHandlers {
-    aw_comp_init = "call compile preProcessFileLineNumbers 'fnc_init.sqf'; JK_fnc_randomGear = compile preProcessFileLineNumbers 'fnc_randomGear.sqf';";
+    aw_comp_init = "call compile preProcessFileLineNumbers '\AW_Comp\fnc_init.sqf'; JK_fnc_randomGear = compile preProcessFileLineNumbers '\AW_Comp\fnc_randomGear.sqf';";
 };

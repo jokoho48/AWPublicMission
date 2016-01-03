@@ -43,8 +43,7 @@ if (((getposatl _aid) select 2) < 10) then { // if aid not in air
         "R_TBG32V_F" createVehicle (_aid modeltoworld [(-5 + random 10),(25 + random 8),-3]);
         sleep 1;
         "R_TBG32V_F" createVehicle (_aid modeltoworld [(-5 + random 10),(13 + random 5),-3]);
-        [[_aid,["motor",1]],"setHit",_aid] call BIS_fnc_MP;
-        // [_aid,["motor",1]] remoteExecCall ["setHit", owner _aid, false];
+        [_aid,["motor",1]] remoteExecCall ["setHit", _aid, false];
         _grp = [([getposATL _aid,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 10] call SEN_fnc_spawnGroup;
         _wp = _grp addWaypoint [getPosATL _aid, 0];
         _wp setWaypointType "SAD";

@@ -32,7 +32,9 @@ switch (_typeOf) do {
         _weapon = JK_ins_MK_weapons call BIS_fnc_selectRandom;
     };
 };
-
+removeUniform _unit;
+removeVest _unit;
+removeHeadgear _unit;
 _unit forceAddUniform _uniform;
 _unit addVest _vest;
 _unit addHeadgear _headgear;
