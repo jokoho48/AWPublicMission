@@ -7,4 +7,5 @@ JK_ins_GL_weapons = ["CUP_arifle_AK74_GL","CUP_glaunch_M79","CUP_arifle_AK74M_GL
 JK_ins_AR_weapons = ["CUP_arifle_RPK74_45","CUP_arifle_RPK74","CUP_arifle_RPK74M"];
 JK_ins_MG_weapons = ["CUP_lmg_UK59","CUP_lmg_PKM"];
 JK_ins_AT_weapons = ["CUP_launch_RPG7V","CUP_launch_RPG18"];
-JK_ins_types = ["AW_ins_AT","AW_ins_MG","AW_ins_GL","AW_ins_RF", "AW_ins_AR"];
+JK_ins_MK_weapons = [];
+JK_ins_types = ["AW_ins_AT","AW_ins_MG","AW_ins_GL","AW_ins_RF", "AW_ins_AR", "AW_ins_MK"];

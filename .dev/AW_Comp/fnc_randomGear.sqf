@@ -28,6 +28,9 @@ switch (_typeOf) do {
     case "AW_ins_AR": {
         _weapon = JK_ins_AR_weapons call BIS_fnc_selectRandom;
     };
+    case "AW_ins_MK": {
+        _weapon = JK_ins_MK_weapons call BIS_fnc_selectRandom;
+    };
 };
 
 _unit forceAddUniform _uniform;
