@@ -173,13 +173,94 @@ for "_i" from 1 to JK_swapBarrel do {
 };
 
 //items:
-{_unit linkitem _x; nil} count JK_itemslink;
-{_unit addItemToUniform _x; nil} count JK_itemsUniform;
-{_unit addItemToVest _x; nil} count JK_itemsVest;
+{
+    if (_x isEqualType "") then {
+        _unit linkitem _x;
+    } else {
+        params ["_class", "_count"];
+        if (_count isEqualType 0) then {
+            for "_i" from 1 to _count do {
+                _unit linkitem _class;
+            };
+        } else {
+            _unit linkitem (_x call BIS_fnc_selectRandom);
+        };
+    };
+    nil
+} count JK_itemslink;
+
+{
+    if (_x isEqualType "") then {
+        _unit addItemToUniform _x;
+    } else {
+        params ["_class", "_count"];
+        if (_count isEqualType 0) then {
+            for "_i" from 1 to _count do {
+                _unit addItemToUniform _class;
+            };
+        } else {
+            _unit addItemToUniform (_x call BIS_fnc_selectRandom);
+        };
+    };
+    nil
+} count JK_itemsUniform;
+
+{
+    if (_x isEqualType "") then {
+        _unit addItemToVest _x;
+    } else {
+        params ["_class", "_count"];
+        if (_count isEqualType 0) then {
+            for "_i" from 1 to _count do {
+                _unit addItemToVest _class;
+            };
+        } else {
+            _unit addItemToVest (_x call BIS_fnc_selectRandom);
+        };
+    };
+    nil
+} count JK_itemsVest;
+
+
+
+
 if !(_backpack isEqualTo "") then {
-    {_unit addItemToBackpack _x; nil} count JK_itemsBackpack;
+    {
+        if (_x isEqualType "") then {
+            _unit addItemToBackpack _x;
+        } else {
+            params ["_class", "_count"];
+            if (_count isEqualType 0) then {
+                for "_i" from 1 to _count do {
+                    _unit addItemToBackpack _class;
+                };
+            } else {
+                _unit addItemToBackpack (_x call BIS_fnc_selectRandom);
+            };
+        };
+        nil
+    } count JK_itemsBackpack;
 };
-{_unit addItem _x; false} count JK_items;
+
+
+{
+    if (_x isEqualType "") then {
+        _unit addItem _x;
+    } else {
+        params ["_class", "_count"];
+        if (_count isEqualType 0) then {
+            for "_i" from 1 to _count do {
+                _unit addItem _class;
+            };
+        } else {
+            _unit addItem (_x call BIS_fnc_selectRandom);
+        };
+    };
+    nil
+} count JK_items;
+
+
+
 if (name _unit in ["joko // Jonas"]) then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {

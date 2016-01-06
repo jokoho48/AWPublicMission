@@ -16,10 +16,10 @@ JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will b
 JK_goggles = "G_Aviator";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["RH_M4_ris_m","RH_M4A6"];
+JK_primaryweapon = ["RH_M4_ris_m","RH_M4A1_ris","RH_M16A4_m","RH_M16A4"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["RH_ta31rmr_tan","RH_ta31rco_tan"];
+JK_itemsPrimaryweapon = ["RH_ta31rmr","RH_ta31rco","RH_ta648","RH_eotech553mag","RH_eotech553mag_tan","RH_eothhs1"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
