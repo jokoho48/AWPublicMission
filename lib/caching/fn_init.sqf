@@ -82,8 +82,8 @@ JK_fnc_cachingLoopPFH = {
             hint format ["unCache Group %1", _group];
             diag_log format ["unCache Group %1", _group];
         };
-        call JK_fnc_unCache;
         call JK_fnc_setPosFull;
+        call JK_fnc_unCache;
         _group setVariable ["JK_isCached", false];
     };
 

@@ -52,6 +52,7 @@ JK_fnc_setPosFull = {
         _unit = _x;
         _testpos = (formationPosition _x);
         if (!(isNil "_testpos") && !(_testpos isEqualTo [])) then {
+            _testpos = [_testpos, 2, typeOf _x] call SEN_fnc_findSavePosition;
             if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {
                 _testpos set [2,0];
                 _x setPos _testpos;

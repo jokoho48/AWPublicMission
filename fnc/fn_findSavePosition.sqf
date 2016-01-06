@@ -11,7 +11,7 @@
  * Save Position <Array>
  *
  * Example:
- * [getPos player, 10] call SEN_fnc_findSavePosition
+ * [getPos player, 10] call SEN_fnc_findSavePosition;
  */
 params ["_pos", "_radius", "_type"];
 
