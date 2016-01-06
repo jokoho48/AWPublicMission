@@ -69,7 +69,7 @@ JK_3DCompass_fnc_removePFH = {
 
 ["playerVehicleChanged", {
     params ["_player", "_vehicle"];
-    if (_vehicle isKindof "Air" && (headGear _player) in ["H_CrewHelmetHeli_B", "RHS_jetpilot_usaf"] && _player in [gunner _vehicle, driver _vehicle, commander _vehicle]) then {
+    if (_vehicle isKindof "Air" && (headGear _player) in ["H_CrewHelmetHeli_B"] && _player in [gunner _vehicle, driver _vehicle, commander _vehicle]) then {
         JK_3DCompass_Action1 = _player addAction ["Enable 3D Compass", JK_3DCompass_fnc_addPFH, nil, 1.5, true, false, "", "!JK_3DCompass_enabled"];
         JK_3DCompass_Action2 = _player addAction ["Disable 3D Compass", JK_3DCompass_fnc_removePFH, nil, 1.5, true, false, "", "JK_3DCompass_enabled"];
     } else {

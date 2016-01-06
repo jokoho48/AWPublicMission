@@ -64,11 +64,20 @@ CIVILIAN setFriend [SEN_enemySide,1];
 
 // check server/hc for supported addon content
 if ((paramsArray select 11) isEqualTo 1) then {
-    SEN_rhsAFRFEnabled = (isClass (configfile >> "CfgPatches" >> "rhs_main"));
-    SEN_rhsUSAFEnabled = (isClass (configfile >> "CfgPatches" >> "rhsusf_main"));
+    private _cfg = configFile >> "CfgPatches";
+    private _count = ({
+        isClass (_cfg >> _x)
+    } count [
+        "Project_Honor_Config","min_rf_units",
+        "CUP_Weapons_WeaponsCore","CUP_BaseData",
+        "CUP_BaseConfigs","CUP_Creatures_People_Core",
+        "CUP_WheeledVehicles_Core","CUP_WaterVehicles_Core",
+        "CUP_TrackedVehicles_Core","CUP_AirVehicles_Core"
+    ]);
+    SEN_CUPEnabled = _count != 0;
+
 } else {
-    SEN_rhsAFRFEnabled = false;
-    SEN_rhsUSAFEnabled = false;
+    SEN_CUPEnabled = false;
 };
 
 SEN_unitPoolWest = [];
@@ -79,6 +88,7 @@ SEN_unitPoolCiv = [];
 SEN_vehPoolCiv = [];
 SEN_airPoolCiv = [];
 SEN_unitPool = [];
+SEN_unitDriverPool = [];
 SEN_vehPool = [];
 SEN_airPool = [];
 SEN_sniperPool = [];
@@ -91,19 +101,20 @@ SEN_AriPool = [];
 ////////////////// EDIT BELOW //////////////////
 
 // fill arrays with addon content if enabled
-if (SEN_rhsUSAFEnabled) then { // RHS: USAF
-    SEN_unitPoolWest = ["rhsusf_army_ucp_rifleman_101st","rhsusf_army_ucp_aa","rhsusf_army_ucp_javelin","rhsusf_army_ucp_autorifleman","rhsusf_army_ucp_medic","rhsusf_army_ucp_explosives","rhsusf_army_ucp_grenadier","rhsusf_army_ucp_marksman","rhsusf_army_ucp_teamleader"];
-    SEN_vehPoolWest = ["rhsusf_rg33_wd","rhsusf_rg33_m2_wd","rhsusf_m1025_w","rhsusf_m1025_w_m2"];
-    SEN_airPoolWest = ["RHS_CH_47F","RHS_UH1Y_UNARMED","RHS_UH60M","B_Heli_Light_01_F"];
-    publicVariable "SEN_airPoolWest"; //public for fn_transportHandler
-    SEN_sniperPoolWest = ["rhsusf_army_ucp_sniper"];
-};
-if (SEN_rhsAFRFEnabled) then { // RHS: AFRF
-    SEN_unitPool = ["rhs_msv_at", "rhs_msv_grenadier", "rhs_msv_LAT", "rhs_msv_RShG2", "rhs_msv_sergeant", "rhs_msv_junior_sergeant", "rhs_msv_efreitor", "rhs_msv_grenadier_rpg", "rhs_msv_engineer", "rhs_msv_strelok_rpg_assist", "rhs_msv_aa", "rhs_msv_machinegunner", "rhs_msv_machinegunner_assistant", "rhs_msv_medic", "rhs_msv_rifleman"];
-    SEN_vehPool = ["rhs_uaz_spg9_chdkz","rhs_uaz_dshkm_chdkz","rhs_uaz_ags_chdkz","rhs_tigr_sts_3camo_vv", "rhs_sprut_vdv", "rhs_bmd1", "rhs_bmd1p", "rhs_bmd1pk", "rhs_bmd1r", "rhs_bmd2", "rhs_bmd2m", "rhs_bmp1_vdv", "rhs_bmp1d_vdv", "rhs_bmp1k_vdv", "rhs_bmp1p_vdv","rhs_bmp2_vdv","rhs_bmp2e_vdv","rhs_bmp2d_vdv","rhs_bmp2k_vdv","rhs_bmp3_msv","rhs_bmp3_late_msv","rhs_bmp3m_msv","rhs_bmp3mera_msv","rhs_brm1k_vdv","rhs_prp3_vdv","rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv","rhs_t72bd_tv","rhs_t80","rhs_t80a","rhs_t80b","rhs_t80bv","rhs_t80u","rhs_t80u45m","rhs_t80ue1","rhs_t80uk","rhs_t80um","rhs_t90_tv","rhs_t90a_tv","rhs_zsu234_aa"];
-    SEN_airPool = ["RHS_Mi8AMTSh_FAB_vvs", "RHS_Ka52_vvs", "RHS_Mi24P_CAS_vvs"];
-    SEN_sniperPool = ["rhs_msv_marksman"];
-    SEN_officerPool = ["rhs_msv_officer_armored"];
+if (SEN_CUPEnabled) then { // CUP
+    SEN_unitPoolWest = ["CUP_B_USMC_Soldier_AA","CUP_B_USMC_Soldier_HAT","CUP_B_USMC_Soldier_AT","CUP_B_USMC_Soldier_AR","CUP_B_USMC_Medic","CUP_B_USMC_Crew","CUP_B_USMC_Soldier_Marksman","CUP_B_USMC_Engineer","CUP_B_USMC_Soldier_TL","CUP_B_USMC_Soldier_GL","CUP_B_USMC_Soldier_MG","CUP_B_USMC_Officer","CUP_B_USMC_Pilot","CUP_B_USMC_Soldier","CUP_B_USMC_SpecOps_SD","CUP_B_USMC_Soldier_LAT","CUP_B_USMC_Soldier_SL"];
+    SEN_vehPoolWest = ["CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_Unarmed_USA","CUP_B_HMMWV_MK19_USA"];
+
+    SEN_unitPool = ["min_rf_soldier_A","min_rf_soldier_AR","AW_min_rf_soldier_AA","AW_min_rf_soldier_AT","AW_min_rf_soldier_LAT","min_rf_medic","min_rf_engineer","min_rf_soldier_exp","min_rf_soldier_GL","min_rf_soldier_repair","min_rf_soldier","min_rf_soldier_SL","min_rf_soldier_TL","min_rf_soldier_lite"];
+    SEN_unitDriverPool = ["min_rf_driver","min_rf_crew"];
+    SEN_vehPool = ["CUP_B_BRDM2_CDF","CUP_B_BRDM2_ATGM_CDF","CUP_O_BTR60_TK","CUP_O_BTR90_RU","CUP_O_UAZ_AGS30_RU","CUP_O_UAZ_MG_RU","CUP_O_UAZ_METIS_RU","CUP_O_UAZ_SPG9_RU","CUP_O_Ural_ZU23_RU","CUP_O_Ural_ZU23_RU","CUP_O_Ural_ZU23_RU","CUP_O_Ural_ZU23_RU","CUP_O_Ural_ZU23_RU","CUP_O_Ural_ZU23_RU"];
+    SEN_airPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU"];
+    SEN_sniperPool = ["min_rf_soldier_M"];
+    SEN_officerPool = ["min_rf_officer"];
+    SEN_unitPoolRebel = ["AW_ins_AT","AW_ins_AR","AW_ins_MK","AW_ins_MG","AW_ins_GL","AW_ins_RF"];
+    //SEN_airPoolRebel = [];
+    SEN_airAttackPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2","CUP_O_Su25_RU_3"];
+    SEN_AriPool = ["min_rf_MBT_arty", "CUP_O_BM21_RU", "CUP_D30_base"];
 };
 // fill arrays with vanilla content if still empty
 if (count SEN_unitPoolWest isEqualTo 0) then {SEN_unitPoolWest = ["B_Soldier_SL_F","B_medic_F","B_soldier_AR_F","B_soldier_M_F","B_Soldier_AA_F","B_soldier_AT_F","B_soldier_F"]};
@@ -118,6 +129,7 @@ if (count SEN_vehPoolRebel isEqualTo 0) then {SEN_vehPoolRebel = SEN_vehPoolCiv;
 if (count SEN_airPoolRebel isEqualTo 0) then {SEN_airPoolRebel = SEN_airPoolCiv;};
 if (count SEN_airAttackPool isEqualTo 0) then {SEN_airAttackPool = ["O_Plane_CAS_02_F", "O_Heli_Attack_02_F", "O_Heli_Attack_02_black_F", "O_Heli_Light_02_F"]};
 if (count SEN_AriPool isEqualTo 0) then {SEN_AriPool = ["O_MBT_02_arty_F"];};
+if (count SEN_unitDriverPool isEqualTo 0) then {SEN_unitDriverPool = SEN_unitPool;};
 if (SEN_enemySide isEqualTo RESISTANCE) exitWith {
     if (count SEN_unitPool isEqualTo 0) then {SEN_unitPool = ["I_soldier_AR_F","I_medic_F","I_soldier_exp_F","I_soldier_GL_F","I_soldier_AT_F","I_soldier_repair_F","I_soldier_AAR_F","I_soldier_M_F","I_soldier_F","I_support_AMort_F","I_support_AMG_F","I_support_MG_F","I_support_Mort_F","I_engineer_F","I_Soldier_AAT_F","I_Soldier_A_F","I_Soldier_AA_F"]};
     if (count SEN_vehPool isEqualTo 0) then {SEN_vehPool = ["I_MRAP_03_F","I_MRAP_03_hmg_F","I_MRAP_03_gmg_F","I_Quadbike_01_F","I_APC_tracked_03_cannon_F","I_APC_Wheeled_03_cannon_F","O_APC_Tracked_02_AA_F"]};

@@ -15,7 +15,7 @@ _posArray = [];
 _counter = 50;
 
 call {
-    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool call BIS_fnc_selectRandom; _static1 = (["rhs_KORD_high_MSV", "rhs_DSHKM_ins", "rhs_Metis_9k115_2_msv", "rhs_Igla_AA_pod_msv", "rhs_KORD_MSV", "rhs_DSHKM_Mini_TriPod_ins", "RHS_NSV_TriPod_MSV", "rhs_SPG9_INS"] call BIS_fnc_selectRandom); _static2 = (["rhs_KORD_high_MSV", "rhs_DSHKM_ins"] call BIS_fnc_selectRandom); _static3 = "rhs_2b14_82mm_msv"};
+    if (_side isEqualTo EAST) exitWith {_unit = SEN_unitPool call BIS_fnc_selectRandom; _static1 = (["CUP_DSHKM_base", "CUP_KORD_Base", "CUP_DSHKM_MiniTripod_base", "CUP_AGS_base"] call BIS_fnc_selectRandom); _static2 = (["CUP_KORD_Base", "CUP_DSHKM_base"] call BIS_fnc_selectRandom); _static3 = "CUP_2b14_82mm_Base"}; //late Check if every CUP Static weapon work because some are very Early WIP
     if (_side isEqualTo WEST) exitWith {_unit = SEN_unitPoolWest call BIS_fnc_selectRandom; _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
     if (_side isEqualTo CIVILIAN) exitWith {_unit = SEN_unitPoolCiv call BIS_fnc_selectRandom; _static1 = "B_GMG_01_high_F"; _static2 = "B_HMG_01_high_F"; _static3 = "B_Mortar_01_F"};
 
