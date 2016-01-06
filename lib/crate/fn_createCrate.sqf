@@ -10,7 +10,7 @@ publicVariable "JK_ammoSuppAvail";
 params ["_args", "_marker"];
 _args params ["_crateType", ["_reloadTime", 20], "_content"];
 
-_position = ((getMarkerPos _marker) findEmptyPosition [0, 10]);
+_position = [getMarkerPos _marker, 10, _crateType] call SEN_fnc_findSavePosition;
 if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
 _crateObject = _crateType createVehicle _position;
 

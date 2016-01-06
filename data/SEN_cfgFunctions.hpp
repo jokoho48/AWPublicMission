@@ -8,6 +8,7 @@ class SEN {
         class repetivCleanUp { preInit = 1; };
         //class Compass3d { postInit = 1; };
         class civHit;
+        class findSavePosition;
         class removeAction;
         class log;
         class checkInMarker;

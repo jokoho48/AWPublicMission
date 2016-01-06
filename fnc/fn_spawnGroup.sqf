@@ -9,7 +9,7 @@ Description: spawns group
 __________________________________________________________________*/
 private ["_setSkill", "_grp","_driverArray","_unitPool","_vehPool","_airPool","_veh","_unit"];
 
-params [["_pos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side",SEN_enemySide], ["_uncache",false]];
+params [["_Opos",[0,0,0],[[]]], ["_type",0,[0]], ["_count",1,[0]], ["_side",SEN_enemySide], ["_uncache",false]];
 _setSkill = !(_side in [WEST, CIVILIAN]);
 
 switch _side do {
@@ -25,6 +25,7 @@ _driverArray = [];
 
 for "_j" from 0 to (_count - 1) do {
     _unit = objNull;
+    _pos = [_Opos, 10] call SEN_fnc_findSavePosition;
     call {
         if (_type isEqualTo 0) exitWith {
             (_unitPool call BIS_fnc_selectRandom) createUnit [_pos, _grp];
