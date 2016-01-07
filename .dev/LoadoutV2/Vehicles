@@ -1,10 +1,25 @@
 [
     [
-        "Bewaffnete HMMWVs",
+        "Unbewaffnete HMMWVs",
         [
             "B_MRAP_01_F",
+            "CUP_B_HMMWV_Unarmed_USMC"
+        ],
+        200,
+        [
+            "Leader"
+        ]
+    ],
+    [
+        "Bewaffnete HMMWVs",
+        [
             "B_MRAP_01_gmg_F",
-            "B_MRAP_01_hmg_F"
+            "B_MRAP_01_hmg_F",
+            "CUP_B_HMMWV_Avenger_USMC",
+            "CUP_B_HMMWV_M2_USMC",
+            "CUP_B_HMMWV_M1114_USMC",
+            "CUP_B_HMMWV_MK19_USMC",
+            "CUP_B_HMMWV_TOW_USMC"
         ],
         250,
         [
@@ -26,7 +41,9 @@
         "Panzer",
         [
             "B_MBT_01_TUSK_F",
-            "B_MBT_01_cannon_F"
+            "B_MBT_01_cannon_F",
+            "CUP_B_M1A1_Woodland_USMC",
+            "CUP_B_M1A2_TUSK_MG_USMC"
         ],
         600,
         [
@@ -36,7 +53,11 @@
     [
         "SchÃ¼tzenpanzerwagen",
         [
-            "B_APC_Wheeled_01_cannon_F"
+            "B_APC_Wheeled_01_cannon_F",
+            "CUP_B_LAV25_HQ_USMC",
+            "CUP_B_LAV25M240_USMC",
+            "CUP_B_LAV25_USMC",
+            "CUP_B_M113_USA";
         ],
         400,
         [
@@ -46,7 +67,10 @@
     [
         "SchÃ¼tzenpanzer",
         [
-            "B_APC_Tracked_01_rcws_F"
+            "B_APC_Tracked_01_rcws_F",
+            "CUP_B_M2Bradley_USA_W",
+            "CUP_B_M2A3Bradley_USA_W",
+            "CUP_B_M6LineBacker_USA_W"
         ],
         500,
         [
@@ -73,7 +97,11 @@
         "Transport Helikopter",
         [
             "B_Heli_Transport_01_F",
-            "B_Heli_Transport_01_camo_F"
+            "B_Heli_Transport_01_camo_F",
+            "CUP_B_CH47F_USA",
+            "CUP_B_UH60M_US",
+            "CUP_B_UH60L_US",
+            "CUP_B_MH60S_USMC"
         ],
         400,
         [
@@ -83,7 +111,11 @@
     [
         "Kampf Helikopter",
         [
-            "B_Heli_Attack_01_F"
+            "B_Heli_Attack_01_F",
+            "CUP_B_AH64D_MR_USA",
+            "CUP_B_AH64D_AT_USA",
+            "CUP_B_AH1Z_AT",
+            "CUP_B_AH1Z_7RndHydra"
         ],
         700,
         [
@@ -93,7 +125,14 @@
     [
         "Flugzeuge",
         [
-            "B_Plane_CAS_01_F"
+            "B_Plane_CAS_01_F",
+            "CUP_B_C130J_USMC",
+            "CUP_B_A10_AT_USA",
+            "CUP_B_A10_CAS_USA",
+            "CUP_B_MV22_USMC",
+            "CUP_B_AV8B_Heavy",
+            "CUP_B_AV8B",
+            "CUP_B_AV8B_Deepstrike"
         ],
         1000,
         [
@@ -103,7 +142,8 @@
     [
         "Other",
         [
-            "B_Quadbike_01_F"
+            "B_Quadbike_01_F",
+            "CUP_B_M1030"
         ],
         50,
         [
@@ -118,7 +158,8 @@
             "B_Truck_01_fuel_F",
             "C_Van_01_fuel_F",
             "C_Offroad_01_repair_F",
-            "B_APC_Tracked_01_CRV_F"
+            "B_APC_Tracked_01_CRV_F",
+            "CUP_B_M163_USA"
         ],
         250,
         [
