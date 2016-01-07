@@ -12,8 +12,8 @@ JK_vests = ["Scorpion_Vest_3","Scorpion_Vest_2","Scorpion_Vest_1","Scorpion_Vest
 JK_headgears = ["AOR2_Helmet1","AOR2_Helmet2","AORU_Helmet1","AORU_Helmet2","DualTex_Helmet1","DualTex_Helmet2","M81_Helmet1","M81_Helmet2","M90_Helmet1","M90_Helmet2","MarPat_Helmet1","MarPat_Helmet2","MC_Helmet1","MC_Helmet2","OGA_G_Helmet1","OGA_G_Helmet2","OGA_Helmet1","OGA_Helmet2","Scorpion_Helmet1","Scorpion_Helmet2"];
 JK_backpacks = ["AOR1_Backpack_Kitbag","AOR2_Backpack_Kitbag","AORU_Backpack_Kitbag","DualTex_Backpack_Kitbag","M81_Backpack_Kitbag","MarPat_Backpack_Kitbag","MC_Backpack_Kitbag","OGA_Backpack_Kitbag","Scorpion_Backpack_Kitbag"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
-JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
-JK_goggles = "G_Aviator";
+JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
+JK_goggles = "";
 
 //weapons - primary weapon - (string)
 JK_primaryweapon = ["RH_M4_ris_m","RH_M4A1_ris","RH_M16A4_m","RH_M16A4"];
@@ -124,7 +124,7 @@ JK_isEngineer = 2;
 JK_isPilot = true;
 
 //Vehicle Spawn System
-JK_VehClass = "aa";
+JK_VehClass = "All";
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;
