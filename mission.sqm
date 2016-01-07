@@ -64,7 +64,8 @@ class Mission
 		"CUP_WheeledVehicles_HMMWV",
 		"CUP_WheeledVehicles_LR",
 		"CUP_TrackedVehicles_M113",
-		"aw_comp"
+		"aw_comp",
+		"CUP_WheeledVehicles_M1030"
 	};
 	addOnsAuto[]=
 	{
@@ -127,6 +128,7 @@ class Mission
 		"A3_Structures_F_EPA_Mil_Scrapyard",
 		"A3_Structures_F_Kart_Civ_SportsGrounds",
 		"CUP_TrackedVehicles_M113",
+		"CUP_WheeledVehicles_M1030",
 		"a3_map_altis"
 	};
 	randomSeed=13763187;
@@ -2234,7 +2236,7 @@ class Mission
 	};
 	class Vehicles
 	{
-		items=196;
+		items=197;
 		class Item0
 		{
 			position[]={15107.574,17.91,17184.059};
@@ -2548,7 +2550,7 @@ class Mission
 			offsetY=-0.0029468499;
 			id=95;
 			side="EMPTY";
-			vehicle="CUP_B_HMMWV_Transport_USA";
+			vehicle="CUP_B_HMMWV_Unarmed_USMC";
 			skill=0.60000002;
 			text="Car6";
 		};
@@ -2646,7 +2648,7 @@ class Mission
 			offsetY=0.000270844;
 			id=105;
 			side="EMPTY";
-			vehicle="CUP_B_HMMWV_M2_GPK_USA";
+			vehicle="CUP_B_HMMWV_M2_USMC";
 			skill=0.60000002;
 			text="Car1";
 		};
@@ -2667,7 +2669,7 @@ class Mission
 			offsetY=0.0061645498;
 			id=107;
 			side="EMPTY";
-			vehicle="CUP_B_HMMWV_Transport_USA";
+			vehicle="CUP_B_HMMWV_Unarmed_USMC";
 			skill=0.60000002;
 			text="Car4";
 		};
@@ -2678,7 +2680,7 @@ class Mission
 			offsetY=-0.0026340501;
 			id=108;
 			side="EMPTY";
-			vehicle="CUP_B_HMMWV_Transport_USA";
+			vehicle="CUP_B_HMMWV_Unarmed_USMC";
 			skill=0.60000002;
 			text="Car5";
 		};
@@ -2835,7 +2837,7 @@ class Mission
 			offsetY=-0.00331688;
 			id=123;
 			side="EMPTY";
-			vehicle="CUP_B_HMMWV_M2_GPK_USA";
+			vehicle="CUP_B_HMMWV_M2_USMC";
 			skill=0.60000002;
 			text="Car3";
 		};
@@ -4151,7 +4153,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BlockConcrete_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this setPos[getPos this select 0, getPos this select 1, -0.5];this enableSimulation false;";
 		};
 		class Item183
 		{
@@ -4162,7 +4164,7 @@ class Mission
 			side="EMPTY";
 			vehicle="BlockConcrete_F";
 			skill=0.60000002;
-			init="this enableSimulation false;";
+			init="this setPos[getPos this select 0, getPos this select 1, -0.5];this enableSimulation false;";
 		};
 		class Item184
 		{
@@ -4284,6 +4286,15 @@ class Mission
 			vehicle="CUP_B_M113_Med_USA";
 			skill=0.60000002;
 			text="Car8_1";
+		};
+		class Item196
+		{
+			position[]={15152.69,17.843309,17341.449};
+			azimut=133.99332;
+			id=261;
+			side="EMPTY";
+			vehicle="CUP_B_M1030";
+			skill=0.60000002;
 		};
 	};
 	class Markers
