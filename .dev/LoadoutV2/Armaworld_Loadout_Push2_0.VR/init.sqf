@@ -29,8 +29,8 @@ if ((paramsArray select 0) in [1, 3]) then {
 
 if ((paramsArray select 0) in [2, 3]) then {
     BasicMedic = ["ACE_medicalSupplyCrate",5,[["ACE_fieldDressing", 100],["ACE_epinephrine", 25],["ACE_morphine", 25],["ACE_bloodIV", 15],["ACE_bloodIV_500", 15],["ACE_bloodIV_250", 15],["ACE_bodyBag", 10]]];
-    Ammonition = ["Box_NATO_Wps_F",15,[["30Rnd_556x45_Stanag", 55],["30Rnd_65x39_caseless_mag", 45],["30Rnd_65x39_caseless_mag_Tracer", 20],["11Rnd_45ACP_Mag", 15],["20Rnd_762x51_Mag", 15]]];
-    mgAmmo = ["Box_NATO_Wps_F",15,[["200Rnd_65x39_cased_Box", 10],["200Rnd_65x39_cased_Box_Tracer", 8]]];
+    Ammonition = ["Box_NATO_Wps_F",15,[["30Rnd_556x45_Stanag", 55],["30Rnd_556x45_Stanag_Tracer_Red", 40],["11Rnd_45ACP_Mag", 15],["20Rnd_762x51_Mag", 15]]];
+    mgAmmo = ["Box_NATO_Wps_F",15,[["CUP_200Rnd_TE4_Red_Tracer_556x45_M249", 10],["CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M", 8]]];
     para = ["Box_NATO_Wps_F",15,[["B_Parachute", 10]]];
     nade = ["Box_NATO_Wps_F",15,[["HandGrenade", 30],["SmokeShell", 15],["SmokeShellYellow", 15],["SmokeShellRed", 15],["SmokeShellPurple", 15],["SmokeShellBlue", 15],["SmokeShellGreen", 15],["Chemlight_Yellow", 15],["Chemlight_Red", 15],["Chemlight_Green", 15],["Chemlight_Blue", 15],["1Rnd_HE_Grenade_shell", 30],["1Rnd_Smoke_Grenade_shell", 15],["1Rnd_SmokeRed_Grenade_shell", 15],["1Rnd_SmokePurple_Grenade_shell", 15],["1Rnd_SmokeBlue_Grenade_shell", 15],["1Rnd_SmokeGreen_Grenade_shell", 15],["UGL_FlareWhite_F", 15],["UGL_FlareYellow_F", 15],["UGL_FlareRed_F", 15],["UGL_FlareGreen_F", 15],["ACE_M84", 5],["UGL_FlareCIR_F", 15]]];
     expl = ["Box_NATO_Wps_F",15,[["ACE_M26_Clacker", 10],["ACE_Clacker", 10],["SatchelCharge_Remote_Mag", 10],["DemoCharge_Remote_Mag", 10]]];
