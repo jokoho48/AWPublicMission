@@ -54,7 +54,7 @@ _players = (call SEN_fnc_getPlayers);
 
 if (count _players > 0) then {
     _hint = format ["The enemy is losing control of %1! Keep up the fight and they will surrender!",_townName];
-    _hint remoteExecCall ["hintSilent", _players, JIP];
+    _hint remoteExecCall ["hintSilent", _players];
 };
 
 uiSleep 60 + random 100;
