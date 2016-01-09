@@ -44,4 +44,4 @@ hintsilent "Checking area for intel...";
     };
 
     hintSilent "You did not find intel in the area.";
-}, [_pos, _intel]] call ace_common_fnc_waitAndExecute;
+}, [_pos, _intel], 15] call ace_common_fnc_waitAndExecute;

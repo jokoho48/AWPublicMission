@@ -45,7 +45,7 @@ if (random 1 < 0.7) then {
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],_vehPos,false,1,true,"C",false] call BIS_fnc_taskCreate;
 
-waitUntil {sleep 10; (({_x distance _pos < 50 && (getposATL _x select 2) < 2} count (call SEN_fnc_getPlayers)) > 0)};
+waitUntil {sleep 10; (({_x distance _pos < 150 && (getposATL _x select 2) < 2} count (call SEN_fnc_getPlayers)) != 0)};
 
 if (ace_medical_level isEqualTo 1) then {
     _part = [
