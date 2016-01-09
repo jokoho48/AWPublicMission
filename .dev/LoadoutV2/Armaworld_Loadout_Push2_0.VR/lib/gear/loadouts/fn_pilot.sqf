@@ -12,8 +12,8 @@ JK_vests = ["CUP_V_B_PilotVest"];
 JK_headgears = ["H_PilotHelmetHeli_B"];
 JK_backpacks = ["B_AssaultPack_rgr"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
-JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
-JK_goggles = "G_Aviator";
+JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
+JK_goggles = "";
 
 //weapons - primary weapon - (string)
 JK_primaryweapon = ["hgun_PDW2000_F"];

@@ -22,7 +22,11 @@ _retPos = if (isNil "_type") then {
 };
 
 if (_retPos isEqualTo []) exitWith {
-    [_pos, _radius + 10, _type] call SEN_fnc_findSavePosition;
+    if (isNil "_type") then {
+        [_pos, _radius + 10] call SEN_fnc_findSavePosition;
+    } else {
+        [_pos, _radius + 10, _type] call SEN_fnc_findSavePosition;
+    };
 };
 
 _retPos

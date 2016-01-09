@@ -12,8 +12,8 @@ JK_vests = ["V_TacVest_blk"];
 JK_headgears = ["H_PilotHelmetHeli_B"];
 JK_backpacks = ["ABU_Backpack_Compact"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
-JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
-JK_goggles = "G_Aviator";
+JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
+JK_goggles = "";
 
 //weapons - primary weapon - (string)
 JK_primaryweapon = ["RH_M4sbr_b"];
@@ -124,7 +124,7 @@ JK_isEngineer = 2;
 JK_isPilot = true;
 
 //Vehicle Spawn System
-JK_VehClass = "crewman";
+JK_VehClass = "Crew";
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;

@@ -23,7 +23,7 @@ if (_pos distance SEN_centerPos <= SEN_range && {!(surfaceIsWater _pos)} && {!([
         };
     };
     _check = _check + 1;
-    if !(_check isEqualTo _count) then {
-        call JK_fnc_createPatrolUnit;
-    };
+};
+if !(_check isEqualTo _count) then {
+    call JK_fnc_createPatrolUnit;
 };

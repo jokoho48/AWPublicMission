@@ -177,7 +177,7 @@ for "_i" from 1 to JK_swapBarrel do {
     if (_x isEqualType "") then {
         _unit linkitem _x;
     } else {
-        params ["_class", "_count"];
+        _x params ["_class", "_count"];
         if (_count isEqualType 0) then {
             for "_i" from 1 to _count do {
                 _unit linkitem _class;
@@ -193,7 +193,7 @@ for "_i" from 1 to JK_swapBarrel do {
     if (_x isEqualType "") then {
         _unit addItemToUniform _x;
     } else {
-        params ["_class", "_count"];
+        _x params ["_class", "_count"];
         if (_count isEqualType 0) then {
             for "_i" from 1 to _count do {
                 _unit addItemToUniform _class;
@@ -209,7 +209,7 @@ for "_i" from 1 to JK_swapBarrel do {
     if (_x isEqualType "") then {
         _unit addItemToVest _x;
     } else {
-        params ["_class", "_count"];
+        _x params ["_class", "_count"];
         if (_count isEqualType 0) then {
             for "_i" from 1 to _count do {
                 _unit addItemToVest _class;
@@ -229,7 +229,7 @@ if !(_backpack isEqualTo "") then {
         if (_x isEqualType "") then {
             _unit addItemToBackpack _x;
         } else {
-            params ["_class", "_count"];
+            _x params ["_class", "_count"];
             if (_count isEqualType 0) then {
                 for "_i" from 1 to _count do {
                     _unit addItemToBackpack _class;
@@ -247,7 +247,7 @@ if !(_backpack isEqualTo "") then {
     if (_x isEqualType "") then {
         _unit addItem _x;
     } else {
-        params ["_class", "_count"];
+        _x params ["_class", "_count"];
         if (_count isEqualType 0) then {
             for "_i" from 1 to _count do {
                 _unit addItem _class;

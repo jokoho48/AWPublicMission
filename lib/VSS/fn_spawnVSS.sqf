@@ -37,19 +37,14 @@ if !(_nearstObj isEqualTo []) then {
             _earnBack = round ((1 - _damage/_count) * _cost);
             _earnBacks = _earnBacks + _earnBack;
         };
-        {
-            deleteVehicle _x;
-            nil
-        } count (_x getVariable ["ace_cargo_loaded", []]);
         deleteVehicle _x;
         nil
     } count _nearstObj;
 };
 
-JK_TicketSystem = JK_TicketSystem - _costs + _earnBacks;
+JK_TicketSystem = (JK_TicketSystem - _costs) + _earnBacks;
 publicVariable "JK_TicketSystem";
 
-uiSleep 0.1;
 _position set [2,0.5];
 
 _vehicle = _className createVehicle _position;
@@ -71,8 +66,5 @@ call {
         createVehicleCrew _vehicle;
     };
 };
-
-
-uiSleep 5;
 
 _vehicle allowDamage true;

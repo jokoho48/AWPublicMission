@@ -9,6 +9,7 @@ class SEN {
         //class Compass3d { postInit = 1; };
         class civHit;
         class findSavePosition;
+        class flattenSpawnArrays;
         class removeAction;
         class log;
         class checkInMarker;
