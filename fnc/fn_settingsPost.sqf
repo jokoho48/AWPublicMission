@@ -135,10 +135,10 @@ for "_s" from 1 to (paramsArray select 7) do {
         };
     };
 };
-[] call compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
+[] spawn compile preprocessFileLineNumbers "scripts\SEN_occupy.sqf";
 
-[((SEN_range*0.04) max 400),false] call compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
-[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] call compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
+[((SEN_range*0.04) max 400),false] spawn compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
+[((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 SEN_complete = 1;
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";

@@ -94,7 +94,7 @@ class CfgAmmo {
 class Extended_Init_Eventhandlers {
     class AW_ins_base {
         class aw_comp {
-            init = "_this call JK_fnc_randomGear;"
+            init = "_this call JK_fnc_randomGear;";
         };
     };
 };
