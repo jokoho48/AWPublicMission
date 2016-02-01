@@ -33,7 +33,7 @@ class SEN {
         class settingsPre { preInit = 1; };
         class settingsPost;
         class postInit {postInit = 1;};
-        class EOD;
+        //class EOD;
         class setOwner;
         class setParams;
         class setUnitSurrender;
