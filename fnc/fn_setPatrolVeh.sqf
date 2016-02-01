@@ -38,7 +38,7 @@ if !(_isAir) then {
                   _posArray pushBack _pos2;
                   _wpindex = _wpindex + 1;
                   _wp = _grp addWaypoint [_pos2, 0];
-                  _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
+                  _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
                   [_grp, _wpindex] setWaypointBehaviour "SAFE";
                   [_grp, _wpindex] setWaypointCombatMode "RED";
                   [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
@@ -52,12 +52,12 @@ if !(_isAir) then {
         };
     } else {
         for "_i" from 1 to 100 do {
-            _road = _roads call BIS_fnc_selectRandom;
+            _road = selectRandom _roads;
                if ({(_road distance _x) < _minDist} count _posArray isEqualTo 0) then {
                  _posArray pushBack (getposATL _road);
                  _wpindex = _wpindex + 1;
                  _wp = _grp addWaypoint [(getposATL _road), 0];
-                 _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
+                 _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
                  [_grp, _wpindex] setWaypointBehaviour "SAFE";
                  [_grp, _wpindex] setWaypointCombatMode "RED";
                  [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
