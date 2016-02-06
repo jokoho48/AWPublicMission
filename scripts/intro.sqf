@@ -1,4 +1,6 @@
 if (!hasInterface) exitWith {};
+waitUntil {!isNull player};
+waitUntil {!isNull (findDisplay 46)};
 private  ["_handle", "_time", "_times"];
 _handle = createdialog "AW_INTRO";
 _time = 120;

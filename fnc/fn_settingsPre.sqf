@@ -111,9 +111,9 @@ if (SEN_CUPEnabled) then { // CUP
     SEN_airPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU"];
     SEN_sniperPool = ["min_rf_soldier_M"];
     SEN_officerPool = ["min_rf_officer"];
-    SEN_unitPoolRebel = ["AW_ins_AT","AW_ins_AR","AW_ins_MK","AW_ins_MG","AW_ins_GL","AW_ins_RF"];
+    SEN_unitPoolRebel = ["CUP_I_GUE_Farmer","CUP_I_GUE_Forester","CUP_I_GUE_Gamekeeper","CUP_I_GUE_Local","CUP_I_GUE_Villager","CUP_I_GUE_Woodman","CUP_I_GUE_Ammobearer","CUP_I_GUE_Soldier_AR","CUP_I_GUE_Officer","CUP_I_GUE_Crew","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_MG","CUP_I_GUE_Engineer","CUP_I_GUE_Soldier_AKS74","CUP_I_GUE_Soldier_AKM","CUP_I_GUE_Soldier_AKSU","CUP_I_GUE_Soldier_AT","CUP_I_GUE_Commander","CUP_I_GUE_Soldier_AA","CUP_I_GUE_Soldier_AA2","CUP_I_GUE_Saboteur"];
     //SEN_airPoolRebel = [];
-    SEN_airAttackPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2","CUP_O_Su25_RU_3"];
+    SEN_airAttackPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU"];
     SEN_AriPool = ["min_rf_MBT_arty", "CUP_O_BM21_RU"];
 };
 // fill arrays with vanilla content if still empty

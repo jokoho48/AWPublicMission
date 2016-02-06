@@ -29,3 +29,5 @@ if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
 };
+waitUntil {!isNil "AME_Core_fnc_loadModules"};
+["Core", "Replay"] call AME_Core_fnc_loadModules;

@@ -10,8 +10,8 @@ _target = allPlayers call BIS_fnc_selectRandom;
 _pos = getPos _target;
 if ([_pos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
     [1,"Air Attack in Savezone"] call SEN_fnc_log;
-    sleep 2700;
-    [] spawn SEN_fnc_rebelTastCiv;
+    //sleep 2700;
+    //[] spawn SEN_fnc_rebelTastCiv;
 };
 
 _taskID = format["%1_rebel_civ",time];
@@ -120,8 +120,8 @@ publicVariable "JK_TicketSystem";
 //SEN_approvalCiv = SEN_approvalCiv + 15;
 //publicVariable "SEN_approvalCiv";
 
-sleep 2700;
+//sleep 2700;
 JK_airAttackDone = true;
-[] spawn SEN_fnc_rebelTastCiv;
+//[] spawn SEN_fnc_rebelTastCiv;
 SEN_objectCleanup pushBack _veh;
 SEN_objectCleanup append _vehCrew;

@@ -36,6 +36,7 @@ _SEN_safeZoneY = [((getMarkerPos "SEN_safezone_mrk") select 0) + _SEN_safeZoneSi
 [0,"SEN_range: %1, SEN_centerPos: %2, SEN_whitelistLocation count: %3",SEN_range, SEN_centerPos, (count SEN_whitelistLocation)] call SEN_fnc_log;
 
 // headless client setup
+/*
 if !(isNil "SEN_HC") then {
     SEN_HCPresent = true; publicVariable "SEN_HCPresent";
     [0,"Headless client: TRUE."] call SEN_fnc_log;
@@ -43,7 +44,7 @@ if !(isNil "SEN_HC") then {
     SEN_HC = objNull; publicVariable "SEN_HC";
     [0,"Headless client: FALSE."] call SEN_fnc_log;
 };
-
+*/
 // safezone setup
 _trgSafeZone = createTrigger ["EmptyDetector", getMarkerPos "SEN_safezone_mrk"];
 _trgSafeZone setTriggerArea [_SEN_safeZoneSize, _SEN_safeZoneSize, 0, false];
@@ -140,6 +141,7 @@ for "_s" from 1 to (paramsArray select 7) do {
 [((SEN_range*0.04) max 400),false] spawn compile preprocessFileLineNumbers "scripts\SEN_civ.sqf";
 [((SEN_range*0.04) max 400),((ceil (SEN_range/512)) max 10) min 25] spawn compile preprocessFileLineNumbers "scripts\SEN_animal.sqf";
 SEN_complete = 1;
+/*
 if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_centerPos";
     (owner SEN_HC) publicVariableClient "SEN_occupiedLocation";
@@ -158,4 +160,5 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_officerPool";
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
+*/
 [0,"fn_settingsPost complete."] call SEN_fnc_log;

@@ -37,6 +37,7 @@ if (count SEN_taskList < SEN_totalTaskCount) then {SEN_totalTaskCount = count SE
 
 SEN_fnc_rebelTastCiv = compile preprocessFileLineNumbers "tasks\SEN_task_rebel_civ.sqf";
 JK_fnc_airAttack = compile preprocessFileLineNumbers "tasks\SEN_task_AirAttack.sqf";
+JK_fnc_airAttackSingle = compile preprocessFileLineNumbers "tasks\SEN_task_AirAttackSingle.sqf";
 [] spawn compile preprocessFileLineNumbers "tasks\SEN_task_officer.sqf";
 call SEN_fnc_setTaskCiv;
 [] spawn SEN_fnc_rebelTastCiv;

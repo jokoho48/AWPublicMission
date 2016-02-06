@@ -11,7 +11,7 @@ JK_fnc_createPatrolUnit = compile preprocessFileLineNumbers "scripts\SEN_createP
 _exit = "";
 
 if (SEN_HCPresent) then {
-    _exit = (isServer);
+    _exit = (!isServer);
     [0,"Spawning occupied location units and patrols on headless client."] call SEN_fnc_log;
 } else {
     _exit = (!isServer);
