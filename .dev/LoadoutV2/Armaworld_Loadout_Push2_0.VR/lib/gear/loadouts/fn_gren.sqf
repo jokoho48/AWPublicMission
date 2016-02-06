@@ -27,11 +27,11 @@ JK_primaryweaponAmmo = 6;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
-JK_40mmHeGrenadesAmmo = 10;
+JK_40mmHeGrenadesAmmo = 15;
 JK_40mmSmokeGrenadesWhite = 0;
 JK_40mmSmokeGrenadesYellow = 0;
 JK_40mmSmokeGrenadesOrange = 0;
-JK_40mmSmokeGrenadesRed = 0;
+JK_40mmSmokeGrenadesRed = 2;
 JK_40mmSmokeGrenadesPurple = 0;
 JK_40mmSmokeGrenadesBlue = 0;
 JK_40mmSmokeGrenadesGreen = 0;
@@ -67,7 +67,7 @@ JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
-JK_grenadeSmokePurple = 2;
+JK_grenadeSmokePurple = 0;
 JK_grenadeSmokeBlue = 0;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
@@ -84,7 +84,7 @@ JK_epinephrine = 3;
 JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 25;
+JK_fieldDressing = 15;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

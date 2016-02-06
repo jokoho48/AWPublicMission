@@ -22,6 +22,8 @@ _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Empty Crate</t>", _fnc_spawnCrate, "true", "Empty"] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Universal Wheel</t>", _fnc_spawnCrate, "true", "Wheel"] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Tank Track-Part</t>", _fnc_spawnCrate, "true", "Track"] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request M2 Crate</t>", _fnc_spawnCrate, "true", "m2Box"] call JK_Core_fnc_addAction;
+    _this, "<t color='#AE2020'>Request Mortar Crate</t>", _fnc_spawnCrate, "true", "mortarBox"] call JK_Core_fnc_addAction;
 };
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;
