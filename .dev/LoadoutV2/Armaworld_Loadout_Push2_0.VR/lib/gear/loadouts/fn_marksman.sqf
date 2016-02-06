@@ -84,7 +84,7 @@ JK_epinephrine = 3;
 JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 25;
+JK_fieldDressing = 15;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

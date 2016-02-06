@@ -16,7 +16,7 @@ JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will b
 JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["RH_M4_ris_m","RH_M4A1_ris","RH_M16A4_m","RH_M16A4"];
+JK_primaryweapon = ["RH_M16A4gl","RH_M4_ris_M203","RH_M4_ris_M203s"];
 
 //primary weapon items - (array)
 JK_itemsPrimaryweapon = [["RH_ta31rmr","RH_ta31rco","RH_ta648","RH_eotech553mag","RH_eotech553mag_tan","RH_eothhs1"]];
@@ -84,7 +84,7 @@ JK_epinephrine = 3;
 JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 25;
+JK_fieldDressing = 15;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor", ["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor","ACE_HuntIR_M203","ACE_HuntIR_M203", ["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;

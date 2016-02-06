@@ -23,7 +23,7 @@ JK_itemsPrimaryweapon = [["RH_ta31rmr","RH_ta31rco","RH_ta648","RH_eotech553mag"
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 6;
+JK_primaryweaponAmmo = 4;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -48,7 +48,7 @@ JK_handgun = "hgun_Pistol_heavy_01_F";
 JK_itemsHandgun = [""];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 3;
+JK_handgunAmmo = 2;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -67,7 +67,7 @@ JK_grenadeSmokeWhite = 4;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
-JK_grenadeSmokePurple = 1;
+JK_grenadeSmokePurple = 2;
 JK_grenadeSmokeBlue = 0;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
@@ -77,7 +77,7 @@ JK_chemlightBlue = 0;
 JK_IRgrenade = 0;
 
 //ACE Items
-JK_IVBagSaline250 = 1;
+JK_IVBagSaline250 = 0;
 JK_IVBagSaline500 = 0;
 JK_IVBagSaline1000 = 8;
 JK_epinephrine = 10;
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;

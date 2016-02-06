@@ -84,7 +84,7 @@ JK_epinephrine = 3;
 JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 25;
+JK_fieldDressing = 15;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
