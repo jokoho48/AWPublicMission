@@ -1,7 +1,6 @@
-private ["_fnc_medical", "_fnc_ammo", "_fnc_mg_ammo", "_fnc_nade", "_fnc_exp", "_fnc_at_ammo", "_fnc_at_M3_ammo", "_fnc_at_smaw_ammo", "_fnc_para", "_fnc_static_ammo", "_fnc_static_at_ammo", "_fnc_at_ammo", "_fnc_misc", "_fnc_Radio", "_fnc_Empty", "_fnc_attachCrateAction"];
 JK_SpawnMarker = "SEN_ammo_mrk";
 
-_fnc_spawnCrate = {
+private _fnc_spawnCrate = {
     [("Crate:" + (_this select 3)), JK_SpawnMarker] call JK_crate_fnc_loadDB;
 };
 _fnc_attachCrateAction = {
@@ -23,7 +22,7 @@ _fnc_attachCrateAction = {
     [_this, "<t color='#AE2020'>Request Universal Wheel</t>", _fnc_spawnCrate, "true", "Wheel"] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request Tank Track-Part</t>", _fnc_spawnCrate, "true", "Track"] call JK_Core_fnc_addAction;
     [_this, "<t color='#AE2020'>Request M2 Crate</t>", _fnc_spawnCrate, "true", "m2Box"] call JK_Core_fnc_addAction;
-    _this, "<t color='#AE2020'>Request Mortar Crate</t>", _fnc_spawnCrate, "true", "mortarBox"] call JK_Core_fnc_addAction;
+    [_this, "<t color='#AE2020'>Request Mortar Crate</t>", _fnc_spawnCrate, "true", "mortarBox"] call JK_Core_fnc_addAction;
 };
 ammonition call _fnc_attachCrateAction;
 ammonition2 call _fnc_attachCrateAction;
