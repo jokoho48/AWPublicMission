@@ -36,6 +36,8 @@ _civ setBehaviour "CARELESS";
 _civ setDir random 360;
 _civ switchMove "AinjPpneMstpSnonWrflDnon";
 _civ disableAI "ANIM";
+_civ disableAI "TARGET";
+_civ disableAI "AUTOTARGET";
 
 if (random 1 < 0.7) then {
     _ambush = true;
@@ -44,8 +46,11 @@ if (random 1 < 0.7) then {
 };
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],_vehPos,false,1,true,"C",false] call BIS_fnc_taskCreate;
-
-waitUntil {sleep 10; (({_x distance _pos < 50 && (getposATL _x select 2) < 2} count (call SEN_fnc_getPlayers)) > 0)};
+waitUntil {
+    sleep 10;
+    private _ret = (({_x distance _pos < 150 && (getposATL _x select 2) < 2} count (call SEN_fnc_getPlayers)) != 0);
+    _ret || alive _civ
+};
 
 if (ace_medical_level isEqualTo 1) then {
     _part = [

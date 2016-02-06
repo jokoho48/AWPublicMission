@@ -5,7 +5,7 @@ Last modified: 8/14/2015
 __________________________________________________________________*/
 SEN_debug = (paramsArray select 1) isEqualTo 1;
 if (!hasInterface) exitWith {}; // headless client exit
-[] spawn compile preprocessFileLineNumbers "scripts\intro.sqf";
+[] call compile preprocessFileLineNumbers "scripts\intro.sqf";
 [player] call JK_loadOut_fnc_loadoutsInit;
 
 // setup debug
@@ -34,14 +34,7 @@ player addEventHandler["Fired", {
 
 if (didJIP) then {
     JK_registerPlayer = player;
-    publicVariableServer "JK_registerPlayer";
-};
-
-// misc settings
-SEN_civQuestioned = [];
-player setVariable ["SEN_inProgress",false];
-
-/* disable this for Performance improvements
+    publicVariableServ/* disable this for Performance improvements
 if ((paramsArray select 2) isEqualTo 1 && !SEN_debug) then {
     [] spawn {
         while {true} do {
@@ -54,6 +47,13 @@ if ((paramsArray select 2) isEqualTo 1 && !SEN_debug) then {
     };
 };
 */
+er "JK_registerPlayer";
+};
+
+// misc settings
+SEN_civQuestioned = [];
+player setVariable ["SEN_inProgress",false];
+
 // setup briefing
 player createDiarySubject ["rules", "Regeln"];
 player createDiarySubject ["teamspeak", "Teamspeak"];

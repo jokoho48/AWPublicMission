@@ -72,8 +72,8 @@ waitUntil {
 
 [WEST, [_taskID], [_taskDescription, _taskText, ""], _pos, false, 2, true, "Destroy", false] call BIS_fnc_taskCreate;
 
-[_grp, time] spawn {
-    params ["_grp", "_time"];
+[_grp] spawn {
+    params ["_grp"];
     Sleep (1200 + (random 300));
     if !(isNull _grp || !JK_airAttackDone) then {
         _grp setCurrentWaypoint [_grp, 3];
@@ -91,7 +91,7 @@ waitUntil {
     } count _vehCrew;
     !alive _veh || !(([getPos _veh, 2000] call SEN_fnc_getNearPlayers) isEqualTo [])
 };
-
+sleep 20;
 waitUntil {
     sleep 30;
     {
@@ -112,7 +112,7 @@ if (!alive _veh) then {
         _grp setCurrentWaypoint [_grp, 3];
     };
 };
-JK_airAttackDone = true;
+
 JK_TicketSystem = JK_TicketSystem + 200;
 publicVariable "JK_TicketSystem";
 
@@ -120,6 +120,7 @@ SEN_approvalCiv = SEN_approvalCiv + 15;
 publicVariable "SEN_approvalCiv";
 
 sleep 2700;
+JK_airAttackDone = true;
 [] spawn SEN_fnc_rebelTastCiv;
 SEN_objectCleanup pushBack _veh;
 SEN_objectCleanup append _vehCrew;
