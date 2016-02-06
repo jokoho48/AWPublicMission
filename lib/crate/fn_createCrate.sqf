@@ -14,9 +14,8 @@ _position = [getMarkerPos _marker, 10, _crateType] call SEN_fnc_findSavePosition
 if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
 _crateObject = _crateType createVehicle _position;
 
-_crateObject hideObjectGlobal true;
-
 if (!isNil "_content") then {
+    _crateObject hideObjectGlobal true;
     _crateObject setVariable ["SEN_noClean", true, true];
     clearWeaponCargoGlobal _crateObject;
     clearMagazineCargoGlobal _crateObject;
