@@ -17,7 +17,7 @@ finishMissionInit;
 enableSaving [false,false];
 _varAllHandle = [];
 if ((paramsArray select 0) in [1, 3]) then {
-    JK_CLASSES = ["commander", "leader", "medic", "rifleman", "gren", "at", "mg", "pilot", "marksman", "aa","crewchief","crewman"];
+    JK_CLASSES = ["commander", "leader", "uav", "medic", "rifleman", "gren", "at", "atAss", "mg", "pilot", "marksman", "aa", "aaAss","crewchief","crewman"];
     {
         private ["_path", "_handle", "_fnc"];
         _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\fn_%1.sqf", _x];

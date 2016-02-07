@@ -9,7 +9,7 @@ magazines one for one in JK_items.
 //clothing - (string)
 JK_uniforms = ["ABU_BP_Camo"];
 JK_vests = ["V_TacVest_blk"];
-JK_headgears = ["H_PilotHelmetHeli_B"];
+JK_headgears = ["CUP_H_USMC_Crew_Helmet"];
 JK_backpacks = ["ABU_Backpack_Compact"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
