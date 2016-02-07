@@ -71,7 +71,7 @@ switch (_condition) do {
                     [0,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2 for %3", name player, str (_vehdata select 0), (_vehdata select 1)]] remoteExecCall ["SEN_fnc_log", 3];
                 };
             } else {
-
+                hint "You Are not able to spawn more than 2 Heavy Vehicles";
             };
         };
         player setVariable ["SEN_inProgress",false];
