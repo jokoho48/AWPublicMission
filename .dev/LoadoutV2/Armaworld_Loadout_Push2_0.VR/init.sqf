@@ -46,8 +46,8 @@ if ((paramsArray select 0) in [2, 3]) then {
     Empty = ["ACE_Box_Misc", 0, []];
     Wheel = ["ACE_Wheel", 0];
     Track = ["ACE_Track", 0];
-    m2Box = ["Box_NATO_Wps_F",30,["CUP_B_M2_Gun_Bag",1],["CUP_B_M2_Tripod_Bag",1],["CUP_B_M2_MiniTripod_Bag",1]];
-    mortarBox = ["Box_NATO_Wps_F",30,["B_Mortar_01_weapon_F",1],["B_Mortar_01_support_F",1],["ACE_RangeTable_82mm",2]];
+    m2Box = ["Box_NATO_Wps_F",30,[["CUP_B_M2_Gun_Bag",1],["CUP_B_M2_Tripod_Bag",1],["CUP_B_M2_MiniTripod_Bag",1]]];
+    mortarBox = ["Box_NATO_Wps_F",30,[["B_Mortar_01_weapon_F",1],["B_Mortar_01_support_F",1],["ACE_RangeTable_82mm",2]]];
 
     {
         _var = missionNamespace getVariable _x;
