@@ -32,7 +32,7 @@ class SEN {
         class spawnAggressiveCiv;
         class settingsPre { preInit = 1; };
         class settingsPost;
-        class postInit {postInit = 1;};
+        class postInit { postInit = 1;};
         //class EOD;
         class setOwner;
         class setParams;
@@ -59,5 +59,6 @@ class SEN {
         class getPlayers;
         class getApproval;
         class getApprovalNumber;
+        class rbuDynamic;
     };
 };

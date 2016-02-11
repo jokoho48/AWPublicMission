@@ -161,4 +161,5 @@ if (SEN_HCPresent) then {
     (owner SEN_HC) publicVariableClient "SEN_complete";
 };
 */
+//call SEN_fnc_rbuDynamic;
 [0,"fn_settingsPost complete."] call SEN_fnc_log;

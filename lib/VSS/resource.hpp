@@ -1,9 +1,9 @@
-#define VVS_Menu_IDD 38100
-#define VVS_VehicleList 38101
-#define VVS_FilterList 38102
-#define VVS_CargoCheck 38103
+#define VSS_Menu_IDD 38100
+#define VSS_VehicleList 38101
+#define VSS_FilterList 38102
+#define VSS_CargoCheck 38103
 
-class VVS_RscControlsGroup {
+class VSS_RscControlsGroup {
     type = 15;
     idc = -1;
     x = 0;
@@ -39,7 +39,7 @@ class VVS_RscControlsGroup {
     class Controls {};
 };
 
-class VVS_RscControlsGroupNoScrollbars : VVS_RscControlsGroup {
+class VSS_RscControlsGroupNoScrollbars : VSS_RscControlsGroup {
     class VScrollbar : VScrollbar {
         width = 0;
     };
@@ -49,7 +49,7 @@ class VVS_RscControlsGroupNoScrollbars : VVS_RscControlsGroup {
     };
 };
 
-class VVS_RscListNBox {
+class VSS_RscListNBox {
     style = 16;
     type = 102;
     shadow = 0;
@@ -86,7 +86,7 @@ colorPictureDisabled[] = {1,1,1,1};
     };
 };
 
-class VVS_RscText {
+class VSS_RscText {
     x = 0;
     y = 0;
     h = 0.037;
@@ -103,7 +103,7 @@ class VVS_RscText {
     linespacing = 1;
 };
 
-class VVS_RscLine : VVS_RscText {
+class VSS_RscLine : VSS_RscText {
     idc = -1;
     style = 176;
     x = 0.17;
@@ -115,7 +115,7 @@ class VVS_RscLine : VVS_RscText {
     colorText[] = {1, 1, 1, 1.0};
 };
 
-class VVS_RscTree {
+class VSS_RscTree {
     style = 2;
     font = "PuristaMedium";
     sizeEx = "(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
@@ -130,13 +130,13 @@ class VVS_RscTree {
     borderSize = 0;
 };
 
-class VVS_RscTitle : VVS_RscText {
+class VSS_RscTitle : VSS_RscText {
     style = 0;
     sizeEx = "(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
     colorText[] = {0.95, 0.95, 0.95, 1};
 };
 
-class VVS_RscPicture {
+class VSS_RscPicture {
     shadow = 0;
     colorText[] = {1, 1, 1, 1};
     x = 0;
@@ -145,11 +145,11 @@ class VVS_RscPicture {
     h = 0.15;
 };
 
-class VVS_RscPictureKeepAspect : VVS_RscPicture {
+class VSS_RscPictureKeepAspect : VSS_RscPicture {
     style = 0x30 + 0x800;
 };
 
-class VVS_RscStructuredText {
+class VSS_RscStructuredText {
     type = 13;
     style = 0;
     x = 0;
@@ -169,7 +169,7 @@ class VVS_RscStructuredText {
     };
 };
 
-class VVS_RscActiveText
+class VSS_RscActiveText
 {
     idc = -1;
     type = 11;
@@ -190,7 +190,7 @@ class VVS_RscActiveText
     text = "";
 };
 
-class VVS_RscButton {
+class VSS_RscButton {
     style = 2;
     x = 0;
     y = 0;
@@ -218,7 +218,7 @@ class VVS_RscButton {
     soundEscape[] = {"\A3\ui_f\data\sound\onescape", 0.09, 1};
 };
 
-class VVS_RscButtonTextOnly : VVS_RscButton {
+class VSS_RscButtonTextOnly : VSS_RscButton {
     SizeEx = "(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
     colorBackground[] = {1, 1, 1, 0};
     colorBackgroundActive[] = {1, 1, 1, 0};
@@ -228,7 +228,7 @@ class VVS_RscButtonTextOnly : VVS_RscButton {
     borderSize = 0.0;
 };
 
-class VVS_RscShortcutButton {
+class VSS_RscShortcutButton {
     idc = -1;
     style = 0;
     default = 0;
@@ -296,7 +296,7 @@ class VVS_RscShortcutButton {
     };
 };
 
-class VVS_RscButtonMenu : VVS_RscShortcutButton {
+class VSS_RscButtonMenu : VSS_RscShortcutButton {
     idc = -1;
     type = 16;
     style = "0x02 + 0xC0";
@@ -356,7 +356,7 @@ class VVS_RscButtonMenu : VVS_RscShortcutButton {
     textureNoShortcut = "";
 };
 
-class VVS_RscShortcutButtonMain : VVS_RscShortcutButton {
+class VSS_RscShortcutButtonMain : VSS_RscShortcutButton {
     idc = -1;
     style = 0;
     default = 0;
@@ -416,7 +416,7 @@ class VVS_RscShortcutButtonMain : VVS_RscShortcutButton {
     };
 };
 
-class VVS_RscCheckbox
+class VSS_RscCheckbox
 {
     idc = -1;
     type = 7;
@@ -441,7 +441,7 @@ class VVS_RscCheckbox
     checked_strings[] = {CHECKED};
 };
 
-class VVS_RscProgress {
+class VSS_RscProgress {
     x = 0.344;
     y = 0.619;
     w = 0.313726;
@@ -452,7 +452,7 @@ class VVS_RscProgress {
     colorBar[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
 };
 
-class VVS_RscListBox {
+class VSS_RscListBox {
     style = 16;
     idc = -1;
     type = 5;
@@ -496,7 +496,7 @@ colorPictureDisabled[] = {1,1,1,1};
     };
 };
 
-class VVS_RscEdit {
+class VSS_RscEdit {
     type = 2;
     style = 0x00 + 0x40;
     font = "PuristaMedium";
@@ -510,13 +510,13 @@ class VVS_RscEdit {
     canModify = 1;
 };
 
-class VVS_RscSlider {
+class VSS_RscSlider {
     h = 0.025;
     color[] = {1, 1, 1, 0.8};
     colorActive[] = {1, 1, 1, 1};
 };
 
-class VVS_RscFrame {
+class VSS_RscFrame {
     type = 0;
     idc = -1;
     style = 64;
@@ -528,7 +528,7 @@ class VVS_RscFrame {
     text = "";
 };
 
-class VVS_RscBackground : VVS_RscText {
+class VSS_RscBackground : VSS_RscText {
     type = 0;
     IDC = -1;
     style = 512;
@@ -544,7 +544,7 @@ class VVS_RscBackground : VVS_RscText {
     SizeEx = 1;
 };
 
-class VVS_RscHTML {
+class VSS_RscHTML {
     colorText[] = {1, 1, 1, 1.0};
     colorBold[] = {1, 1, 1, 1.0};
     colorLink[] = {1, 1, 1, 0.75};
@@ -604,7 +604,7 @@ class VVS_RscHTML {
     };
 };
 
-class VVS_RscHitZones {
+class VSS_RscHitZones {
     x = 0;
     y = 0;
     w = 0.1;
@@ -615,7 +615,7 @@ class VVS_RscHitZones {
     ySpace = 0;
 };
 
-class VVS_RscMapControl {
+class VSS_RscMapControl {
     moveOnEdges = 1;
     x = "SafeZoneXAbs";
     y = "SafeZoneY + 1.5 *                     (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25)";
@@ -979,7 +979,7 @@ class VVS_RscMapControl {
     };
 };
 
-class VVS_RscCombo {
+class VSS_RscCombo {
     style = 16;
     type = 4;
     x = 0;
@@ -1018,7 +1018,7 @@ class VVS_RscCombo {
     };
 };
 
-class VVS_RscToolbox {
+class VSS_RscToolbox {
     colorText[] = {0.95, 0.95, 0.95, 1};
     color[] = {0.95, 0.95, 0.95, 1};
     colorTextSelect[] = {0.95, 0.95, 0.95, 1};
@@ -1029,4 +1029,3 @@ class VVS_RscToolbox {
     font = "PuristaMedium";
     sizeEx = "(            (            (            ((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 };
-

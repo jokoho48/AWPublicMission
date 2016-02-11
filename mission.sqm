@@ -2245,7 +2245,7 @@ class Mission
 			side="EMPTY";
 			vehicle="Land_Noticeboard_F";
 			skill=0.60000002;
-			text="vvs";
+			text="VSS";
 			init="this enableSimulation true;this setVectorUp [0,0,1]; this allowdamage false;";
 		};
 		class Item1

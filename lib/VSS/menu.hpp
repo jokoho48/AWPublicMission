@@ -10,7 +10,7 @@ class VSS_Menu
 
     class controlsBackground
     {
-        class titleBackground : VVS_RscText
+        class titleBackground : VSS_RscText
         {
             idc = -1;
             colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
@@ -20,7 +20,7 @@ class VSS_Menu
             h = (1 / 25);
         };
 
-        class MainBackground : VVS_RscText
+        class MainBackground : VSS_RscText
         {
             idc = -1;
             colorBackground[] = {0,0,0,0.76};
@@ -30,7 +30,7 @@ class VSS_Menu
             h = 0.6 - (22 / 250);
         };
 
-        class Footer : VVS_RscText
+        class Footer : VSS_RscText
         {
             idc = -1;
             colorBackground[] = {0,0,0,0.8};
@@ -40,7 +40,7 @@ class VSS_Menu
             h = (1 / 25);
         };
 
-        class priceTag : VVS_RscText
+        class priceTag : VSS_RscText
         {
             idc = 18004;
             colorBackground[] = {0,0,0,0};
@@ -52,7 +52,7 @@ class VSS_Menu
             h = (1 / 25);
         };
 
-        class Title : VVS_RscTitle
+        class Title : VSS_RscTitle
         {
             colorBackground[] = {0, 0, 0, 0};
             idc = -1;
@@ -66,7 +66,7 @@ class VSS_Menu
 
     class controls
     {
-        class vehicleListNew : VVS_RscListNBox
+        class vehicleListNew : VSS_RscListNBox
         {
             idc = 18001;
             text = "";
@@ -80,7 +80,7 @@ class VSS_Menu
             onLBSelChanged = "[1] call JK_VSS_fnc_menu;";
         };
 
-        class FilterList : VVS_RscCombo
+        class FilterList : VSS_RscCombo
         {
             idc = 18002;
             colorBackground[] = {0,0,0,0.7};
@@ -90,7 +90,7 @@ class VSS_Menu
             w = 0.34; h = (1 / 25);
         };
 
-        class ButtonClose : VVS_RscButtonMenu
+        class ButtonClose : VSS_RscButtonMenu
         {
             idc = -1;
             text = "Close";
@@ -101,7 +101,7 @@ class VSS_Menu
             h = (1 / 25);
         };
 
-        class ButtonSettings : VVS_RscButtonMenu
+        class ButtonSettings : VSS_RscButtonMenu
         {
             idc = 18003;
             text = "Spawn";
