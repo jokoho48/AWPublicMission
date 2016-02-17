@@ -7,7 +7,23 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
+
+//Check if DLC is owned by this client 
+// 275700 - Arma 3 Zeus
+// 249860 - Arma 3 Soundtrack
+// 304400 - Arma 3 DLC Bundle
+// 249861 - Arma 3 Maps
+// 249862 - Arma 3 Tactical Guide
+// 288520 - Arma 3 Karts
+// 304380 - Arma 3 Helicopters
+// 332350 - Arma 3 Marksmen
+if(332350 in (getDLCs 1)) then{
 JK_uniforms = ["U_B_FullGhillie_lsh"];
+}
+else
+{
+JK_uniforms = ["U_B_GhillieSuit"];
+};
 JK_vests = ["V_BandollierB_oli"];
 JK_headgears = [];
 JK_backpacks = [];
@@ -16,14 +32,14 @@ JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will b
 JK_goggles = "G_Bandanna_khk";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["srifle_LRR_F"];
+JK_primaryweapon = ["srifle_LRR_F","srifle_LRR_camo_F"];
 
 //primary weapon items - (array)
 JK_itemsPrimaryweapon = [["optic_LRPS"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 5;
+JK_primaryweaponAmmo = 1;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)

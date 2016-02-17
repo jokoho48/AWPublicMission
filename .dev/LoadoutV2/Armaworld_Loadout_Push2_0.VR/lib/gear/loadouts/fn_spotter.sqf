@@ -7,7 +7,23 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
+
+//Check if DLC is owned by this client 
+// 275700 - Arma 3 Zeus
+// 249860 - Arma 3 Soundtrack
+// 304400 - Arma 3 DLC Bundle
+// 249861 - Arma 3 Maps
+// 249862 - Arma 3 Tactical Guide
+// 288520 - Arma 3 Karts
+// 304380 - Arma 3 Helicopters
+// 332350 - Arma 3 Marksmen
+if(332350 in (getDLCs 1)) then{   
 JK_uniforms = ["U_B_FullGhillie_lsh"];
+}
+else
+{
+JK_uniforms = ["U_B_GhillieSuit"];
+};
 JK_vests = ["V_BandollierB_oli"];
 JK_headgears = [""];
 JK_backpacks = ["B_AssaultPack_sgg"];
@@ -104,7 +120,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["ACE_Tripod","ACE_SpottingScope","ACRE_PRC117F"];
+JK_itemsBackpack = ["7Rnd_408_Mag","7Rnd_408_Mag","7Rnd_408_Mag","ACE_Tripod","ACE_SpottingScope","ACRE_PRC117F"];
 
 //linked items - (array)
 JK_itemsLink = [
@@ -116,7 +132,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACE_ATragMX","ACE_Kestrel4500","ACE_RangeCard","ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
