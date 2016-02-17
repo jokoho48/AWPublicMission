@@ -12,6 +12,8 @@
     To view a copy of this license, visit http://creativecommons.org/licenses/by-nc-nd/4.0/ or send a letter to Creative Commons,
     444 Castro Street, Suite 900, Mountain View, California, 94041, USA.
 */
+jk_loadOut_fnc_gear = compile preprocessFileLineNumbers "fn_gear.sqf";
+JK_loadOut_fnc_addContainer = compile preprocessFileLineNumbers "fn_addContainer.sqf";
 
 finishMissionInit;
 enableSaving [false,false];
