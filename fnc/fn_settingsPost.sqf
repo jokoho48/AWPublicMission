@@ -34,7 +34,8 @@ _SEN_safeZoneY = [((getMarkerPos "SEN_safezone_mrk") select 0) + _SEN_safeZoneSi
 } count (nearestLocations [SEN_centerPos, ["NameCityCapital","NameCity","NameVillage"], SEN_range]);
 
 [0,"SEN_range: %1, SEN_centerPos: %2, SEN_whitelistLocation count: %3",SEN_range, SEN_centerPos, (count SEN_whitelistLocation)] call SEN_fnc_log;
-
+sen_hcpresent = false;
+publicVariable "sen_hcpresent";
 // headless client setup
 /*
 if !(isNil "SEN_HC") then {
