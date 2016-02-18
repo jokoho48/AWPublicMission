@@ -5,6 +5,7 @@ class SEN {
     tag = "SEN";
     class functions {
         file = "fnc";
+        class animateMarker;
         class repetivCleanUp { preInit = 1; };
         //class Compass3d { postInit = 1; };
         class civHit;
