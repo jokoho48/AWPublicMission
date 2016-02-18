@@ -66,9 +66,9 @@ if (SEN_debug) then {
 
 // occupied location setu
 for "_s" from 1 to (paramsArray select 7) do {
-    _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    _targetTown = selectRandom SEN_whitelistLocation;
     while {_targetTown in SEN_blacklistLocation} do {
-        _targetTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+        _targetTown = selectRandom SEN_whitelistLocation;
     };
     SEN_occupiedLocation pushBack _targetTown;
     SEN_whitelistLocation = SEN_whitelistLocation - [_targetTown];
@@ -88,7 +88,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             _buildings = _townPos nearObjects ["House",_avgTownSize];
             if (count _buildings > 0) then {
                 for "_i" from 1 to ceil(((count _buildings)*0.1) min 15) do {
-                    _destroyed = _buildings call BIS_fnc_selectRandom;
+                    _destroyed = selectRandom _buildings;
                     _cls = toLower (getText (configFile >> "CfgVehicles" >> (typeOf _destroyed) >> "vehicleClass" ));
                     if (((_cls find "town" ) !=-1) || ((_cls find "commercial" ) != -1) || ((_cls find "village" ) != -1)) then {
                         _destroyedPos pushBack (getposatl _destroyed);
@@ -105,8 +105,8 @@ for "_s" from 1 to (paramsArray select 7) do {
                 private ["_veh","_vehPos"];
 
                 for "_i" from 0 to (ceil random 3) do {
-                    _vehType = _wreckArray call BIS_fnc_selectRandom;
-                    _road = _roads call BIS_fnc_selectRandom;
+                    _vehType = selectRandom _wreckArray;
+                    _road = selectRandom _roads;
                     _roadConnectedTo = (roadsConnectedTo _road);
                     if (count _roadConnectedTo > 0) then {
                         _vehPos = [getposATL _road, getposATL (_roadConnectedTo select 0)] call SEN_fnc_findThirdPos;
@@ -129,7 +129,7 @@ for "_s" from 1 to (paramsArray select 7) do {
             // add smoke
             if (count _destroyedPos > 0) then {
                 for "_i" from 1 to ceil(((count _destroyedPos)*0.15) min 7) do {
-                    _smokingPos = _destroyedPos call BIS_fnc_selectRandom;
+                    _smokingPos = selectRandom _destroyedPos;
                     _fx = "test_EmptyObjectForSmoke" createVehicle _smokingPos;
                 };
             };

@@ -14,9 +14,9 @@ _unitArray  = [];
 _posArray = [];
 
 _type = call {
-    if (_side isEqualTo WEST) exitWith {SEN_unitPoolWest call BIS_fnc_selectRandom};
-    if (_side isEqualTo CIVILIAN) exitWith {SEN_unitPoolCiv call BIS_fnc_selectRandom};
-     SEN_unitPool call BIS_fnc_selectRandom
+    if (_side isEqualTo WEST) exitWith {selectRandom SEN_unitPoolWest};
+    if (_side isEqualTo CIVILIAN) exitWith {selectRandom SEN_unitPoolCiv};
+     selectRandom SEN_unitPool
 };
 
 _posArray = [_pos,_range,(_range*0.3),_count] call SEN_fnc_findPosArray;

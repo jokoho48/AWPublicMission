@@ -21,10 +21,10 @@ if !(getMarkerColor "sen_fob_mrk" isEqualTo "") then {
     missionNameSpace setVariable ["SEN_fobLock", true];
     _taskDescription = format ["A few hours ago, Command dispatched a convoy to %1. Upon arrival, the convoy was attacked by enemy forces. We have intel that our soldiers are holding out, but we're sending your team in to assist. Protect the supply cache and minimize friendly casualties.",_townName];
 } else {
-    _defendTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    _defendTown = selectRandom SEN_whitelistLocation;
     _townPos = getpos _defendTown;
     while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
-        _defendTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+        _defendTown = selectRandom SEN_whitelistLocation;
         _townPos = getpos _defendTown;
     };
     _townName = text _defendTown;
@@ -42,7 +42,7 @@ _cacheArray = [];
 _vehArray = [];
 
 for "_c" from 0 to 2 do {
-    _cache = (_cachePool call BIS_fnc_selectRandom) createVehicle _posCache;
+    _cache = (selectRandom _cachePool) createVehicle _posCache;
     _cache allowDamage false;
     _cache setVectorUp [0,0,1];
     _cacheArray pushBack _cache;

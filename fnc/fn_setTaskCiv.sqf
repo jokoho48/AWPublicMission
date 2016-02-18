@@ -17,6 +17,6 @@ if (!isServer) exitWith {};
     SEN_taskSuccess = 0;
     SEN_taskCounterCiv = SEN_taskCounterCiv + 1;
     if !(_override isEqualTo "") exitWith { [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _override]; };
-    _task = SEN_taskListCiv call BIS_fnc_selectRandom;
+    _task = selectRandom SEN_taskListCiv;
     [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _task];
 }, _this, 15] call ace_common_fnc_waitAndExecute;

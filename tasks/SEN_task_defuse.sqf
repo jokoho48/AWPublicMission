@@ -14,12 +14,12 @@ SEN_defused = false;
 SEN_armed = false;
 SEN_codeInput = []; publicVariable "SEN_codeInput";
 SEN_codeDefuse = [(round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9))]; publicVariable "SEN_codeDefuse";
-SEN_wireDefuse = ["BLUE", "WHITE", "YELLOW", "GREEN"] call BIS_fnc_selectRandom;
+SEN_wireDefuse = selectRandom ["BLUE", "WHITE", "YELLOW", "GREEN"];
 publicVariable "SEN_wireDefuse";
-_bombTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+_bombTown = selectRandom SEN_whitelistLocation;
 _townPos = getpos _bombTown;
 while {(([_townPos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
-    _bombTown = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    _bombTown = selectRandom SEN_whitelistLocation;
     _townPos = getpos _bombTown;
 };
 

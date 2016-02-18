@@ -12,10 +12,10 @@ params [["_pos", [0, 0, 0], [[]]], ["_count", 1, [0]], ["_min", 100, [0]],["_max
 _return = [];
 
 call {
-    if (_side isEqualTo EAST) exitWith {_sniper = (SEN_sniperPool call BIS_fnc_selectRandom);/* _spotter = "O_spotter_F";*/};
-    if (_side isEqualTo WEST) exitWith {_sniper = (SEN_sniperPoolWest call BIS_fnc_selectRandom);;/* _spotter = "B_spotter_F";*/};
+    if (_side isEqualTo EAST) exitWith {_sniper = (selectRandom SEN_sniperPool);/* _spotter = "O_spotter_F";*/};
+    if (_side isEqualTo WEST) exitWith {_sniper = (selectRandom SEN_sniperPoolWest);;/* _spotter = "B_spotter_F";*/};
 
-    _sniper = (SEN_sniperPool call BIS_fnc_selectRandom); /*_spotter = "I_spotter_F";*/
+    _sniper = (selectRandom SEN_sniperPool); /*_spotter = "I_spotter_F";*/
 };
 
 for "_i" from 1 to _count do {

@@ -27,7 +27,7 @@ if (_targets isEqualTo []) exitWith {
     SEN_objectCleanup append units _grp;
 };
 
-_targetPlayer = _targets call BIS_fnc_selectRandom;
+_targetPlayer = selectRandom _targets;
 
 {
     _unit reveal _x;
@@ -49,7 +49,7 @@ _targetPlayer = _targets call BIS_fnc_selectRandom;
             if (_targets isEqualTo []) exitWith {
                 SEN_objectCleanup append units _grp;
             };
-            _targetPlayer = _targets call BIS_fnc_selectRandom;
+            _targetPlayer = selectRandom _targets;
         };
         _wp setWaypointPosition [getPos _targetPlayer, 10];
         sleep 60;
