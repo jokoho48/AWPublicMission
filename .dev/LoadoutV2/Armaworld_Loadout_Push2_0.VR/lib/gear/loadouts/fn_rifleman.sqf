@@ -51,7 +51,7 @@ JK_itemsHandgun = [""];
 JK_handgunAmmo = 3;
 
 //weapons - launcher - (string)
-JK_launcher = "";
+JK_launcher = "tf47_at4_heat";
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
 JK_launcherItems = [];
 
