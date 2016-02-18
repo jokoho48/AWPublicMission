@@ -25,7 +25,7 @@ for "_s" from 0 to _counter do {
     if (_ifRoad) then {
         _range = _range min 1000;
         _roads = _center nearRoads _range;
-        _pos = getposATL (_roads call BIS_fnc_selectRandom);
+        _pos = getposATL (selectRandom _roads);
 
         if (count _posArray >= 1) then {
             {

@@ -15,7 +15,7 @@ _return = [];
 
 _houseArray = _center nearObjects ["House",_range];
 if !(_houseArray isEqualTo []) then {
-    _house = _houseArray call BIS_fnc_selectRandom;
+    _house = selectRandom _houseArray;
     _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
 
     if !(_housePosArray isEqualTo []) then {

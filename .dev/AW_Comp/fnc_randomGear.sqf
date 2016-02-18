@@ -2,9 +2,9 @@ params ["_unit"];
 
 private _typeOf = typeOf _unit;
 if !(_typeOf in JK_ins_types) exitWith {};
-private _uniform = JK_ins_Uniform call BIS_fnc_selectRandom;
-private _vest = JK_ins_Vests call BIS_fnc_selectRandom;
-private _headgear = JK_ins_HeadGear call BIS_fnc_selectRandom;
+private _uniform = selectRandom JK_ins_Uniform;
+private _vest = selectRandom JK_ins_Vests;
+private _headgear = selectRandom JK_ins_HeadGear;
 private _backpack = "";
 private _weapon = "";
 private _weaponBack = "";
@@ -12,24 +12,24 @@ private _weaponBack = "";
 switch (_typeOf) do {
     case "AW_ins_AT": {
         _backpack = "CUP_B_RPGPack_Khaki";
-        _weaponBack = JK_ins_AT_weapons call BIS_fnc_selectRandom;
-        _weapon = JK_ins_RF_weapons call BIS_fnc_selectRandom;
+        _weaponBack = selectRandom JK_ins_AT_weapons;
+        _weapon = selectRandom JK_ins_RF_weapons;
     };
     case "AW_ins_MG": {
-        _backpack = JK_ins_Backpacks call BIS_fnc_selectRandom;
-        _weapon = JK_ins_MG_weapons call BIS_fnc_selectRandom;
+        _backpack = selectRandom JK_ins_Backpacks;
+        _weapon = selectRandom JK_ins_MG_weapons;
     };
     case "AW_ins_GL": {
-        _weapon = JK_ins_GL_weapons call BIS_fnc_selectRandom;
+        _weapon = selectRandom JK_ins_GL_weapons;
     };
     case "AW_ins_RF": {
-        _weapon = JK_ins_RF_weapons call BIS_fnc_selectRandom;
+        _weapon = selectRandom JK_ins_RF_weapons;
     };
     case "AW_ins_AR": {
-        _weapon = JK_ins_AR_weapons call BIS_fnc_selectRandom;
+        _weapon = selectRandom JK_ins_AR_weapons;
     };
     case "AW_ins_MK": {
-        _weapon = JK_ins_MK_weapons call BIS_fnc_selectRandom;
+        _weapon = selectRandom JK_ins_MK_weapons;
     };
 };
 removeUniform _unit;

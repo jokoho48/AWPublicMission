@@ -9,12 +9,12 @@ params [["_unit", player, [objNull]]];
 _unit setCaptive true;
 
 //randomizers:
-_uniform = JK_uniforms call BIS_fnc_selectRandom;
-_headgear = JK_headgears call BIS_fnc_selectRandom;
-_vest = JK_vests call BIS_fnc_selectRandom;
-_backpack = JK_backpacks call BIS_fnc_selectRandom;
+_uniform = selectRandom JK_uniforms;
+_headgear = selectRandom JK_headgears;
+_vest = selectRandom JK_vests;
+_backpack = selectRandom JK_backpacks;
 
-if (typeName JK_primaryweapon == "ARRAY") then {JK_primaryweapon = JK_primaryweapon call BIS_fnc_selectRandom;};
+if (typeName JK_primaryweapon == "ARRAY") then {JK_primaryweapon = selectRandom JK_primaryweapon;};
 
 
 //removals:
@@ -82,7 +82,7 @@ if (JK_primaryweaponTracers >= 1) then {
 {
     if (typeName _x == "ARRAY") then {
         private "_primAttachmentTemp";
-        _primAttachmentTemp = (_x call BIS_fnc_selectRandom);
+        _primAttachmentTemp = (selectRandom _x);
         if (_primAttachmentTemp != "") then {
             if (_primAttachmentTemp in ["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"]) then {
                 _unit addPrimaryWeaponItem (["optic_Hamr", "ACE_optic_Hamr_2D", "ACE_optic_Hamr_PIP"] select JK_Optics);
@@ -103,7 +103,7 @@ if (JK_primaryweaponTracers >= 1) then {
 {
     if (typeName _x == "ARRAY") then {
         private "_secAttachmentTemp";
-        _secAttachmentTemp = (_x call BIS_fnc_selectRandom);
+        _secAttachmentTemp = (selectRandom _x);
         if (_secAttachmentTemp != "") then {
             _unit addSecondaryWeaponItem _secAttachmentTemp;
         };
@@ -183,7 +183,7 @@ for "_i" from 1 to JK_swapBarrel do {
                 _unit linkitem _class;
             };
         } else {
-            _unit linkitem (_x call BIS_fnc_selectRandom);
+            _unit linkitem (selectRandom _x);
         };
     };
     nil
@@ -199,7 +199,7 @@ for "_i" from 1 to JK_swapBarrel do {
                 _unit addItemToUniform _class;
             };
         } else {
-            _unit addItemToUniform (_x call BIS_fnc_selectRandom);
+            _unit addItemToUniform (selectRandom _x);
         };
     };
     nil
@@ -215,7 +215,7 @@ for "_i" from 1 to JK_swapBarrel do {
                 _unit addItemToVest _class;
             };
         } else {
-            _unit addItemToVest (_x call BIS_fnc_selectRandom);
+            _unit addItemToVest (selectRandom _x);
         };
     };
     nil
@@ -235,7 +235,7 @@ if !(_backpack isEqualTo "") then {
                     _unit addItemToBackpack _class;
                 };
             } else {
-                _unit addItemToBackpack (_x call BIS_fnc_selectRandom);
+                _unit addItemToBackpack (selectRandom _x);
             };
         };
         nil
@@ -253,7 +253,7 @@ if !(_backpack isEqualTo "") then {
                 _unit addItem _class;
             };
         } else {
-            _unit addItem (_x call BIS_fnc_selectRandom);
+            _unit addItem (selectRandom _x);
         };
     };
     nil
@@ -266,7 +266,7 @@ if (name _unit in ["joko // Jonas"]) then {
 } else {
     if (typeName JK_insignium == "ARRAY") then {
         private "_temp";
-        _temp = (JK_insignium call BIS_fnc_selectRandom);
+        _temp = (selectRandom JK_insignium);
         if !(_temp isEqualTo "") then {
             [_unit, _temp] call BIS_fnc_setUnitInsignia;
         };

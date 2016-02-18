@@ -28,16 +28,16 @@ for "_j" from 0 to (_count - 1) do {
     _pos = [_Opos, 10] call SEN_fnc_findSavePosition;
     call {
         if (_type isEqualTo 0) exitWith {
-            (_unitPool call BIS_fnc_selectRandom) createUnit [_pos, _grp];
+            (selectRandom _unitPool) createUnit [_pos, _grp];
         };
 
         if (_type isEqualTo 2) then {
-            _veh = createVehicle [(_airPool call BIS_fnc_selectRandom),_pos,[],0,"FLY"];
+            _veh = createVehicle [(selectRandom _airPool),_pos,[],0,"FLY"];
         } else {
-            _veh = (_vehPool call BIS_fnc_selectRandom) createVehicle _pos;
+            _veh = (selectRandom _vehPool) createVehicle _pos;
         };
 
-        _unit = _grp createUnit [(_unitPool call BIS_fnc_selectRandom),_pos, [], 0, "NONE"];
+        _unit = _grp createUnit [(selectRandom _unitPool),_pos, [], 0, "NONE"];
         _unit moveInDriver _veh;
         _driverArray pushBack _unit;
 
@@ -46,7 +46,7 @@ for "_j" from 0 to (_count - 1) do {
 	    };
 
         if !((_veh emptyPositions "gunner") isEqualTo 0) then {
-            _unit = _grp createUnit [(_unitPool call BIS_fnc_selectRandom),_pos, [], 0, "NONE"];
+            _unit = _grp createUnit [(selectRandom _unitPool),_pos, [], 0, "NONE"];
             _unit moveInGunner _veh;
         };
     };

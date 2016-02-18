@@ -18,7 +18,7 @@ _wpindex = 0;
 for "_i" from 1 to 50 do {
     if ((count _this > 2) && {random 1 < 0.6}) then {
         _houses = _this select 2;
-        _house = _houses call BIS_fnc_selectRandom;
+        _house = selectRandom _houses;
         _housePosArray = [_house] call JK_Core_fnc_buildingPositions;
         _houses = _houses - [_house];
         if (count _housePosArray > 1) then {
@@ -26,7 +26,7 @@ for "_i" from 1 to 50 do {
             _posArray pushBack _pos2;
             _wpindex = _wpindex + 1;
             _wp = _grp addWaypoint [_pos2, 0];
-            _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
+            _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
             _wp waypointAttachObject _house;
             [_grp, _wpindex] setWaypointHousePosition floor(random(count _housePosArray));
             [_grp, _wpindex] setWaypointBehaviour "SAFE";
@@ -45,7 +45,7 @@ for "_i" from 1 to 50 do {
                 _posArray pushBack _pos2;
                 _wpindex = _wpindex + 1;
                 _wp = _grp addWaypoint [_pos2, 0];
-                _wp setWaypointType (["MOVE", "LOITER"] call BIS_fnc_selectRandom);
+                _wp setWaypointType (selectRandom ["MOVE", "LOITER"]);
                 [_grp, _wpindex] setWaypointBehaviour "SAFE";
                 [_grp, _wpindex] setWaypointCombatMode "RED";
                 [_grp, _wpindex] setWaypointCompletionRadius _waypointsrange;
