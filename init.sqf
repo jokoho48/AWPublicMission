@@ -29,5 +29,29 @@ if (isServer || (!isServer && !hasInterface)) then {
     jk_ammosuppavail = true;
     publicVariable "jk_ammosuppavail";
 };
+
+ace_medical_fixedStatics = [];
+private _fnc_fixStatic = {
+    params ["_vehicle"];
+    private _vehType = typeOf _vehicle;
+    if (!(_vehType in ace_medical_fixedStatics)) then {
+        ace_medical_fixedStatics pushBack _vehType;
+        [{
+            1 preloadObject (_this select 0);
+        }, {
+        }, [_vehType]] call ace_common_fnc_waitUntilAndExecute;
+    };
+};
+["StaticWeapon", "init", _fixStatic] call CBA_fnc_addClassEventHandler;
+["Car", "init", _fixStatic] call CBA_fnc_addClassEventHandler;
+addMissionEventHandler ["Loaded",{
+    {
+        [{
+            1 preloadObject (_this select 0);
+        }, {
+        }, [_x]] call ace_common_fnc_waitUntilAndExecute;
+    } forEach ace_medical_fixedStatics;
+}];
+
 waitUntil {!isNil "AME_Core_fnc_loadModules"};
 ["Core", "Replay"] call AME_Core_fnc_loadModules;
