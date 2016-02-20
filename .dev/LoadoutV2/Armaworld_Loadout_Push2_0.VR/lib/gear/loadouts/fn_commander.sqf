@@ -31,10 +31,10 @@ JK_40mmHeGrenadesAmmo = 0;
 JK_40mmSmokeGrenadesWhite = 0;
 JK_40mmSmokeGrenadesYellow = 0;
 JK_40mmSmokeGrenadesOrange = 0;
-JK_40mmSmokeGrenadesRed = 0;
-JK_40mmSmokeGrenadesPurple = 0;
+JK_40mmSmokeGrenadesRed = 2;
+JK_40mmSmokeGrenadesPurple = 1;
 JK_40mmSmokeGrenadesBlue = 0;
-JK_40mmSmokeGrenadesGreen = 0;
+JK_40mmSmokeGrenadesGreen = 2;
 JK_40mmFlareWhite = 0;
 JK_40mmFlareYellow = 0;
 JK_40mmFlareRed = 0;
@@ -116,7 +116,7 @@ JK_itemsLink = [
         ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor","ACE_HuntIR_M203","ACE_HuntIR_M203", ["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor", ["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
