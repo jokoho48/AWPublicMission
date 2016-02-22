@@ -42,8 +42,8 @@ private _fnc_fixStatic = {
         }, [_vehType]] call ace_common_fnc_waitUntilAndExecute;
     };
 };
-["StaticWeapon", "init", _fixStatic] call CBA_fnc_addClassEventHandler;
-["Car", "init", _fixStatic] call CBA_fnc_addClassEventHandler;
+["StaticWeapon", "init", _fnc_fixStatic] call CBA_fnc_addClassEventHandler;
+["Car", "init", _fnc_fixStatic] call CBA_fnc_addClassEventHandler;
 addMissionEventHandler ["Loaded",{
     {
         [{
