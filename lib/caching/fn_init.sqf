@@ -32,8 +32,8 @@ JK_fnc_registerGroupsPFH = {
         private ["_disable", "_leader", "_return"];
         _return = false;
         _leader = leader _x;
-        if (!isPlayer _leader && {!(_x getVariable ["JK_noCache", false])} && {!(_x in JK_cachedGroups)} && {(vehicle _leader == _leader)}) then {
-            JK_cachedGroups pushBack _x;
+        if (!isPlayer _leader && {!(_x getVariable ["JK_noCache", false])} && {(vehicle _leader == _leader)}) then {
+            JK_cachedGroups pushBackUnique _x;
             _return = true;
             _x setVariable ["JK_Leader", _leader];
         };

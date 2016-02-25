@@ -12,7 +12,6 @@ _args params ["_crateType", ["_reloadTime", 20], "_content"];
 _position = [getMarkerPos _marker, 10, _crateType] call SEN_fnc_findSavePosition;
 if (_position isEqualTo []) exitWith {hint "No Space to create the Crate."};
 _crateObject = _crateType createVehicle _position;
-
 if (!isNil "_content") then {
     _crateObject hideObjectGlobal true;
     _crateObject setVariable ["SEN_noClean", true, true];

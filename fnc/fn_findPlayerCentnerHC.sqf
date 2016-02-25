@@ -9,13 +9,10 @@ if (isNull SEN_HC) exitWith {};
     };
 
     private _centerPos = [0,0,0];
-    private _count = {
-        _centerPos = _centerPos vectorAdd (getPos _x);
+    private _count = count allPlayers;
+    {
+        _centerPos = _centerPos vectorAdd ((getPos _x) vectorMultiply (1/_count));
         true
     } count allPlayers;
-    if (_count != 1) then {
-        _centerPos = _centerPos apply {_x/_count};
-    };
-    JK_HCTestPos = _centerPos;
-    publicVariable "JK_HCTestPos";
+    SEN_HC setPos _centerPos;
 }, 10] call CBA_fnc_addPerFrameHandler;
