@@ -7,8 +7,8 @@ class JK_crate {
     tag = "JK_crate";
     class JK_crate {
         file = "lib\crate";
-        class init { postInit = 1; };
-        class createCrate;
-        class loadDB;
+        class init: basePreFNC {};
+        class createCrate: baseFNC {};
+        class loadDB: baseFNC {};
     };
 };

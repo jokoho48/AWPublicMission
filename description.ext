@@ -17,8 +17,8 @@ disabledAI = 1;
 //ShowGPS = 0;
 //forceRotorLibSimulation = 1;
 enableDebugConsole = 1;
-allowFunctionsLog = 0;
-
+allowFunctionsLog = 1;
+allowFunctionsRecompile = 1;
 corpseManagerMode = 1;
 corpseLimit = 10;
 corpseRemovalMinTime = 60;
@@ -51,6 +51,23 @@ joinUnassigned = 1;
 class Params {
     #include "data\SEN_params.hpp"
 };
+
+class baseFNC {
+    preInit = 0;
+    postInit = 0;
+    recompile = 1;
+};
+class basePreFNC {
+    preInit = 1;
+    postInit = 0;
+    recompile = 1;
+};
+class basePostFNC {
+    preInit = 0;
+    postInit = 1;
+    recompile = 1;
+};
+
 class CfgFunctions {
     #include "data\SEN_cfgFunctions.hpp"
     #include "lib\CfgFunctions.hpp"
