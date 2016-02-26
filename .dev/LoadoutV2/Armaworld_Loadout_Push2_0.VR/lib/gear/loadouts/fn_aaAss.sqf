@@ -7,10 +7,10 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["Scorpion_TS_Camo_SS","Scorpion_TS_Camo","Scorpion_TP_Camo_SS","Scorpion_TP_Camo","Scorpion_Camo_SS","Scorpion_GS_Camo_SS","Scorpion_GS_Camo","Scorpion_GP_Camo_SS","Scorpion_GP_Camo","Scorpion_Camo_Cyre","Scorpion_Camo_Cyre_TS","Scorpion_Camo_Cyre_TP","Scorpion_Camo_Cyre_Tee","Scorpion_Camo_Cyre_GS","Scorpion_Camo_Cyre_GP","Scorpion_Camo","OGA_Camo_SS","OGA_GS_Camo_SS","OGA_GS_Camo","OGA_GP_Camo_SS","OGA_GP_Camo","OGA_G_Camo_SS","OGA_G_Camo","OGA_Camo","MC_TS_Camo_SS","MC_TS_Camo","MC_TP_Camo_SS","MC_TP_Camo","MC_Camo_SS","MC_GS_Camo_SS","MC_GS_Camo","MC_GP_Camo_SS","MC_GP_Camo","MC_Camo_Cyre","MC_Camo_Cyre_TS","MC_Camo_Cyre_TP","MC_Camo_Cyre_Tee","MC_Camo_Cyre_GS","MC_Camo_Cyre_GP","MC_Camo","MarPat_Camo_SS","MarPat_GS_Camo_SS","MarPat_GS_Camo","MarPat_GP_Camo_SS","MarPat_GP_Camo","MarPat_TS_Camo_SS","MarPat_TS_Camo","MarPat_Camo_Cyre","MarPat_Camo_Cyre_Tee","MarPat_Camo_Cyre_GS","MarPat_Camo_Cyre_GP","MarPat_Camo_Cyre_TS","MarPat_Camo_Cyre_TP","MarPat_TP_Camo_SS","MarPat_TP_Camo","MarPat_Camo","M90_TS_Camo_SS","M90_TS_Camo","M90_TP_Camo_SS","M90_TP_Camo","M90_Camo_SS","M90_GS_Camo_SS","M90_GS_Camo","M90_GP_Camo_SS","M90_GP_Camo","M90_Camo_Cyre","M90_Camo_Cyre_TS","M90_Camo_Cyre_TP","M90_Camo_Cyre_Tee","M90_Camo_Cyre_GS","M90_Camo_Cyre_GP","M90_Camo","DualTex_TS_Camo_SS","DualTex_TS_Camo","DualTex_TP_Camo_SS","DualTex_TP_Camo","DualTex_Camo_SS","DualTex_GS_Camo_SS","DualTex_GS_Camo","DualTex_GP_Camo_SS","DualTex_GP_Camo","DualTex_Camo_Cyre","DualTex_Camo_Cyre_TS","DualTex_Camo_Cyre_TP","DualTex_Camo_Cyre_Tee","DualTex_Camo_Cyre_GS","DualTex_Camo_Cyre_GP"];
-JK_vests = ["Scorpion_Vest_3","Scorpion_Vest_2","Scorpion_Vest_1","Scorpion_Vest_4","Scorpion_Vest_5","OGA_Vest_3","OGA_Vest_2","OGA_Vest_1","OGA_Vest_6","OGA_Vest_7","OGA_G_Vest_3","OGA_G_Vest_2","OGA_G_Vest_1","OGA_G_Vest_6","MC_Vest_3","MC_Vest_2","MC_Vest_1","MC_Vest_4","MC_Vest_5","MarPat_Vest_3","MarPat_Vest_2","MarPat_Vest_1","MarPat_Vest_4","MarPat_Vest_5","M81_Vest_3","M81_Vest_2","M81_Vest_1","OGA_G_Vest_7","M81_Vest_4","M81_Vest_5","DualTex_Vest_3","DualTex_Vest_2","DualTex_Vest_1","DualTex_Vest_4","DualTex_Vest_5","AOR2_Vest_3","AOR2_Vest_2","AOR2_Vest_1"];
-JK_headgears = ["AOR2_Helmet1","AOR2_Helmet2","AORU_Helmet1","AORU_Helmet2","DualTex_Helmet1","DualTex_Helmet2","M81_Helmet1","M81_Helmet2","M90_Helmet1","M90_Helmet2","MarPat_Helmet1","MarPat_Helmet2","MC_Helmet1","MC_Helmet2","OGA_G_Helmet1","OGA_G_Helmet2","OGA_Helmet1","OGA_Helmet2","Scorpion_Helmet1","Scorpion_Helmet2"];
-JK_backpacks = ["AOR1_Backpack_Kitbag","AOR2_Backpack_Kitbag","AORU_Backpack_Kitbag","DualTex_Backpack_Kitbag","M81_Backpack_Kitbag","MarPat_Backpack_Kitbag","MC_Backpack_Kitbag","OGA_Backpack_Kitbag","Scorpion_Backpack_Kitbag"];
+JK_uniforms = ["MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
+JK_vests = ["MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3"];
+JK_headgears = ["MC_Helmet1","MC_Helmet2"];
+JK_backpacks = ["MC_Backpack_Kitbag"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
@@ -108,12 +108,12 @@ JK_itemsBackpack = ["Titan_AA","Titan_AA"];
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemWatch",
-        "ItemCompass",
-        "ItemMap",
-        "ItemGPS",
-        "ACE_NVG_Wide"
-        ];
+    "ItemWatch",
+    "ItemCompass",
+    "ItemMap",
+    "ItemGPS",
+    "ACE_NVG_Wide"
+];
 
 //items added to any container - (array)
 JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];

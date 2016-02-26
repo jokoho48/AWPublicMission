@@ -8,7 +8,7 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 
-//Check if DLC is owned by this client 
+//Check if DLC is owned by this client
 // 275700 - Arma 3 Zeus
 // 249860 - Arma 3 Soundtrack
 // 304400 - Arma 3 DLC Bundle
@@ -17,13 +17,12 @@ magazines one for one in JK_items.
 // 288520 - Arma 3 Karts
 // 304380 - Arma 3 Helicopters
 // 332350 - Arma 3 Marksmen
-if(332350 in (getDLCs 1)) then{   
-JK_uniforms = ["U_B_FullGhillie_lsh"];
-}
-else
-{
-JK_uniforms = ["U_B_GhillieSuit"];
+if (332350 in (getDLCs 1)) then {
+    JK_uniforms = ["U_B_FullGhillie_lsh"];
+} else {
+    JK_uniforms = ["U_B_GhillieSuit"];
 };
+
 JK_vests = ["V_BandollierB_oli"];
 JK_headgears = [""];
 JK_backpacks = ["B_AssaultPack_sgg"];
@@ -124,12 +123,12 @@ JK_itemsBackpack = ["7Rnd_408_Mag","7Rnd_408_Mag","7Rnd_408_Mag","ACE_Tripod","A
 
 //linked items - (array)
 JK_itemsLink = [
-        "ItemWatch",
-        "ItemCompass",
-        "ItemMap",
-        "ItemGPS",
-        "ACE_NVG_Wide"
-        ];
+    "ItemWatch",
+    "ItemCompass",
+    "ItemMap",
+    "ItemGPS",
+    "ACE_NVG_Wide"
+];
 
 //items added to any container - (array)
 JK_items = ["ACE_ATragMX","ACE_Kestrel4500","ACE_RangeCard","ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
