@@ -7,7 +7,7 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
+JK_uniforms = ["Scorpion_Camo","Scorpion_Camo_Cyre_GP","Scorpion_Camo_Cyre_GS","Scorpion_GP_Camo_SS","Scorpion_GS_Camo","Scorpion_GS_Camo_SS","Scorpion_Camo_SS","Scorpion_Camo_TShirt","Scorpion_TP_Camo","Scorpion_TS_Camo_SS","Scorpion_TP_Camo_SS","Scorpion_TS_Camo","Scorpion_GP_Camo","Scorpion_Camo_Cyre","Scorpion_Camo_Cyre_TP","MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
 JK_vests = ["MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3"];
 JK_headgears = ["MC_Helmet1","MC_Helmet2"];
 JK_backpacks = ["MC_Backpack_Kitbag"];
