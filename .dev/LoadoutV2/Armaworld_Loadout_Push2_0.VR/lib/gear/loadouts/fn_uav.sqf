@@ -8,7 +8,7 @@ magazines one for one in JK_items.
 
 //clothing - (string)
 JK_uniforms = ["Scorpion_Camo","Scorpion_Camo_Cyre_GP","Scorpion_Camo_Cyre_GS","Scorpion_GP_Camo_SS","Scorpion_GS_Camo","Scorpion_GS_Camo_SS","Scorpion_Camo_SS","Scorpion_Camo_TShirt","Scorpion_TP_Camo","Scorpion_TS_Camo_SS","Scorpion_TP_Camo_SS","Scorpion_TS_Camo","Scorpion_GP_Camo","Scorpion_Camo_Cyre","Scorpion_Camo_Cyre_TP","MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
-JK_vests = ["MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3"];
+JK_vests = ["Scorpion_LBT_vest","Scorpion_Vest_6","Scorpion_Vest_7","Scorpion_Vest_5","Scorpion_Vest_4","Scorpion_MBSS","Scorpion_MBSS_PACA","Scorpion_Vest_1","Scorpion_Vest_2","Scorpion_Vest_3","MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3","Specter_LBT_vest_CB","Specter_LBT_vest_TAN","Specter_LBT_vest_WL_CB","Specter_LBT_vest_WL_GRN","Specter_LBT_vest_WL_TAN","Specter_MBSS_CB","Specter_MBSS","Specter_MBSS_PACA_CB","Specter_MBSS_PACA","Specter_MBSS_PACA_l_CB","Specter_MBSS_light_CB","Specter_MBSS_light","Specter_RAV"];
 JK_headgears = ["MC_Helmet1","MC_Helmet2"];
 JK_backpacks = ["B_UAV_01_backpack_F"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
