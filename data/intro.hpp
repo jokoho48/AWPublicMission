@@ -1337,7 +1337,7 @@ class Genreal_hints_Header: IntroRscText
 class Hint_1: IntroRscText
 {
     idc = 1012;
-    text = "TFAR-Pflicht - alle Spieler müssen auf dem TeamSpeak sein."; //--- ToDo: Localize;
+    text = "ACRE-Pflicht - alle Spieler müssen auf dem TeamSpeak sein."; //--- ToDo: Localize;
     x = -0.6875;
     y = 0.1;
     w = 0.6625;
