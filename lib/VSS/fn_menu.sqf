@@ -65,7 +65,7 @@ switch (_condition) do {
         player setVariable ["SEN_inProgress",true];
         if(_vehilceSelect != "") then {
             _vehdata = call compile format["%1",_vehilceSelect];
-            if (call JK_VSS_fnc_TankTest) then {
+            if (call JK_VSS_fnc_checkVehicle) then {
                 if ((_vehdata select 1) <= JK_TicketSystem) then {
                     [(_vehdata select 0), (_vehdata select 1), getMarkerPos "SEN_vehSpawn_mrk", markerDir "SEN_vehSpawn_mrk"] remoteExecCall ["JK_VSS_fnc_spawnVSS", 2, false];
                     [0,format ["fn_spawnVehicle: Player %1 Spawn the Vehicle %2 for %3", name player, str (_vehdata select 0), (_vehdata select 1)]] remoteExecCall ["SEN_fnc_log", 3];
