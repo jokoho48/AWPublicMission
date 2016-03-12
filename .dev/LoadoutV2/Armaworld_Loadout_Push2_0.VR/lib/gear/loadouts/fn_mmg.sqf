@@ -91,7 +91,7 @@ JK_quikclot = 0;
 JK_tourniquet = 0;
 
 JK_earPlugs = 1;
-JK_swapBarrel = 0;
+JK_swapBarrel = 1;
 
 //first aid kits and medi kits- (integer)
 JK_FirstAidKits = 0;
