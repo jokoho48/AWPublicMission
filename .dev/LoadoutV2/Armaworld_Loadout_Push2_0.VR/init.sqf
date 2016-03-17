@@ -68,6 +68,7 @@ if ((paramsArray select 0) in [2, 3]) then {
         "staticATAmmo",
         "atSmawAmmo",
         "atM3Ammo",
+        "aaAmmo",
         "radio",
         "misc",
         "UAV",
