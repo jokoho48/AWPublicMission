@@ -8,5 +8,5 @@ JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECI
 
 JK_Gear = "Main";*/
 
-JK_CLASSES = ["commander", "leader", "uav", "medic", "rifleman", "gren", "at", "atAss", "mg", "pilot", "marksman", "aa", "aaAss","mmg","mmgAss","crewchief","crewman","sniper","spotter"];
+JK_CLASSES = ["commander", "leader", "uav", "medic", "rifleman", "gren", "at", "atAss", "mg", "pilot", "marksman", "aa", "aaAss","mmg","mmgAss","crewchief","crewman","sniper","spotter","engineer","breacher"];
 Reverse JK_Classes;

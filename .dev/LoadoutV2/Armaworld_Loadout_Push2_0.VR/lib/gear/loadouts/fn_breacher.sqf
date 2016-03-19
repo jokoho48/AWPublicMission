@@ -7,38 +7,23 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-
-//Check if DLC is owned by this client
-// 275700 - Arma 3 Zeus
-// 249860 - Arma 3 Soundtrack
-// 304400 - Arma 3 DLC Bundle
-// 249861 - Arma 3 Maps
-// 249862 - Arma 3 Tactical Guide
-// 288520 - Arma 3 Karts
-// 304380 - Arma 3 Helicopters
-// 332350 - Arma 3 Marksmen
-if (332350 in (getDLCs 1)) then {
-    JK_uniforms = ["U_B_FullGhillie_lsh"];
-} else {
-    JK_uniforms = ["U_B_GhillieSuit"];
-};
-
-JK_vests = ["V_BandollierB_oli"];
-JK_headgears = [];
-JK_backpacks = [];
+JK_uniforms = ["Scorpion_Camo","Scorpion_Camo_Cyre_GP","Scorpion_Camo_Cyre_GS","Scorpion_GP_Camo_SS","Scorpion_GS_Camo","Scorpion_GS_Camo_SS","Scorpion_Camo_SS","Scorpion_Camo_TShirt","Scorpion_TP_Camo","Scorpion_TS_Camo_SS","Scorpion_TP_Camo_SS","Scorpion_TS_Camo","Scorpion_GP_Camo","Scorpion_Camo_Cyre","Scorpion_Camo_Cyre_TP","MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
+JK_vests = ["Scorpion_LBT_vest","Scorpion_Vest_6","Scorpion_Vest_7","Scorpion_Vest_5","Scorpion_Vest_4","Scorpion_MBSS","Scorpion_MBSS_PACA","Scorpion_Vest_1","Scorpion_Vest_2","Scorpion_Vest_3","MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3","Specter_LBT_vest_CB","Specter_LBT_vest_TAN","Specter_LBT_vest_WL_CB","Specter_LBT_vest_WL_GRN","Specter_LBT_vest_WL_TAN","Specter_MBSS_CB","Specter_MBSS","Specter_MBSS_PACA_CB","Specter_MBSS_PACA","Specter_MBSS_PACA_l_CB","Specter_MBSS_light_CB","Specter_MBSS_light","Specter_RAV"];
+JK_headgears = ["H_HelmetB_snakeskin","H_HelmetB_sand","H_HelmetB_grass","H_HelmetB_desert","H_HelmetB_camo","H_HelmetB_black","H_HelmetB","Scorpion_Helmet2","Scorpion_Helmet1","OGA_Helmet2","OGA_Helmet1","OGA_G_Helmet2","OGA_G_Helmet1","MC_Helmet2","MC_Helmet1","H_HelmetB_light","H_HelmetB_light_black","H_HelmetB_light_desert","H_HelmetB_light_grass","H_HelmetB_light_sand","H_HelmetB_light_snakeskin"];
+JK_backpacks = ["MC_Backpack_Kitbag","Scorpion_Backpack_Kitbag"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
-JK_useProfileGoggles = 0;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
-JK_goggles = "G_Bandanna_khk";
+JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
+JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["srifle_LRR_F","srifle_LRR_camo_F"];
+JK_primaryweapon = ["CUP_sgun_AA12"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["optic_LRPS"]];
+JK_itemsPrimaryweapon = [[""]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 1;
+JK_primaryweaponAmmo = 7;
 JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
@@ -60,10 +45,10 @@ JK_40mmFlareIR = 0;
 JK_handgun = "hgun_Pistol_heavy_01_F";
 
 //handgun items - (array)
-JK_itemsHandgun = ["optic_MRD"];
+JK_itemsHandgun = [""];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 5;
+JK_handgunAmmo = 3;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -77,12 +62,12 @@ JK_launcherAmmo = 0;
 JK_binocular = "Binocular";
 
 //throwables - (integer)
-JK_grenadeHE = 0;
+JK_grenadeHE = 2;
 JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
-JK_grenadeSmokePurple = 0;
+JK_grenadeSmokePurple = 2;
 JK_grenadeSmokeBlue = 0;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
@@ -92,7 +77,7 @@ JK_chemlightBlue = 0;
 JK_IRgrenade = 0;
 
 //ACE Items
-JK_IVBagSaline250 = 0;
+JK_IVBagSaline250 = 1;
 JK_IVBagSaline500 = 0;
 JK_IVBagSaline1000 = 0;
 JK_epinephrine = 3;
@@ -131,7 +116,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACE_Clacker","SatchelCharge_Remote_Mag","DemoCharge_Remote_Mag","DemoCharge_Remote_Mag","ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

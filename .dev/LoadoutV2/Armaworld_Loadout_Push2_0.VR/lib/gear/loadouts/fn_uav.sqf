@@ -120,7 +120,7 @@ JK_items = ["ACRE_PRC343","ACE_UAVBattery","ACE_Flashlight_MX991","ACE_MapTools"
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;
-JK_isEngineer = 2;
+JK_isEngineer = 0;
 JK_isPilot = true;
 
 //Vehicle Spawn System

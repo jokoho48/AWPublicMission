@@ -120,7 +120,7 @@ JK_items = ["ACE_SpraypaintBlack","ACE_SpraypaintRed","ACE_SpraypaintGreen","ACE
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
-JK_isEngineer = 2;
+JK_isEngineer = 0;
 JK_isPilot = true;
 
 //Vehicle Spawn System
