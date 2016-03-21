@@ -18,7 +18,8 @@ SEN_taskList = [
     "defuse",
     "arty",
     "cache",
-    "steal"
+    "steal",
+    "poi"
 ];
 
 SEN_taskListCiv = [
