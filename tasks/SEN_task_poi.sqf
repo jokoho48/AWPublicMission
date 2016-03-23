@@ -17,7 +17,7 @@ _posAdder = 10;
 _unitType = selectRandom SEN_officerPool ;
 _pos = [];
 
-_pos = [SEN_centerPos,SEN_range,70 call SEN_fnc_findRuralFlatPos;
+_pos = [SEN_centerPos,SEN_range,70] call SEN_fnc_findRuralFlatPos;
 while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && (surfaceIsWater _pos))} do {
     _pos = [SEN_centerPos,SEN_range,70 call SEN_fnc_findRuralFlatPos;
 };
