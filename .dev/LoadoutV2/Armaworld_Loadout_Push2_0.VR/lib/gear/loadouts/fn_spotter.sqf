@@ -119,7 +119,7 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = ["7Rnd_408_Mag","7Rnd_408_Mag","7Rnd_408_Mag","ACE_Tripod","ACE_SpottingScope","ACRE_PRC117F"];
+JK_itemsBackpack = ["7Rnd_408_Mag","7Rnd_408_Mag","7Rnd_408_Mag","ACE_Tripod","ACE_SpottingScope"];
 
 //linked items - (array)
 JK_itemsLink = [
@@ -131,7 +131,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACE_ATragMX","ACE_Kestrel4500","ACE_RangeCard","ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACE_ATragMX","ACE_Kestrel4500","ACE_RangeCard","ACRE_PRC343","ACRE_PRC148","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor",["RH_compm4s","RH_t1","RH_eotech553"]];
 
 JK_medicClass = 1;
 JK_spawnAllowed = true;
