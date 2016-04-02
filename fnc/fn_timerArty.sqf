@@ -20,7 +20,7 @@ while {_time > 0 && {!SEN_defused}} do {
 
     if (_hintCounter isEqualTo 0) then {
         _timeDisplay = [((_time)/60)+.01] call SEN_fnc_setTimer;
-        (format ["Artillery firing in %1 minutes."]) remoteExecCall ["hintSilent", 0, false];
+        (format ["Artillery firing in %1 minutes.", _timeDisplay]) remoteExecCall ["hintSilent", 0, false];
         _hintCounter = 60;
     };
 
