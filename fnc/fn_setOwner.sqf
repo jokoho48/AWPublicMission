@@ -11,7 +11,7 @@ if (!isServer) exitWith {};
 
 params ["_obj","_transferTo"];
 
-if (typeName _obj isEqualTo "ARRAY") then {
+if (_obj isEqualType []) then {
     {
         _x setOwner _transferTo;
         [0,"Transferring OBJECT: %1 to CLIENT: %2.",_x,_transferTo] call SEN_fnc_log;

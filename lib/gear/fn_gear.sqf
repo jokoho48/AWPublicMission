@@ -14,7 +14,7 @@ _headgear = selectRandom JK_headgears;
 _vest = selectRandom JK_vests;
 _backpack = selectRandom JK_backpacks;
 
-if (typeName JK_primaryweapon == "ARRAY") then {JK_primaryweapon = selectRandom JK_primaryweapon;};
+if (JK_primaryweapon isEqualType []) then {JK_primaryweapon = selectRandom JK_primaryweapon;};
 
 
 //removals:
@@ -80,7 +80,7 @@ if (JK_primaryweaponTracers >= 1) then {
     [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
 };
 {
-    if (typeName _x == "ARRAY") then {
+    if (_x isEqualType []) then {
         private "_primAttachmentTemp";
         _primAttachmentTemp = (selectRandom _x);
         if (_primAttachmentTemp != "") then {
@@ -101,7 +101,7 @@ if (JK_primaryweaponTracers >= 1) then {
 } count JK_itemsPrimaryweapon;
 
 {
-    if (typeName _x == "ARRAY") then {
+    if (_x isEqualType []) then {
         private "_secAttachmentTemp";
         _secAttachmentTemp = (selectRandom _x);
         if (_secAttachmentTemp != "") then {
@@ -264,7 +264,7 @@ if !(_backpack isEqualTo "") then {
 if (name _unit in ["joko // Jonas"]) then {
     [_unit, "ACE_insignia_banana"] call BIS_fnc_setUnitInsignia;
 } else {
-    if (typeName JK_insignium == "ARRAY") then {
+    if (JK_insignium isEqualType []) then {
         private "_temp";
         _temp = (selectRandom JK_insignium);
         if !(_temp isEqualTo "") then {

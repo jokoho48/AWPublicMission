@@ -10,7 +10,7 @@ __________________________________________________________________*/
 private "_houseArray";
 params [["_grp", grpNull, [objNull, grpNull]], ["_range", 100, [0]]];
 
-if (typeName _grp isEqualTo "OBJECT") then {_grp = group _grp};
+if (_grp isEqualType objNull) then {_grp = group _grp};
 _grp setBehaviour "SAFE";
 _lead = leader _grp;
 _houseArray = (getposATL _lead) nearObjects ["house",_range];

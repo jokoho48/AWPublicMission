@@ -10,9 +10,9 @@ __________________________________________________________________*/
 params ["_type", "_msg"];
 if !(isServer) then {_this remoteExecCall ["SEN_fnc_log", 2];};
 
-if !(typeName _msg isEqualTo "STRING") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
+if !(_msg isEqualType "") exitWith {diag_log "SEN_ERROR: fn_log: Message is not of type STRING."};
 
-if (typeName _type isEqualTo "SCALAR") then {
+if (_type isEqualType 0) then {
     _type = call {
         if (_type isEqualTo 1) exitWith {"WARNING: "};
         if (_type isEqualTo 2) exitWith {"ERROR: "};

@@ -30,7 +30,7 @@
         hint format["Event %1 Start Now", _x];
     };
     //Convert Function name to Code
-    _eventCode = if (typeName _eventFunction == "STRING") then {
+    _eventCode = if (_eventFunction isEqualType "") then {
          missionNamespace getVariable [_eventFunction,{hint "Error Function Not Found"}]
     } else {
         _eventFunction

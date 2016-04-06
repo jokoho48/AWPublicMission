@@ -21,7 +21,7 @@
 private "_variable";
 params ["_varNames", "_code", ["_namespace", missionNameSpace, [missionNamespace, objNull, controlNull, grpNull, taskNull, locationNull]]];
 
-if (typeName _varNames != "ARRAY") then {
+if !(_varNames isEqualType []) then {
     _varNames = [_varNames];
 };
 
