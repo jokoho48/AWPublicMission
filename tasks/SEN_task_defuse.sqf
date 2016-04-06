@@ -12,8 +12,10 @@ private ["_mrkDebug1", "_mrkDebug2", "_pos1", "_pos2", "_pos"];
 
 SEN_defused = false;
 SEN_armed = false;
-SEN_codeInput = []; publicVariable "SEN_codeInput";
-SEN_codeDefuse = [(round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9))]; publicVariable "SEN_codeDefuse";
+SEN_codeInput = [];
+publicVariable "SEN_codeInput";
+SEN_codeDefuse = [(round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9)), (round(random 9))];
+publicVariable "SEN_codeDefuse";
 SEN_wireDefuse = selectRandom ["BLUE", "WHITE", "YELLOW", "GREEN"];
 publicVariable "SEN_wireDefuse";
 _bombTown = selectRandom SEN_whitelistLocation;
