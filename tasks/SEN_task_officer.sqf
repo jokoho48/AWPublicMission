@@ -14,9 +14,9 @@ _taskID = "officer";
 _taskText = "Locate Officer";
 _taskDescription = "A high ranking enemy officer will be traveling to an occupied settlement today.<br/><br/>Find the officer and gather any relevant intel.";
 
-_town = SEN_occupiedLocation call BIS_fnc_selectRandom;
-_townMarker = SEN_occupiedLocation call BIS_fnc_selectRandom;
-_unitType = SEN_officerPool call BIS_fnc_selectRandom;
+_town = selectRandom SEN_occupiedLocation;
+_townMarker = selectRandom SEN_occupiedLocation;
+_unitType = selectRandom SEN_officerPool;
 _officerTown = getpos _town;
 _officerTown set [2,0];
 SEN_intelObj = (createGroup SEN_enemySide) createUnit [_unitType, _officerTown, [], 0, "NONE"];

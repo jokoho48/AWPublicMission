@@ -21,10 +21,10 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
     missionNameSpace setVariable ["SEN_fobLock", true];
     _taskDescription = format ["Intel from an enemy officer shows that enemy forces plan to attack %1 in the coming days. In response, Command has increased the frequency of patrols in the area. A friendly unit scouting around %1 is in need of repair supplies. Make sure our soldiers are in top shape and airlift the supplies to the patrol.",_name];
 } else {
-    _town = SEN_whitelistLocation call BIS_fnc_selectRandom;
+    _town = selectRandom SEN_whitelistLocation;
     _pos = getpos _town;
     while {(([_pos, 3000] call SEN_fnc_getNearPlayers) isEqualTo [] && (surfaceIsWater _pos))} do {
-        _town = SEN_whitelistLocation call BIS_fnc_selectRandom;
+        _town = selectRandom SEN_whitelistLocation;
         _pos = getpos _town;
     };
     _name = text _town;
@@ -34,7 +34,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && {random 100 < 50}) then {
 };
 
 for "_i" from 0 to 1 do {
-    _repairVeh = (SEN_vehPoolWest call BIS_fnc_selectRandom) createVehicle _pos;
+    _repairVeh = (selectRandom SEN_vehPoolWest) createVehicle _pos;
     _repairVeh setDir (random 360);
     _repairVeh setdamage 0.9;
     _repairVeh allowDamage false;

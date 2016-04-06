@@ -26,7 +26,8 @@ SEN_taskListCiv = [
     "rescue",
     "deliver",
     "stabilize",
-    "identify"
+    "identify",
+    "SAR"
 ];
 
 for "_s" from floor(random 10) to 0 step -1 do {

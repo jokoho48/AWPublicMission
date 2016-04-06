@@ -6,7 +6,7 @@ __________________________________________________________________*/
 scriptName "SEN_task_AirAttack";
 
 JK_airAttackDone = false;
-_target = allPlayers call BIS_fnc_selectRandom;
+_target = selectRandom allPlayers;
 _pos = getPos _target;
 if ([_pos,"SEN_safezone_mrk"] call SEN_fnc_checkInMarker) exitWith {
     [1,"Air Attack in Savezone"] call SEN_fnc_log;
@@ -18,8 +18,8 @@ _taskID = format["%1_rebel_civ",time];
 _taskText = "Air Priority Target";
 _taskDescription = "A Air Priority Target is Entering our Air Area";
 
-_class = SEN_airAttackPool call BIS_fnc_selectRandom;
-_spawnPos = getmarkerPos (["JK_AirSpawn_1", "JK_AirSpawn_2", "JK_AirSpawn_3", "JK_AirSpawn_4", "JK_AirSpawn_5", "JK_AirSpawn_6", "JK_AirSpawn_7", "JK_AirSpawn_8", "JK_AirSpawn_9"] call BIS_fnc_selectRandom);
+_class = selectRandom SEN_airAttackPool;
+_spawnPos = getmarkerPos (selectRandom ["JK_AirSpawn_1", "JK_AirSpawn_2", "JK_AirSpawn_3", "JK_AirSpawn_4", "JK_AirSpawn_5", "JK_AirSpawn_6", "JK_AirSpawn_7", "JK_AirSpawn_8", "JK_AirSpawn_9"]);
 _spawnPos set [2, 4000];
 _veh = createVehicle [_class, _spawnPos, [], 0, "FLY"];
 createVehicleCrew _veh;

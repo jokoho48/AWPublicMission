@@ -98,7 +98,7 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         sleep _sleep;
         [] spawn SEN_fnc_rebelTastCiv;
     };
-    _tar = _playerArray call BIS_fnc_selectRandom;
+    _tar = selectRandom _playerArray;
 
     if (isNull _tar || {(getposATL _tar select 2) > 5}) exitWith {
         [2,"Rebel target is unsuitable."] call SEN_fnc_log;

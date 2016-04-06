@@ -45,7 +45,7 @@ JK_allowedColors = [
 ];
 
 if !(_color in JK_allowedColors) then {
-    _color = JK_allowedColors call BIS_fnc_selectRandom;
+    _color = selectRandom JK_allowedColors;
 };
 
 _pos = switch (typeName _pos) do {
