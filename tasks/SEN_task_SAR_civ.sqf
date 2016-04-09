@@ -73,7 +73,7 @@ if (alive _hostage) then {
     [_taskID, [_taskDescription, _taskText, ""]] call BIS_fnc_taskSetDescription;
     [_taskID, getMarkerPos "SEN_med_mrk_1"] call BIS_fnc_taskSetDestination;
 
-    waitUntil {sleep 10; (((_hostage distance _returnPos) < 25 && (getposatl _hostage select 2 < 2)) || !alive _hostage)};
+    waitUntil {sleep 10; (((_hostage distance2D (getMarkerPos "SEN_med_mrk_1")) < 5) || !alive _hostage)};
 };
 
 if (!alive _hostage) exitWith {
