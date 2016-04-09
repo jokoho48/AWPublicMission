@@ -52,7 +52,7 @@ class param7 {
     title = "Occupied Location Count";
     values[] = {1,2,3,4};
     texts[] = {"1", "2", "3", "4"};
-    default = 3;
+    default = 1;
     SEN_paramCode = "";
 };
 class param8 {
