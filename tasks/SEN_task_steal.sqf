@@ -8,8 +8,6 @@ __________________________________________________________________*/
 scriptName "SEN_task_steal";
 if (!isServer) exitWith {};
 
-private "_mrkDebug";
-
 _taskID = "steal";
 _taskText = "Steal Intel";
 _taskDescription = "We have intel that the enemey have created a highly advanced weapons device. We cannot allow the opposition to gain the upper hand. Find the device and retrieve information from its onboard computer.";

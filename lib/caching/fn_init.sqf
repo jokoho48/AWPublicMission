@@ -29,9 +29,8 @@ JK_fnc_updateAllPlayers = {
 
 JK_fnc_registerGroupsPFH = {
     {
-        private ["_disable", "_leader", "_return"];
-        _return = false;
-        _leader = leader _x;
+        private _return = false;
+        private _leader = leader _x;
         if (!isPlayer _leader && {!(_x getVariable ["JK_noCache", false])} && {(vehicle _leader == _leader)}) then {
             JK_cachedGroups pushBackUnique _x;
             _return = true;
@@ -44,11 +43,10 @@ JK_fnc_registerGroupsPFH = {
 };
 
 JK_fnc_cachingLoopPFH = {
-    private "_group";
     if (JK_cachedGroups isEqualTo [] || (JK_currentIndex isEqualTo -1) || (JK_maxIndex isEqualTo 0)) exitWith {};
     JK_currentIndex = ((JK_currentIndex + 1) mod JK_maxIndex);
-    _group = JK_cachedGroups select JK_currentIndex;
-    _leader = leader _group;
+    private _group = JK_cachedGroups select JK_currentIndex;
+    private _leader = leader _group;
 
     // Delete Empty || groups that are Dead || that are not allow to Cache
     if (isNull _group || {_group getVariable ["JK_noCache", false]} || {({alive _x} count units _group isEqualTo 0)}) exitWith {

@@ -1,6 +1,5 @@
 JK_fnc_cache = {
-    private "_toCache";
-    _toCache = (units _group);
+    private _toCache = (units _group);
     _toCache deleteAt (_toCache find _leader);
     {
         if (!(isPlayer _x) && {!("driver" in assignedVehicleRole _x)}) then {
@@ -38,19 +37,17 @@ JK_fnc_cacheEvent = {
 };
 
 JK_fnc_setPosFull = {
-    private ["_toCache", "_near"];
-    _toCache = (units _group);
+    private _toCache = (units _group);
     _toCache deleteAt (_toCache find _leader);
-    _near = _leader nearTargets 500;
+    private _near = _leader nearTargets 500;
     if (JK_debug) then {
         hint format ["setPos for Group %1", _group];
         diag_log format ["setPos for Group %1", _group];
     };
 
     {
-        private ["_unit", "_testpos"];
-        _unit = _x;
-        _testpos = (formationPosition _x);
+        private _unit = _x;
+        private _testpos = (formationPosition _x);
         if (!(isNil "_testpos") && !(_testpos isEqualTo [])) then {
             _testpos = [_testpos, 2, typeOf _x] call SEN_fnc_findSavePosition;
             if (!(isPlayer _x) && (vehicle _x isEqualTo _x)) then {

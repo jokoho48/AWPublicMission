@@ -9,7 +9,6 @@ Description: sets task
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 
-private "_task";
 params [["_override","",[""]]];
 
 uiSleep 15;
@@ -20,6 +19,6 @@ SEN_taskSuccess = 0;
 if (SEN_taskCounter isEqualTo SEN_totalTaskCount) exitWith {[] call compile preprocessFileLineNumbers "tasks\SEN_debriefing.sqf"};
 SEN_taskCounter = SEN_taskCounter + 1;
 if !(_override isEqualTo "") exitWith {[] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1.sqf", _override]};
-_task = selectRandom SEN_taskList;
+private _task = selectRandom SEN_taskList;
 [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1.sqf", _task];
 SEN_taskList = SEN_taskList - [_task];

@@ -18,7 +18,6 @@
  *
  * Public: Yes
  */
-private "_variable";
 params ["_varNames", "_code", ["_namespace", missionNameSpace, [missionNamespace, objNull, controlNull, grpNull, taskNull, locationNull]]];
 
 if !(_varNames isEqualType []) then {
@@ -26,7 +25,7 @@ if !(_varNames isEqualType []) then {
 };
 
 {
-    _variable = _namespace getVariable [_x, "hudlehudlehudlehudlehudlehudlehudle"];
+    private _variable = _namespace getVariable [_x, "hudlehudlehudlehudlehudlehudlehudle"];
     JK_VariableEventhandler pushBack [_x, _namespace, _variable, _code];
     nil
 } count _varNames;

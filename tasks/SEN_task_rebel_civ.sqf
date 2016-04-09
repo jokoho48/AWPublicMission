@@ -82,11 +82,10 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
     sleep _sleep;
     [] spawn SEN_fnc_rebelTastCiv;
 } else {
-    private "_tar";
 
-    _taskText = "Defend Against Rebel Attack";
-    _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards your position. Defend yourself against the rebel attack!";
-    _playerArray = [];
+    private _taskText = "Defend Against Rebel Attack";
+    private _taskDescription = "Aerial reconnaissance shows several hostile civilians advancing towards your position. Defend yourself against the rebel attack!";
+    private _playerArray = [];
 
     {
         if (alive _x) then {_playerArray pushBack _x;};
@@ -98,14 +97,14 @@ if (!(getMarkerColor "sen_fob_mrk" isEqualTo "") && random 100 < 40) then {
         sleep _sleep;
         [] spawn SEN_fnc_rebelTastCiv;
     };
-    _tar = selectRandom _playerArray;
+    private _tar = selectRandom _playerArray;
 
     if (isNull _tar || {(getposATL _tar select 2) > 5}) exitWith {
         [2,"Rebel target is unsuitable."] call SEN_fnc_log;
         sleep _sleep;
         [] spawn SEN_fnc_rebelTastCiv;
     };
-    _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;
+    private _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;
 
     while {(([_spawnPos,800] call SEN_fnc_getNearPlayers) isEqualTo [])&& (surfaceIsWater _spawnPos)} do {
         _spawnPos = [getposATL _tar,1000,1200] call SEN_fnc_findRandomPos;

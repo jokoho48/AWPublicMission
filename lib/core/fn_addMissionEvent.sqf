@@ -18,10 +18,9 @@
  * Boolean - Event is set or not
  *
  */
-private "_isOK";
 params["_eventName","_eventFunction",["_eventParameter",[]],["_eventCall",0],["_times",-1],["_protected",true],["_overrideEvent",false]];
-_isOK = false;
-_return = nil;
+private _isOK = false;
+private _return = nil;
 if !(isNil _eventName) then {
     if (_overrideEvent) then {
         _isProtected = (missionNamespace getVariable _eventName) select 4;

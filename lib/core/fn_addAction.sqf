@@ -37,8 +37,7 @@ private _ret = [-1,-1];
 _ret set [0, _target addAction [_text, _code, _args, _index, false, false, "", _condition]];
 
 if (_persistent) then {
-    private "_fnc";
-    _fnc = compile format ["%1 addAction %2",_target , [_text, _code, _args, _index, false, false, "", _condition]];
-    _ret set[1,_target addEventhandler ["Respawn", _fnc]];
+    private _fnc = compile format ["%1 addAction %2",_target , [_text, _code, _args, _index, false, false, "", _condition]];
+    _ret set[1, _target addEventhandler ["Respawn", _fnc]];
 };
 _ret

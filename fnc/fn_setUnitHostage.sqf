@@ -7,12 +7,10 @@ Description: set unit as hostage
 
         returns boolean
 __________________________________________________________________*/
-private "_anim";
 params ["_unit"];
 
-_anim = "Acts_AidlPsitMstpSsurWnonDnon02";
 _unit setbehaviour "CARELESS";
-_unit switchMove _anim;
+_unit switchMove "Acts_AidlPsitMstpSsurWnonDnon02";
 _unit disableAI "ANIM";
 
 true

@@ -36,9 +36,8 @@ _count = ({
 _oldThreshold = round ((_count)*0.30);
 
 waitUntil {
-    private "_count";
     sleep 30;
-    _count = 9999;
+    private _count = 9999;
     _enemyArray = [];
     _count = ({
         _ret = false;

@@ -27,8 +27,7 @@ if ((paramsArray select 0) in [1, 3]) then {
     JK_CLASSES = JK_USMC + JK_USARMY + JK_USSOF + JK_USSOFLIGHT + JK_PARA + JK_SPECIALCLASSES;
 
     {
-        private "_path";
-        _path = call {
+        private _path = call {
             if (_x in JK_USMC) exitWith {
                 "USMC"
             };

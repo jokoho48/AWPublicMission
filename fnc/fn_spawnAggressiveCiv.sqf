@@ -44,8 +44,7 @@ _targetPlayer = selectRandom _targets;
     _wp setWaypointCombatMode "RED";
     while {alive _unit} do {
         if (_targetPlayer getVariable ["ACE_isUnconscious", false] || !alive _targetPlayer) then {
-            private "_targets";
-            _targets = [(getPosATL _unit),_range] call SEN_fnc_getNearPlayers;
+            private _targets = [(getPosATL _unit),_range] call SEN_fnc_getNearPlayers;
             if (_targets isEqualTo []) exitWith {
                 SEN_objectCleanup append units _grp;
             };

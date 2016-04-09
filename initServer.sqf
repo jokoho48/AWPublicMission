@@ -34,9 +34,8 @@ if !(getMarkerColor "SEN_med_mrk" isEqualTo "") then {
 [] spawn {
     waitUntil {!isNil "bis_fnc_init" && {bis_fnc_init}};
     "JK_registerPlayer" addPublicVariableEventHandler {
-        private "_owner";
         params ["" ,"_player"];
-        _owner = owner _player;
+        private _owner = owner _player;
         {
             _owner publicVariableClient _x;
         } count ["JK_TicketSystem", "SEN_approvalCiv", "predefinedLocations", "iedInitialArray", "JK_iedTown", "JK_VSS_ListTickets", "JK_IED"];

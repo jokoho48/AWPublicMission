@@ -7,9 +7,7 @@ Description: gets list of players
 
         returns array
 __________________________________________________________________*/
-private "_players";
-
-_players = allPlayers;
+private _players = allPlayers;
 
 if (SEN_HCPresent) then {_players = _players - [SEN_HC]};
 

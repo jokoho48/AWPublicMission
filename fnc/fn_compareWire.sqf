@@ -1,5 +1,4 @@
 //Parameters
-private "_compare";
 params ["_wire","_cutWire"];
 
 if (_wire isEqualTo _cutWire) then {

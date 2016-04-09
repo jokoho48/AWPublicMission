@@ -1,7 +1,6 @@
 // by Astavinu edit by joko // Jonas
-private "_text";
 params["_object", "_msg"];
-_text = format["<img image='%1' size='2' align='left'/>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "picture")];
+private _text = format ["<img image='%1' size='2' align='left'/>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "picture")];
 _text = _text + format ["<t color='#ff0000' size='1.2' shadow='1' shadowColor='#000000' align='center'>%1</t><br/>", getText(configFile >> "cfgVehicles" >> typeOf _object >> "displayName")];
 _text = _text + "<br/>";
 _text = _text + format ["<t color='#ffffff' size='1' shadow='1' shadowColor='#000000' align='left'>%1 </t>", localize "STR_JK_REPAIR_DAMAGE"];

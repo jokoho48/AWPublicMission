@@ -8,31 +8,29 @@ __________________________________________________________________*/
 scriptName "SEN_task_deliver_civ";
 if (!isServer) exitWith {};
 
-private "_grp";
-
-_targetTown = selectRandom SEN_whitelistLocation;
-_pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
+privat _targetTown = selectRandom SEN_whitelistLocation;
+private _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 while {(([_pos1, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
     _targetTown = selectRandom SEN_whitelistLocation;
     _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 };
 
-_taskID = format["%1_deliver_civ",SEN_taskCounterCiv];
-_taskText = "Deliver Supplies";
-_taskDescription = format["The enemy occupation has left the locals in distress. The townspeople of %1 (%2) desparately need medical supplies.<br/><br/>Collect the supply vehicle from the MOB Depot and deliver the supplies to %1.",text _targetTown,mapGridPosition (getpos _targetTown)];
+private _taskID = format["%1_deliver_civ",SEN_taskCounterCiv];
+private _taskText = "Deliver Supplies";
+private _taskDescription = format["The enemy occupation has left the locals in distress. The townspeople of %1 (%2) desparately need medical supplies.<br/><br/>Collect the supply vehicle from the MOB Depot and deliver the supplies to %1.",text _targetTown,mapGridPosition (getpos _targetTown)];
 
-_spawnMrk = "SEN_depotSpawn_mrk";
-_aidArray = [];
-_grp = grpNull;
+private _spawnMrk = "SEN_depotSpawn_mrk";
+private _aidArray = [];
+private _grp = grpNull;
 
 
-_aid = "B_Truck_01_box_F" createVehicle (getMarkerPos _spawnMrk);
+private _aid = "B_Truck_01_box_F" createVehicle (getMarkerPos _spawnMrk);
 _aid setDir (markerDir _spawnMrk);
 _aid setVariable ["SEN_noClean", true];
 clearItemCargoGlobal _aid;
 clearMagazineCargoGlobal _aid;
 
-_halfway = (_aid distance _pos1)/2;
+private _halfway = (_aid distance _pos1)/2;
 
 [WEST,[_taskID],[_taskDescription, _taskText, ""],_pos1,false,1,true,"C",false] call BIS_fnc_taskCreate;
 
@@ -45,7 +43,7 @@ if (((getposatl _aid) select 2) < 10) then { // if aid not in air
         "R_TBG32V_F" createVehicle (_aid modeltoworld [(-5 + random 10),(13 + random 5),-3]);
         [_aid,["motor",1]] remoteExecCall ["setHit", _aid, false];
         _grp = [([getposATL _aid,200,300] call SEN_fnc_findRandomPos),0,((call SEN_fnc_setStrength) max 5) min 10] call SEN_fnc_spawnGroup;
-        _wp = _grp addWaypoint [getPosATL _aid, 0];
+        private _wp = _grp addWaypoint [getPosATL _aid, 0];
         _wp setWaypointType "SAD";
         _wp setWaypointSpeed "FULL";
         _wp setWaypointCombatMode "RED";
@@ -87,7 +85,7 @@ if (random 1 < 0.35) then {[(getposATL _aid),SEN_enemySide,200,2000] spawn SEN_f
 for "_i" from 1 to 3 do {
     _pos1 = (getposATL _aid) isFlatEmpty [1, 15, 1, 1, 0, false, objNull];
     if (count _pos1 > 0) then {
-        _cargo = "Box_IND_AmmoVeh_F" createVehicle [0,0,0];
+        private _cargo = "Box_IND_AmmoVeh_F" createVehicle [0,0,0];
         _cargo setPosATL _pos1;
         _cargo setVectorUp [0,0,1];
         _cargo setObjectTextureGlobal [0, "#(rgb,8,8,3)color(1,1,1,1)"];

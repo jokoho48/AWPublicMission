@@ -6,9 +6,8 @@ Last modified: 7/21/2015
 Description:  creates actions for ACE3 interaction menu
 __________________________________________________________________*/
 if !(hasInterface) exitWith {};
-private "_action";
 
-_action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
+private _action = ['SEN_DCG','DCG Actions','',{},{true}] call ace_interact_menu_fnc_createAction;
 [player, 1, ["ACE_SelfActions"], _action] call ace_interact_menu_fnc_addActionToObject;
 
 _action = ['SEN_Civ','Civilian','',{},{true}] call ace_interact_menu_fnc_createAction;

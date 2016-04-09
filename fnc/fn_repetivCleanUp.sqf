@@ -55,7 +55,6 @@ JK_objectStorage = [];
             nil
         } count allMissionObjects ("WeaponHolder") + allMissionObjects ("GroundWeaponHolder") + allMissionObjects ("WeaponHolderSimulated") + allDead;
 
-        private "_delete1";
         // Cycle through the storage and check the time. Removal is done with an animation.
         if !(JK_objectStorage isEqualTo []) then {
             {

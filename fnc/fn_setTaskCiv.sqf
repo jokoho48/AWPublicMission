@@ -9,7 +9,6 @@ Description: sets civilians task
 __________________________________________________________________*/
 if (!isServer) exitWith {};
 [{
-    private "_task";
     params [["_override","",[""]]];
 
     SEN_intelObjCiv = objNull;
@@ -17,6 +16,6 @@ if (!isServer) exitWith {};
     SEN_taskSuccess = 0;
     SEN_taskCounterCiv = SEN_taskCounterCiv + 1;
     if !(_override isEqualTo "") exitWith { [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _override]; };
-    _task = selectRandom SEN_taskListCiv;
+    private _task = selectRandom SEN_taskListCiv;
     [] spawn compile preprocessFileLineNumbers format ["tasks\SEN_task_%1_civ.sqf", _task];
 }, _this, 15] call ace_common_fnc_waitAndExecute;

@@ -34,8 +34,7 @@ _r = 1000;
 
 if (_r < 0.02) then {
     with uiNamespace do {
-        private "_temp";
-        _temp = (_group select 2);
+        private _temp = (_group select 2);
         BG_UI_BFT_ttRadio ctrlSetText format [
             "SR: %1 | LR: %2",
             _temp getVariable ["BG_BFT_radioSR","n/a"],
