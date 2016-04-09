@@ -45,21 +45,21 @@ class param6 {
     title = "Armored Patrol Count";
     values[] = {0,20,50,80, 120};
     texts[] = {"None", "Low", "Medium", "High", "Very High"};
-    default = 20;
+    default = 50;
     SEN_paramCode = "";
 };
 class param7 {
     title = "Occupied Location Count";
     values[] = {1,2,3,4};
     texts[] = {"1", "2", "3", "4"};
-    default = 2;
+    default = 3;
     SEN_paramCode = "";
 };
 class param8 {
     title = "Occupied Location Enemy Count";
     values[] = {20, 30, 40, 80, 120};
     texts[] = {"Low", "Medium", "High", "Very High", "To High to Play"};
-    default = 40;
+    default = 80;
     SEN_paramCode = "";
 };
 class param9 {
@@ -87,7 +87,7 @@ class param12 {
     title = "IED Count";
     values[] = {0,1,2,3,4};
     texts[] = {"Disabled","Low", "Default", "Middle", "High"};
-    default = 1;
+    default = 2;
     SEN_paramCode = "";
 };
 class param13 {
