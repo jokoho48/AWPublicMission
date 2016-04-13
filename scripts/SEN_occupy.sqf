@@ -23,7 +23,7 @@ if (_exit) exitWith {[0,"Exiting SEN_occupy.sqf."] call SEN_fnc_log};
 [0,"Starting SEN_occupy.sqf."] call SEN_fnc_log;
 
 _strength = (paramsArray select 8);
-_grpsize = (paramsArray select 13);
+_grpsize = (paramsArray select 12);
 _count = if ((paramsArray select 5) isEqualTo 1) then {((ceil (SEN_range/512)) max 9) min 15} else {0}; // number of patrols per location
 
 {

@@ -8,7 +8,7 @@ __________________________________________________________________*/
 scriptName "SEN_task_deliver_civ";
 if (!isServer) exitWith {};
 
-privat _targetTown = selectRandom SEN_whitelistLocation;
+private _targetTown = selectRandom SEN_whitelistLocation;
 private _pos1 = [(getpos _targetTown),0,90] call SEN_fnc_findRandomPos;
 while {(([_pos1, 3000] call SEN_fnc_getNearPlayers) isEqualTo [])} do {
     _targetTown = selectRandom SEN_whitelistLocation;
