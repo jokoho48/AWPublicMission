@@ -14,5 +14,6 @@ class JK_loadOut {
         class addContainer: baseFNC {};
         class init: basePreFNC {};
         class addWeapon: baseFNC {};
+        class reset: baseFNC {};
     };
 };

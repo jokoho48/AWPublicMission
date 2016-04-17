@@ -37,7 +37,8 @@ _fnc_gear_Call = {
         if ( isLocalized (_string)) then { _string = localize _string; } else { _string = _x; };
         _string = (format["<t color='#%2'>%1</t>",_string, _color]);
         [_this, _string, {
-            ["Loadouts:" + (_this select 3), player, "JK_loadOut_fnc_selectGear", true, 1] remoteExecCall ["db_fnc_codeload", 2, false];
+            call JK_loadOut_fnc_reset;
+            ["Loadouts:" + (_this select 3), player, "JK_loadOut_fnc_selectGear", true, 6] remoteExecCall ["db_fnc_codeload", 2, false];
             //JK_Gear = "Main";
         }, "true", _x, _foreachindex + 99, 3] call JK_Core_fnc_addAction;
     } forEach JK_classes;

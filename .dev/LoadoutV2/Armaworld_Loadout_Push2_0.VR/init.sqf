@@ -23,7 +23,7 @@ if ((paramsArray select 0) in [1, 3]) then {
     {
         private ["_path", "_handle", "_fnc"];
         _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\fn_%1.sqf", _x];
-        _handle = ["Loadouts:"+ _x, _fnc, 1] spawn db_fnc_codesave;
+        _handle = ["Loadouts:"+ _x, _fnc, 6] spawn db_fnc_codesave;
         _varAllHandle pushBack _handle;
         nil;
     } count JK_CLASSES;
@@ -53,7 +53,7 @@ if ((paramsArray select 0) in [2, 3]) then {
 
     {
         _var = missionNamespace getVariable _x;
-        _handle = ["Crate:" + _x, str _var, 1] spawn db_fnc_save;
+        _handle = ["Crate:" + _x, str _var, 6] spawn db_fnc_save;
         _varAllHandle pushBack _handle;
         nil
     } count [

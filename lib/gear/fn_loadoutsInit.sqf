@@ -8,6 +8,6 @@ Call from initPlayerLocal.sqf via:
 ///// No editing necessary below this line /////
 params [["_target", player, [objNull]]];
 [SEN_arsenal] call JK_loadOut_fnc_chooseLoadout;
-
-private _db = 1;
+call JK_loadOut_fnc_reset;
+private _db = 6;
 ["Loadouts:rifleman", _target, "JK_loadOut_fnc_selectGear", true, _db] remoteExecCall ["db_fnc_codeload", 2, false];

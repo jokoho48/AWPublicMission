@@ -67,21 +67,13 @@ JK_grenadeArray = [["HandGrenade", JK_grenadeHE], ["SmokeShell", JK_grenadeSmoke
 [_unit,JK_binocular,1] call BIS_fnc_addWeapon;
 [_unit,JK_handgun,JK_handgunAmmo] call BIS_fnc_addWeapon;
 {_unit addHandgunItem _x; true} count JK_itemsHandgun;
-[_unit,JK_launcher,JK_launcherAmmo,JK_launcherHandle] call BIS_fnc_addWeapon;
-if (JK_primaryweaponTracers >= 1) then {
-    if (!(isNil "JK_primaryweaponAmmoCount") && !(isNil "JK_primaryweaponTracersCount")) then {
-        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_primaryweaponAmmoCount] call JK_loadOut_fnc_addWeapon;
-        [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_primaryweaponTracersCount] call JK_loadOut_fnc_addWeapon;
-    } else {
-        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
-        [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
-    };
+
+if (!(isNil "JK_primaryweaponAmmoCount") && !(isNil "JK_primaryweaponTracersCount")) then {
+    [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_primaryweaponAmmoCount] call JK_loadOut_fnc_addWeapon;
+    [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_primaryweaponTracersCount] call JK_loadOut_fnc_addWeapon;
 } else {
-    if !(isNil "JK_primaryweaponAmmoCount") then {
-        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_primaryweaponAmmoCount] call JK_loadOut_fnc_addWeapon;
-    } else {
-        [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
-    };
+    [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_ARhandle] call BIS_fnc_addWeapon;
+    [_unit, JK_primaryWeapon, JK_primaryweaponTracers, JK_ARhandle + 1] call BIS_fnc_addWeapon;
 };
 {
     if (_x isEqualType []) then {
