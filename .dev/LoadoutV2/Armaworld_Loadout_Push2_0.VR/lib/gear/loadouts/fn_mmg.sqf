@@ -19,7 +19,7 @@ JK_goggles = "";
 JK_primaryweapon = ["sma_minimi_mk3_762tlb","sma_minimi_mk3_762tlb_des","sma_minimi_mk3_762tlb_wdl","sma_minimi_mk3_762tsb_des","CUP_lmg_M60E4","CUP_lmg_M240","sma_minimi_mk3_762tsb_wdl","sma_minimi_mk3_762tsb"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["CUP_optic_ElcanM145","CUP_optic_Elcan_reflex","iansky_specterdr","iansky_specterdr_d","iansky_specterdr_fde","iansky_specterdr_t","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","RKSL_optic_LDS_PIP"];
+JK_itemsPrimaryweapon = [["CUP_optic_ElcanM145","CUP_optic_Elcan_reflex","iansky_specterdr","iansky_specterdr_d","iansky_specterdr_fde","iansky_specterdr_t","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","RKSL_optic_LDS_PIP"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.

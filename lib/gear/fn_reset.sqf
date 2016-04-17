@@ -28,5 +28,5 @@
     "JK_packingBandage","JK_elasticBandage","JK_quikclot","JK_tourniquet",
     "JK_earPlugs","JK_swapBarrel","JK_FirstAidKits","JK_MediKit",
     "JK_itemsUniform","JK_itemsVest","JK_itemsBackpack","JK_itemsLink",
-    "JK_items","JK_medicClass","JK_spawnAllowed","JK_isEngineer","JK_isPilot","JK_VehClass"
+    "JK_items","JK_medicClass","JK_spawnAllowed","JK_isEngineer","JK_isPilot"
 ];

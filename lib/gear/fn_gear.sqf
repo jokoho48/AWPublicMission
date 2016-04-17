@@ -38,13 +38,13 @@ if (JK_useProfileGoggles == 0) then {
 };
 
 if (JK_mediKit == 0) then {
-    for "_i" from 1 to JK_FirstAidKits do    {
+    for "_i" from 1 to JK_FirstAidKits do {
         _unit addItem "FirstAidKit";
     };
 };
 if (JK_mediKit >= 1) then {
     _unit addItemToBackpack "MediKit";
-    for "_i" from 1 to JK_FirstAidKits do    {
+    for "_i" from 1 to JK_FirstAidKits do {
         _unit addItemToBackpack "FirstAidKit";
     };
 };
@@ -67,6 +67,8 @@ JK_grenadeArray = [["HandGrenade", JK_grenadeHE], ["SmokeShell", JK_grenadeSmoke
 [_unit,JK_binocular,1] call BIS_fnc_addWeapon;
 [_unit,JK_handgun,JK_handgunAmmo] call BIS_fnc_addWeapon;
 {_unit addHandgunItem _x; true} count JK_itemsHandgun;
+
+[_unit,JK_launcher,JK_launcherAmmo,JK_launcherHandle] call BIS_fnc_addWeapon;
 
 if (!(isNil "JK_primaryweaponAmmoCount") && !(isNil "JK_primaryweaponTracersCount")) then {
     [_unit, JK_primaryWeapon, JK_primaryweaponAmmo, JK_primaryweaponAmmoCount] call JK_loadOut_fnc_addWeapon;
