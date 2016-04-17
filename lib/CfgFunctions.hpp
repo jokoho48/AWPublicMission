@@ -5,3 +5,4 @@
 #include "VSS\CfgFunctions.hpp"
 #include "crate\CfgFunctions.hpp"
 #include "caching\CfgFunctions.hpp"
+#include "weather\CfgFunctions.hpp"

@@ -68,16 +68,14 @@ if ((paramsArray select 11) isEqualTo 1) then {
     private _count = ({
         isClass (_cfg >> _x)
     } count [
-        "Project_Honor_Config","min_rf_units",
         "CUP_Weapons_WeaponsCore","CUP_BaseData",
         "CUP_BaseConfigs","CUP_Creatures_People_Core",
         "CUP_WheeledVehicles_Core","CUP_WaterVehicles_Core",
         "CUP_TrackedVehicles_Core","CUP_AirVehicles_Core"
     ]);
-    SEN_CUPEnabled = _count != 0;
-
+    SEN_AWEnabled = _count != 0;
 } else {
-    SEN_CUPEnabled = false;
+    SEN_AWEnabled = false;
 };
 
 SEN_unitPoolWest = [];
@@ -101,20 +99,20 @@ SEN_AriPool = [];
 ////////////////// EDIT BELOW //////////////////
 
 // fill arrays with addon content if enabled
-if (SEN_CUPEnabled) then { // CUP
-    SEN_unitPoolWest = ["CUP_B_USMC_Soldier_AA","CUP_B_USMC_Soldier_HAT","CUP_B_USMC_Soldier_AT","CUP_B_USMC_Soldier_AR","CUP_B_USMC_Medic","CUP_B_USMC_Crew","CUP_B_USMC_Soldier_Marksman","CUP_B_USMC_Engineer","CUP_B_USMC_Soldier_TL","CUP_B_USMC_Soldier_GL","CUP_B_USMC_Soldier_MG","CUP_B_USMC_Officer","CUP_B_USMC_Pilot","CUP_B_USMC_Soldier","CUP_B_USMC_SpecOps_SD","CUP_B_USMC_Soldier_LAT","CUP_B_USMC_Soldier_SL"];
-    SEN_vehPoolWest = ["CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_Unarmed_USA","CUP_B_HMMWV_MK19_USA"];
+if (SEN_AWEnabled) then { // AW Comp
+    SEN_unitPoolWest = ["CUP_B_US_Soldier_UAV","CUP_B_US_Soldier_HAT","CUP_B_US_Soldier_AT","CUP_B_US_Soldier_AMG","CUP_B_US_Soldier_AAR","CUP_B_US_Soldier_AHAT","CUP_B_US_Soldier_AAT","CUP_B_US_Soldier_AAT","CUP_B_US_Soldier_AA","CUP_B_US_Soldier_TL","CUP_B_US_Soldier_SL","CUP_B_US_Soldier_Engineer_Sapper","CUP_B_US_Soldier_Backpack","CUP_B_US_Soldier_LAT","CUP_B_US_Medic","CUP_B_US_Soldier_GL","CUP_B_US_Soldier_Engineer_EOD","CUP_B_US_Soldier","CUP_B_US_Soldier_Marksman","CUP_B_US_Soldier_MG","CUP_B_US_Soldier_Engineer","CUP_B_US_Soldier_AR"];
+    SEN_vehPoolWest = ["CUP_B_RG31_Mk19_OD_USMC","CUP_B_RG31_M2_OD_USMC","CUP_B_HMMWV_TOW_USMC","CUP_B_HMMWV_MK19_USMC","CUP_B_HMMWV_M1114_USMC","CUP_B_HMMWV_M2_USMC","CUP_B_HMMWV_Unarmed_USMC","CUP_B_HMMWV_Crows_M2_USA","CUP_B_HMMWV_Crows_MK19_USA","CUP_B_HMMWV_M2_GPK_USA","CUP_B_HMMWV_SOV_USA","CUP_B_HMMWV_Terminal_USA","CUP_B_M113_USA"];
 
-    SEN_unitPool = [["min_rf_soldier_A", 4],["min_rf_soldier_AR", 4],"AW_min_rf_soldier_AA",["AW_min_rf_soldier_AT", 2],["AW_min_rf_soldier_LAT", 2],["min_rf_medic", 2],["min_rf_engineer", 2],["min_rf_soldier_exp", 2],["min_rf_soldier_GL", 8],["min_rf_soldier_repair", 2],["min_rf_soldier", 10],["min_rf_soldier_SL", 3],["min_rf_soldier_TL", 4],["min_rf_soldier_lite", 2]];
-    SEN_unitDriverPool = ["min_rf_driver","min_rf_crew"];
-    SEN_vehPool = [["CUP_B_BRDM2_CDF", 4],["CUP_B_BRDM2_ATGM_CDF", 4],["CUP_O_BTR60_TK",5],["CUP_O_BTR90_RU",8],["CUP_O_UAZ_AGS30_RU",8],["CUP_O_UAZ_MG_RU",8],["CUP_O_UAZ_METIS_RU",8],["CUP_O_UAZ_SPG9_RU",8],["CUP_O_Ural_ZU23_RU",1]];
-    SEN_airPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU"];
-    SEN_sniperPool = ["min_rf_soldier_M"];
-    SEN_officerPool = ["min_rf_officer"];
-    SEN_unitPoolRebel = ["CUP_I_GUE_Farmer","CUP_I_GUE_Forester","CUP_I_GUE_Gamekeeper","CUP_I_GUE_Local","CUP_I_GUE_Villager","CUP_I_GUE_Woodman","CUP_I_GUE_Ammobearer","CUP_I_GUE_Soldier_AR","CUP_I_GUE_Officer","CUP_I_GUE_Crew","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Soldier_MG","CUP_I_GUE_Engineer","CUP_I_GUE_Soldier_AKS74","CUP_I_GUE_Soldier_AKM","CUP_I_GUE_Soldier_AKSU","CUP_I_GUE_Soldier_AT","CUP_I_GUE_Commander","CUP_I_GUE_Soldier_AA","CUP_I_GUE_Soldier_AA2","CUP_I_GUE_Saboteur"];
+    SEN_unitPool = ["CUP_O_RU_Soldier_AT_EMR","CUP_O_RU_Soldier_Saiga_EMR","CUP_O_RU_Soldier_SL_EMR","CUP_O_RU_Soldier_TL_EMR","CUP_O_RU_Soldier_AA_EMR","CUP_O_RU_Soldier_HAT_EMR","CUP_O_RU_Soldier_AR_EMR","CUP_O_RU_Engineer_EMR","CUP_O_RU_Explosive_Specialist_EMR","CUP_O_RU_Soldier_GL_EMR","CUP_O_RU_Soldier_MG_EMR","CUP_O_RU_Medic_EMR","CUP_O_RU_Soldier_EMR","CUP_O_RU_Soldier_LAT_EMR"];
+    SEN_unitDriverPool = [];
+    SEN_vehPool = ["CUP_O_Ural_ZU23_RU","CUP_O_2S6M_RU","CUP_O_ZSU23_ChDKZ","CUP_O_BMP2_RU","CUP_O_BRDM2_CHDKZ","CUP_O_BMP3_RU","CUP_O_BTR90_RU","CUP_O_GAZ_Vodnik_PK_RU","CUP_O_GAZ_Vodnik_AGS_RU","CUP_O_GAZ_Vodnik_BPPU_RU","CUP_O_UAZ_AGS30_RU","CUP_O_UAZ_MG_RU","CUP_O_UAZ_METIS_RU","CUP_O_UAZ_SPG9_RU","CUP_O_T72_RU","CUP_O_BTR60_SLA","CUP_O_LR_SPG9_TKM"];
+    SEN_airPool = ["CUP_O_Ka50_AA_RU","CUP_O_Ka50_RU","CUP_O_Ka52_RU","CUP_O_Ka52_Blk_RU","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU","CUP_O_Su25_RU_3","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2","CUP_O_SU34_AGM_RU","CUP_O_SU34_LGB_RU"];
+    SEN_sniperPool = ["CUP_O_RU_Soldier_Marksman_EMR", "CUP_O_RU_Sniper_KSVK_EMR", "CUP_O_RU_Sniper_EMR"];
+    SEN_officerPool = ["CUP_O_RU_Officer_EMR"];
+    SEN_unitPoolRebel = ["CUP_I_GUE_Farmer","CUP_I_GUE_Forester","CUP_I_GUE_Gamekeeper","CUP_I_GUE_Local","CUP_I_GUE_Villager","CUP_I_GUE_Woodman","CUP_I_GUE_Commander","CUP_I_GUE_Saboteur","CUP_I_GUE_Soldier_AKSU","CUP_I_GUE_Soldier_AA2","CUP_I_GUE_Soldier_AA","CUP_I_GUE_Soldier_AT","CUP_I_GUE_Soldier_AKM","CUP_I_GUE_Soldier_AKS74","CUP_I_GUE_Medic","CUP_I_GUE_Engineer","CUP_I_GUE_Soldier_MG","CUP_I_GUE_Soldier_GL","CUP_I_GUE_Officer","CUP_I_GUE_Soldier_AR","CUP_I_GUE_Ammobearer"];
     //SEN_airPoolRebel = [];
-    SEN_airAttackPool = ["CUP_B_Mi24_D_CDF","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU"];
-    SEN_AriPool = ["min_rf_MBT_arty", "CUP_O_BM21_RU"];
+    SEN_airAttackPool = ["CUP_O_Ka50_AA_RU","CUP_O_Ka50_RU","CUP_O_Ka52_RU","CUP_O_Ka52_Blk_RU","CUP_O_Mi24_P_RU","CUP_O_Mi24_V_RU","CUP_O_Mi8_RU","CUP_O_Su25_RU_3","CUP_O_Su25_RU_1","CUP_O_Su25_RU_2","CUP_O_SU34_AGM_RU","CUP_O_SU34_LGB_RU"];
+    SEN_AriPool = ["CUP_O_BM21_RU"];
 };
 // fill arrays with vanilla content if still empty
 if (count SEN_unitPoolWest isEqualTo 0) then {SEN_unitPoolWest = ["B_Soldier_SL_F","B_medic_F","B_soldier_AR_F","B_soldier_M_F","B_Soldier_AA_F","B_soldier_AT_F","B_soldier_F"]};

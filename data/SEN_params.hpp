@@ -71,9 +71,15 @@ class param11 {
     texts[] = {"Off","On"};
     default = 1;
 };
-class param13 {
+class param12 {
     title = "Town Group Size";
     values[] = {2,4,6,8};
     texts[] = {"Small", "Medium", "Default", "High"};
     default = 6;
+};
+class param13 {
+   title = "Starting Weather";
+   values[] = {0,1,2,3,4};
+   texts[] = {"Clear","Overcast","Rain","Fog","Random"};
+   default = 4;
 };

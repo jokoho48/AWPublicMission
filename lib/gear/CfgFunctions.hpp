@@ -13,5 +13,6 @@ class JK_loadOut {
         class selectGear: baseFNC {};
         class addContainer: baseFNC {};
         class init: basePreFNC {};
+        class addWeapon: baseFNC {};
     };
 };

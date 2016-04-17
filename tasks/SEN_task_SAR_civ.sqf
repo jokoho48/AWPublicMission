@@ -10,7 +10,7 @@ if (!isServer) exitWith {};
 
 private ["_pos","_houseArray"];
 
-_wreckArray = ["CUP_B_AH64D_USA", "CUP_B_AH64D_NO_USA", "CUP_B_AH64D_ES_USA"];
+_wreckArray = ["CUP_B_AH1Z", "BWA3_Tiger_Gunpod_FZ","BWA3_Tiger_Gunpod_Heavy","BWA3_Tiger_RMK_FZ","BWA3_Tiger_RMK_Heavy","BWA3_Tiger_RMK_PARS","BWA3_Tiger_RMK_Universal","CUP_B_AH64D_NO_USA","CUP_B_AH64D_AT_USA","CUP_B_AH64D_ES_USA","CUP_B_AH64D_USA","CUP_B_AH64D_MR_USA","CUP_B_AH1_NO_BAF","CUP_B_AH1_AT_BAF","CUP_B_AH1_ES_BAF","CUP_B_AH1_BAF","CUP_B_AH1_MR_BAF","CUP_B_AH1Z","CUP_B_AH1Z_NoWeapons","CUP_B_AH1Z_AT","CUP_B_AH1Z_Escort","CUP_B_AH1Z_7RndHydra","CUP_B_AH1Z_14RndHydra","CUP_B_AH1Z_NOAA","CUP_I_AH1Z_AAF","CUP_I_AH1Z_AT_AAF","CUP_I_AH1Z_Escort_AAF"];
 _vehPos = [];
 _pos = [];
 _houseArray = [];
