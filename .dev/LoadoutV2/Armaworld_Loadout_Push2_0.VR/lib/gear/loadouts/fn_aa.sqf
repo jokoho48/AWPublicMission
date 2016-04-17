@@ -117,7 +117,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

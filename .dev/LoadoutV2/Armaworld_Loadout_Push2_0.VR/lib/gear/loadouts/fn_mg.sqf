@@ -19,7 +19,7 @@ JK_goggles = "";
 JK_primaryweapon = ["CUP_lmg_m249_SQuantoon","CUP_lmg_m249_pip1","CUP_lmg_m249_pip3","CUP_lmg_m249_pip4","CUP_lmg_M249_E2","CUP_lmg_m249_pip2","CUP_lmg_m249_para"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = ["RH_m145"];
+JK_itemsPrimaryweapon = ["CUP_optic_ElcanM145","CUP_optic_Elcan_reflex","iansky_specterdr","iansky_specterdr_d","iansky_specterdr_fde","iansky_specterdr_t","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","RKSL_optic_LDS_PIP"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
@@ -116,7 +116,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;
