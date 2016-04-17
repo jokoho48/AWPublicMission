@@ -19,7 +19,7 @@ JK_goggles = "";
 JK_primaryweapon = ["SMA_M4afg_SM","SMA_M4MOE_SM","SMA_M4afgSTOCK","SMA_M4afg","SMA_M4MOE","SMA_M4afg_BLK1_SM","SMA_M4MOE_BLK1_SM","SMA_M4afg_BLK1","SMA_M4MOE_BLK1","SMA_M4afg_OD_SM","SMA_M4MOE_OD_SM","SMA_M4afg_OD","SMA_M4MOE_OD","SMA_M4CQBR","SMA_M4afg_Tan_SM","SMA_M4MOE_Tan_SM","SMA_M4afg_Tan","SMA_M4MOE_Tan","SMA_MK18afgBLK","SMA_MK18MOEBLK","SMA_MK18afgTANBLK_SM","SMA_MK18afgTANBLK","SMA_MK18MOEBLKTAN","SMA_MK18afgBLK_SM","SMA_MK18MOEBLK_SM","SMA_MK18MOEBLKTAN_SM","SMA_MK18afgTAN_SM","SMA_MK18MOETAN_SM","SMA_MK18afg_SM","SMA_MK18MOE_SM","SMA_MK18afgTAN","SMA_MK18MOETAN","SMA_MK18afg","SMA_MK18MOE"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [["RH_ta31rmr","RH_ta31rco","RH_ta648","RH_eotech553mag","RH_eotech553mag_tan","RH_eothhs1"]];
+JK_itemsPrimaryweapon = [["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
@@ -118,7 +118,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_UAVBattery","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_UAVBattery","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["FHQ_optic_AC11704","FHQ_optic_AC12136","iansky_t1","iansky_t1kf","iansky_t1s","iansky_cmore","iansky_cmore_g","iansky_cmore_gy","SMA_eotech552","SMA_eotech","iansky_deltapoint","FHQ_optic_MicroCCO_low","RKSL_optic_RMR_MS19","iansky_rx01","iansky_rx01kf"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

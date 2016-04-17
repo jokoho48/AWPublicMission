@@ -131,7 +131,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["RH_compm4s","RH_t1","RH_eotech553"]];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR"];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;
