@@ -16,16 +16,17 @@ JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will b
 JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = ["RH_M4_ris_m","RH_M4A1_ris","RH_M16A4_m","RH_M16A4"];
+JK_primaryweapon = ["SMA_M4afg_SM","SMA_M4MOE_SM","SMA_M4afgSTOCK","SMA_M4afg","SMA_M4MOE","SMA_M4afg_BLK1_SM","SMA_M4MOE_BLK1_SM","SMA_M4afg_BLK1","SMA_M4MOE_BLK1","SMA_M4afg_OD_SM","SMA_M4MOE_OD_SM","SMA_M4afg_OD","SMA_M4MOE_OD","SMA_M4CQBR","SMA_M4afg_Tan_SM","SMA_M4MOE_Tan_SM","SMA_M4afg_Tan","SMA_M4MOE_Tan","SMA_MK18afgBLK","SMA_MK18MOEBLK","SMA_MK18afgTANBLK_SM","SMA_MK18afgTANBLK","SMA_MK18MOEBLKTAN","SMA_MK18afgBLK_SM","SMA_MK18MOEBLK_SM","SMA_MK18MOEBLKTAN_SM","SMA_MK18afgTAN_SM","SMA_MK18MOETAN_SM","SMA_MK18afg_SM","SMA_MK18MOE_SM","SMA_MK18afgTAN","SMA_MK18MOETAN","SMA_MK18afg","SMA_MK18MOE"];
 
 //primary weapon items - (array)
 JK_itemsPrimaryweapon = [["RH_ta31rmr","RH_ta31rco","RH_ta648","RH_eotech553mag","RH_eotech553mag_tan","RH_eothhs1"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = 8;
-JK_primaryweaponTracers = 0;
-
+JK_primaryweaponAmmo = "30Rnd_556x45_Stanag";
+JK_primaryweaponAmmoCount = 8;
+JK_primaryweaponTracers = "30Rnd_556x45_Stanag_Tracer_Red";
+JK_primaryweaponTracersCount = 0;
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
 JK_40mmSmokeGrenadesWhite = 0;
