@@ -24,7 +24,7 @@ if ((paramsArray select 0) in [1, 3]) then {
     {
         private ["_path", "_handle", "_fnc"];
         _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\us\fn_%1.sqf", _x];
-        _handle = ["Loadouts:US:"+ _x, _fnc, 6] spawn db_fnc_codesave;
+        _handle = ["Loadouts:US_"+ _x, _fnc, 6] spawn db_fnc_codesave;
         _varAllHandle pushBack _handle;
         nil;
     } count JK_CLASSES;
@@ -32,7 +32,7 @@ if ((paramsArray select 0) in [1, 3]) then {
     {
         private ["_path", "_handle", "_fnc"];
         _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\bw\fn_%1.sqf", _x];
-        _handle = ["Loadouts:BW:"+ _x, _fnc, 6] spawn db_fnc_codesave;
+        _handle = ["Loadouts:BW_"+ _x, _fnc, 6] spawn db_fnc_codesave;
         _varAllHandle pushBack _handle;
         nil;
     } count JK_CLASSES;
