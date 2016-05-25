@@ -7,33 +7,33 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_C_Poloshirt_stripped"];
-JK_vests = [""];
-JK_headgears = [""];
-JK_backpacks = [""];
-JK_insignium = [""];
+JK_uniforms = ["BWA3_Uniform_Fleck","BWA3_Uniform2_Fleck","BWA3_Uniform_idz_Fleck","BWA3_Uniform3_idz_Fleck","BWA3_Uniform2_idz_Fleck"];
+JK_vests = ["BWA3_Vest_Fleck","BWA3_Vest_Grenadier_Fleck","BWA3_Vest_Leader_Fleck","BWA3_Vest_Marksman_Fleck","BWA3_Vest_Autorifleman_Fleck","BWA3_Vest_Medic_Fleck","BWA3_Vest_Rifleman1_Fleck"];
+JK_headgears = ["BWA3_M92_Fleck","BWA3_CrewmanKSK_Fleck","BWA3_MICH_Fleck",];
+JK_backpacks = ["BWA3_AssaultPack_Fleck","BWA3_FieldPack_Fleck","BWA3_TacticalPack_Fleck"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = [""];
+JK_primaryweapon = ["hlc_rifle_G36A1AG36","hlc_rifle_G36E1AG36","hlc_rifle_G36VAG36"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [[""]];
+JK_itemsPrimaryweapon = [["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
 JK_primaryweaponAmmo = "hlc_30rnd_556x45_EPR_G36";
-JK_primaryweaponAmmoCount = 0;
+JK_primaryweaponAmmoCount = 7;
 JK_primaryweaponTracers = "hlc_30rnd_556x45_EPR_G36";
 JK_primaryweaponTracersCount = 0;
 
 //40mm Grenades - (integer)
-JK_40mmHeGrenadesAmmo = 0;
+JK_40mmHeGrenadesAmmo = 15;
 JK_40mmSmokeGrenadesWhite = 0;
 JK_40mmSmokeGrenadesYellow = 0;
 JK_40mmSmokeGrenadesOrange = 0;
-JK_40mmSmokeGrenadesRed = 0;
+JK_40mmSmokeGrenadesRed = 2;
 JK_40mmSmokeGrenadesPurple = 0;
 JK_40mmSmokeGrenadesBlue = 0;
 JK_40mmSmokeGrenadesGreen = 0;
@@ -44,13 +44,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "";
+JK_handgun = "BWA3_P8";
 
 //handgun items - (array)
 JK_itemsHandgun = [""];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 0;
+JK_handgunAmmo = 3;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -69,7 +69,7 @@ JK_grenadeSmokeWhite = 2;
 JK_grenadeSmokeYellow = 0;
 JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
-JK_grenadeSmokePurple = 2;
+JK_grenadeSmokePurple = 0;
 JK_grenadeSmokeBlue = 0;
 JK_grenadeSmokeGreen = 1;
 JK_chemlightYellow = 0;
@@ -118,7 +118,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC148"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

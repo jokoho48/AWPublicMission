@@ -7,26 +7,24 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_C_Poloshirt_stripped"];
-JK_vests = [""];
-JK_headgears = [""];
-JK_backpacks = [""];
-JK_insignium = [""];
+JK_uniforms = ["BWA3_Uniform_Helipilot"];
+JK_vests = ["CUP_V_B_PilotVest"];
+JK_headgears = ["H_PilotHelmetHeli_B"];
+JK_backpacks = ["B_AssaultPack_rgr"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = [""];
+JK_primaryweapon = ["hgun_PDW2000_F"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [[""]];
+JK_itemsPrimaryweapon = ["optic_Aco_smg"];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = "hlc_30rnd_556x45_EPR_G36";
-JK_primaryweaponAmmoCount = 0;
-JK_primaryweaponTracers = "hlc_30rnd_556x45_EPR_G36";
-JK_primaryweaponTracersCount = 0;
+JK_primaryweaponAmmo = 2;
+JK_primaryweaponTracers = 0;
 
 //40mm Grenades - (integer)
 JK_40mmHeGrenadesAmmo = 0;
@@ -44,13 +42,13 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "";
+JK_handgun = "BWA3_P8";
 
 //handgun items - (array)
 JK_itemsHandgun = [""];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 0;
+JK_handgunAmmo = 4;
 
 //weapons - launcher - (string)
 JK_launcher = "";
@@ -71,7 +69,7 @@ JK_grenadeSmokeOrange = 0;
 JK_grenadeSmokeRed = 0;
 JK_grenadeSmokePurple = 2;
 JK_grenadeSmokeBlue = 0;
-JK_grenadeSmokeGreen = 1;
+JK_grenadeSmokeGreen = 0;
 JK_chemlightYellow = 0;
 JK_chemlightRed = 0;
 JK_chemlightGreen = 0;
@@ -86,7 +84,7 @@ JK_epinephrine = 3;
 JK_morphine = 3;
 JK_atropine = 0;
 
-JK_fieldDressing = 15;
+JK_fieldDressing = 10;
 JK_packingBandage = 0;
 JK_elasticBandage = 0;
 JK_quikclot = 0;
@@ -106,27 +104,27 @@ JK_itemsUniform = [];
 JK_itemsVest = [];
 
 //items added specifically to Backpack: - (array)
-JK_itemsBackpack = [];
+JK_itemsBackpack = ["ACRE_PRC117F"];
 
 //linked items - (array)
 JK_itemsLink = [
-    "ItemWatch",
-    "ItemCompass",
-    "ItemMap",
-    "ItemGPS",
-    "ACE_NVG_Wide"
-];
+        "ItemWatch",
+        "ItemCompass",
+        "ItemMap",
+        "ItemGPS",
+        "ACE_NVG_Wide"
+        ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC148"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR","ACE_HuntIR_monitor"];
 
-JK_medicClass = 0;
+JK_medicClass = 1;
 JK_spawnAllowed = true;
 JK_isEngineer = 0;
 JK_isPilot = true;
 
 //Vehicle Spawn System
-JK_VehClass = "All";
+JK_VehClass = "Pilot";
 
 ///// No editing necessary below this line /////
 _this call jk_loadOut_fnc_gear;

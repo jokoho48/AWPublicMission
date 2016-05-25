@@ -17,3 +17,10 @@ class JK_loadOut {
         class reset: baseFNC {};
     };
 };
+class AW_loadOut {
+    tag = "AW_loadOut";
+    class core {
+        file = "lib\gear";
+        class chooseFaction: baseFNC {};
+    };
+};

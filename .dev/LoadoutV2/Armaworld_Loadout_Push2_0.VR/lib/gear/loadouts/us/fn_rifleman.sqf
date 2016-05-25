@@ -7,25 +7,25 @@ magazines one for one in JK_items.
 */
 
 //clothing - (string)
-JK_uniforms = ["U_C_Poloshirt_blue","U_C_Poloshirt_burgundy","U_C_Poloshirt_salmon","U_C_Poloshirt_redwhite","U_C_Poloshirt_stripped"];
-JK_vests = [""];
-JK_headgears = [""];
-JK_backpacks = [""];
-JK_insignium = [""];
+JK_uniforms = ["Scorpion_Camo","Scorpion_Camo_Cyre_GP","Scorpion_Camo_Cyre_GS","Scorpion_GP_Camo_SS","Scorpion_GS_Camo","Scorpion_GS_Camo_SS","Scorpion_Camo_SS","Scorpion_Camo_TShirt","Scorpion_TP_Camo","Scorpion_TS_Camo_SS","Scorpion_TP_Camo_SS","Scorpion_TS_Camo","Scorpion_GP_Camo","Scorpion_Camo_Cyre","Scorpion_Camo_Cyre_TP","MC_Camo","MC_Camo_Cyre_GP","MC_Camo_Cyre_GS","MC_Camo_Cyre_Tee","MC_Camo_Cyre_TP","MC_Camo_Cyre_TS","MC_Camo_Cyre","MC_GP_Camo","MC_GP_Camo_SS","MC_Camo_SS","MC_Camo_TShirt","MC_TP_Camo","MC_GS_Camo_SS"];
+JK_vests = ["Scorpion_LBT_vest","Scorpion_Vest_6","Scorpion_Vest_7","Scorpion_Vest_5","Scorpion_Vest_4","Scorpion_MBSS","Scorpion_MBSS_PACA","Scorpion_Vest_1","Scorpion_Vest_2","Scorpion_Vest_3","MC_Vest_5","MC_Vest_4","MC_MBSS","MC_MBSS_PACA","MC_Vest_1","MC_Vest_2","MC_Vest_3","Specter_LBT_vest_CB","Specter_LBT_vest_TAN","Specter_LBT_vest_WL_CB","Specter_LBT_vest_WL_GRN","Specter_LBT_vest_WL_TAN","Specter_MBSS_CB","Specter_MBSS","Specter_MBSS_PACA_CB","Specter_MBSS_PACA","Specter_MBSS_PACA_l_CB","Specter_MBSS_light_CB","Specter_MBSS_light","Specter_RAV"];
+JK_headgears = ["H_HelmetB_snakeskin","H_HelmetB_sand","H_HelmetB_grass","H_HelmetB_desert","H_HelmetB_camo","H_HelmetB_black","H_HelmetB","Scorpion_Helmet2","Scorpion_Helmet1","OGA_Helmet2","OGA_Helmet1","OGA_G_Helmet2","OGA_G_Helmet1","MC_Helmet2","MC_Helmet1","H_HelmetB_light","H_HelmetB_light_black","H_HelmetB_light_desert","H_HelmetB_light_grass","H_HelmetB_light_sand","H_HelmetB_light_snakeskin"];
+JK_backpacks = ["MC_Backpack_Kitbag","Scorpion_Backpack_Kitbag"];
+JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
 JK_goggles = "";
 
 //weapons - primary weapon - (string)
-JK_primaryweapon = [""];
+JK_primaryweapon = ["SMA_M4afg_SM","SMA_M4MOE_SM","SMA_M4afgSTOCK","SMA_M4afg","SMA_M4MOE","SMA_M4afg_BLK1_SM","SMA_M4MOE_BLK1_SM","SMA_M4afg_BLK1","SMA_M4MOE_BLK1","SMA_M4afg_OD_SM","SMA_M4MOE_OD_SM","SMA_M4afg_OD","SMA_M4MOE_OD","SMA_M4CQBR","SMA_M4afg_Tan_SM","SMA_M4MOE_Tan_SM","SMA_M4afg_Tan","SMA_M4MOE_Tan","SMA_MK18afgBLK","SMA_MK18MOEBLK","SMA_MK18afgTANBLK_SM","SMA_MK18afgTANBLK","SMA_MK18MOEBLKTAN","SMA_MK18afgBLK_SM","SMA_MK18MOEBLK_SM","SMA_MK18MOEBLKTAN_SM","SMA_MK18afgTAN_SM","SMA_MK18MOETAN_SM","SMA_MK18afg_SM","SMA_MK18MOE_SM","SMA_MK18afgTAN","SMA_MK18MOETAN","SMA_MK18afg","SMA_MK18MOE"];
 
 //primary weapon items - (array)
-JK_itemsPrimaryweapon = [[""]];
+JK_itemsPrimaryweapon = [["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 //primary weapon ammo (if a primary weapon is given) and how many tracer mags - (integer)
 JK_ARhandle = 0;        //should stay 0. Determines the class of ammunition for BIS_fnc_addWeapon. Specific Rifles need specific JK_ARhandles. Test it out.
-JK_primaryweaponAmmo = "hlc_30rnd_556x45_EPR_G36";
-JK_primaryweaponAmmoCount = 0;
-JK_primaryweaponTracers = "hlc_30rnd_556x45_EPR_G36";
+JK_primaryweaponAmmo = "30Rnd_556x45_Stanag";
+JK_primaryweaponAmmoCount = 15;
+JK_primaryweaponTracers = "30Rnd_556x45_Stanag_Tracer_Red";
 JK_primaryweaponTracersCount = 0;
 
 //40mm Grenades - (integer)
@@ -44,16 +44,16 @@ JK_40mmFlareGreen = 0;
 JK_40mmFlareIR = 0;
 
 //weapons - handgun - (string)
-JK_handgun = "";
+JK_handgun = "hgun_Pistol_heavy_01_F";
 
 //handgun items - (array)
 JK_itemsHandgun = [""];
 
 //handgun ammo (if a handgun is given) - (integer)
-JK_handgunAmmo = 0;
+JK_handgunAmmo = 3;
 
 //weapons - launcher - (string)
-JK_launcher = "";
+JK_launcher = "tf47_at4_heat";
 JK_launcherHandle = 0;    //should stay the way it is. Determines the class of ammunition for BIS_fnc_addWeapon. Specific launchers need specific JK_launcherHandle. Test it out.
 JK_launcherItems = [];
 
@@ -118,7 +118,7 @@ JK_itemsLink = [
 ];
 
 //items added to any container - (array)
-JK_items = ["ACRE_PRC148"];
+JK_items = ["ACRE_PRC343","ACE_Flashlight_MX991","ACE_MapTools","ACE_CableTie","ACE_microDAGR",["FHQ_optic_ACOG","FHQ_optic_AimM_BLK","iansky_specterdrkf","iansky_specterdrkf_d","iansky_specterdrkf_fde","iansky_specterdrkf_t","SMA_eotech552_3XDOWN","SMA_eotech552_3XDOWN_wdl","RKSL_optic_LDS_PIP","sma_spitfire_03_black","sma_spitfire_03_sc_black","sma_spitfire_03_rds_black","sma_spitfire_03_rds_low_ard_black","sma_spitfire_03_rds_low_black"]];
 
 JK_medicClass = 0;
 JK_spawnAllowed = true;

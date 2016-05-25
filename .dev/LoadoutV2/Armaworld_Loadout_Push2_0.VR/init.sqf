@@ -20,6 +20,24 @@ enableSaving [false,false];
 _varAllHandle = [];
 if ((paramsArray select 0) in [1, 3]) then {
     JK_CLASSES = ["commander", "leader", "uav", "medic", "rifleman", "gren", "at", "atAss", "mg", "pilot", "marksman", "aa", "aaAss","mmg","mmgAss","crewchief","crewman","sniper","spotter","engineer","breacher"];
+    //Loadouts Army
+    {
+        private ["_path", "_handle", "_fnc"];
+        _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\us\fn_%1.sqf", _x];
+        _handle = ["Loadouts:US:"+ _x, _fnc, 6] spawn db_fnc_codesave;
+        _varAllHandle pushBack _handle;
+        nil;
+    } count JK_CLASSES;
+    //Loadouts Bundeswehr
+    {
+        private ["_path", "_handle", "_fnc"];
+        _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\bw\fn_%1.sqf", _x];
+        _handle = ["Loadouts:BW:"+ _x, _fnc, 6] spawn db_fnc_codesave;
+        _varAllHandle pushBack _handle;
+        nil;
+    } count JK_CLASSES;
+    //Loadouts Civilian
+    JK_CLASSES = ["rifleman"];
     {
         private ["_path", "_handle", "_fnc"];
         _fnc = compile preprocessFileLineNumbers format["lib\gear\loadouts\fn_%1.sqf", _x];
