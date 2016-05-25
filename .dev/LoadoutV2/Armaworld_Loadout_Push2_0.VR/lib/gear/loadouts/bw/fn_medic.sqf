@@ -9,7 +9,7 @@ magazines one for one in JK_items.
 //clothing - (string)
 JK_uniforms = ["BWA3_Uniform_Fleck","BWA3_Uniform2_Fleck","BWA3_Uniform_idz_Fleck","BWA3_Uniform3_idz_Fleck","BWA3_Uniform2_idz_Fleck"];
 JK_vests = ["BWA3_Vest_Fleck","BWA3_Vest_Grenadier_Fleck","BWA3_Vest_Leader_Fleck","BWA3_Vest_Marksman_Fleck","BWA3_Vest_Autorifleman_Fleck","BWA3_Vest_Medic_Fleck","BWA3_Vest_Rifleman1_Fleck"];
-JK_headgears = ["BWA3_M92_Fleck","BWA3_CrewmanKSK_Fleck","BWA3_MICH_Fleck",];
+JK_headgears = ["BWA3_M92_Fleck","BWA3_CrewmanKSK_Fleck","BWA3_MICH_Fleck"];
 JK_backpacks = ["BWA3_TacticalPack_Fleck_Medic"];
 JK_insignium = ["111thID","TFAegis","GryffinRegiment",""];
 JK_useProfileGoggles = 1;        //If set to 1, goggles from your profile will be used. If set to 0, JK_goggles will be added (or profile goggles will be removed when JK_goggles is left empty).
