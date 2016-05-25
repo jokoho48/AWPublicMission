@@ -11,4 +11,4 @@ JK_Gear = "Main";*/
 JK_CLASSES = ["commander", "leader", "uav", "medic", "rifleman", "gren", "at", "atAss", "mg", "pilot", "marksman", "aa", "aaAss","mmg","mmgAss","crewchief","crewman","sniper","spotter","engineer","breacher"];
 Reverse JK_Classes;
 AW_Faction = "US";
-publicVariable AW_Faction;
+publicVariable "AW_Faction";
