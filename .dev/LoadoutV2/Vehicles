@@ -19,7 +19,11 @@
             "CUP_B_HMMWV_M2_USMC",
             "CUP_B_HMMWV_M1114_USMC",
             "CUP_B_HMMWV_MK19_USMC",
-            "CUP_B_HMMWV_TOW_USMC"
+            "CUP_B_HMMWV_TOW_USMC",
+            "CUP_B_Dingo_GL_GER_Wdl",
+            "CUP_B_Dingo_GER_Wdl",
+            "CUP_B_RG31_M2_OD_USMC",
+            "CUP_B_RG31_Mk19_OD_USMC"
         ],
         250,
         [
@@ -43,7 +47,8 @@
             "B_MBT_01_TUSK_F",
             "B_MBT_01_cannon_F",
             "CUP_B_M1A1_Woodland_USMC",
-            "CUP_B_M1A2_TUSK_MG_USMC"
+            "CUP_B_M1A2_TUSK_MG_USMC",
+            "BWA3_Leopard2A6M_Fleck"
         ],
         600,
         [
@@ -70,7 +75,8 @@
             "B_APC_Tracked_01_rcws_F",
             "CUP_B_M2Bradley_USA_W",
             "CUP_B_M2A3Bradley_USA_W",
-            "CUP_B_M6LineBacker_USA_W"
+            "CUP_B_M6LineBacker_USA_W",
+            "BWA3_Puma_Fleck"
         ],
         500,
         [
@@ -143,7 +149,8 @@
         "Other",
         [
             "B_Quadbike_01_F",
-            "CUP_B_M1030"
+            "CUP_B_M1030",
+            "CUP_C_Golf4_whiteblood_Civ"
         ],
         50,
         [
